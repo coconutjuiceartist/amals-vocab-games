@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-blue: #1E90FF;
+  --brand-red: #FF4B4B;
+  --brand-yellow: #FFD24C;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.header-title {
+  font-weight: 800;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-4;
+}
