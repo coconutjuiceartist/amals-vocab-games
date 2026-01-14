@@ -22,13 +22,6 @@ export default function Home() {
         <button onClick={() => start('crossword')} className="px-6 py-4 rounded-md bg-brandYellow text-black font-semibold text-lg">Play Crossword Puzzle</button>
       </section>
 
-      <section className="card">
-        <h3 className="text-lg font-semibold">Tips for teachers</h3>
-        <ul className="list-disc list-inside mt-2 text-slate-700">
-          <li>Start with the Unscramble game then try the Crossword</li>
-          <li>Encourage students with messages like “Great job!”</li>
-        </ul>
-      </section>
     </div>
   )
 }
