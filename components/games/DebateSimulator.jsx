@@ -32,6 +32,7 @@ export default function DebateSimulator() {
     const [selectedClaim, setSelectedClaim] = useState(null);
     const [selectedEvidence, setSelectedEvidence] = useState([]);
     const [shuffledEvidence, setShuffledEvidence] = useState([]);
+    const [shuffledSpeechOptions, setShuffledSpeechOptions] = useState({});
     const [selectedRebuttal, setSelectedRebuttal] = useState(null);
     const [selectedPushback, setSelectedPushback] = useState(null);
     const [speechBlanks, setSpeechBlanks] = useState({});
@@ -116,6 +117,16 @@ export default function DebateSimulator() {
         setFeedback('');
         setMistakes({ claim: 0, evidence: 0, counter: 0, pushback: 0, speech: 0 });
         setShuffledEvidence(shuffleEvidence(scenario));
+        const speechOpts = {};
+        scenario.speechTemplate.blanks.forEach(blank => {
+            const opts = [...blank.options];
+            for (let i = opts.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [opts[i], opts[j]] = [opts[j], opts[i]];
+            }
+            speechOpts[blank.id] = opts;
+        });
+        setShuffledSpeechOptions(speechOpts);
         setStage('intro');
     };
 
@@ -675,7 +686,7 @@ export default function DebateSimulator() {
                                 {speechBlanks[blank.id] ? '✅' : '📝'} {blank.label}:
                             </p>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                                {blank.options.map((option, i) => {
+                                {(shuffledSpeechOptions[blank.id] || blank.options).map((option, i) => {
                                     const isSelected = speechBlanks[blank.id] === option.text;
                                     return (
                                         <button

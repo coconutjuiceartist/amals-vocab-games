@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { resourceQuests } from '../../data/resourceQuests';
+import PixelScene from '../pixelart/PixelScene';
+import { sceneConfigs } from '../pixelart/sceneConfigs';
 
 export default function ResourceQuests() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -60,25 +62,17 @@ export default function ResourceQuests() {
     };
 
     const renderVisual = (visual) => {
-        if (!visual) return null;
+        if (!visual || !visual.sceneId) return null;
+        const config = sceneConfigs[visual.sceneId];
+        if (!config) return null;
         return (
             <div style={{
-                textAlign: 'center',
                 marginBottom: '1.5rem',
-                padding: '1.5rem',
-                background: 'rgba(0,0,0,0.15)',
                 borderRadius: '1rem',
+                overflow: 'hidden',
                 border: '1px solid rgba(255,255,255,0.05)',
-                animation: 'fadeScaleIn 0.4s ease-out'
             }}>
-                <div style={{ fontSize: '3rem', lineHeight: 1.4, letterSpacing: '0.2em' }}>
-                    {visual.scene}
-                </div>
-                {visual.details && (
-                    <div style={{ fontSize: '2rem', lineHeight: 1.4, letterSpacing: '0.15em', marginTop: '0.5rem', opacity: 0.8 }}>
-                        {visual.details}
-                    </div>
-                )}
+                <PixelScene config={config} />
             </div>
         );
     };
@@ -330,8 +324,12 @@ export default function ResourceQuests() {
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     {quest.steps.slice(0, stepIndex).map((s, idx) => (
                                         <div key={idx} style={{ background: 'rgba(0,0,0,0.1)', padding: '1rem', borderRadius: '0.5rem', fontSize: '0.95rem', color: 'var(--text-secondary)', borderLeft: '3px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            {s.visual && <span style={{ fontSize: '1.2rem' }}>{s.visual.scene}</span>}
                                             <span style={{ color: '#4ade80', marginRight: '0.25rem' }}>✅</span>
+                                            {s.visual?.sceneId && sceneConfigs[s.visual.sceneId]?.label && (
+                                                <span style={{ fontSize: '0.8rem', color: '#60a5fa', marginRight: '0.25rem' }}>
+                                                    [{sceneConfigs[s.visual.sceneId].label}]
+                                                </span>
+                                            )}
                                             {s.text}
                                         </div>
                                     ))}
