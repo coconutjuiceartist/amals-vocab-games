@@ -1,21 +1,21 @@
-export const debateScenarios = [
+export const harryPotterDebates = [
     {
         id: 'dragon-conservation',
         title: "Dragon Conservation Initiative",
         premise: "A Muggle scientist has discovered dragons. Muggles want to build weapons. The Ministry wants to wipe their memories. You are arguing for cooperation and research.",
+        setting: "the Wizengamot",
         claimOptions: [
             { id: 'c1', text: "Muggles are too dangerous and must be obliviated immediately.", correct: false, feedback: "This is the Ministry's current plan, not an argument for cooperation!" },
             { id: 'c2', text: "The Ministry must partner with Muggle scientists to establish joint dragon sanctuaries and study programs.", correct: true, feedback: "Perfect! A clear, debatable policy claim." },
             { id: 'c3', text: "We should tell the Muggles about everything magical, not just dragons.", correct: false, feedback: "Too broad! This violates the Statute of Secrecy entirely, making it impossible to win the debate." }
         ],
-        // The correct options will be randomized by the UI. 
-        // Nuance: The 'weak' ones are now half-right but contain fatal logical flaws or bad assumptions.
         evidenceOptions: [
             { id: 'e1', text: "Muggle satellite technology can safely track dragon migration patterns without using noticeable magic.", type: 'strong' },
             { id: 'e2', text: "Historical records show that Obliviation on a massive scale often leaves permanent neurological damage to Muggles.", type: 'strong' },
             { id: 'e3', text: "Combining Muggle biology with Magizoology will lead to breakthroughs in treating dragon-pox.", type: 'strong' },
-            { id: 'e4', text: "Muggles are clearly smarter than us, so they will eventually figure it out anyway. We might as well surrender.", type: 'weak', feedback: "Logical Fallacy (Defeatism/Hasty Generalization). Acknowledging they have technology is good; saying they are 'clearly smarter' and we should 'surrender' will lose the Wizengamot immediately." },
-            { id: 'e5', text: "If we don't work with them, they will drop nuclear weapons on Hogwarts tomorrow!", type: 'weak', feedback: "Logical Fallacy (Slippery Slope / Appeal to Fear). While conflict is a risk, extreme, unsubstantiated claims will get your argument thrown out." }
+            { id: 'e4', text: "Three Muggle governments have already expressed interest in exotic wildlife research, suggesting that if we delay, they may attempt unregulated dragon contact on their own.", type: 'weak', feedback: "Logical Fallacy (Hasty Generalization). Interest in wildlife research does not mean governments will pursue dragon contact. This leap in logic weakens your argument." },
+            { id: 'e5', text: "Since Muggle technology has advanced faster than magical innovation over the past century, our defensive spells may already be insufficient against their military capabilities.", type: 'weak', feedback: "Logical Fallacy (Non Sequitur). The rate of technological advancement does not directly tell us anything about magical defense effectiveness. This comparison lacks actual evidence." },
+            { id: 'e6', text: "A recent survey showed that 68% of Muggles would welcome the existence of dragons, indicating broad public support for cooperation.", type: 'weak', feedback: "Logical Fallacy (Appeal to Popularity / Misleading Statistics). A hypothetical poll about fictional creatures cannot predict real reactions to actual dragons. Public opinion surveys are not a basis for security policy." }
         ],
         counterArgument: {
             text: "Minister Fudge interjects: 'Muggles are fundamentally destructive! If we show them dragons, they will hunt them for sport or use them in their mundane wars. We must hide the beasts!'",
@@ -25,7 +25,6 @@ export const debateScenarios = [
                 { id: 'r3', text: "Muggles don't even have weapons strong enough to hurt a dragon, so it doesn't matter.", correct: false, feedback: "Factually incorrect and arrogant. Underestimating Muggle weapons is dangerous." }
             ]
         },
-        // New Mid-Debate Pushback Mechanics
         pushback: {
             text: "A Wizengamot Elder slams their gavel: 'But the Statute of Secrecy is our most sacred law! You are asking us to tear up centuries of tradition for a mere experiment!'",
             rebuttals: [
@@ -36,8 +35,25 @@ export const debateScenarios = [
         speechTemplate: {
             intro: "Members of the Wizengamot, we stand at a precarious crossroads between secrecy and survival.",
             blanks: [
-                { id: 'b1', type: 'adjective', label: 'Describe the old ways' },
-                { id: 'b2', type: 'verb', label: 'What we must do together' }
+                {
+                    id: 'b1',
+                    label: 'Describe the old ways',
+                    options: [
+                        { text: "outdated secrecy policies", strong: true },
+                        { text: "growing threat of discovery", strong: true },
+                        { text: "scary feelings about Muggles", strong: false, feedback: "Vague emotional language weakens a policy argument. Strong debaters use specific, concrete descriptions." },
+                        { text: "stuff happening lately", strong: false, feedback: "Too vague! A powerful opening needs precise language that commands attention." }
+                    ]
+                },
+                {
+                    id: 'b2',
+                    label: 'What we must do together',
+                    options: [
+                        { text: "opportunity for peaceful coexistence", strong: true },
+                        { text: "chance to protect both our worlds", strong: true },
+                        { text: "magical superiority", strong: false, feedback: "Claiming superiority undermines your argument for cooperation. You're trying to build a partnership, not assert dominance." }
+                    ]
+                }
             ]
         }
     },
@@ -45,6 +61,7 @@ export const debateScenarios = [
         id: 'house-elf-rights',
         title: "S.P.E.W. Expansion Act",
         premise: "You are arguing that House-Elves should receive a minimum wage and right to refuse service. The opposition claims they 'enjoy' unpaid servitude.",
+        setting: "the Wizengamot",
         claimOptions: [
             { id: 'c1', text: "House-Elves are currently unpaid.", correct: false, feedback: "This is a statement of fact, not a debatable policy proposal." },
             { id: 'c2', text: "The Ministry must immediately mandate a minimum wage and establish a magical labor rights board for House-Elves.", correct: true, feedback: "Strong, actionable claim." },
@@ -54,8 +71,9 @@ export const debateScenarios = [
             { id: 'e1', text: "Elves who are paid, like Dobby, demonstrate higher morale and increased problem-solving capabilities.", type: 'strong' },
             { id: 'e2', text: "Currently, abusive wizard families face zero legal repercussions for mistreating sentient magical beings.", type: 'strong' },
             { id: 'e3', text: "A minimum wage would stimulate the magical economy, as Elves would begin purchasing goods in Diagon Alley.", type: 'strong' },
-            { id: 'e4', text: "Other magical creatures like Goblins are paid, so Elves should be too.", type: 'weak', feedback: "Logical Fallacy (False Equivalence). Goblins have a completely different societal structure and treaty history. You must argue based on the Elves' merits." },
-            { id: 'e5', text: "If we don't pay them, they will all rebel and murder us in our sleep!", type: 'weak', feedback: "Logical Fallacy (Appeal to Fear). House-Elves are inherently peaceful; fear-mongering damages your credibility." }
+            { id: 'e4', text: "Goblin workers at Gringotts receive fair wages under the Treaty of 1473, establishing a clear legal precedent for paying non-human magical workers.", type: 'weak', feedback: "Logical Fallacy (False Equivalence). The Goblin Treaty was negotiated under completely different historical circumstances after armed rebellion. You must argue based on the Elves' own situation, not force a comparison." },
+            { id: 'e5', text: "Studies at Beauxbatons showed that Elves given days off completed their remaining tasks 15% faster, proving that rest improves productivity.", type: 'weak', feedback: "Logical Fallacy (Cherry-Picked Data). One school's internal study is not sufficient evidence for national policy. The sample size and conditions are too narrow to generalize." },
+            { id: 'e6', text: "Several prominent wizarding families, including the Weasleys, have publicly supported Elf wages, showing that the wizarding community is ready for this change.", type: 'weak', feedback: "Logical Fallacy (Appeal to Authority / Popularity). A few families supporting a cause does not prove the community is 'ready.' You need structural arguments, not celebrity endorsements." }
         ],
         counterArgument: {
             text: "A Traditionalist argues: 'But House-Elves take pride in serving! Offering them money is an insult to their very nature and deeply offends them!'",
@@ -75,8 +93,25 @@ export const debateScenarios = [
         speechTemplate: {
             intro: "For too long, the foundation of our magical society has rested on the quiet suffering of unpaid labor.",
             blanks: [
-                { id: 'b1', type: 'adjective', label: 'Describe the practice of unpaid labor' },
-                { id: 'b2', type: 'noun', label: 'What the Elves deserve' }
+                {
+                    id: 'b1',
+                    label: 'Describe the practice of unpaid labor',
+                    options: [
+                        { text: "unjust exploitation of sentient beings", strong: true },
+                        { text: "systematic denial of basic rights", strong: true },
+                        { text: "old traditions about Elves", strong: false, feedback: "Too vague and passive. A powerful opening statement needs language that conveys the weight of the injustice." },
+                        { text: "mean things wizards do", strong: false, feedback: "Childish language undermines your credibility before a legislative body. Use precise, formal vocabulary." }
+                    ]
+                },
+                {
+                    id: 'b2',
+                    label: 'What the Elves deserve',
+                    options: [
+                        { text: "dignity and autonomy they have earned", strong: true },
+                        { text: "fundamental right to fair compensation", strong: true },
+                        { text: "freedom to do whatever they want", strong: false, feedback: "Too absolute and undefined. 'Whatever they want' sounds like anarchy, not policy. Be specific about the rights you're advocating." }
+                    ]
+                }
             ]
         }
     },
@@ -84,6 +119,7 @@ export const debateScenarios = [
         id: 'hogwarts-curriculum',
         title: "Modernizing Hogwarts",
         premise: "You are advocating to the Hogwarts Board of Governors that Muggle subjects (Math, Science, Literature) must be integrated into the core magical curriculum.",
+        setting: "the Hogwarts Board of Governors",
         claimOptions: [
             { id: 'c1', text: "Muggle subjects should be mandatory at Hogwarts to prepare students for a rapidly advancing, interconnected global world.", correct: true, feedback: "A decisive, clear policy claim." },
             { id: 'c2', text: "Math is very important for everyday life.", correct: false, feedback: "Too generic. How does it relate to the Hogwarts context specifically?" },
@@ -93,8 +129,9 @@ export const debateScenarios = [
             { id: 'e1', text: "Advanced Arithmancy relies heavily on calculus and statistics, which many pure-blood students struggle to grasp without foundational math.", type: 'strong' },
             { id: 'e2', text: "Understanding the scientific method and Muggle chemistry can lead to safer, more predictable breakthroughs in Potion invention.", type: 'strong' },
             { id: 'e3', text: "Wizards increasingly live in mixed communities; understanding Muggle laws and technology is now a matter of safety and Statute compliance.", type: 'strong' },
-            { id: 'e4', text: "Muggles have invented airplanes, which are much faster than brooms, proving Muggle science is superior to magic.", type: 'weak', feedback: "Logical Fallacy (False Dilemma). The goal is integration, not declaring one 'superior' to the other. This alienates traditionalists." },
-            { id: 'e5', text: "Because Albus Dumbledore said he likes Muggle candy, we should study their culture.", type: 'weak', feedback: "Logical Fallacy (Appeal to Authority). Even if Dumbledore likes candy, it's not a strong academic reason to overhaul the curriculum." }
+            { id: 'e4', text: "Muggle universities have produced more published research papers in the last decade than all wizarding institutions combined, proving their methods are more rigorous.", type: 'weak', feedback: "Logical Fallacy (Misleading Comparison). Muggle universities vastly outnumber wizarding ones, so comparing raw publication counts is meaningless. Volume does not equal quality or relevance." },
+            { id: 'e5', text: "Former Hogwarts students who took Muggle Studies as an elective reported feeling more 'well-rounded,' according to a Hogwarts alumni survey.", type: 'weak', feedback: "Logical Fallacy (Appeal to Subjective Experience). 'Feeling well-rounded' is a vague, self-reported sentiment, not measurable academic evidence. You need concrete outcomes, not feelings." },
+            { id: 'e6', text: "Since Hermione Granger, a Muggle-born witch, became the top student in her year, it stands to reason that Muggle educational foundations give students an academic advantage.", type: 'weak', feedback: "Logical Fallacy (Anecdotal Evidence / Hasty Generalization). One exceptional student does not prove a systemic advantage. Hermione's success could be due to many personal factors beyond her Muggle education." }
         ],
         counterArgument: {
             text: "Lucius Malfoy sneers: 'Magic is the highest form of power. We have no need for mundane Muggle tricks. Teaching their methods dilutes our magical heritage.'",
@@ -114,8 +151,25 @@ export const debateScenarios = [
         speechTemplate: {
             intro: "Governors, magic is our cherished heritage, but a broad, adaptable intellect is our future.",
             blanks: [
-                { id: 'b1', type: 'noun', label: 'A Muggle concept (e.g. logic, science)' },
-                { id: 'b2', type: 'adjective', label: 'Describe the modern wizarding world' }
+                {
+                    id: 'b1',
+                    label: 'A Muggle concept (e.g. logic, science)',
+                    options: [
+                        { text: "critical thinking and scientific reasoning", strong: true },
+                        { text: "mathematical foundations that underpin advanced magic", strong: true },
+                        { text: "cool Muggle inventions like phones", strong: false, feedback: "Informal language and focusing on gadgets trivializes your academic argument. Focus on intellectual principles, not products." },
+                        { text: "things Muggles know that we don't", strong: false, feedback: "Vague and slightly insulting to your audience. Be specific about what knowledge areas would benefit students." }
+                    ]
+                },
+                {
+                    id: 'b2',
+                    label: 'Describe the modern wizarding world',
+                    options: [
+                        { text: "increasingly interconnected world", strong: true },
+                        { text: "evolving demands of modern magical society", strong: true },
+                        { text: "boring old way of teaching", strong: false, feedback: "Insulting the current system alienates the Governors who built it. Advocate for improvement, not replacement." }
+                    ]
+                }
             ]
         }
     }

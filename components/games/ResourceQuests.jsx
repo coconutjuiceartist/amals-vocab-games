@@ -44,11 +44,11 @@ export default function ResourceQuests() {
 
     const renderInventoryIcon = (type) => {
         switch (type) {
-            case 'wood': return '🪵';
-            case 'stone': return '🪨';
-            case 'iron': return '⛓️'; // Using chain for iron representation
-            case 'diamond': return '💎';
-            default: return '📦';
+            case 'wood': return { icon: '🪵', label: 'Wood' };
+            case 'stone': return { icon: '🪨', label: 'Stone' };
+            case 'iron': return { icon: '⛓️', label: 'Iron' };
+            case 'diamond': return { icon: '💎', label: 'Gems' };
+            default: return { icon: '📦', label: 'Stuff' };
         }
     };
 
@@ -60,7 +60,7 @@ export default function ResourceQuests() {
                 ...prev,
                 [currentStep.reward.item]: prev[currentStep.reward.item] + currentStep.reward.amount
             }));
-            setFeedback('⛏️ Correct! Items added to inventory.');
+            setFeedback('⛏️ Yes! You got it! Added to your backpack!');
             setInputValue('');
 
             setTimeout(() => {
@@ -72,21 +72,21 @@ export default function ResourceQuests() {
                 }
             }, 1000);
         } else {
-            setFeedback('Hmm, try that math again!');
+            setFeedback('Hmm, not quite! Try again! 🤔');
         }
     };
 
     const verifyCrafting = () => {
         const input = parseInt(inputValue);
         if (input === quest.crafting.finalMath.answer) {
-            setFeedback('✨ Goal Achieved! You successfully managed your resources and crafted the items.');
+            setFeedback('✨ You made it! Great job! 🎉');
             setInputValue('');
             setTimeout(() => {
                 setFeedback('');
                 setStage('complete');
             }, 1500);
         } else {
-            setFeedback("That's not the right amount left over. Check your inventory numbers again!");
+            setFeedback("Not quite! Look at your stuff and count again! 🔢");
         }
     };
 
@@ -136,8 +136,8 @@ export default function ResourceQuests() {
         return (
             <div className="glass-panel" style={{ padding: '4rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
                 <div style={{ fontSize: '6rem', marginBottom: '1rem' }}>👑</div>
-                <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>Master Crafter!</h2>
-                <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>You have completed all resource management challenges!</p>
+                <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>You Did It!</h2>
+                <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>You finished all the quests! Great job! 🎉</p>
                 <button onClick={resetEntireGame} className="btn" style={{ marginTop: '2rem', background: '#3b82f6', color: 'white', fontSize: '1.25rem' }}>
                     Play Again
                 </button>
@@ -151,24 +151,30 @@ export default function ResourceQuests() {
             {/* SIDEBAR: INVENTORY */}
             <div className="glass-panel" style={{ width: '250px', padding: '1.5rem', flexShrink: 0, position: 'sticky', top: '2rem' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: '#4ade80', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '0.5rem' }}>
-                    📦 Inventory
+                    🎒 My Stuff
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    {Object.entries(inventory).map(([item, amount]) => (
-                        <div key={item} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.3)', padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'all 0.3s ease' }}>
-                            <span style={{ fontSize: '1.5rem' }}>{renderInventoryIcon(item)}</span>
-                            <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>x {amount}</span>
-                        </div>
-                    ))}
+                    {Object.entries(inventory).map(([item, amount]) => {
+                        const { icon, label } = renderInventoryIcon(item);
+                        return (
+                            <div key={item} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(0,0,0,0.3)', padding: '0.75rem 1rem', borderRadius: '0.5rem', transition: 'all 0.3s ease' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    <span style={{ fontSize: '1.5rem' }}>{icon}</span>
+                                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{label}</span>
+                                </div>
+                                <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>x {amount}</span>
+                            </div>
+                        );
+                    })}
                 </div>
 
                 <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '0.5rem', border: '1px dashed #3b82f6' }}>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>Current Goal</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>🎯 What To Make</div>
                     <div style={{ fontWeight: 'bold', color: '#60a5fa' }}>{quest.goal}</div>
                 </div>
 
                 <button onClick={resetEntireGame} style={{ marginTop: '2rem', width: '100%', background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'var(--text-secondary)', padding: '0.5rem', borderRadius: '0.5rem', cursor: 'pointer' }}>
-                    Restart Game
+                    Start Over
                 </button>
             </div>
 
@@ -179,11 +185,11 @@ export default function ResourceQuests() {
                     <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#4ade80' }}>Quest {questIndex + 1}: {quest.title}</h2>
                         <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-                            Your goal is to gather the resources needed to: <strong>{quest.goal}</strong>.<br /><br />
-                            Read the scenarios carefully and do the math to update your inventory.
+                            You need to collect stuff to: <strong>{quest.goal}</strong>.<br /><br />
+                            Read each part and do the math to fill up your backpack! 🎒
                         </p>
                         <button onClick={() => setStage('mining')} className="btn" style={{ background: '#22c55e', color: 'black', fontSize: '1.25rem' }}>
-                            Start Mining
+                            Let's Go! ⛏️
                         </button>
                     </div>
                 )}
@@ -194,7 +200,7 @@ export default function ResourceQuests() {
                         {/* HEADER & BACK BUTTON */}
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                             <div style={{ fontSize: '0.85rem', color: stage === 'crafting' ? '#eab308' : '#4ade80', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                {stage === 'mining' ? `Resource Gathering: Step ${stepIndex + 1} of ${quest.steps.length}` : 'Final Step: Crafting the Goal'}
+                                {stage === 'mining' ? `⛏️ Step ${stepIndex + 1} of ${quest.steps.length}` : '⭐ Last Step: Make It!'}
                             </div>
 
                             {/* BACK BUTTON TO RESTORE CONTEXT */}
@@ -211,11 +217,11 @@ export default function ResourceQuests() {
                         {/* PREVIOUS CONTEXT LOG (Read Only) */}
                         {stage === 'mining' && stepIndex > 0 && (
                             <div style={{ marginBottom: '2rem' }}>
-                                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Previous Actions History:</div>
+                                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>What you did before:</div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     {quest.steps.slice(0, stepIndex).map((s, idx) => (
                                         <div key={idx} style={{ background: 'rgba(0,0,0,0.1)', padding: '1rem', borderRadius: '0.5rem', fontSize: '0.95rem', color: 'var(--text-secondary)', borderLeft: '3px solid rgba(255,255,255,0.1)' }}>
-                                            <span style={{ color: '#4ade80', marginRight: '0.5rem' }}>✓ completed</span>
+                                            <span style={{ color: '#4ade80', marginRight: '0.5rem' }}>✅ done!</span>
                                             {s.text}
                                         </div>
                                     ))}
@@ -240,7 +246,7 @@ export default function ResourceQuests() {
                                         onKeyDown={e => e.key === 'Enter' && verifyMath()}
                                     />
                                     <button onClick={verifyMath} className="btn" style={{ height: '80px', background: '#3b82f6', color: 'white', fontSize: '1.25rem', padding: '0 2rem' }}>
-                                        Collect
+                                        Get It! ⛏️
                                     </button>
                                 </div>
                             </>
@@ -262,7 +268,7 @@ export default function ResourceQuests() {
                                         onKeyDown={e => e.key === 'Enter' && verifyCrafting()}
                                     />
                                     <button onClick={verifyCrafting} className="btn" style={{ height: '80px', background: '#eab308', color: 'black', fontSize: '1.25rem', padding: '0 2rem', fontWeight: 'bold' }}>
-                                        Craft Item
+                                        Make It! 🔨
                                     </button>
                                 </div>
                             </>
@@ -274,10 +280,10 @@ export default function ResourceQuests() {
                 {stage === 'complete' && (
                     <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
                         <div style={{ fontSize: '5rem', marginBottom: '1rem' }}>✨</div>
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#4ade80' }}>Goal Completed!</h2>
-                        <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}>You successfully gathered the resources and crafted the item.</p>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#4ade80' }}>You Did It! 🎉</h2>
+                        <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)' }}>You got all the stuff and made the thing! Great work!</p>
                         <button onClick={nextQuest} className="btn" style={{ marginTop: '2rem', background: '#4ade80', color: 'black', fontSize: '1.25rem' }}>
-                            Next Goal
+                            Next Quest! ➡️
                         </button>
                     </div>
                 )}

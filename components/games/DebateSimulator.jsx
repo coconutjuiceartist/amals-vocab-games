@@ -1,10 +1,15 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { debateScenarios } from '../../data/debates';
+import { debateCategories } from '../../data/debates/index';
+
+// How many total debates must be won to unlock the next locked category
+const UNLOCK_THRESHOLD = 2;
 
 export default function DebateSimulator() {
-    const [scenarioIndex, setScenarioIndex] = useState(0);
-    const [stage, setStage] = useState('intro'); // intro, claim, evidence, counter, pushback, speech, completion
+    const [stage, setStage] = useState('category_select');
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [currentScenario, setCurrentScenario] = useState(null);
+    const [completedScenarios, setCompletedScenarios] = useState([]);
 
     const [selectedClaim, setSelectedClaim] = useState(null);
     const [selectedEvidence, setSelectedEvidence] = useState([]);
@@ -14,51 +19,87 @@ export default function DebateSimulator() {
     const [speechBlanks, setSpeechBlanks] = useState({});
     const [feedback, setFeedback] = useState('');
 
-    const scenario = debateScenarios[scenarioIndex];
-
-    // Initialize shuffled evidence when scenario changes
+    // Load completed scenarios from localStorage
     useEffect(() => {
-        resetScenario();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [scenarioIndex]);
+        try {
+            const saved = localStorage.getItem('debate-completed');
+            if (saved) setCompletedScenarios(JSON.parse(saved));
+        } catch (e) { /* ignore */ }
+    }, []);
 
-    // Restarts the entire game
-    const resetGame = () => {
-        setScenarioIndex(0);
-        // resetScenario is called by useEffect
+    // Save completed scenarios to localStorage
+    useEffect(() => {
+        if (completedScenarios.length > 0) {
+            localStorage.setItem('debate-completed', JSON.stringify(completedScenarios));
+        }
+    }, [completedScenarios]);
+
+    // Calculate which categories are unlocked based on total completions
+    const getUnlockedCategories = () => {
+        const totalCompleted = completedScenarios.length;
+        return debateCategories.map((cat, index) => {
+            if (cat.unlocked) return { ...cat, isUnlocked: true };
+            // Count how many locked categories before this one
+            const lockedIndex = debateCategories.filter((c, i) => i < index && !c.unlocked).length;
+            const neededCompletions = (lockedIndex + 1) * UNLOCK_THRESHOLD;
+            return { ...cat, isUnlocked: totalCompleted >= neededCompletions };
+        });
     };
 
-    const resetScenario = () => {
-        setStage('intro');
+    const unlockedCategories = getUnlockedCategories();
+
+    // How many more completions needed to unlock the next locked category
+    const getNextUnlockInfo = () => {
+        const totalCompleted = completedScenarios.length;
+        const nextLocked = unlockedCategories.find(c => !c.isUnlocked);
+        if (!nextLocked) return null;
+        const lockedIndex = debateCategories.filter((c, i) => i < debateCategories.indexOf(nextLocked) && !c.unlocked).length;
+        const needed = (lockedIndex + 1) * UNLOCK_THRESHOLD;
+        return { category: nextLocked, remaining: needed - totalCompleted };
+    };
+
+    const shuffleEvidence = (scenario) => {
+        const evidence = [...scenario.evidenceOptions];
+        for (let i = evidence.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [evidence[i], evidence[j]] = [evidence[j], evidence[i]];
+        }
+        return evidence;
+    };
+
+    const startScenario = (scenario) => {
+        setCurrentScenario(scenario);
         setSelectedClaim(null);
         setSelectedEvidence([]);
         setSelectedRebuttal(null);
         setSelectedPushback(null);
         setSpeechBlanks({});
         setFeedback('');
-
-        // Randomize evidence so correct answers aren't always at the top
-        const currentEvidence = [...debateScenarios[scenarioIndex].evidenceOptions];
-        // Fisher-Yates shuffle
-        for (let i = currentEvidence.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [currentEvidence[i], currentEvidence[j]] = [currentEvidence[j], currentEvidence[i]];
-        }
-        setShuffledEvidence(currentEvidence);
+        setShuffledEvidence(shuffleEvidence(scenario));
+        setStage('intro');
     };
 
-    const nextScenario = () => {
-        if (scenarioIndex < debateScenarios.length - 1) {
-            setScenarioIndex(scenarioIndex + 1);
-            // resetScenario is called by useEffect
-        } else {
-            setStage('game_complete');
+    const debateStages = ['intro', 'claim', 'evidence', 'counter', 'pushback', 'speech', 'completion'];
+
+    const goBack = () => {
+        setFeedback('');
+        const currentIndex = debateStages.indexOf(stage);
+        if (currentIndex > 0) {
+            setStage(debateStages[currentIndex - 1]);
+        } else if (stage === 'intro') {
+            setStage('scenario_select');
         }
     };
 
     const verifyClaim = (claimId) => {
-        const claim = scenario.claimOptions.find(c => c.id === claimId);
+        const claim = currentScenario.claimOptions.find(c => c.id === claimId);
         if (claim.correct) {
+            if (selectedClaim !== claimId) {
+                setSelectedEvidence([]);
+                setSelectedRebuttal(null);
+                setSelectedPushback(null);
+                setSpeechBlanks({});
+            }
             setSelectedClaim(claimId);
             setFeedback('Excellent claim! Let us gather evidence.');
             setTimeout(() => {
@@ -88,14 +129,12 @@ export default function DebateSimulator() {
             setFeedback('You must select exactly 3 pieces of evidence to support the bridge.');
             return;
         }
-
-        const selected = scenario.evidenceOptions.filter(e => selectedEvidence.includes(e.id));
+        const selected = currentScenario.evidenceOptions.filter(e => selectedEvidence.includes(e.id));
         const weakPoints = selected.filter(e => e.type === 'weak');
-
         if (weakPoints.length > 0) {
             setFeedback(`❌ Wait! "${weakPoints[0].text}" is a Logical Fallacy. ${weakPoints[0].feedback} Remove it to strengthen your argument!`);
         } else {
-            setFeedback('🏛️ The bridge is strong! All three evidence pillars are completely logical and fact-based.');
+            setFeedback('The bridge is strong! All three evidence pillars are completely logical and fact-based.');
             setTimeout(() => {
                 setFeedback('');
                 setStage('counter');
@@ -104,13 +143,13 @@ export default function DebateSimulator() {
     };
 
     const verifyRebuttal = (rId) => {
-        const rebuttal = scenario.counterArgument.rebuttals.find(r => r.id === rId);
+        const rebuttal = currentScenario.counterArgument.rebuttals.find(r => r.id === rId);
         if (rebuttal.correct) {
             setSelectedRebuttal(rId);
-            setFeedback('🔥 Brilliant Rebuttal! You systematically neutralized their counter-argument.');
+            setFeedback('Brilliant Rebuttal! You systematically neutralized their counter-argument.');
             setTimeout(() => {
                 setFeedback('');
-                setStage('pushback'); // Now moving to pushback stage instead of speech
+                setStage('pushback');
             }, 2500);
         } else {
             setFeedback(`❌ ${rebuttal.feedback}`);
@@ -118,10 +157,10 @@ export default function DebateSimulator() {
     };
 
     const verifyPushback = (pId) => {
-        const rebuttal = scenario.pushback.rebuttals.find(p => p.id === pId);
+        const rebuttal = currentScenario.pushback.rebuttals.find(p => p.id === pId);
         if (rebuttal.correct) {
             setSelectedPushback(pId);
-            setFeedback('🛡️ Perfect pivot! You handled the unexpected council pressure like a true diplomat.');
+            setFeedback('Perfect pivot! You handled the unexpected pressure like a true diplomat.');
             setTimeout(() => {
                 setFeedback('');
                 setStage('speech');
@@ -131,20 +170,70 @@ export default function DebateSimulator() {
         }
     };
 
-    const stagesList = ['intro', 'claim', 'evidence', 'counter', 'pushback', 'speech', 'completion'];
+    const selectSpeechOption = (blankId, option) => {
+        if (!option.strong) {
+            setFeedback(`❌ ${option.feedback}`);
+            setTimeout(() => setFeedback(''), 3000);
+            return;
+        }
+        setSpeechBlanks({ ...speechBlanks, [blankId]: option.text });
+        setFeedback('');
+    };
+
+    const deliverSpeech = () => {
+        const allBlanksStrong = currentScenario.speechTemplate.blanks.every(blank => speechBlanks[blank.id]);
+        if (!allBlanksStrong) return;
+        if (!completedScenarios.includes(currentScenario.id)) {
+            setCompletedScenarios([...completedScenarios, currentScenario.id]);
+        }
+        setStage('completion');
+    };
+
+    const showBackButton = ['claim', 'evidence', 'counter', 'pushback', 'speech'].includes(stage);
+
+    // Count completed scenarios per category
+    const getCategoryProgress = (cat) => {
+        const completed = cat.scenarios.filter(s => completedScenarios.includes(s.id)).length;
+        return { completed, total: cat.scenarios.length };
+    };
 
     return (
         <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
-            {/* HEADER PROGRESS */}
-            {stage !== 'game_complete' && (
-                <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--secondary)' }}>
-                        Simulation {scenarioIndex + 1} of {debateScenarios.length}: {scenario.title}
+            {/* HEADER PROGRESS - only during debate stages */}
+            {currentScenario && debateStages.includes(stage) && (
+                <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                    {showBackButton ? (
+                        <button
+                            onClick={goBack}
+                            style={{
+                                background: 'rgba(255,255,255,0.1)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                                borderRadius: '50%',
+                                width: '36px',
+                                height: '36px',
+                                minWidth: '36px',
+                                color: 'white',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '1.1rem',
+                                transition: 'all 0.2s ease'
+                            }}
+                            title="Go back"
+                            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.2)'; }}
+                            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; }}
+                        >
+                            ←
+                        </button>
+                    ) : <div style={{ width: '36px' }} />}
+                    <div style={{ fontSize: '1.15rem', fontWeight: 'bold', color: 'var(--secondary)', flex: 1, textAlign: 'center' }}>
+                        {currentScenario.title}
                     </div>
                     <div style={{ display: 'flex', gap: '0.5rem' }}>
-                        {stagesList.map((step, i) => {
-                            const isActive = stagesList.indexOf(stage) >= i;
+                        {debateStages.map((step, i) => {
+                            const isActive = debateStages.indexOf(stage) >= i;
                             return (
                                 <div key={step} style={{ width: '15px', height: '15px', borderRadius: '50%', background: isActive ? 'var(--secondary)' : 'rgba(255,255,255,0.1)' }} title={step} />
                             );
@@ -153,13 +242,169 @@ export default function DebateSimulator() {
                 </div>
             )}
 
+            {/* STAGE: CATEGORY SELECT */}
+            {stage === 'category_select' && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center' }}>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--secondary)' }}>The Debate Simulator</h2>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>
+                            Choose a category and build powerful arguments across {debateCategories.reduce((sum, c) => sum + c.scenarios.length, 0)} debate scenarios.
+                        </p>
+                        {completedScenarios.length > 0 && (
+                            <p style={{ color: 'var(--secondary)', marginTop: '0.5rem' }}>
+                                {completedScenarios.length} debate{completedScenarios.length !== 1 ? 's' : ''} won
+                            </p>
+                        )}
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+                        {unlockedCategories.map(cat => {
+                            const progress = getCategoryProgress(cat);
+                            const isLocked = !cat.isUnlocked;
+                            return (
+                                <div
+                                    key={cat.id}
+                                    onClick={() => {
+                                        if (isLocked) return;
+                                        setSelectedCategory(cat);
+                                        setStage('scenario_select');
+                                    }}
+                                    style={{
+                                        padding: '1.5rem',
+                                        background: isLocked ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.2)',
+                                        border: `2px solid ${isLocked ? 'rgba(255,255,255,0.05)' : progress.completed === progress.total && progress.total > 0 ? '#10b981' : 'rgba(255,255,255,0.1)'}`,
+                                        borderRadius: '1rem',
+                                        cursor: isLocked ? 'not-allowed' : 'pointer',
+                                        transition: 'all 0.2s ease',
+                                        opacity: isLocked ? 0.5 : 1,
+                                        textAlign: 'center'
+                                    }}
+                                    onMouseEnter={e => { if (!isLocked) e.currentTarget.style.borderColor = 'var(--secondary)'; }}
+                                    onMouseLeave={e => { if (!isLocked) e.currentTarget.style.borderColor = progress.completed === progress.total && progress.total > 0 ? '#10b981' : 'rgba(255,255,255,0.1)'; }}
+                                >
+                                    <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
+                                        {isLocked ? '🔒' : cat.icon}
+                                    </div>
+                                    <div style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
+                                        {cat.name}
+                                    </div>
+                                    {isLocked ? (
+                                        <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                                            Win more debates to unlock
+                                        </div>
+                                    ) : (
+                                        <div style={{ fontSize: '0.85rem', color: progress.completed === progress.total && progress.total > 0 ? '#10b981' : 'var(--text-secondary)' }}>
+                                            {progress.completed}/{progress.total} completed
+                                        </div>
+                                    )}
+                                    {!isLocked && progress.total > 0 && (
+                                        <div style={{ marginTop: '0.5rem', background: 'rgba(255,255,255,0.1)', borderRadius: '999px', height: '6px', overflow: 'hidden' }}>
+                                            <div style={{ width: `${(progress.completed / progress.total) * 100}%`, height: '100%', background: progress.completed === progress.total ? '#10b981' : 'var(--secondary)', borderRadius: '999px', transition: 'width 0.3s ease' }} />
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {getNextUnlockInfo() && (
+                        <div style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+                            Win {getNextUnlockInfo().remaining} more debate{getNextUnlockInfo().remaining !== 1 ? 's' : ''} to unlock <strong>{getNextUnlockInfo().category.name}</strong>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* STAGE: SCENARIO SELECT */}
+            {stage === 'scenario_select' && selectedCategory && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <button
+                            onClick={() => setStage('category_select')}
+                            style={{
+                                background: 'rgba(255,255,255,0.1)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                                borderRadius: '50%',
+                                width: '36px',
+                                height: '36px',
+                                minWidth: '36px',
+                                color: 'white',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '1.1rem'
+                            }}
+                        >
+                            ←
+                        </button>
+                        <h2 style={{ fontSize: '2rem', color: 'var(--secondary)' }}>
+                            {selectedCategory.icon} {selectedCategory.name}
+                        </h2>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        {selectedCategory.scenarios.map(scenario => {
+                            const isCompleted = completedScenarios.includes(scenario.id);
+                            return (
+                                <div
+                                    key={scenario.id}
+                                    onClick={() => startScenario(scenario)}
+                                    style={{
+                                        padding: '1.5rem',
+                                        background: 'rgba(0,0,0,0.2)',
+                                        border: `2px solid ${isCompleted ? '#10b981' : 'rgba(255,255,255,0.1)'}`,
+                                        borderRadius: '0.75rem',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.2s ease',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center'
+                                    }}
+                                    onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--secondary)'}
+                                    onMouseLeave={e => e.currentTarget.style.borderColor = isCompleted ? '#10b981' : 'rgba(255,255,255,0.1)'}
+                                >
+                                    <div>
+                                        <div style={{ fontWeight: 'bold', fontSize: '1.15rem', marginBottom: '0.25rem' }}>{scenario.title}</div>
+                                        <div style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>{scenario.premise}</div>
+                                    </div>
+                                    {isCompleted && (
+                                        <div style={{ fontSize: '1.5rem', marginLeft: '1rem', flexShrink: 0 }}>✅</div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Random unplayed button */}
+                    {selectedCategory.scenarios.some(s => !completedScenarios.includes(s.id)) && (
+                        <button
+                            onClick={() => {
+                                const unplayed = selectedCategory.scenarios.filter(s => !completedScenarios.includes(s.id));
+                                const random = unplayed[Math.floor(Math.random() * unplayed.length)];
+                                startScenario(random);
+                            }}
+                            className="btn btn-primary"
+                            style={{ alignSelf: 'center', fontSize: '1.1rem', padding: '0.75rem 2rem' }}
+                        >
+                            Random Unplayed
+                        </button>
+                    )}
+                </div>
+            )}
+
             {/* STAGE: INTRO */}
-            {stage === 'intro' && (
+            {stage === 'intro' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--secondary)' }}>The Briefing</h2>
-                    <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
-                        {scenario.premise}
+                    <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '0.5rem' }}>
+                        {currentScenario.premise}
                     </p>
+                    {currentScenario.setting && (
+                        <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginBottom: '2rem', fontStyle: 'italic' }}>
+                            You will present your case before {currentScenario.setting}.
+                        </p>
+                    )}
                     <button onClick={() => setStage('claim')} className="btn btn-primary" style={{ fontSize: '1.25rem', padding: '1rem 3rem' }}>
                         Construct My Argument
                     </button>
@@ -167,20 +412,20 @@ export default function DebateSimulator() {
             )}
 
             {/* STAGE: CLAIM */}
-            {stage === 'claim' && (
+            {stage === 'claim' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Step 1: The Claim</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>The Claim is the "Road" of your bridge. It must be a clear, debatable statement of policy.</p>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        {scenario.claimOptions.map(option => (
+                        {currentScenario.claimOptions.map(option => (
                             <button
                                 key={option.id}
                                 onClick={() => verifyClaim(option.id)}
                                 style={{
                                     padding: '1.5rem',
-                                    background: 'rgba(0,0,0,0.2)',
-                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    background: selectedClaim === option.id ? 'rgba(16, 185, 129, 0.2)' : 'rgba(0,0,0,0.2)',
+                                    border: `1px solid ${selectedClaim === option.id ? '#10b981' : 'rgba(255,255,255,0.1)'}`,
                                     borderRadius: '0.5rem',
                                     color: 'white',
                                     fontSize: '1.1rem',
@@ -189,7 +434,7 @@ export default function DebateSimulator() {
                                     transition: 'all 0.2s ease'
                                 }}
                                 onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--secondary)'}
-                                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
+                                onMouseLeave={e => e.currentTarget.style.borderColor = selectedClaim === option.id ? '#10b981' : 'rgba(255,255,255,0.1)'}
                             >
                                 {option.text}
                             </button>
@@ -199,11 +444,11 @@ export default function DebateSimulator() {
             )}
 
             {/* STAGE: EVIDENCE */}
-            {stage === 'evidence' && (
+            {stage === 'evidence' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Step 2: The Evidence Pillars</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-                        Select EXACTLY 3 facts to support your claim: <em>"{scenario.claimOptions.find(c => c.correct).text}"</em>. <br />
+                        Select EXACTLY 3 facts to support your claim: <em>"{currentScenario.claimOptions.find(c => c.correct).text}"</em>. <br />
                         Beware of nuanced half-truths and Logical Fallacies (rumors, attacks, or lazy logic)!
                     </p>
 
@@ -242,17 +487,17 @@ export default function DebateSimulator() {
             )}
 
             {/* STAGE: COUNTER ARGUMENT */}
-            {stage === 'counter' && (
+            {stage === 'counter' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Step 3: The Counter-Argument</h2>
                     <div style={{ background: 'rgba(239, 68, 68, 0.1)', borderLeft: '4px solid #ef4444', padding: '1.5rem', marginBottom: '2rem', fontSize: '1.25rem', fontStyle: 'italic' }}>
-                        "{scenario.counterArgument.text}"
+                        "{currentScenario.counterArgument.text}"
                     </div>
 
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>How do you respond without using an angry Logical Fallacy?</p>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        {scenario.counterArgument.rebuttals.map(option => (
+                        {currentScenario.counterArgument.rebuttals.map(option => (
                             <button
                                 key={option.id}
                                 onClick={() => verifyRebuttal(option.id)}
@@ -277,18 +522,18 @@ export default function DebateSimulator() {
                 </div>
             )}
 
-            {/* STAGE: PUSHBACK (NEW) */}
-            {stage === 'pushback' && (
+            {/* STAGE: PUSHBACK */}
+            {stage === 'pushback' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem', border: '2px solid #eab308' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#eab308' }}>Step 4: Council Pushback!</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Unexpected pressure from the gallery. Think on your feet!</p>
 
                     <div style={{ background: 'rgba(234, 179, 8, 0.1)', borderLeft: '4px solid #eab308', padding: '1.5rem', marginBottom: '2rem', fontSize: '1.25rem', fontStyle: 'italic' }}>
-                        "{scenario.pushback.text}"
+                        "{currentScenario.pushback.text}"
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        {scenario.pushback.rebuttals.map(option => (
+                        {currentScenario.pushback.rebuttals.map(option => (
                             <button
                                 key={option.id}
                                 onClick={() => verifyPushback(option.id)}
@@ -314,36 +559,85 @@ export default function DebateSimulator() {
             )}
 
             {/* STAGE: SPEECH SYNTHESIS */}
-            {stage === 'speech' && (
+            {stage === 'speech' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Step 5: The Opening Statement</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-                        Fill in the blanks to complete your powerful rhetoric. Think about your vocabulary!
+                        Select the strongest words to complete your powerful rhetoric. Choose carefully!
                     </p>
 
                     <div style={{ background: 'rgba(0,0,0,0.3)', padding: '2rem', borderRadius: '1rem', fontSize: '1.25rem', lineHeight: 2 }}>
-                        <span style={{ fontWeight: 'bold' }}>{scenario.speechTemplate.intro}</span>
+                        <span style={{ fontWeight: 'bold' }}>{currentScenario.speechTemplate.intro}</span>
                         <br /><br />
-                        Because of the <input
-                            style={{ background: 'transparent', border: 'none', borderBottom: '2px solid var(--secondary)', color: 'white', fontSize: '1.25rem', outline: 'none', width: '200px', textAlign: 'center' }}
-                            placeholder={`(${scenario.speechTemplate.blanks[0].label})`}
-                            value={speechBlanks[scenario.speechTemplate.blanks[0].id] || ''}
-                            onChange={e => setSpeechBlanks({ ...speechBlanks, [scenario.speechTemplate.blanks[0].id]: e.target.value })}
-                        /> , we can no longer ignore the reality of our situation.
-                        If we fail to act, the <input
-                            style={{ background: 'transparent', border: 'none', borderBottom: '2px solid var(--secondary)', color: 'white', fontSize: '1.25rem', outline: 'none', width: '250px', textAlign: 'center' }}
-                            placeholder={`(${scenario.speechTemplate.blanks[1].label})`}
-                            value={speechBlanks[scenario.speechTemplate.blanks[1].id] || ''}
-                            onChange={e => setSpeechBlanks({ ...speechBlanks, [scenario.speechTemplate.blanks[1].id]: e.target.value })}
-                        /> will be lost forever. <br /><br />
-                        Therefore, I move that <span style={{ color: 'var(--secondary)', textDecoration: 'underline' }}>{scenario.claimOptions.find(c => c.correct).text}</span>
+
+                        Because of the{' '}
+                        {speechBlanks[currentScenario.speechTemplate.blanks[0].id] ? (
+                            <span style={{ color: '#10b981', fontWeight: 'bold', borderBottom: '2px solid #10b981', padding: '0 0.25rem' }}>
+                                {speechBlanks[currentScenario.speechTemplate.blanks[0].id]}
+                            </span>
+                        ) : (
+                            <span style={{ color: 'var(--secondary)', borderBottom: '2px dashed var(--secondary)', padding: '0 0.25rem' }}>
+                                _{currentScenario.speechTemplate.blanks[0].label}_
+                            </span>
+                        )}
+                        , we can no longer ignore the reality of our situation.
+
+                        {' '}If we fail to act, the{' '}
+                        {speechBlanks[currentScenario.speechTemplate.blanks[1].id] ? (
+                            <span style={{ color: '#10b981', fontWeight: 'bold', borderBottom: '2px solid #10b981', padding: '0 0.25rem' }}>
+                                {speechBlanks[currentScenario.speechTemplate.blanks[1].id]}
+                            </span>
+                        ) : (
+                            <span style={{ color: 'var(--secondary)', borderBottom: '2px dashed var(--secondary)', padding: '0 0.25rem' }}>
+                                _{currentScenario.speechTemplate.blanks[1].label}_
+                            </span>
+                        )}
+                        {' '}will be lost forever.
+
+                        <br /><br />
+                        Therefore, I move that <span style={{ color: 'var(--secondary)', textDecoration: 'underline' }}>{currentScenario.claimOptions.find(c => c.correct).text}</span>
                     </div>
+
+                    {/* Selection buttons for each blank */}
+                    {currentScenario.speechTemplate.blanks.map(blank => (
+                        <div key={blank.id} style={{ marginTop: '1.5rem' }}>
+                            <p style={{ color: 'var(--text-secondary)', marginBottom: '0.75rem', fontSize: '0.95rem' }}>
+                                {speechBlanks[blank.id] ? '✅' : '📝'} {blank.label}:
+                            </p>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                                {blank.options.map((option, i) => {
+                                    const isSelected = speechBlanks[blank.id] === option.text;
+                                    return (
+                                        <button
+                                            key={i}
+                                            onClick={() => selectSpeechOption(blank.id, option)}
+                                            style={{
+                                                padding: '0.75rem 1.25rem',
+                                                background: isSelected ? 'rgba(16, 185, 129, 0.2)' : 'rgba(0,0,0,0.2)',
+                                                border: `2px solid ${isSelected ? '#10b981' : 'rgba(255,255,255,0.15)'}`,
+                                                borderRadius: '999px',
+                                                color: 'white',
+                                                fontSize: '1rem',
+                                                cursor: 'pointer',
+                                                transition: 'all 0.2s ease'
+                                            }}
+                                            onMouseEnter={e => { if (!isSelected) e.currentTarget.style.borderColor = 'var(--secondary)'; }}
+                                            onMouseLeave={e => { if (!isSelected) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
+                                        >
+                                            {option.text}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))}
 
                     <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
                         <button
-                            onClick={() => setStage('completion')}
+                            onClick={deliverSpeech}
                             className="btn btn-primary"
-                            disabled={Object.keys(speechBlanks).length < 2}
+                            disabled={currentScenario.speechTemplate.blanks.some(blank => !speechBlanks[blank.id])}
+                            style={{ opacity: currentScenario.speechTemplate.blanks.every(blank => speechBlanks[blank.id]) ? 1 : 0.5 }}
                         >
                             Deliver Speech to the Council
                         </button>
@@ -359,23 +653,22 @@ export default function DebateSimulator() {
                     <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
                         The council was swayed by your flawless logic and brilliant rhetorical synthesis.
                     </p>
-                    <button onClick={nextScenario} className="btn" style={{ background: '#10b981', color: 'black', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                        Proceed to Next Debate Scenario
-                    </button>
-                </div>
-            )}
-
-            {/* GAME ENTIRELY COMPLETE */}
-            {stage === 'game_complete' && (
-                <div className="glass-panel" style={{ padding: '4rem', textAlign: 'center' }}>
-                    <div style={{ fontSize: '6rem', marginBottom: '1rem' }}>🏆</div>
-                    <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--secondary)' }}>Master Debater!</h2>
-                    <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginBottom: '3rem' }}>
-                        You have successfully completed all advanced debate modules.
-                    </p>
-                    <button onClick={resetGame} className="btn btn-primary" style={{ fontSize: '1.25rem' }}>
-                        Play Again
-                    </button>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <button
+                            onClick={() => setStage('scenario_select')}
+                            className="btn"
+                            style={{ background: '#10b981', color: 'black', fontWeight: 'bold', fontSize: '1.15rem' }}
+                        >
+                            Choose Next Debate
+                        </button>
+                        <button
+                            onClick={() => setStage('category_select')}
+                            className="btn"
+                            style={{ background: 'rgba(255,255,255,0.1)', color: 'white', fontSize: '1.15rem' }}
+                        >
+                            Back to Categories
+                        </button>
+                    </div>
                 </div>
             )}
 
@@ -386,6 +679,7 @@ export default function DebateSimulator() {
                     background: feedback.includes('❌') ? 'rgba(239, 68, 68, 0.9)' : 'rgba(236, 72, 153, 0.9)',
                     color: 'white', padding: '1rem 2rem', borderRadius: '999px', fontSize: '1.1rem',
                     boxShadow: '0 10px 25px rgba(0,0,0,0.5)', zIndex: 50,
+                    maxWidth: '90vw', textAlign: 'center',
                     animation: 'fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                 }}>
                     {feedback}

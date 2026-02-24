@@ -1,8 +1,8 @@
 export const games = [
   {
     id: "debate-simulator",
-    title: "The Wizengamot Debate Simulator",
-    description: "Take the floor at the Ministry of Magic! Build strong arguments, avoid logical fallacies, and synthesize powerful speeches across 4 extensive scenarios.",
+    title: "The Debate Simulator",
+    description: "Take the floor and debate! Build strong arguments, avoid logical fallacies, and deliver powerful speeches across 35+ scenarios spanning history, science, ethics, and more.",
     subject: "Debate & Logic",
     targetAge: 11,
     theme: "purple"
