@@ -10,6 +10,8 @@ export default function ResourceQuests() {
     const [inputValue, setInputValue] = useState('');
     const [feedback, setFeedback] = useState('');
     const [stage, setStage] = useState('intro'); // intro, mining, crafting, complete, all_done
+    const [completedQuests, setCompletedQuests] = useState([]);
+    const [trackerOpen, setTrackerOpen] = useState(true);
 
     // Load state from local storage on mount
     useEffect(() => {
@@ -22,6 +24,7 @@ export default function ResourceQuests() {
                     setStepIndex(parsed.stepIndex || 0);
                     setInventory(parsed.inventory || { wood: 0, stone: 0, iron: 0, diamond: 0 });
                     setStage(parsed.stage || 'intro');
+                    setCompletedQuests(parsed.completedQuests || []);
                 }
             } catch (e) {
                 console.error("Could not load state", e);
@@ -34,15 +37,19 @@ export default function ResourceQuests() {
     useEffect(() => {
         if (isLoaded) {
             localStorage.setItem('stevesResourceQuestsState', JSON.stringify({
-                questIndex, stepIndex, inventory, stage
+                questIndex, stepIndex, inventory, stage, completedQuests
             }));
         }
-    }, [questIndex, stepIndex, inventory, stage, isLoaded]);
+    }, [questIndex, stepIndex, inventory, stage, completedQuests, isLoaded]);
 
     const quest = resourceQuests[questIndex];
     const currentStep = quest ? quest.steps[stepIndex] : null;
 
     const renderInventoryIcon = (type) => {
+        // Check for quest-specific inventory labels first
+        if (quest && quest.inventoryLabels && quest.inventoryLabels[type]) {
+            return quest.inventoryLabels[type];
+        }
         switch (type) {
             case 'wood': return { icon: '🪵', label: 'Wood' };
             case 'stone': return { icon: '🪨', label: 'Stone' };
@@ -50,6 +57,30 @@ export default function ResourceQuests() {
             case 'diamond': return { icon: '💎', label: 'Gems' };
             default: return { icon: '📦', label: 'Stuff' };
         }
+    };
+
+    const renderVisual = (visual) => {
+        if (!visual) return null;
+        return (
+            <div style={{
+                textAlign: 'center',
+                marginBottom: '1.5rem',
+                padding: '1.5rem',
+                background: 'rgba(0,0,0,0.15)',
+                borderRadius: '1rem',
+                border: '1px solid rgba(255,255,255,0.05)',
+                animation: 'fadeScaleIn 0.4s ease-out'
+            }}>
+                <div style={{ fontSize: '3rem', lineHeight: 1.4, letterSpacing: '0.2em' }}>
+                    {visual.scene}
+                </div>
+                {visual.details && (
+                    <div style={{ fontSize: '2rem', lineHeight: 1.4, letterSpacing: '0.15em', marginTop: '0.5rem', opacity: 0.8 }}>
+                        {visual.details}
+                    </div>
+                )}
+            </div>
+        );
     };
 
     const verifyMath = () => {
@@ -91,6 +122,8 @@ export default function ResourceQuests() {
     };
 
     const nextQuest = () => {
+        const updatedCompleted = [...completedQuests, quest.id];
+        setCompletedQuests(updatedCompleted);
         if (questIndex < resourceQuests.length - 1) {
             setQuestIndex(questIndex + 1);
             setStepIndex(0);
@@ -127,20 +160,39 @@ export default function ResourceQuests() {
         setStepIndex(0);
         setInventory({ wood: 0, stone: 0, iron: 0, diamond: 0 });
         setStage('intro');
+        setCompletedQuests([]);
         localStorage.removeItem('stevesResourceQuestsState');
     };
 
     if (!isLoaded) return null; // Prevents hydration mismatch
 
+    const completedCount = stage === 'all_done' ? resourceQuests.length : questIndex;
+    const progressPercent = Math.round((completedCount / resourceQuests.length) * 100);
+
     if (stage === 'all_done') {
         return (
-            <div className="glass-panel" style={{ padding: '4rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-                <div style={{ fontSize: '6rem', marginBottom: '1rem' }}>👑</div>
-                <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>You Did It!</h2>
-                <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>You finished all the quests! Great job! 🎉</p>
-                <button onClick={resetEntireGame} className="btn" style={{ marginTop: '2rem', background: '#3b82f6', color: 'white', fontSize: '1.25rem' }}>
-                    Play Again
-                </button>
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                {/* Quest tracker even on final screen */}
+                <div className="glass-panel" style={{ padding: '1.25rem 1.5rem', marginBottom: '1.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>
+                            All {resourceQuests.length} Quests Done!
+                        </span>
+                        <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+                            <div style={{ width: '100%', height: '100%', background: 'linear-gradient(90deg, #22c55e, #4ade80)', borderRadius: '4px' }} />
+                        </div>
+                        <span style={{ fontSize: '0.85rem', color: '#4ade80', fontWeight: 'bold' }}>100%</span>
+                    </div>
+                </div>
+
+                <div className="glass-panel" style={{ padding: '4rem', textAlign: 'center' }}>
+                    <div style={{ fontSize: '6rem', marginBottom: '1rem' }}>👑</div>
+                    <h2 style={{ fontSize: '3rem', marginBottom: '1rem', color: '#4ade80' }}>You Did It!</h2>
+                    <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>You finished all the quests! Great job! 🎉</p>
+                    <button onClick={resetEntireGame} className="btn" style={{ marginTop: '2rem', background: '#3b82f6', color: 'white', fontSize: '1.25rem' }}>
+                        Play Again
+                    </button>
+                </div>
             </div>
         );
     }
@@ -181,6 +233,63 @@ export default function ResourceQuests() {
             {/* MAIN GAME AREA */}
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
+                {/* QUEST TRACKER */}
+                <div className="glass-panel" style={{ padding: '1.25rem 1.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: trackerOpen ? '1rem' : 0 }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>
+                            Quest {questIndex + 1} of {resourceQuests.length}
+                        </span>
+                        <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+                            <div style={{
+                                width: `${progressPercent}%`,
+                                height: '100%',
+                                background: 'linear-gradient(90deg, #22c55e, #4ade80)',
+                                borderRadius: '4px',
+                                transition: 'width 0.5s ease'
+                            }} />
+                        </div>
+                        <span style={{ fontSize: '0.85rem', color: '#4ade80', fontWeight: 'bold' }}>{progressPercent}%</span>
+                        <button
+                            onClick={() => setTrackerOpen(!trackerOpen)}
+                            style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '1rem', padding: '0.25rem' }}
+                        >
+                            {trackerOpen ? '▲' : '▼'}
+                        </button>
+                    </div>
+
+                    {trackerOpen && (
+                        <div style={{ display: 'flex', gap: '0.4rem', overflowX: 'auto', paddingBottom: '0.25rem' }}>
+                            {resourceQuests.map((q, idx) => {
+                                const isCompleted = idx < questIndex;
+                                const isCurrent = idx === questIndex;
+                                const isLocked = idx > questIndex;
+                                return (
+                                    <div key={q.id} title={isLocked ? '🔒' : q.title} style={{
+                                        minWidth: '40px', height: '40px',
+                                        borderRadius: '0.5rem',
+                                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                        fontSize: isCompleted ? '1.1rem' : '0.8rem',
+                                        fontWeight: 'bold',
+                                        background: isCompleted ? 'rgba(34,197,94,0.2)'
+                                            : isCurrent ? 'rgba(59,130,246,0.3)'
+                                            : 'rgba(255,255,255,0.05)',
+                                        border: isCurrent ? '2px solid #3b82f6'
+                                            : isCompleted ? '2px solid #22c55e'
+                                            : '1px solid rgba(255,255,255,0.1)',
+                                        color: isCompleted ? '#4ade80'
+                                            : isCurrent ? '#60a5fa'
+                                            : 'rgba(255,255,255,0.3)',
+                                        transition: 'all 0.3s ease',
+                                        flexShrink: 0
+                                    }}>
+                                        {isCompleted ? '✅' : isCurrent ? idx + 1 : '🔒'}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+                </div>
+
                 {stage === 'intro' && (
                     <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
                         <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#4ade80' }}>Quest {questIndex + 1}: {quest.title}</h2>
@@ -220,8 +329,9 @@ export default function ResourceQuests() {
                                 <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>What you did before:</div>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     {quest.steps.slice(0, stepIndex).map((s, idx) => (
-                                        <div key={idx} style={{ background: 'rgba(0,0,0,0.1)', padding: '1rem', borderRadius: '0.5rem', fontSize: '0.95rem', color: 'var(--text-secondary)', borderLeft: '3px solid rgba(255,255,255,0.1)' }}>
-                                            <span style={{ color: '#4ade80', marginRight: '0.5rem' }}>✅ done!</span>
+                                        <div key={idx} style={{ background: 'rgba(0,0,0,0.1)', padding: '1rem', borderRadius: '0.5rem', fontSize: '0.95rem', color: 'var(--text-secondary)', borderLeft: '3px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                            {s.visual && <span style={{ fontSize: '1.2rem' }}>{s.visual.scene}</span>}
+                                            <span style={{ color: '#4ade80', marginRight: '0.25rem' }}>✅</span>
                                             {s.text}
                                         </div>
                                     ))}
@@ -232,6 +342,8 @@ export default function ResourceQuests() {
                         {/* CURRENT ACTIVE STEP */}
                         {stage === 'mining' && currentStep && (
                             <>
+                                {renderVisual(currentStep.visual)}
+
                                 <div style={{ fontSize: '1.5rem', lineHeight: '1.6', marginBottom: '2.5rem', background: 'rgba(0,0,0,0.2)', padding: '2rem', borderRadius: '1rem', borderLeft: '4px solid #4ade80' }}>
                                     {currentStep.text}
                                 </div>
@@ -254,6 +366,8 @@ export default function ResourceQuests() {
 
                         {stage === 'crafting' && (
                             <>
+                                {renderVisual(quest.crafting.visual)}
+
                                 <div style={{ fontSize: '1.5rem', lineHeight: '1.6', marginBottom: '2.5rem', background: 'rgba(0,0,0,0.2)', padding: '2rem', borderRadius: '1rem', borderLeft: '4px solid #eab308' }}>
                                     {quest.crafting.question}
                                 </div>
