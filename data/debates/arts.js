@@ -18,7 +18,12 @@ export const artsDebates = [
             { id: 'e6', text: "Since Nobel Prize-winning author Toni Morrison's books have been challenged in multiple school districts, banning books clearly targets the most important and valuable literature.", type: 'weak', feedback: "Logical Fallacy (Hasty Generalization). One famous author's books being challenged does not prove that all challenged books are the most important ones. Many different books are challenged for many different reasons." }
         ],
         counterArgument: {
-            text: "Mrs. Patterson, a concerned parent, argues: 'As parents, we have the right to protect our children from content they are not ready for. Some of these books contain violence and themes that are simply inappropriate for eleven-year-olds.'",
+            text: "As parents, we have the right to protect our children from content they are not ready for. Some of these books contain violence and themes that are simply inappropriate for eleven-year-olds.",
+            opponent: { name: "Mrs. Patterson", title: "Concerned Parent", emoji: "📖" },
+            reactions: {
+                correct: "Mrs. Patterson's prepared stack of flagged passages sits untouched on the table. Your transparency framework made her look like she was asking for censorship rather than protection — and in a room full of educators, that distinction matters. She's going to need a completely different approach if she wants the committee's support.",
+                wrong: "Mrs. Patterson leans forward with renewed confidence, sensing that you've lost the room. Several committee members exchange uncomfortable glances, and one begins flipping through her highlighted book excerpts. By stumbling here, you've given her emotional argument the opening it needed to take hold."
+            },
             rebuttals: [
                 { id: 'r1', text: "You are absolutely right that parents should guide their own children's reading. That is why a review process allows parents to opt their child out of specific titles without removing access for every student in the school.", correct: true, feedback: "Excellent. You validated her concern while drawing a clear line between individual parental choice and school-wide censorship." },
                 { id: 'r2', text: "Parents who have not read the full book in its educational context are not qualified to judge whether its themes are appropriate for classroom use.", correct: false, feedback: "Dismissive and condescending. Questioning parents' qualifications to make judgments about their own children will alienate the committee and shut down productive dialogue." },
@@ -26,7 +31,12 @@ export const artsDebates = [
             ]
         },
         pushback: {
-            text: "Committee Chair Dr. Reeves raises a concern: 'Even with a review process, we will face enormous pressure from vocal community groups. How do we prevent the process from becoming a political battleground?'",
+            text: "Even with a review process, we will face enormous pressure from vocal community groups. How do we prevent the process from becoming a political battleground?",
+            opponent: { name: "Dr. Reeves", title: "Committee Chair", emoji: "🎓" },
+            reactions: {
+                correct: "Dr. Reeves removes his reading glasses and nods slowly, the way someone does when they've heard the answer they were hoping for. The other committee members start writing notes — a sign they're already thinking about implementation rather than debate. Your specific structural safeguards turned his worry into a workable roadmap.",
+                wrong: "Dr. Reeves taps his pen against the table, visibly unsatisfied. Two committee members who had been leaning your way now look uncertain, and one whispers something to a colleague. Without a concrete plan to handle political pressure, your entire review process idea sounds idealistic rather than practical."
+            },
             rebuttals: [
                 { id: 'p1', text: "Political pressure is unavoidable, so the committee should firmly reject all external input and let trained librarians make every decision without community interference.", correct: false, feedback: "Too aggressive. Completely shutting out community voices will create more conflict and make the committee appear authoritarian rather than professional." },
                 { id: 'p2', text: "You raise a fair point, and honestly the committee may just need to accept that some politicization is inevitable and do its best to handle complaints as they arise.", correct: false, feedback: "Too concessive. Accepting political pressure as unavoidable without proposing structural safeguards leaves the committee exactly where it started with no solution." },
@@ -77,7 +87,12 @@ export const artsDebates = [
             { id: 'e6', text: "Since every ancient civilization, from Egypt to Greece to China, invested heavily in the arts, cutting arts funding means abandoning a practice that has defined human progress throughout all of history.", type: 'weak', feedback: "Logical Fallacy (Appeal to Tradition). Ancient civilizations also practiced slavery and conquest. Something being historically common does not automatically make it the right policy choice today. Argue on current merits." }
         ],
         counterArgument: {
-            text: "Senator Williams argues: 'In a competitive global economy, every dollar must go toward science and technology. The arts are a luxury we simply cannot afford when we are falling behind in engineering and computer science.'",
+            text: "In a competitive global economy, every dollar must go toward science and technology. The arts are a luxury we simply cannot afford when we are falling behind in engineering and computer science.",
+            opponent: { name: "Senator Williams", title: "Budget Committee Senator", emoji: "💼" },
+            reactions: {
+                correct: "Senator Williams shifts in his leather chair, caught off guard by how seamlessly you connected arts to the STEM agenda he champions. A few committee members on his side are now nodding along with your argument instead of his. By reframing arts as a partner to technology rather than a competitor, you took away his strongest talking point.",
+                wrong: "Senator Williams straightens his tie with a slight smile — he knows you just handed him the narrative. The committee members who control the purse strings are already looking at him for the rebuttal, and the budget hawks in the back row are scribbling notes. In a room focused on economic competitiveness, your response failed to speak their language."
+            },
             rebuttals: [
                 { id: 'r1', text: "The arts are not a luxury competing with STEM but rather a partner. Design thinking, creative problem-solving, and visual communication are skills that technology companies actively recruit for and depend on.", correct: true, feedback: "Powerful rebuttal. You reframed the arts as essential to STEM success rather than accepting the false choice between them." },
                 { id: 'r2', text: "Focusing exclusively on STEM would produce technically skilled graduates who lack the creative and communication abilities that employers consistently rank among their most desired qualifications.", correct: false, feedback: "This attacks STEM rather than defending the arts. Instead of framing STEM graduates as deficient, show how arts funding strengthens the overall workforce alongside STEM." },
@@ -85,7 +100,12 @@ export const artsDebates = [
             ]
         },
         pushback: {
-            text: "Budget Director Chen presses: 'Even if arts funding has benefits, our deficit is growing. Every program claims to be essential. How do you justify arts spending when hospitals and infrastructure also need money?'",
+            text: "Even if arts funding has benefits, our deficit is growing. Every program claims to be essential. How do you justify arts spending when hospitals and infrastructure also need money?",
+            opponent: { name: "Budget Director Chen", title: "Budget Director", emoji: "📊" },
+            reactions: {
+                correct: "Budget Director Chen glances down at her spreadsheet and then back at you, recalculating. The room goes quiet because everyone just heard you make the smallest line item in the budget sound like the smartest investment on the page. She's a numbers person, and you just beat her with numbers — that changes the entire tone of this hearing.",
+                wrong: "Budget Director Chen circles something on her spreadsheet with quiet precision — she's already building her next rebuttal from what you just gave her. The committee members responsible for healthcare and infrastructure funding are visibly annoyed, and two of them have stopped taking notes entirely. You needed to make arts funding sound like a smart investment, but instead you made it sound like a competing expense."
+            },
             rebuttals: [
                 { id: 'p1', text: "The deficit exists because of wasteful military spending and corporate tax breaks, not because we fund the arts. The committee should redirect its scrutiny toward those far larger budget items instead.", correct: false, feedback: "Too aggressive. Attacking other budget areas without being asked deflects from the question and will antagonize committee members who support those programs." },
                 { id: 'p2', text: "You make a fair point about competing priorities, and perhaps arts organizations should explore more private funding sources rather than relying so heavily on public dollars during tight budget years.", correct: false, feedback: "Too concessive. Suggesting that arts funding should shift to private sources essentially concedes the opponent's argument that public money should go elsewhere." },
@@ -136,7 +156,12 @@ export const artsDebates = [
             { id: 'e6', text: "Since property owners already have the right to commission murals on their own buildings, it would be logically inconsistent for the city to refuse to allow murals on public property as well.", type: 'weak', feedback: "Logical Fallacy (False Equivalence). Private property rights and public property management involve completely different legal frameworks and accountability structures. A private owner's choice does not obligate the city to do the same." }
         ],
         counterArgument: {
-            text: "Councilwoman Torres objects: 'Designated walls will become eyesores that attract more vandalism, not less. Once you invite graffiti in, you lose control of it entirely.'",
+            text: "Designated walls will become eyesores that attract more vandalism, not less. Once you invite graffiti in, you lose control of it entirely.",
+            opponent: { name: "Councilwoman Torres", title: "City Council Member", emoji: "🏙️" },
+            reactions: {
+                correct: "Councilwoman Torres reaches for her water glass, buying herself a moment to regroup. The Philadelphia example landed hard — two other council members are already pulling up the program on their tablets. You didn't just counter her fear, you replaced it with a proven success story that makes voting against your proposal feel like ignoring the evidence.",
+                wrong: "Councilwoman Torres crosses her arms and glances toward her allies on the council with a look that says 'I told you so.' A few residents in the gallery murmur in agreement with her, and the council president jots a note that probably isn't in your favor. Her fear about losing control just went from a concern to the dominant narrative in the room."
+            },
             rebuttals: [
                 { id: 'r1', text: "Philadelphia's Mural Arts Program manages over 4,000 murals and has reduced illegal tagging in participating neighborhoods by 60 percent. Structured oversight creates community pride, not chaos.", correct: true, feedback: "Strong evidence-based rebuttal. You countered her fear with a specific, real-world example and concrete statistics." },
                 { id: 'r2', text: "Concerns about vandalism reflect an outdated perspective that fails to recognize how street art culture has evolved into a respected and professionally managed discipline worldwide.", correct: false, feedback: "Dismissive of a legitimate concern. Telling a council member her perspective is outdated will make her defensive rather than open to your proposal." },
@@ -144,7 +169,12 @@ export const artsDebates = [
             ]
         },
         pushback: {
-            text: "City Manager Davis adds: 'Who pays for wall maintenance, paint removal, and the staff to manage applications? Our parks budget is already stretched thin.'",
+            text: "Who pays for wall maintenance, paint removal, and the staff to manage applications? Our parks budget is already stretched thin.",
+            opponent: { name: "City Manager Davis", title: "City Manager", emoji: "🗂️" },
+            reactions: {
+                correct: "City Manager Davis uncaps his pen and starts writing — not a rebuttal, but what looks like a cost breakdown of your funding model. When the city manager shifts from questioning your idea to running the numbers on it, you know the conversation has moved from 'should we' to 'how do we.' The council members watching him take notes are seeing a tacit endorsement.",
+                wrong: "City Manager Davis closes his binder with a quiet snap, the universal signal that he's heard enough. The council members who handle the parks budget are shaking their heads, and one mutters something about 'unfunded mandates.' You needed to show this program pays for itself, but instead you left a room full of fiscal pragmatists with more questions than answers."
+            },
             rebuttals: [
                 { id: 'p1', text: "The parks budget is mismanaged as it stands, and the council should conduct a full audit before claiming there is no room for a program that clearly benefits the community.", correct: false, feedback: "Too aggressive. Accusing the city manager of mismanagement without evidence is inflammatory and shifts the conversation away from your proposal entirely." },
                 { id: 'p2', text: "That is a reasonable concern, and perhaps the program should start very small with just one or two walls until the city can determine whether it is financially sustainable over time.", correct: false, feedback: "Too concessive. Scaling back to one or two walls before even launching undermines confidence in your proposal and lets budget concerns dictate the program's ambition." },
@@ -195,7 +225,12 @@ export const artsDebates = [
             { id: 'e6', text: "Art historians note that every major technological shift, from oil paints to the printing press to digital cameras, initially faced resistance before being accepted, suggesting that opposition to AI art is simply the latest cycle of irrational fear.", type: 'weak', feedback: "Logical Fallacy (Faulty Analogy / Dismissal). While the historical pattern is real, each technology raised unique ethical concerns that were resolved differently. Dismissing all current criticism as 'irrational fear' avoids addressing legitimate issues like consent, copyright, and artistic labor." }
         ],
         counterArgument: {
-            text: "Renowned painter Maria Chen argues: 'I spent 20 years mastering my craft. AI lets someone with no training type a sentence and produce something that competes with my life's work. Putting it in the same exhibition cheapens what real artists do.'",
+            text: "I spent 20 years mastering my craft. AI lets someone with no training type a sentence and produce something that competes with my life's work. Putting it in the same exhibition cheapens what real artists do.",
+            opponent: { name: "Maria Chen", title: "Professional Painter", emoji: "🎨" },
+            reactions: {
+                correct: "Maria Chen's tense shoulders relax slightly — for the first time in this hearing, someone acknowledged what she stands to lose instead of lecturing her about progress. The other artists in the gallery are nodding, and two commissioners are writing down the phrase 'separate category.' You turned her from an adversary into an unintentional ally for your proposal.",
+                wrong: "Maria Chen's jaw tightens and several artists in the gallery shift forward in their seats, ready to speak up on her behalf. The commissioners who invited her as an expert witness are watching you with visible disapproval. You just turned a room full of people who create things for a living against you, and in an arts commission hearing, that's nearly everyone who matters."
+            },
             rebuttals: [
                 { id: 'r1', text: "Your mastery is exactly why a separate category matters. Human-created art would be judged on skill, technique, and personal expression, while AI art is evaluated by entirely different criteria in its own space.", correct: true, feedback: "Respectful and effective. You honored her expertise while showing how your proposal specifically protects artists like her." },
                 { id: 'r2', text: "The art world has always evolved alongside new tools, and artists who resist technological change risk becoming irrelevant to the broader cultural conversation about creativity's future.", correct: false, feedback: "Dismissive and insulting to a lifelong professional. Implying she will become irrelevant alienates every traditional artist on the commission." },
@@ -203,7 +238,12 @@ export const artsDebates = [
             ]
         },
         pushback: {
-            text: "Commissioner Park raises a concern: 'Even with a separate category, how do we verify what is AI-generated? Artists could secretly use AI and enter the traditional category. Enforcement seems nearly impossible.'",
+            text: "Even with a separate category, how do we verify what is AI-generated? Artists could secretly use AI and enter the traditional category. Enforcement seems nearly impossible.",
+            opponent: { name: "Commissioner Park", title: "Arts Commission Chair", emoji: "🖼️" },
+            reactions: {
+                correct: "Commissioner Park leans back and steeples his fingers — the posture of someone whose hardest question just received a satisfying answer. The commission's legal advisor is already pulling up documentation requirements on her laptop. By offering a layered verification system instead of a single silver bullet, you showed the kind of practical thinking that makes policy actually work.",
+                wrong: "Commissioner Park exchanges a skeptical look with the commission's legal advisor, and she shakes her head slightly. The artists in the room who were warming to your separate-category idea now look worried that it can't actually be enforced. You had the commission leaning your way, but this unanswered enforcement gap just gave every skeptic in the room a reason to vote no."
+            },
             rebuttals: [
                 { id: 'p1', text: "Anyone caught misrepresenting their work should face permanent disqualification and public disclosure, which would create enough deterrence to prevent most artists from even considering fraud.", correct: false, feedback: "Too aggressive. Leading with harsh punishment without addressing detection methods does not solve the verification problem the commissioner raised." },
                 { id: 'p2', text: "That is a valid concern, and since detection technology is still developing, perhaps we should delay creating the separate category until reliable verification tools are widely available and tested.", correct: false, feedback: "Too concessive. Delaying the entire proposal indefinitely because enforcement is imperfect surrenders your position and lets the perfect become the enemy of the good." },

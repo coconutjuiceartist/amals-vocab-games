@@ -5,6 +5,7 @@ import { debateCategories } from '../../data/debates/index';
 // How many total debates must be won to unlock the next locked category
 const UNLOCK_THRESHOLD = 2;
 const MAX_STAGE_SCORE = 5;
+const REACTION_DISPLAY_MS = 3500;
 
 const RATING_THRESHOLDS = [
     { min: 25, label: 'Flawless Victory', color: '#fbbf24' },
@@ -38,6 +39,7 @@ export default function DebateSimulator() {
     const [speechBlanks, setSpeechBlanks] = useState({});
     const [feedback, setFeedback] = useState('');
     const [mistakes, setMistakes] = useState({ claim: 0, evidence: 0, counter: 0, pushback: 0, speech: 0 });
+    const [opponentReaction, setOpponentReaction] = useState(null);
 
     // Load from localStorage
     useEffect(() => {
@@ -116,6 +118,7 @@ export default function DebateSimulator() {
         setSpeechBlanks({});
         setFeedback('');
         setMistakes({ claim: 0, evidence: 0, counter: 0, pushback: 0, speech: 0 });
+        setOpponentReaction(null);
         setShuffledEvidence(shuffleEvidence(scenario));
         const speechOpts = {};
         scenario.speechTemplate.blanks.forEach(blank => {
@@ -134,6 +137,7 @@ export default function DebateSimulator() {
 
     const goBack = () => {
         setFeedback('');
+        setOpponentReaction(null);
         const currentIndex = debateStages.indexOf(stage);
         if (currentIndex > 0) {
             const prevStage = debateStages[currentIndex - 1];
@@ -202,31 +206,61 @@ export default function DebateSimulator() {
 
     const verifyRebuttal = (rId) => {
         const rebuttal = currentScenario.counterArgument.rebuttals.find(r => r.id === rId);
+        const reactions = currentScenario.counterArgument.reactions;
         if (rebuttal.correct) {
             setSelectedRebuttal(rId);
-            setFeedback('Brilliant Rebuttal! You systematically neutralized their counter-argument.');
-            setTimeout(() => {
-                setFeedback('');
-                setStage('pushback');
-            }, 2500);
+            if (reactions) {
+                setOpponentReaction({ text: reactions.correct, isCorrect: true });
+                setTimeout(() => {
+                    setOpponentReaction(null);
+                    setFeedback('Brilliant Rebuttal! You systematically neutralized their counter-argument.');
+                    setTimeout(() => { setFeedback(''); setStage('pushback'); }, 2500);
+                }, REACTION_DISPLAY_MS);
+            } else {
+                setFeedback('Brilliant Rebuttal! You systematically neutralized their counter-argument.');
+                setTimeout(() => { setFeedback(''); setStage('pushback'); }, 2500);
+            }
         } else {
             setMistakes(prev => ({ ...prev, counter: prev.counter + 1 }));
-            setFeedback(`❌ ${rebuttal.feedback}`);
+            if (reactions && mistakes.counter === 0) {
+                setOpponentReaction({ text: reactions.wrong, isCorrect: false });
+                setTimeout(() => {
+                    setOpponentReaction(null);
+                    setFeedback(`❌ ${rebuttal.feedback}`);
+                }, REACTION_DISPLAY_MS - 500);
+            } else {
+                setFeedback(`❌ ${rebuttal.feedback}`);
+            }
         }
     };
 
     const verifyPushback = (pId) => {
         const rebuttal = currentScenario.pushback.rebuttals.find(p => p.id === pId);
+        const reactions = currentScenario.pushback.reactions;
         if (rebuttal.correct) {
             setSelectedPushback(pId);
-            setFeedback('Perfect pivot! You handled the unexpected pressure like a true diplomat.');
-            setTimeout(() => {
-                setFeedback('');
-                setStage('speech');
-            }, 2500);
+            if (reactions) {
+                setOpponentReaction({ text: reactions.correct, isCorrect: true });
+                setTimeout(() => {
+                    setOpponentReaction(null);
+                    setFeedback('Perfect pivot! You handled the unexpected pressure like a true diplomat.');
+                    setTimeout(() => { setFeedback(''); setStage('speech'); }, 2500);
+                }, REACTION_DISPLAY_MS);
+            } else {
+                setFeedback('Perfect pivot! You handled the unexpected pressure like a true diplomat.');
+                setTimeout(() => { setFeedback(''); setStage('speech'); }, 2500);
+            }
         } else {
             setMistakes(prev => ({ ...prev, pushback: prev.pushback + 1 }));
-            setFeedback(`❌ ${rebuttal.feedback}`);
+            if (reactions && mistakes.pushback === 0) {
+                setOpponentReaction({ text: reactions.wrong, isCorrect: false });
+                setTimeout(() => {
+                    setOpponentReaction(null);
+                    setFeedback(`❌ ${rebuttal.feedback}`);
+                }, REACTION_DISPLAY_MS - 500);
+            } else {
+                setFeedback(`❌ ${rebuttal.feedback}`);
+            }
         }
     };
 
@@ -572,9 +606,39 @@ export default function DebateSimulator() {
             {stage === 'counter' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Step 3: The Counter-Argument</h2>
-                    <div style={{ background: 'rgba(239, 68, 68, 0.1)', borderLeft: '4px solid #ef4444', padding: '1.5rem', marginBottom: '2rem', fontSize: '1.25rem', fontStyle: 'italic' }}>
-                        "{currentScenario.counterArgument.text}"
+
+                    {currentScenario.counterArgument.opponent && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.5rem', background: 'rgba(0,0,0,0.4)', borderRadius: '1rem', border: '2px solid #ef4444', marginBottom: '1.5rem' }}>
+                            <div style={{ fontSize: '2.5rem', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.3)', borderRadius: '50%', flexShrink: 0 }}>
+                                {currentScenario.counterArgument.opponent.emoji}
+                            </div>
+                            <div>
+                                <div style={{ fontWeight: 'bold', fontSize: '1.15rem', color: 'white' }}>{currentScenario.counterArgument.opponent.name}</div>
+                                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{currentScenario.counterArgument.opponent.title}</div>
+                            </div>
+                        </div>
+                    )}
+
+                    <div style={{ background: 'rgba(239, 68, 68, 0.1)', borderLeft: '4px solid #ef4444', padding: '1.5rem', marginBottom: '1.5rem', fontSize: '1.25rem', borderRadius: '0 1rem 1rem 0' }}>
+                        <span style={{ fontStyle: 'italic' }}>"{currentScenario.counterArgument.text}"</span>
                     </div>
+
+                    {opponentReaction && (
+                        <div style={{
+                            padding: '1.25rem 1.5rem',
+                            background: opponentReaction.isCorrect ? 'rgba(16, 185, 129, 0.08)' : 'rgba(239, 68, 68, 0.08)',
+                            borderLeft: `4px solid ${opponentReaction.isCorrect ? '#10b981' : '#ef4444'}`,
+                            borderRadius: '0 0.75rem 0.75rem 0',
+                            marginBottom: '1.5rem',
+                            fontSize: '1.05rem',
+                            lineHeight: 1.7,
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            fontStyle: 'italic',
+                            animation: 'fadeInUp 0.4s ease-out',
+                        }}>
+                            {opponentReaction.text}
+                        </div>
+                    )}
 
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>How do you respond without using an angry Logical Fallacy?</p>
 
@@ -583,6 +647,7 @@ export default function DebateSimulator() {
                             <button
                                 key={option.id}
                                 onClick={() => verifyRebuttal(option.id)}
+                                disabled={!!opponentReaction}
                                 style={{
                                     padding: '1.5rem',
                                     background: 'rgba(0,0,0,0.2)',
@@ -591,11 +656,12 @@ export default function DebateSimulator() {
                                     color: 'white',
                                     fontSize: '1.1rem',
                                     textAlign: 'left',
-                                    cursor: 'pointer',
+                                    cursor: opponentReaction ? 'default' : 'pointer',
+                                    opacity: opponentReaction ? 0.5 : 1,
                                     transition: 'all 0.2s ease'
                                 }}
-                                onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--secondary)'}
-                                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
+                                onMouseEnter={e => { if (!opponentReaction) e.currentTarget.style.borderColor = 'var(--secondary)'; }}
+                                onMouseLeave={e => { if (!opponentReaction) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
                             >
                                 {option.text}
                             </button>
@@ -608,17 +674,47 @@ export default function DebateSimulator() {
             {stage === 'pushback' && currentScenario && (
                 <div className="glass-panel" style={{ padding: '2rem', border: '2px solid #eab308' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#eab308' }}>Step 4: Council Pushback!</h2>
-                    <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>Unexpected pressure from the gallery. Think on your feet!</p>
+                    <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Unexpected pressure from the gallery. Think on your feet!</p>
 
-                    <div style={{ background: 'rgba(234, 179, 8, 0.1)', borderLeft: '4px solid #eab308', padding: '1.5rem', marginBottom: '2rem', fontSize: '1.25rem', fontStyle: 'italic' }}>
-                        "{currentScenario.pushback.text}"
+                    {currentScenario.pushback.opponent && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.5rem', background: 'rgba(0,0,0,0.4)', borderRadius: '1rem', border: '2px solid #eab308', marginBottom: '1.5rem' }}>
+                            <div style={{ fontSize: '2.5rem', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.3)', borderRadius: '50%', flexShrink: 0 }}>
+                                {currentScenario.pushback.opponent.emoji}
+                            </div>
+                            <div>
+                                <div style={{ fontWeight: 'bold', fontSize: '1.15rem', color: 'white' }}>{currentScenario.pushback.opponent.name}</div>
+                                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{currentScenario.pushback.opponent.title}</div>
+                            </div>
+                        </div>
+                    )}
+
+                    <div style={{ background: 'rgba(234, 179, 8, 0.1)', borderLeft: '4px solid #eab308', padding: '1.5rem', marginBottom: '1.5rem', fontSize: '1.25rem', borderRadius: '0 1rem 1rem 0' }}>
+                        <span style={{ fontStyle: 'italic' }}>"{currentScenario.pushback.text}"</span>
                     </div>
+
+                    {opponentReaction && (
+                        <div style={{
+                            padding: '1.25rem 1.5rem',
+                            background: opponentReaction.isCorrect ? 'rgba(16, 185, 129, 0.08)' : 'rgba(234, 179, 8, 0.08)',
+                            borderLeft: `4px solid ${opponentReaction.isCorrect ? '#10b981' : '#eab308'}`,
+                            borderRadius: '0 0.75rem 0.75rem 0',
+                            marginBottom: '1.5rem',
+                            fontSize: '1.05rem',
+                            lineHeight: 1.7,
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            fontStyle: 'italic',
+                            animation: 'fadeInUp 0.4s ease-out',
+                        }}>
+                            {opponentReaction.text}
+                        </div>
+                    )}
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {currentScenario.pushback.rebuttals.map(option => (
                             <button
                                 key={option.id}
                                 onClick={() => verifyPushback(option.id)}
+                                disabled={!!opponentReaction}
                                 style={{
                                     padding: '1.5rem',
                                     background: 'rgba(0,0,0,0.2)',
@@ -627,11 +723,12 @@ export default function DebateSimulator() {
                                     color: 'white',
                                     fontSize: '1.1rem',
                                     textAlign: 'left',
-                                    cursor: 'pointer',
+                                    cursor: opponentReaction ? 'default' : 'pointer',
+                                    opacity: opponentReaction ? 0.5 : 1,
                                     transition: 'all 0.2s ease'
                                 }}
-                                onMouseEnter={e => e.currentTarget.style.borderColor = '#eab308'}
-                                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
+                                onMouseEnter={e => { if (!opponentReaction) e.currentTarget.style.borderColor = '#eab308'; }}
+                                onMouseLeave={e => { if (!opponentReaction) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; }}
                             >
                                 {option.text}
                             </button>

@@ -18,7 +18,12 @@ export const historyDebates = [
             { id: 'e6', text: "If we do not rebuild the Library of Alexandria now, future generations will lose irreplaceable knowledge forever, just as humanity lost countless texts when the original burned.", type: 'weak', feedback: "Logical Fallacy (False Dilemma / Appeal to Fear). This implies that not building this specific library means knowledge will be lost, ignoring the many other institutions, digital archives, and universities already preserving knowledge worldwide." }
         ],
         counterArgument: {
-            text: "Ambassador Chen objects: 'Why should we pour billions into a single building in one country when the internet already connects all the world's knowledge? This is a romantic fantasy, not practical policy.'",
+            opponent: { name: "Ambassador Chen", title: "Cultural Affairs Delegate", emoji: "🏛️" },
+            reactions: {
+                correct: "Chen's composure cracks — she sets down her prepared notes and stares at you, recalculating. She built her case on the assumption that digital access made physical institutions obsolete, and you just proved the internet has a fatal weakness she cannot patch with a software update. Several delegates in the back row lean forward, whispering.",
+                wrong: "Chen allows herself a thin smile, straightening in her seat. Your response played right into her framing — you treated the internet as the real solution and the library as secondary, which is exactly the concession she needed to argue the project is redundant. The budget hawks on the council exchange satisfied glances."
+            },
+            text: "Why should we pour billions into a single building in one country when the internet already connects all the world's knowledge? This is a romantic fantasy, not practical policy.",
             rebuttals: [
                 { id: 'r1', text: "The internet is decentralized and fragile — websites disappear, servers crash, and formats become obsolete. A physical institution with dedicated archivists ensures long-term preservation no algorithm can guarantee.", correct: true, feedback: "Strong rebuttal. You acknowledged the internet's value while exposing a genuine weakness, then offered the library as a complementary solution." },
                 { id: 'r2', text: "The internet hosts vast amounts of misinformation alongside legitimate research. Without expert curation, digital knowledge degrades in reliability over time, which is why we need institutional oversight.", correct: false, feedback: "While misinformation is a real concern, this overstates the problem and fails to explain why a single physical library solves what better search algorithms and digital curation could address more efficiently." },
@@ -26,7 +31,12 @@ export const historyDebates = [
             ]
         },
         pushback: {
-            text: "Dr. Okafor, the council's budget director, raises a concern: 'We are already struggling to fund existing UNESCO World Heritage sites. Where exactly will the estimated $4 billion for this project come from?'",
+            opponent: { name: "Dr. Okafor", title: "Council Budget Director", emoji: "📊" },
+            reactions: {
+                correct: "Okafor pulls off his reading glasses and sets them on the table — the first time he has broken his meticulous note-taking posture all session. Your funding model accounted for the exact GDP-scaling objection he was preparing to raise next, and he knows it. Two delegates from the finance subcommittee nod slowly, flipping to fresh pages in their notebooks.",
+                wrong: "Okafor leans back and crosses his arms, his pen tapping a steady rhythm on his budget folder. You answered with passion but no numbers — which is precisely the opening he needed to paint the project as idealistic and financially reckless. The finance subcommittee members exchange a look that says they have heard enough."
+            },
+            text: "We are already struggling to fund existing UNESCO World Heritage sites. Where exactly will the estimated $4 billion for this project come from?",
             rebuttals: [
                 { id: 'p1', text: "Budget concerns should not dictate whether we pursue something this important. Every great project in history faced financial skepticism before finding the resources it needed.", correct: false, feedback: "Too aggressive. Dismissing budget concerns as unimportant alienates the budget director and fails to answer the specific question about where funding will come from." },
                 { id: 'p2', text: "You raise a valid concern, and honestly four billion may be more than the world can commit right now. Perhaps we should start with a smaller pilot project and scale up only if funding allows.", correct: false, feedback: "Too concessive. Scaling down to a pilot project abandons the ambition of the proposal and signals that you lack confidence in your own plan." },
@@ -77,7 +87,12 @@ export const historyDebates = [
             { id: 'e6', text: "Since the Silk Road has existed for centuries and trade has always flowed despite obstacles, it is inevitable that open trade will prevail, so we should simply formalize what nature intends.", type: 'weak', feedback: "Logical Fallacy (Appeal to Nature / Inevitability). Trade existing informally does not mean open trade agreements are 'natural' or 'inevitable.' Many trade routes have been shut down by wars and political decisions throughout history." }
         ],
         counterArgument: {
-            text: "Governor Rustam of Persia protests: 'If we open our borders to cheap foreign goods, our own craftsmen will be ruined! Persian silk weavers cannot compete with Chinese prices. You are asking us to sacrifice our people's livelihoods!'",
+            opponent: { name: "Governor Rustam", title: "Provincial Governor of Persia", emoji: "🐪" },
+            reactions: {
+                correct: "Rustam's fist, which had been clenched around the arm of his chair, slowly unclenches. He expected you to dismiss his weavers as an acceptable cost of progress — instead, you showed you had already built protections into the charter for exactly the people he swore to defend. The Persian delegation behind him exchanges uncertain glances, their rehearsed objections suddenly obsolete.",
+                wrong: "Rustam rises from his seat, emboldened, his voice carrying across the chamber. Your response offered his craftsmen nothing concrete — no timeline, no protection, no transition plan — and every governor in the room with vulnerable industries just saw their own fears confirmed. The murmur from the Samarkand and Damascus delegations tells you the opposition is growing."
+            },
+            text: "If we open our borders to cheap foreign goods, our own craftsmen will be ruined! Persian silk weavers cannot compete with Chinese prices. You are asking us to sacrifice our people's livelihoods!",
             rebuttals: [
                 { id: 'r1', text: "The charter includes transitional support — nations can maintain modest protective tariffs on vulnerable industries for five years while retraining artisans in specialized luxury crafts that command premium prices.", correct: true, feedback: "Excellent. You directly addressed his concern by showing the policy already accounts for vulnerable workers, and you offered a concrete transition plan." },
                 { id: 'r2', text: "Markets naturally reward the best products. If Persian weavers focus on the quality that made them famous, they will find buyers willing to pay for superior craftsmanship over cheap imports.", correct: false, feedback: "This sounds reasonable but ignores that market transitions can devastate workers before they adapt. It fails to offer any concrete protection during the adjustment period." },
@@ -85,7 +100,12 @@ export const historyDebates = [
             ]
         },
         pushback: {
-            text: "Caravan Master Li Wei raises a practical concern: 'Open trade sounds wonderful in a council chamber, but who will protect merchants from bandits in the lawless stretches between our nations? Words on parchment do not stop swords.'",
+            opponent: { name: "Caravan Master Li Wei", title: "Senior Trade Merchant", emoji: "🧭" },
+            reactions: {
+                correct: "Li Wei strokes his beard, then slowly nods — the nod of a man who has spent thirty years on the road and knows a workable plan when he hears one. Your garrison proposal answered the question every merchant in this room was silently asking, and the joint-funding model means no single nation bears the burden alone. Several trade delegates begin murmuring approvingly, already calculating costs.",
+                wrong: "Li Wei folds his arms and turns to face the other merchants in the gallery, his expression saying everything his words do not. You offered optimism where he needed logistics — promises of future prosperity do not protect a caravan crossing the Taklamakan Desert tonight. The merchant delegates shift in their seats, and you can feel their support slipping."
+            },
+            text: "Open trade sounds wonderful in a council chamber, but who will protect merchants from bandits in the lawless stretches between our nations? Words on parchment do not stop swords.",
             rebuttals: [
                 { id: 'p1', text: "Banditry is a minor nuisance that organized trade will naturally reduce. Once prosperity spreads along the routes, people will have no reason to turn to theft or violence.", correct: false, feedback: "Too aggressive. Dismissing banditry as 'minor' ignores the real danger merchants face and offers no concrete security plan, just optimistic assumptions." },
                 { id: 'p2', text: "You make an excellent point, and honestly security may be beyond what this charter can address. Perhaps we should delay the agreement until each nation can independently secure its own territory.", correct: false, feedback: "Too concessive. Delaying the entire agreement over one implementation detail abandons your proposal and hands opponents an easy reason to reject it." },
@@ -136,7 +156,12 @@ export const historyDebates = [
             { id: 'e6', text: "If the United States does not land on the Moon before 1970, the Soviet Union will almost certainly establish a permanent military base there, giving them the ability to threaten American cities from space.", type: 'weak', feedback: "Logical Fallacy (Slippery Slope / Appeal to Fear). There is no evidence the Soviets plan a military Moon base, and the technology to threaten cities from the Moon does not exist. This exaggeration undermines your credibility with a knowledgeable committee." }
         ],
         counterArgument: {
-            text: "Senator Harrison stands: 'While you talk about the Moon, 22% of American children live in poverty. One in three rural communities lacks a hospital. How can we justify rockets to space when Americans are suffering right here at home?'",
+            opponent: { name: "Senator Harrison", title: "Defense Committee Member", emoji: "🚀" },
+            reactions: {
+                correct: "Harrison's jaw tightens. He built his entire argument on the premise that space funding and domestic welfare are competing priorities — and you just dismantled that framing with budget numbers he cannot dispute. A staffer behind him slides forward a note, but Harrison waves it away, knowing the damage is done. Committee members on the fence are writing down your figures.",
+                wrong: "Harrison leans into his microphone with renewed confidence, his reading glasses catching the light. Your response acknowledged the trade-off between space and poverty without proving it false, which is exactly the concession he needed to push for reallocation. Two committee members who were undecided now turn their notepads toward Harrison's aide, asking for his budget proposal."
+            },
+            text: "While you talk about the Moon, 22% of American children live in poverty. One in three rural communities lacks a hospital. How can we justify rockets to space when Americans are suffering right here at home?",
             rebuttals: [
                 { id: 'r1', text: "NASA's budget is under four percent of federal spending, while social programs receive over thirty percent. Cutting space funding would barely affect social spending while destroying irreplaceable scientific progress.", correct: true, feedback: "Powerful rebuttal. You used specific numbers to show the false trade-off, then reframed the issue as a matter of proportion rather than competition." },
                 { id: 'r2', text: "Poverty is a serious concern, but redirecting space funds to social programs has never been proven effective. Targeted anti-poverty legislation, not budget transfers from NASA, is the appropriate policy response.", correct: false, feedback: "While this contains a reasonable point, it sidesteps the emotional weight of the Senator's argument and fails to show how space funding actually helps Americans who are struggling." },
@@ -144,7 +169,12 @@ export const historyDebates = [
             ]
         },
         pushback: {
-            text: "Committee Chair Wilson presses: 'Even if we accept the innovation argument, can you guarantee that these technologies could not be developed more cheaply through targeted research programs without the enormous cost of manned spaceflight?'",
+            opponent: { name: "Committee Chair Wilson", title: "Science Appropriations Chair", emoji: "📋" },
+            reactions: {
+                correct: "Wilson removes his glasses and polishes them — a stalling gesture the veteran committee watchers in the gallery recognize immediately. He asked for a guarantee and you gave him something better: a mechanism explaining why integrated programs produce breakthroughs that targeted labs cannot. The committee stenographer is typing faster than she has all morning.",
+                wrong: "Wilson makes a quiet note in the margin of his folder, his pen moving with the calm precision of a man who just got the answer he expected. You argued from passion rather than cost analysis, and the Chair — who controls the appropriations numbers — needed hard evidence that manned spaceflight is more efficient than cheaper alternatives. The committee accountant is already pulling comparison figures."
+            },
+            text: "Even if we accept the innovation argument, can you guarantee that these technologies could not be developed more cheaply through targeted research programs without the enormous cost of manned spaceflight?",
             rebuttals: [
                 { id: 'p1', text: "Targeted research programs lack the urgency and vision that spaceflight demands. No laboratory setting can replicate the pressure that drives engineers to achieve breakthroughs under extreme real-world constraints.", correct: false, feedback: "Too aggressive. This dismisses targeted research entirely without providing evidence, and it does not address the Chair's specific question about cost-effectiveness." },
                 { id: 'p2', text: "That is a fair challenge, and some technologies could indeed be developed through targeted programs. Perhaps a hybrid approach splitting funds between NASA and independent research labs would be more prudent.", correct: false, feedback: "Too concessive. Agreeing to split NASA's funding undermines your own position and suggests the space program is not worth its full cost." },
@@ -195,7 +225,12 @@ export const historyDebates = [
             { id: 'e6', text: "Studies show that countries with greater linguistic diversity tend to have richer cultural tourism industries, so preserving indigenous languages will boost the national economy.", type: 'weak', feedback: "Logical Fallacy (Correlation vs. Causation). Linguistic diversity and tourism revenue may both be caused by other factors, such as geographic diversity or historical preservation efforts. The link between language programs and economic growth is not established by this correlation." }
         ],
         counterArgument: {
-            text: "Board Member Thornton argues: 'In a globalized economy, students need English fluency and STEM skills to compete. Adding indigenous language requirements takes time away from subjects that will actually help these children get jobs and escape poverty.'",
+            opponent: { name: "Board Member Thornton", title: "Education Board Member", emoji: "📐" },
+            reactions: {
+                correct: "Thornton's pen stops mid-note. She came prepared to argue that language programs steal hours from math and science — and you just cited research showing bilingual education improves the exact cognitive skills she champions. Her lips press into a thin line as she flips through her binder, searching for a counter she does not have. Two board members who were nodding along with her now turn their attention back to you.",
+                wrong: "Thornton straightens her stack of papers with a satisfied tap against the table. Your rebuttal overreached — promising career advantages from languages with tiny speaker populations is exactly the kind of claim she can dismantle with a single labor market statistic. She is already underlining a passage in her notes, preparing her follow-up."
+            },
+            text: "In a globalized economy, students need English fluency and STEM skills to compete. Adding indigenous language requirements takes time away from subjects that will actually help these children get jobs and escape poverty.",
             rebuttals: [
                 { id: 'r1', text: "Research on bilingual education consistently shows that learning a second language enhances cognitive flexibility, problem-solving, and even STEM performance. These programs strengthen academic achievement rather than competing with it.", correct: true, feedback: "You directly countered the zero-sum framing with research evidence showing that language learning enhances, rather than undermines, the very skills Thornton values." },
                 { id: 'r2', text: "Economic competitiveness matters, but the job market increasingly values cultural competency and multilingualism. Indigenous language skills could become a unique professional advantage in fields like environmental science and anthropology.", correct: false, feedback: "While this reframes the issue creatively, it overpromises on the career value of endangered languages with very few speakers, which an opponent could easily challenge with labor market data." },
@@ -203,7 +238,12 @@ export const historyDebates = [
             ]
         },
         pushback: {
-            text: "Superintendent Reyes raises a practical concern: 'I support the goal, but where will we find enough qualified native-speaker instructors? Many of these languages have fewer than 100 fluent speakers remaining, and most of them are elders, not trained teachers.'",
+            opponent: { name: "Superintendent Reyes", title: "District Superintendent", emoji: "🏫" },
+            reactions: {
+                correct: "Reyes leans back in her chair, fingers interlaced, studying you with the expression of someone who just heard the answer she was secretly hoping for. The apprenticeship model solves the staffing problem she has wrestled with for years, and it does so without requiring her to choose between program quality and cultural authenticity. Several board members reach for their pens simultaneously, a sure sign they want the details on paper.",
+                wrong: "Reyes sighs quietly and closes her folder — not in defeat, but in disappointment. She wanted you to prove this program could work in practice, and instead you gave her urgency without logistics. A superintendent cannot staff classrooms with good intentions, and the board members who handle implementation budgets are already shaking their heads."
+            },
+            text: "I support the goal, but where will we find enough qualified native-speaker instructors? Many of these languages have fewer than 100 fluent speakers remaining, and most of them are elders, not trained teachers.",
             rebuttals: [
                 { id: 'p1', text: "The scarcity of speakers makes this even more urgent. We cannot let bureaucratic concerns about teacher certification stand in the way when these languages are on the verge of permanent extinction.", correct: false, feedback: "Too aggressive. Dismissing legitimate staffing concerns as 'bureaucratic' ignores the real implementation challenge and offers no plan to solve it." },
                 { id: 'p2', text: "You raise a serious concern, and perhaps for the most endangered languages we should focus only on documentation and recording rather than attempting full classroom instruction programs.", correct: false, feedback: "Too concessive. Retreating from classroom instruction to mere documentation abandons the core goal of creating living speakers and active language communities." },

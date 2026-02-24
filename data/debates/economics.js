@@ -18,7 +18,12 @@ export const economicsDebates = [
             { id: 'e6', text: "Throughout history, every society that failed to care for its poorest citizens eventually collapsed, so implementing UBI is necessary to prevent civilizational decline.", type: 'weak', feedback: "Logical Fallacy (Slippery Slope / False Cause). Civilizations collapse for complex reasons. Claiming that the absence of one specific policy leads to societal collapse is an enormous logical leap." }
         ],
         counterArgument: {
-            text: "Economist Dr. Hargrove objects: 'A universal basic income will destroy the incentive to work. If people receive money for doing nothing, productivity will plummet and the economy will shrink.'",
+            opponent: { name: "Dr. Hargrove", title: "Fiscal Policy Economist", emoji: "📉" },
+            text: "A universal basic income will destroy the incentive to work. If people receive money for doing nothing, productivity will plummet and the economy will shrink.",
+            reactions: {
+                correct: "Hargrove adjusts his glasses and flips through his papers — a stalling tactic the room recognizes. Your phased funding model just neutralized his strongest objection, and now he needs a new angle of attack. The committee members lean forward, sensing that the economic argument has shifted.",
+                wrong: "Hargrove leans back with a thin smile, letting your weak response hang in the air. Several committee members exchange glances — they expected stronger evidence from you, and Hargrove knows he can press this advantage. He straightens his notes, already preparing to widen the gap you just left in your argument."
+            },
             rebuttals: [
                 { id: 'r1', text: "Multiple pilot programs show the opposite: when basic needs are secured, people pursue education, start small businesses, and take productive risks they previously couldn't afford.", correct: true, feedback: "Excellent. You directly countered the assumption with real-world evidence showing that security enables productivity rather than discouraging it." },
                 { id: 'r2', text: "The concern about incentives is outdated thinking. Modern economies reward creativity and entrepreneurship, not just clocking hours at repetitive jobs that automation will eliminate anyway.", correct: false, feedback: "Dismissive without evidence. Calling the concern 'outdated' does not refute it, and ignoring the millions who work essential non-creative jobs weakens your credibility." },
@@ -26,7 +31,12 @@ export const economicsDebates = [
             ]
         },
         pushback: {
-            text: "Council Treasurer Ms. Okoro raises her hand: 'The annual cost would exceed $3 trillion. Where exactly does this money come from without crippling the national debt?'",
+            opponent: { name: "Ms. Okoro", title: "State Treasurer", emoji: "💵" },
+            text: "The annual cost would exceed $3 trillion. Where exactly does this money come from without crippling the national debt?",
+            reactions: {
+                correct: "Okoro raises both eyebrows and pulls a calculator toward her, running the numbers you just cited in real time. The room watches her nod slowly — your multi-pronged funding strategy held up to a treasurer's scrutiny, which is exactly the stress test the committee needed. Two members who looked skeptical earlier are now taking notes.",
+                wrong: "Okoro taps her pen on the table and glances at the committee chair, signaling that she finds your answer insufficient. Without concrete numbers, the fiscal hole in your proposal just became the loudest thing in the room. Several members shift uncomfortably, and you can feel the momentum slipping toward the budget hawks."
+            },
             rebuttals: [
                 { id: 'p1', text: "The cost concern is a distraction. Every year we spend trillions on military budgets and corporate bailouts without this level of scrutiny, so we can certainly fund UBI.", correct: false, feedback: "Deflecting to other spending does not answer the funding question. The committee needs a concrete plan, not a comparison to other programs." },
                 { id: 'p2', text: "UBI would replace many existing welfare programs, recovering roughly $700 billion. The remainder can be funded through a combination of a modest value-added tax and savings from reduced emergency services and incarceration costs.", correct: true, feedback: "Strong practical answer. You acknowledged the cost concern and presented a multi-pronged funding strategy with specific numbers." },
@@ -77,7 +87,12 @@ export const economicsDebates = [
             { id: 'e6', text: "Bangladesh removed children from garment factories after Western pressure, and those children then went to school, showing that trade pressure always leads to positive outcomes for children.", type: 'weak', feedback: "Logical Fallacy (Cherry-Picked Evidence / Incomplete Picture). Studies actually showed many displaced child workers in Bangladesh moved to more dangerous, unregulated industries like brick-breaking. Presenting only the positive outcome is misleading." }
         ],
         counterArgument: {
-            text: "Ambassador Osei argues: 'These bans are economic imperialism. In many developing nations, a child's income is the only thing keeping a family from starvation. You would punish the very children you claim to protect.'",
+            opponent: { name: "Ambassador Osei", title: "Trade Delegation Chair", emoji: "🌐" },
+            text: "These bans are economic imperialism. In many developing nations, a child's income is the only thing keeping a family from starvation. You would punish the very children you claim to protect.",
+            reactions: {
+                correct: "Ambassador Osei uncrosses his arms and leans forward, studying you with new respect — your transition fund proposal just closed the gap in his imperialism argument. The translators in the back pause their side conversations to listen, and two delegation members who were nodding along with Osei now look uncertain. You have reframed the debate from blame to partnership.",
+                wrong: "Osei stands slightly and gestures toward the developing-nation delegates behind him, turning your weak response into a rallying point. The room's sympathy shifts visibly toward his side — several committee members who represent developing nations are now whispering to each other. Your failure to address the poverty dilemma just made this feel like exactly the kind of imposition he warned about."
+            },
             rebuttals: [
                 { id: 'r1', text: "That is precisely why the ban must be paired with transition funds: a percentage of trade revenue redirected to build schools and provide family income support in affected communities.", correct: true, feedback: "Powerful. You acknowledged the legitimate concern and proposed a concrete support mechanism that addresses the root cause." },
                 { id: 'r2', text: "The Ambassador's argument is essentially a defense of child exploitation dressed up as compassion. No amount of economic reasoning can justify children working in hazardous mines.", correct: false, feedback: "Too aggressive. Accusing the Ambassador of defending exploitation will shut down dialogue and ignores the genuine poverty dilemma that families face in developing nations." },
@@ -85,7 +100,12 @@ export const economicsDebates = [
             ]
         },
         pushback: {
-            text: "Trade Analyst Mr. Chen warns: 'Import bans will raise consumer prices dramatically and could trigger trade wars that hurt our own economies. Is the committee prepared for those consequences?'",
+            opponent: { name: "Mr. Chen", title: "Senior Trade Analyst", emoji: "📈" },
+            text: "Import bans will raise consumer prices dramatically and could trigger trade wars that hurt our own economies. Is the committee prepared for those consequences?",
+            reactions: {
+                correct: "Chen pulls up a spreadsheet on his tablet, clearly cross-referencing your phased timeline against his own trade projections. His slight nod tells the room that your numbers are in the right ballpark — and for a data-driven analyst, that quiet acknowledgment carries enormous weight with the committee. The chair makes a note, signaling this point will survive into the final draft.",
+                wrong: "Chen clicks his pen and turns to the committee with a look that says 'I rest my case.' Your response left the economic consequences unaddressed, and the trade analysts in the room are already calculating how your proposal would raise prices on everyday goods. The practical credibility you built earlier is eroding fast, and Chen knows that fear of trade wars will do his arguing for him."
+            },
             rebuttals: [
                 { id: 'p1', text: "Any nation that retaliates against us for banning child-labor goods is openly defending exploitation, and we should name them publicly and escalate trade restrictions further.", correct: false, feedback: "Too aggressive. Threatening escalation and public shaming will alienate potential allies and make the policy appear more about confrontation than protecting children." },
                 { id: 'p2', text: "The bans can be implemented in phases, starting with the most hazardous industries, and paired with tariff adjustments that spread costs gradually. This gives markets time to adapt while sending an immediate signal.", correct: true, feedback: "Excellent pragmatism. A phased approach addresses the economic concern while maintaining the moral urgency of the policy." },
@@ -136,7 +156,12 @@ export const economicsDebates = [
             { id: 'e6', text: "Major corporations like Nestlé and Starbucks have launched their own ethical sourcing programs, demonstrating that the private sector already recognizes the value of fair practices without government mandates.", type: 'weak', feedback: "Logical Fallacy (Red Herring). This actually argues against your position. If corporations are already self-regulating, opponents could use this to claim mandatory certification is unnecessary." }
         ],
         counterArgument: {
-            text: "Trade Representative Ms. Wallace objects: 'Mandatory certification would create enormous bureaucratic costs. Small farmers who cannot afford the certification process would be locked out of export markets entirely.'",
+            opponent: { name: "Ms. Wallace", title: "Free Market Advocate", emoji: "🏪" },
+            text: "Mandatory certification would create enormous bureaucratic costs. Small farmers who cannot afford the certification process would be locked out of export markets entirely.",
+            reactions: {
+                correct: "Wallace sets down her briefing folder and tilts her head, recalculating — your importer-funded certification model just removed the cost burden from the farmers she was defending. The board members who champion free trade are exchanging looks, realizing that your proposal works with market forces rather than against them. Even Wallace's own aide scribbles a note, sensing the argument has shifted beneath her.",
+                wrong: "Wallace turns to the board with an open palm, as if presenting Exhibit A. Your failure to address the cost barrier just validated her core concern, and the small-nation delegates in the room are visibly worried about their farmers being shut out. She does not even need to respond — the silence after your answer is doing all her work for her."
+            },
             rebuttals: [
                 { id: 'r1', text: "The certification cost can be borne by importers, not producers. A fund financed by a small levy on imports would subsidize certification for smallholder cooperatives, ensuring no farmer is excluded.", correct: true, feedback: "Excellent. You directly addressed the cost barrier with a specific funding mechanism that protects the farmers the policy is designed to help." },
                 { id: 'r2', text: "The current system already locks out small farmers through exploitative pricing, so the real bureaucratic barrier is the unregulated market itself that keeps producers trapped in poverty.", correct: false, feedback: "This pivots away from the cost concern without addressing it. The opponent asked about certification costs specifically, and reframing the question looks evasive to the board." },
@@ -144,7 +169,12 @@ export const economicsDebates = [
             ]
         },
         pushback: {
-            text: "Board Member Mr. Tanaka cautions: 'Many producing nations view mandatory certification as a trade barrier in disguise, a way for wealthy nations to restrict imports under the cover of ethics. How do you respond to that accusation?'",
+            opponent: { name: "Mr. Tanaka", title: "International Trade Analyst", emoji: "⚖️" },
+            text: "Many producing nations view mandatory certification as a trade barrier in disguise, a way for wealthy nations to restrict imports under the cover of ethics. How do you respond to that accusation?",
+            reactions: {
+                correct: "Tanaka removes his reading glasses and sets them on the table — a signal the veteran board members recognize as genuine consideration. Your collaborative framework proposal just defused the protectionism accusation by putting producing nations at the drafting table, which is exactly the structural safeguard he was testing for. The chair nods and asks the stenographer to mark your response for the official record.",
+                wrong: "Tanaka exchanges a knowing glance with the delegates from producing nations, and the temperature in the room drops. Your response confirmed exactly what developing countries feared — a policy designed in wealthy capitals without their input. The board's fragile coalition between North and South just cracked, and Tanaka's measured silence says more than any rebuttal could."
+            },
             rebuttals: [
                 { id: 'p1', text: "Any nation that opposes ethical standards for its own farmers is revealing that it profits from exploitation, and this board should not accommodate that kind of resistance.", correct: false, feedback: "Too aggressive. Accusing sovereign nations of profiting from exploitation will destroy diplomatic goodwill and make cooperation impossible." },
                 { id: 'p2', text: "That concern is valid, which is why certification standards must be developed jointly with producing nations, not imposed unilaterally. A collaborative framework ensures the standards reflect local realities rather than serving as disguised protectionism.", correct: true, feedback: "Excellent diplomacy. You validated the concern and proposed inclusive governance that builds trust between trading partners." },
@@ -195,7 +225,12 @@ export const economicsDebates = [
             { id: 'e6', text: "Companies that care about their employees already offer flexible schedules voluntarily, so mandating a four-day week simply brings reluctant employers in line with what the best companies are already doing.", type: 'weak', feedback: "Logical Fallacy (Begging the Question). This assumes that voluntary flexibility is equivalent to a mandated four-day week, and that companies resisting the mandate are simply inferior. The argument is circular." }
         ],
         counterArgument: {
-            text: "Business Council Chair Mr. Dawson responds: 'Small businesses operate on razor-thin margins. Paying the same wages for fewer hours will force layoffs or drive companies into bankruptcy. This mandate would destroy the very jobs it claims to improve.'",
+            opponent: { name: "Mr. Dawson", title: "Chamber of Commerce President", emoji: "🏢" },
+            text: "Small businesses operate on razor-thin margins. Paying the same wages for fewer hours will force layoffs or drive companies into bankruptcy. This mandate would destroy the very jobs it claims to improve.",
+            reactions: {
+                correct: "Dawson loosens his tie slightly and glances at the business owners seated behind him — your evidence on productivity gains just undercut the bankruptcy argument he built his entire case around. The small business representatives who were nodding along with him moments ago are now whispering among themselves, recalculating. The council chair writes something down, and Dawson knows the room's center of gravity just moved.",
+                wrong: "Dawson squares his shoulders and looks directly at the small business owners in the gallery, letting your weak rebuttal speak for itself. Without hard evidence on productivity, your mandate sounds like exactly the kind of top-down policy that puts shops out of business. The council members from commercial districts are already shaking their heads, and Dawson has not even delivered his follow-up yet."
+            },
             rebuttals: [
                 { id: 'r1', text: "The evidence consistently shows that compressed schedules increase hourly productivity, meaning businesses produce the same output in fewer hours. Paired with a phased rollout and tax incentives for small businesses during transition, the policy protects both workers and employers.", correct: true, feedback: "Strong. You cited evidence, addressed the small business concern directly, and offered a concrete support mechanism." },
                 { id: 'r2', text: "Mr. Dawson is representing corporate interests, not workers. The business lobby has opposed every labor protection in history, from minimum wage to weekends, and they were wrong every single time.", correct: false, feedback: "Too aggressive. Attacking the Chair's motives rather than his argument is ad hominem and will alienate business representatives whose cooperation you need for implementation." },
@@ -203,7 +238,12 @@ export const economicsDebates = [
             ]
         },
         pushback: {
-            text: "Council Member Dr. Patel interjects: 'What about essential services like hospitals, emergency responders, and factories with continuous operations? You cannot simply shut down a hospital ward one day per week.'",
+            opponent: { name: "Dr. Patel", title: "Labor Economist", emoji: "📊" },
+            text: "What about essential services like hospitals, emergency responders, and factories with continuous operations? You cannot simply shut down a hospital ward one day per week.",
+            reactions: {
+                correct: "Dr. Patel pulls up her own research on shift scheduling and finds it aligns with what you just described — her eyebrows lift in genuine surprise. The council members representing healthcare unions sit up straighter, realizing that rotating schedules could actually reduce the burnout crisis they have been fighting for years. Patel clicks her pen closed and nods, a signal that your policy just passed her practicality test.",
+                wrong: "Patel pushes her data binder forward and looks at the council with visible concern — your answer left a gaping hole where the implementation plan should be. The emergency services representatives in the room shift uncomfortably, and you can almost hear them mentally crossing your proposal off the list. Without a workable plan for hospitals and first responders, the entire mandate looks like it was designed for office workers only."
+            },
             rebuttals: [
                 { id: 'p1', text: "If hospitals cannot adapt to modern labor standards, then perhaps the healthcare system itself needs to be completely restructured from the ground up before we even discuss work hours.", correct: false, feedback: "Too aggressive and off-topic. Proposing to restructure the entire healthcare system dodges the practical question and makes your policy seem impossible to implement." },
                 { id: 'p2', text: "Essential services would operate on rotating schedules rather than a fixed day off, ensuring continuous coverage while still guaranteeing each worker a 32-hour week. This is already how shift-based industries manage holidays and leave.", correct: true, feedback: "Practical and well-reasoned. You showed that the policy is adaptable to different industries using systems that already exist." },

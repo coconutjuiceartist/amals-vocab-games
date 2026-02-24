@@ -18,7 +18,12 @@ export const scienceDebates = [
             { id: 'e6', text: "A recent international poll found that 72% of young people support Mars colonization, demonstrating that the next generation is ready to embrace this mission.", type: 'weak', feedback: "Logical Fallacy (Appeal to Popularity). Public enthusiasm does not validate scientific or economic feasibility. Policy decisions of this magnitude require expert analysis, not opinion polls." }
         ],
         counterArgument: {
-            text: "Dr. Elena Vasquez, Head of Earth Sciences, argues: 'We cannot even solve climate change on our own planet! Pouring resources into terraforming a dead world while Earth burns is the height of irresponsibility.'",
+            opponent: { name: "Dr. Elena Vasquez", title: "Head of Earth Sciences", emoji: "\uD83C\uDF0D" },
+            text: "We cannot even solve climate change on our own planet! Pouring resources into terraforming a dead world while Earth burns is the height of irresponsibility.",
+            reactions: {
+                correct: "Vasquez's pen stops mid-note. Her entire framework assumed that Mars research would drain Earth science budgets — but your data showed the opposite. She glances at her colleagues, recalculating whether to pivot her argument or double down on a weakened position.",
+                wrong: "Vasquez leans back with a thin smile, letting the silence do the work. Several council members are already scribbling notes — and from the way they are nodding toward her side, your response gave her exactly the opening she needed to reinforce the 'Earth first' argument."
+            },
             rebuttals: [
                 { id: 'r1', text: "The technologies developed for terraforming, such as atmospheric carbon capture and closed-loop ecosystems, directly apply to solving climate change on Earth. This is not an either-or choice.", correct: true, feedback: "Outstanding. You turned her objection into a strength by showing the research benefits both planets simultaneously." },
                 { id: 'r2', text: "Dr. Vasquez presents a false dilemma. Global science budgets are large enough to fund both climate research and Mars initiatives simultaneously without meaningful trade-offs between the two programs.", correct: false, feedback: "This sounds reasonable but fails to address her core point about urgency and priority. Simply claiming budgets are large enough does not prove it or show how dual funding would work in practice." },
@@ -26,7 +31,12 @@ export const scienceDebates = [
             ]
         },
         pushback: {
-            text: "Ambassador Okafor raises a concern: 'Developing nations are struggling with poverty and food insecurity right now. How can we justify spending trillions on a planet no one can live on yet?'",
+            opponent: { name: "Ambassador Okafor", title: "Developing Nations Delegate", emoji: "\uD83E\uDD1D" },
+            text: "Developing nations are struggling with poverty and food insecurity right now. How can we justify spending trillions on a planet no one can live on yet?",
+            reactions: {
+                correct: "Okafor uncrosses his arms slowly, and the delegates behind him start whispering. Your answer connected Mars technology directly to food security and clean water — the exact issues his coalition cares about most. He is not won over yet, but his prepared follow-up question just became irrelevant.",
+                wrong: "Okafor exchanges a knowing look with the delegates seated behind him, and you can hear murmurs of agreement rippling through their section. Your response either dismissed their concerns or failed to connect Mars spending to anything his coalition values — and in diplomacy, that silence is a vote against you."
+            },
             rebuttals: [
                 { id: 'p1', text: "Ambassador Okafor's priorities are misguided. Every great civilization invested in exploration despite domestic challenges, and refusing to look beyond Earth guarantees long-term stagnation for everyone.", correct: false, feedback: "Too aggressive. Calling a diplomat's priorities 'misguided' is dismissive, and framing poverty as a minor domestic challenge alienates the council." },
                 { id: 'p2', text: "You raise a valid point, and perhaps we should scale back the Mars timeline significantly until every nation has achieved basic food security and poverty reduction targets first.", correct: false, feedback: "Too concessive. Indefinitely delaying the project undermines your entire argument. You need to show both goals can be pursued together, not surrender your position." },
@@ -77,7 +87,12 @@ export const scienceDebates = [
             { id: 'e6', text: "A consortium of 200 leading geneticists signed a letter supporting CRISPR research, which confirms that the scientific community has reached consensus on its safety.", type: 'weak', feedback: "Logical Fallacy (Appeal to Authority / Hasty Generalization). 200 geneticists, even prominent ones, do not represent the entire global scientific community. A signed letter is advocacy, not peer-reviewed evidence of safety." }
         ],
         counterArgument: {
-            text: "Professor Hiroshi Tanaka, bioethicist, argues: 'Once we allow editing for diseases, there is no clear line. Wealthy families will demand enhancements, intelligence boosts, and cosmetic changes. We will create a genetic class divide.'",
+            opponent: { name: "Professor Hiroshi Tanaka", title: "Bioethicist", emoji: "\uD83E\uDDEC" },
+            text: "Once we allow editing for diseases, there is no clear line. Wealthy families will demand enhancements, intelligence boosts, and cosmetic changes. We will create a genetic class divide.",
+            reactions: {
+                correct: "Tanaka removes his glasses and polishes them — a stalling gesture the board has seen before. Your rebuttal used the medical system's own regulatory history against his slippery slope argument, and he knows it. Two board members who were leaning his way are now reviewing your evidence packet instead.",
+                wrong: "Tanaka nods slowly, almost sympathetically, the way a professor acknowledges a student who tried but missed the point. The board chair makes a note, and you can tell from the furrowed brows around the table that your response actually strengthened his case about the dangers of unchecked ambition."
+            },
             rebuttals: [
                 { id: 'r1', text: "The line is clear: medical necessity. Regulatory boards already distinguish between therapeutic treatment and elective enhancement in every branch of medicine, from surgery to pharmaceuticals.", correct: true, feedback: "Powerful rebuttal. You demonstrated that a clear boundary already exists in medical practice, directly countering the 'slippery slope' fear." },
                 { id: 'r2', text: "Wealth already determines access to the best healthcare, private education, and nutrition. Adding genetic editing to that list would not fundamentally change an inequality that already exists in society.", correct: false, feedback: "Logical Fallacy (Two Wrongs Make a Right). Existing inequality does not justify creating a new, permanent form of biological inequality. This argument normalizes the problem rather than solving it." },
@@ -85,7 +100,12 @@ export const scienceDebates = [
             ]
         },
         pushback: {
-            text: "Dr. Amara Osei, patient advocate, raises a concern: 'Many disability communities feel that gene editing sends a message that their lives are less valuable. How do you address this?'",
+            opponent: { name: "Dr. Amara Osei", title: "Disability Rights Advocate", emoji: "\uD83E\uDE7A" },
+            text: "Many disability communities feel that gene editing sends a message that their lives are less valuable. How do you address this?",
+            reactions: {
+                correct: "Dr. Osei's expression shifts from guarded to thoughtful — she was braced for dismissal, not a cancer analogy that honored her community while defending the science. The board chair leans forward, visibly impressed. You just navigated the most emotionally charged moment of this debate without losing either compassion or your position.",
+                wrong: "Dr. Osei's jaw tightens, and the patient advocates in the gallery shift uncomfortably. Your response either steamrolled the dignity concern or surrendered your medical argument entirely — and the board members who work with disability communities are now writing notes that will not be in your favor."
+            },
             rebuttals: [
                 { id: 'p1', text: "The disability community's concerns, while understandable, cannot override the scientific imperative to eliminate preventable genetic suffering wherever our technology allows us to do so.", correct: false, feedback: "Too aggressive. Dismissing a community's lived experience as secondary to science is tone-deaf. The board includes patient advocates who will find this callous." },
                 { id: 'p2', text: "That is a deeply important perspective. Perhaps we should pause clinical applications of CRISPR entirely until disability communities feel fully comfortable with how the technology is framed.", correct: false, feedback: "Too concessive. An indefinite pause based on community sentiment abandons your position. You can respect the concern without halting medical progress." },
@@ -136,7 +156,12 @@ export const scienceDebates = [
             { id: 'e6', text: "Since marine biologists report feeling consistently underfunded and underappreciated compared to their colleagues in astrophysics, the funding gap is clearly damaging morale across the scientific community.", type: 'weak', feedback: "Logical Fallacy (Appeal to Emotion). Researchers' feelings about their funding, while understandable, are not evidence for policy change. Budget allocation should be based on scientific potential and public benefit, not professional satisfaction." }
         ],
         counterArgument: {
-            text: "Director Zhang Wei of the Space Division responds: 'Space exploration drives the most transformative innovations of our era, from GPS to satellite communications. Diverting funds to the ocean would slow technological progress for all of humanity.'",
+            opponent: { name: "Director Zhang Wei", title: "Space Agency Director", emoji: "\uD83D\uDD2D" },
+            text: "Space exploration drives the most transformative innovations of our era, from GPS to satellite communications. Diverting funds to the ocean would slow technological progress for all of humanity.",
+            reactions: {
+                correct: "Zhang Wei's confident posture stiffens as the committee members start nodding along with your ocean innovation examples. He came prepared to defend space as the sole engine of discovery — but you just put sonar, underwater robotics, and pressure-resistant materials on equal footing. His next move will have to acknowledge the ocean's contributions, which is already a concession.",
+                wrong: "Zhang Wei allows himself a slight smile and gestures to his prepared slides showing GPS satellites and Mars rover footage. Your response either attacked him personally or made a factual error the committee spotted immediately — and now his list of space achievements is doing his arguing for him."
+            },
             rebuttals: [
                 { id: 'r1', text: "Ocean research drives equally transformative innovation, from sonar technology to underwater robotics to pressure-resistant materials. Equal funding means more total innovation across both frontiers, not less.", correct: true, feedback: "Excellent. You matched his examples with equally compelling ocean-derived innovations and reframed the debate as additive, not zero-sum." },
                 { id: 'r2', text: "Space technology has largely plateaued in recent decades, with most major breakthroughs like GPS and satellites dating back to the twentieth century. The ocean offers fresher discovery potential now.", correct: false, feedback: "Factually incorrect and easily disproven. The James Webb Space Telescope and Mars rovers are recent, widely celebrated achievements. Making false claims destroys your credibility." },
@@ -144,7 +169,12 @@ export const scienceDebates = [
             ]
         },
         pushback: {
-            text: "Committee Treasurer Dr. Priya Sharma warns: 'The total science budget is fixed. Equal ocean funding means cutting space budgets by 40%. How do you prevent this from crippling active space missions?'",
+            opponent: { name: "Dr. Priya Sharma", title: "Committee Treasurer", emoji: "\uD83C\uDF0A" },
+            text: "The total science budget is fixed. Equal ocean funding means cutting space budgets by 40%. How do you prevent this from crippling active space missions?",
+            reactions: {
+                correct: "Dr. Sharma pulls out her calculator — a good sign, because it means she is running the numbers on your phased timeline instead of dismissing it outright. The committee members who manage joint Earth-observation programs are already whispering about which projects could qualify. You just turned a budget problem into a collaboration opportunity.",
+                wrong: "Dr. Sharma taps her pen against the budget spreadsheet in front of her, unmoved. The committee needed a concrete financial plan, and your response either accused space programs of waste or retreated from your own funding target — neither of which answers the forty-percent question she put on the table."
+            },
             rebuttals: [
                 { id: 'p1', text: "The space program has operated with inflated budgets for decades. A forty percent reduction would simply force them to eliminate wasteful spending and prioritize their most essential missions.", correct: false, feedback: "Too aggressive. Claiming waste without evidence is dismissive and alienates the space scientists whose cooperation you need for any rebalancing effort." },
                 { id: 'p2', text: "You are right that the math is difficult. Perhaps we should settle for a smaller increase to ocean funding this year and revisit the equal funding goal at a later date.", correct: false, feedback: "Too concessive. Abandoning your core position at the first sign of resistance undermines your credibility. You need a practical plan, not a retreat." },
@@ -195,7 +225,12 @@ export const scienceDebates = [
             { id: 'e6', text: "Major oil companies like BP and Shell have started investing in renewable energy divisions, signaling that even the fossil fuel industry acknowledges the inevitable shift away from carbon.", type: 'weak', feedback: "Logical Fallacy (Appeal to Authority / Misinterpreted Evidence). Oil companies investing small fractions of their budget in renewables is often a public relations strategy, not a genuine endorsement of full transition. Their actions do not validate your policy timeline." }
         ],
         counterArgument: {
-            text: "Energy Minister Petrov objects: 'Renewables are unreliable! The sun does not always shine and the wind does not always blow. You are asking nations to gamble their entire energy security on intermittent sources.'",
+            opponent: { name: "Energy Minister Petrov", title: "National Energy Minister", emoji: "\u26FD" },
+            text: "Renewables are unreliable! The sun does not always shine and the wind does not always blow. You are asking nations to gamble their entire energy security on intermittent sources.",
+            reactions: {
+                correct: "Petrov's hand, which was reaching for his next set of talking points, freezes. He was counting on the intermittency argument to be unanswerable — but you named three specific storage technologies that the council can verify independently. The energy analysts in the room are already pulling up battery storage data on their tablets.",
+                wrong: "Petrov leans into his microphone with renewed confidence, because your response deflected rather than answered his core technical question. The council members responsible for national grid stability are exchanging concerned glances — they needed to hear about storage solutions, and you gave them something else entirely."
+            },
             rebuttals: [
                 { id: 'r1', text: "Modern grid-scale battery storage, pumped hydro, and green hydrogen systems can store renewable energy for days or weeks. Intermittency is an engineering problem already being solved.", correct: true, feedback: "Excellent. You directly addressed the technical concern with specific, existing solutions rather than dismissing his worry." },
                 { id: 'r2', text: "Fossil fuels have their own reliability problems, including volatile oil prices, pipeline failures, and supply chain disruptions from geopolitical conflicts that threaten energy security just as much.", correct: false, feedback: "Logical Fallacy (Whataboutism / Tu Quoque). Pointing out flaws in fossil fuels does not answer the specific question about renewable intermittency. You must address his concern directly." },
@@ -203,7 +238,12 @@ export const scienceDebates = [
             ]
         },
         pushback: {
-            text: "Delegate Adeyemi from Nigeria states: 'My country just discovered massive natural gas reserves. You are asking us to leave billions of dollars in the ground while our people lack basic electricity. This timeline is unjust.'",
+            opponent: { name: "Delegate Adeyemi", title: "Developing Nations Delegate", emoji: "\uD83C\uDF31" },
+            text: "My country just discovered massive natural gas reserves. You are asking us to leave billions of dollars in the ground while our people lack basic electricity. This timeline is unjust.",
+            reactions: {
+                correct: "Adeyemi pauses, then slowly uncaps her pen to write something down — the first time she has taken notes on anyone else's proposal all session. The Green Development Fund idea landed precisely where it needed to: on the intersection of climate justice and economic opportunity. The developing nations bloc behind her is now discussing your plan instead of drafting objections.",
+                wrong: "Adeyemi's expression hardens, and the developing nations delegates behind her close their folders in unison — a coordinated signal that your response failed to address their economic reality. You either demanded equal sacrifice from unequal nations or gutted your own agreement with exemptions, and either way, you just lost the votes you needed most."
+            },
             rebuttals: [
                 { id: 'p1', text: "Every nation must make equal sacrifices for the planet regardless of their economic situation. Nigeria cannot receive special treatment just because the timeline is inconvenient for its development.", correct: false, feedback: "Too aggressive. Telling a developing nation to sacrifice economic development without offering alternatives is neither fair nor persuasive. This ignores historical inequity in emissions." },
                 { id: 'p2', text: "You make a compelling case. Perhaps nations with newly discovered fossil fuel reserves should be fully exempt from the 2040 deadline until they have achieved economic parity with developed nations.", correct: false, feedback: "Too concessive. A blanket exemption for any nation with fossil fuel reserves would gut the entire agreement. You need to offer support, not abandon the framework." },

@@ -18,7 +18,12 @@ export const healthDebates = [
             { id: 'e6', text: "Countries with higher sugar consumption consistently rank lower on global happiness indexes, suggesting that reducing sugar intake would improve overall national well-being.", type: 'weak', feedback: "Logical Fallacy (Correlation vs. Causation). Many factors affect both sugar consumption and happiness rankings, including poverty and healthcare access. You cannot conclude that sugar causes unhappiness from this correlation." }
         ],
         counterArgument: {
-            text: "Beverage industry representative Diana Torres argues: 'This tax unfairly punishes low-income families who rely on affordable drinks. It is a regressive tax that hurts the people you claim to protect!'",
+            opponent: { name: "Diana Torres", title: "Beverage Industry Lobbyist", emoji: "🥤" },
+            text: "This tax unfairly punishes low-income families who rely on affordable drinks. It is a regressive tax that hurts the people you claim to protect!",
+            reactions: {
+                correct: "Diana Torres uncaps a bottle of water and takes a slow sip, buying herself time — but you can see the board members nodding along with your point about reinvesting revenue. You turned her strongest weapon, the equity argument, into a reason your tax should pass, and she knows the room felt it.",
+                wrong: "Diana Torres leans into her microphone with a slight smile, sensing you didn't fully answer the equity question the board cares about most. Several board members glance at each other with raised eyebrows, and Torres is already jotting notes for her follow-up — you left the door wide open for her."
+            },
             rebuttals: [
                 { id: 'r1', text: "That is precisely why the tax revenue must be reinvested directly into free nutrition programs and subsidized healthy beverages in underserved communities, turning a regressive tax into a progressive health investment.", correct: true, feedback: "Strong rebuttal. You acknowledged the valid concern about equity and offered a concrete solution that redirects revenue to help those most affected." },
                 { id: 'r2', text: "The beverage industry has spent decades marketing sugary drinks to low-income communities, so their sudden concern for these families rings hollow and should not delay urgent public health reform.", correct: false, feedback: "While the industry's marketing history is real, this pivots to attacking motives rather than addressing the legitimate structural concern about regressive taxation that the board needs answered." },
@@ -26,7 +31,12 @@ export const healthDebates = [
             ]
         },
         pushback: {
-            text: "Board Member Dr. Patel raises a concern: 'Even if we pass this tax, companies will simply reformulate drinks with artificial sweeteners, which may carry their own health risks. Are we just trading one problem for another?'",
+            opponent: { name: "Dr. Patel", title: "Public Health Economist", emoji: "💊" },
+            text: "Even if we pass this tax, companies will simply reformulate drinks with artificial sweeteners, which may carry their own health risks. Are we just trading one problem for another?",
+            reactions: {
+                correct: "Dr. Patel pushes his glasses up and taps his pen against his notepad twice — his tell that he's genuinely reconsidering. By reframing reformulation as a feature rather than a bug, you showed the board you're thinking two moves ahead. The room shifts from skeptical to curious, and that's exactly where you want them.",
+                wrong: "Dr. Patel writes something in his notepad and underlines it twice, which means you just gave him ammunition instead of an answer. The board wanted to hear how you'd handle the sweetener loophole, and your response either dodged the question or overreached — either way, Dr. Patel's concern is now the loudest thing in the room."
+            },
             rebuttals: [
                 { id: 'p1', text: "The board should immediately expand this tax to cover all artificial sweeteners as well, since any chemical additive in beverages poses unacceptable risks to public health that we cannot ignore.", correct: false, feedback: "Too aggressive. Expanding the tax without evidence against sweeteners oversteps the current proposal's scope and makes you appear reactionary rather than measured." },
                 { id: 'p2', text: "I appreciate the concern, but reformulation is actually not a real risk here. Consumers strongly prefer the taste of real sugar, so companies are unlikely to switch formulas in any meaningful way.", correct: false, feedback: "Too concessive and factually wrong. Major beverage companies have already reformulated products in response to sugar taxes worldwide. Dismissing a documented trend undermines your credibility." },
@@ -77,7 +87,12 @@ export const healthDebates = [
             { id: 'e6', text: "Youth tackle football participation has declined by 20% over the past decade, indicating that parents are already voting with their feet and the commission should follow their lead.", type: 'weak', feedback: "Logical Fallacy (Appeal to Popularity / Bandwagon). A trend in participation does not constitute evidence for a policy mandate. Parents may be leaving for many reasons, including cost or scheduling, not just safety." }
         ],
         counterArgument: {
-            text: "Coach Marcus Williams protests: 'Tackle football teaches discipline, teamwork, and toughness. If kids don't learn proper tackling technique early, they will be MORE likely to get injured when they start in high school with no experience!'",
+            opponent: { name: "Coach Marcus Williams", title: "Athletic Director", emoji: "🏈" },
+            text: "Tackle football teaches discipline, teamwork, and toughness. If kids don't learn proper tackling technique early, they will be MORE likely to get injured when they start in high school with no experience!",
+            reactions: {
+                correct: "Coach Williams sets his playbook down and crosses his arms — but his silence tells the room more than any rebuttal could. You didn't attack football itself; you framed the age restriction as a way to protect the sport's future. That's harder to fight than an outright ban, and the commissioners know it.",
+                wrong: "Coach Williams straightens up in his chair and points at the commissioners, sensing his opening. You either dismissed what he cares about or gave away too much ground, and now the other coaches in the gallery are whispering — they smell blood in the water and Williams is ready to press his advantage."
+            },
             rebuttals: [
                 { id: 'r1', text: "Flag football develops the same teamwork and discipline, while proper tackling technique can be introduced at 14 when the brain and body are more developed to handle it safely, just as we teach driving at 16, not 10.", correct: true, feedback: "Excellent. You preserved the values the coach cares about while using a clear analogy to justify the age threshold." },
                 { id: 'r2', text: "The research clearly shows that early tackling causes brain damage, so continuing this practice just to build character is an irresponsible tradeoff that no responsible athletic program should accept.", correct: false, feedback: "This dismisses the coach's specific concern about injury risk from inexperience at 14. Calling the position irresponsible antagonizes a key stakeholder without addressing his technical point about skill readiness." },
@@ -85,7 +100,12 @@ export const healthDebates = [
             ]
         },
         pushback: {
-            text: "Commissioner Angela Rhodes interjects: 'Many rural and low-income communities depend on youth football programs for scholarships and opportunities. Banning tackle football could cut off a vital pathway out of poverty for these kids.'",
+            opponent: { name: "Commissioner Angela Rhodes", title: "Youth Sports Commissioner", emoji: "🏆" },
+            text: "Many rural and low-income communities depend on youth football programs for scholarships and opportunities. Banning tackle football could cut off a vital pathway out of poverty for these kids.",
+            reactions: {
+                correct: "Commissioner Rhodes uncrosses her arms and leans forward, reaching for her pen to take notes on your funding proposal. You didn't just protect kids' brains — you showed the commission that safety and opportunity can coexist, and Rhodes's shift in body language tells everyone in the room that your answer landed where it needed to.",
+                wrong: "Commissioner Rhodes shakes her head slowly and turns to face the other commissioners directly, as if to say 'See what I mean?' You either came across as dismissive of real families' struggles or caved on the very policy you're here to defend — and Rhodes just became the most sympathetic person in the room instead of you."
+            },
             rebuttals: [
                 { id: 'p1', text: "Any program that requires children to risk permanent brain damage for a chance at economic advancement is exploitative, and this commission has a duty to shut down that pipeline entirely.", correct: false, feedback: "Too aggressive. Calling community football programs exploitative alienates the commissioner and dismisses the real economic stakes families face without offering any alternative." },
                 { id: 'p2', text: "You make an important point about access. Honestly, if scholarship pathways require tackle football before fourteen, perhaps we should delay the ban until those systems can adjust on their own timeline.", correct: false, feedback: "Too concessive. Delaying the ban indefinitely while waiting for external systems to adjust abandons the children the policy is designed to protect and gives opponents a reason to stall forever." },
@@ -136,7 +156,12 @@ export const healthDebates = [
             { id: 'e6', text: "A viral social media campaign with over two million shares demanded that schools recognize mental health days, proving there is overwhelming grassroots support for this policy.", type: 'weak', feedback: "Logical Fallacy (Appeal to Popularity / Bandwagon). Social media engagement does not equal informed policy support. Viral campaigns are driven by algorithms and emotion, not by careful analysis of educational policy." }
         ],
         counterArgument: {
-            text: "Vice Principal Hartley objects: 'If we allow mental health days, students will abuse the system to skip tests and avoid homework. We will see attendance plummet and academic performance collapse.'",
+            opponent: { name: "Vice Principal Hartley", title: "Vice Principal", emoji: "📚" },
+            text: "If we allow mental health days, students will abuse the system to skip tests and avoid homework. We will see attendance plummet and academic performance collapse.",
+            reactions: {
+                correct: "Vice Principal Hartley pulls out a printed copy of your proposal and flips to the safeguards section, reading it more carefully this time. By pointing to the cap and the counselor check-in, you showed the committee that you already thought about the abuse problem before Hartley even raised it. That kind of preparation is hard to argue with, and the committee noticed.",
+                wrong: "Vice Principal Hartley taps the attendance spreadsheet in front of him and raises an eyebrow at the committee chair, as if to say 'I told you so.' Your answer either sidestepped the practical question about abuse or relied on evidence that wasn't strong enough to settle it — and now the committee is more worried about attendance than they were before you spoke."
+            },
             rebuttals: [
                 { id: 'r1', text: "That is exactly why the policy includes a three-per-semester cap and a required check-in with a school counselor. The structure prevents abuse while still giving students a genuine lifeline when they need it.", correct: true, feedback: "Strong. You directly addressed the concern with the built-in safeguards of your own proposal." },
                 { id: 'r2', text: "If students are skipping school to avoid tests, that pattern itself signals an anxiety disorder that our current system fails to catch, which is exactly why connecting absences to counseling services is essential.", correct: false, feedback: "While partially insightful, this reframes avoidance as a diagnosis rather than addressing the practical concern about attendance and academic performance that the committee needs answered." },
@@ -144,7 +169,12 @@ export const healthDebates = [
             ]
         },
         pushback: {
-            text: "Parent representative Mrs. Chen worries: 'How are parents supposed to verify a mental health day? With a physical illness, you can see symptoms. This puts parents in an impossible position of judging their child's invisible pain.'",
+            opponent: { name: "Mrs. Chen", title: "Parent Advisory Board", emoji: "👩‍👧" },
+            text: "How are parents supposed to verify a mental health day? With a physical illness, you can see symptoms. This puts parents in an impossible position of judging their child's invisible pain.",
+            reactions: {
+                correct: "Mrs. Chen visibly relaxes her shoulders and nods, picking up the pen she'd set down earlier to write something on her notepad. You didn't dismiss her fear of getting it wrong — you offered her a tool to get it right, and that turned a worried critic into someone who can picture herself using the policy. The other parents in the room are nodding too.",
+                wrong: "Mrs. Chen folds her arms and looks toward the other parents on the advisory board, her expression saying 'This doesn't help us.' You either blamed parents for not understanding mental health or added a barrier that would stop families from using the policy at all — and now the parents in the room feel less heard than before you answered."
+            },
             rebuttals: [
                 { id: 'p1', text: "Parents who cannot recognize when their own child is struggling emotionally are part of the problem. Schools should bypass parental verification entirely and let students self-certify their mental health needs.", correct: false, feedback: "Too aggressive. Blaming parents and removing them from the process alienates a key ally and raises serious concerns about accountability for minors." },
                 { id: 'p2', text: "That is a real challenge. Perhaps we should require a therapist's note for each mental health day to ensure proper verification, similar to how some districts handle extended physical illness absences.", correct: false, feedback: "Too concessive. Requiring a therapist's note creates a barrier that defeats the policy's purpose, since most students lack regular access to therapists, especially in underserved communities." },
@@ -195,7 +225,12 @@ export const healthDebates = [
             { id: 'e6', text: "A survey of 500 teenagers found that 85% could not identify basic vegetables like kale and rutabaga, revealing a shocking knowledge gap that only mandatory education can fix.", type: 'weak', feedback: "Logical Fallacy (Misleading Statistics / Cherry-Picked Data). Not recognizing uncommon vegetables like rutabaga does not indicate a meaningful nutritional knowledge gap. The survey appears designed to produce alarming results rather than measure genuine dietary literacy." }
         ],
         counterArgument: {
-            text: "Board Member Dr. Franklin objects: 'The curriculum is already stretched to the breaking point with math, science, reading, and test preparation. Adding another required subject means something else gets cut. Where does it fit?'",
+            opponent: { name: "Dr. Franklin", title: "School Health Director", emoji: "🍎" },
+            text: "The curriculum is already stretched to the breaking point with math, science, reading, and test preparation. Adding another required subject means something else gets cut. Where does it fit?",
+            reactions: {
+                correct: "Dr. Franklin pauses mid-objection and tilts her head, flipping through the science curriculum binder she brought to the meeting. You didn't ask her to make room — you showed her that the room already exists inside the subjects she oversees, and that reframe caught her off guard in the best possible way. Two board members are already whispering about how this could work in their districts.",
+                wrong: "Dr. Franklin closes her binder and shakes her head, glancing at the clock as if your answer just wasted the board's time. You either picked a fight with the existing curriculum or ranked nutrition above subjects the board has spent years building — and now Dr. Franklin looks like the reasonable one protecting teachers from yet another unfunded mandate."
+            },
             rebuttals: [
                 { id: 'r1', text: "Nutrition education can be integrated into existing science classes through units on biology, chemistry, and human health, requiring no additional class periods while enriching the current curriculum with practical applications.", correct: true, feedback: "Excellent. You solved the scheduling problem by embedding the content within existing subjects rather than demanding new slots." },
                 { id: 'r2', text: "Standardized test preparation currently consumes valuable class hours with diminishing returns. Reallocating even a fraction of that time toward nutrition would produce far greater long-term benefits for student outcomes.", correct: false, feedback: "Attacking test preparation antagonizes a board that oversees educational standards. Even with a measured tone, suggesting cuts to test prep challenges the board's core mandate." },
@@ -203,7 +238,12 @@ export const healthDebates = [
             ]
         },
         pushback: {
-            text: "Superintendent Garcia raises a concern: 'Many of our schools, especially in underfunded districts, lack kitchen facilities and trained staff. This mandate could widen the gap between wealthy and poor schools.'",
+            opponent: { name: "Superintendent Garcia", title: "District Superintendent", emoji: "📋" },
+            text: "Many of our schools, especially in underfunded districts, lack kitchen facilities and trained staff. This mandate could widen the gap between wealthy and poor schools.",
+            reactions: {
+                correct: "Superintendent Garcia leans back and exchanges a look with the board chair that says 'Okay, that actually addresses my problem.' By pairing the mandate with a grant program and community partnerships, you showed Garcia you understand what keeps superintendents up at night — equity, not ideology. The board members from underfunded districts are writing down your grant proposal idea right now.",
+                wrong: "Superintendent Garcia pulls a budget spreadsheet from his folder and holds it up for the board to see, his expression saying everything his words don't need to. You either demanded something his poorest schools can't afford or let the wealthiest schools off the hook — and now Garcia has turned your nutrition mandate into a story about inequality that the board can't ignore."
+            },
             rebuttals: [
                 { id: 'p1', text: "Schools that fail to provide basic life-skills education are already failing their students. The board should mandate full kitchen installations in every school within one year, regardless of current budget constraints.", correct: false, feedback: "Too aggressive. Demanding expensive infrastructure on an unrealistic timeline ignores the superintendent's legitimate concern about funding disparities and could bankrupt underfunded districts." },
                 { id: 'p2', text: "That is a fair point. Perhaps we should make the program optional for schools that lack facilities, so they can participate once funding becomes available at some point in the future.", correct: false, feedback: "Too concessive. Making the mandate optional for the schools that need it most creates the exact two-tier system the superintendent warned about and guts the policy's equity goals." },

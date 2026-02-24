@@ -18,7 +18,12 @@ export const harryPotterDebates = [
             { id: 'e6', text: "A recent survey showed that 68% of Muggles would welcome the existence of dragons, indicating broad public support for cooperation.", type: 'weak', feedback: "Logical Fallacy (Appeal to Popularity / Misleading Statistics). A hypothetical poll about fictional creatures cannot predict real reactions to actual dragons. Public opinion surveys are not a basis for security policy." }
         ],
         counterArgument: {
-            text: "Minister Fudge interjects: 'Muggles are fundamentally destructive! If we show them dragons, they will hunt them for sport or use them in their mundane wars. We must hide the beasts!'",
+            opponent: { name: "Minister Fudge", title: "Minister of Magic", emoji: "🎩" },
+            reactions: {
+                correct: "Fudge pauses, visibly recalculating. He hadn't expected you to have a concrete policy ready — his argument relied on the assumption that cooperation was just idealism, not a workable plan. He straightens his robes and glances at the council, measuring whether he's lost them.",
+                wrong: "A thin smile crosses Fudge's face. He didn't even need to respond — your own argument just did his work for him. Several council members exchange glances, and you can feel the room's confidence in your position wavering."
+            },
+            text: "Muggles are fundamentally destructive! If we show them dragons, they will hunt them for sport or use them in their mundane wars. We must hide the beasts!",
             rebuttals: [
                 { id: 'r1', text: "They will only hunt them if we leave them ignorant. Joint-run sanctuaries let us control the narrative and enforce protection laws together.", correct: true, feedback: "Excellent. You neutralized his fear with a concrete policy (joint sanctuaries)." },
                 { id: 'r2', text: "Wizards have hunted magical creatures for centuries as well. This argument unfairly singles out Muggles while ignoring our own destructive track record.", correct: false, feedback: "Logical Fallacy (Tu Quoque / Whataboutism). Pointing out wizard misdeeds does not address the Minister's concern about Muggle behavior toward dragons." },
@@ -26,7 +31,12 @@ export const harryPotterDebates = [
             ]
         },
         pushback: {
-            text: "A Wizengamot Elder slams their gavel: 'But the Statute of Secrecy is our most sacred law! You are asking us to tear up centuries of tradition for a mere experiment!'",
+            opponent: { name: "A Wizengamot Elder", title: "Senior Council Member", emoji: "⚖️" },
+            reactions: {
+                correct: "The Elder's gavel hand lowers slowly. By reframing the Statute's purpose rather than attacking it, you took away the one weapon they had — the moral authority of tradition. Several younger council members are nodding openly now, and the Elder knows that pressing further risks looking like an obstructionist rather than a guardian.",
+                wrong: "The Elder raps the gavel once, sharply, and the sound echoes through the chamber like a verdict. Your response either attacked the Statute too directly or gave too much ground, and either way, you've handed the traditionalists exactly what they needed — proof that reform advocates don't truly respect wizarding law."
+            },
+            text: "But the Statute of Secrecy is our most sacred law! You are asking us to tear up centuries of tradition for a mere experiment!",
             rebuttals: [
                 { id: 'p1', text: "Tradition that leads to our destruction is not worth preserving. The Statute was written for a different era and must be discarded entirely.", correct: false, feedback: "Too aggressive. Calling their most sacred law disposable alienates every traditionalist on the council." },
                 { id: 'p2', text: "You raise a fair point, and perhaps we should simply table this proposal until we have more time to study the issue further.", correct: false, feedback: "Too concessive. Agreeing to delay indefinitely kills your own proposal and surrenders all momentum you have built." },
@@ -77,7 +87,12 @@ export const harryPotterDebates = [
             { id: 'e6', text: "Several prominent wizarding families, including the Weasleys, have publicly supported Elf wages, showing that the wizarding community is ready for this change.", type: 'weak', feedback: "Logical Fallacy (Appeal to Authority / Popularity). A few families supporting a cause does not prove the community is 'ready.' You need structural arguments, not celebrity endorsements." }
         ],
         counterArgument: {
-            text: "A Traditionalist argues: 'But House-Elves take pride in serving! Offering them money is an insult to their very nature and deeply offends them!'",
+            opponent: { name: "A Traditionalist", title: "Pure-Blood Advocate", emoji: "🧐" },
+            reactions: {
+                correct: "The Traditionalist's composure cracks — a flicker of uncertainty crosses their face. Their entire argument hinged on the idea that servitude was natural, and by naming it as conditioning, you forced every council member to question that assumption. The chamber has gone quiet in the way it does when something uncomfortable and true has been said aloud.",
+                wrong: "The Traditionalist leans back with a satisfied air, fingers steepled. Your rebuttal failed to challenge the core premise — that Elves genuinely want to serve — and instead went after the messenger or danced around the edges. Two council members who were leaning your way now look uncertain, their quills pausing over their notes."
+            },
+            text: "But House-Elves take pride in serving! Offering them money is an insult to their very nature and deeply offends them!",
             rebuttals: [
                 { id: 'r1', text: "That perceived pride is the product of thousands of years of systemic conditioning. True nature can only be observed when genuine choice exists.", correct: true, feedback: "Strong rebuttal that addresses the root cause of the 'nature' argument." },
                 { id: 'r2', text: "The families making this argument are the same ones who benefit most from unpaid labor. Their defense of tradition is really a defense of profit.", correct: false, feedback: "Logical Fallacy (Ad Hominem). Questioning their motives does not actually address whether the Elves themselves feel pride in their work." },
@@ -85,7 +100,12 @@ export const harryPotterDebates = [
             ]
         },
         pushback: {
-            text: "The Head of Magical Economy argues: 'Mandating wages will bankrupt ancient wizarding families overnight! How do you propose we fund this?'",
+            opponent: { name: "Head of Magical Economy", title: "Treasury Official", emoji: "💰" },
+            reactions: {
+                correct: "The Treasury Official blinks, caught off guard by the specificity of your proposal. They came prepared to demolish vague idealism about Elf rights, not to debate a phased economic plan with a registry system. You can see them scanning their notes for a counter that isn't there, while several governors begin murmuring approvingly about the shared-labor concept.",
+                wrong: "The Treasury Official adjusts their spectacles with the calm precision of someone who just won without trying. Your response either wished financial ruin on the old families or surrendered your mandate entirely — either way, you've confirmed their narrative that reformers don't understand economics. The council's attention shifts back to the budget projections on the table."
+            },
+            text: "Mandating wages will bankrupt ancient wizarding families overnight! How do you propose we fund this?",
             rebuttals: [
                 { id: 'p1', text: "If those families built their wealth on unpaid labor, then their financial model was exploitative from the start and deserves to collapse.", correct: false, feedback: "Too aggressive. Wishing economic ruin on ancient families will turn the entire council against you and your proposal." },
                 { id: 'p2', text: "You make a compelling point about affordability. Perhaps we should start with voluntary guidelines instead of a legal mandate for now.", correct: false, feedback: "Too concessive. Voluntary guidelines have no enforcement power and would allow abusive families to simply opt out of the entire reform." },
@@ -136,7 +156,12 @@ export const harryPotterDebates = [
             { id: 'e6', text: "Since Hermione Granger, a Muggle-born witch, became the top student in her year, it stands to reason that Muggle educational foundations give students an academic advantage.", type: 'weak', feedback: "Logical Fallacy (Anecdotal Evidence / Hasty Generalization). One exceptional student does not prove a systemic advantage. Hermione's success could be due to many personal factors beyond her Muggle education." }
         ],
         counterArgument: {
-            text: "Lucius Malfoy sneers: 'Magic is the highest form of power. We have no need for mundane Muggle tricks. Teaching their methods dilutes our magical heritage.'",
+            opponent: { name: "Lucius Malfoy", title: "School Governor", emoji: "🐍" },
+            reactions: {
+                correct: "Malfoy's sneer falters — just for a moment, but the governors noticed. By framing Muggle knowledge as a supplement rather than a replacement, you neutralized the 'dilution' argument he was counting on. He recovers quickly, but his next objection will carry less weight; the room has already accepted your framing.",
+                wrong: "Malfoy's lip curls into a knowing smile. Your response either attacked pure-blood culture directly or accidentally implied that Muggle methods are superior — either way, you've played into the exact narrative he wanted. Several governors who were open to reform now shift uncomfortably, worried about being seen as anti-tradition."
+            },
+            text: "Magic is the highest form of power. We have no need for mundane Muggle tricks. Teaching their methods dilutes our magical heritage.",
             rebuttals: [
                 { id: 'r1', text: "This is not about replacing magic. It supplements our heritage with logic and reasoning skills that traditional magical education often overlooks.", correct: true, feedback: "Great distinction. It frames Muggle studies as an enhancement, neutralizing the threat to 'heritage'." },
                 { id: 'r2', text: "That prejudice is exactly why our students fall behind. Pure-blood elitism has historically produced narrower thinkers, not stronger wizards.", correct: false, feedback: "Logical Fallacy (Ad Hominem). Attacking pure-blood culture directly will harden opposition rather than persuade the undecided governors in the room." },
@@ -144,7 +169,12 @@ export const harryPotterDebates = [
             ]
         },
         pushback: {
-            text: "Professor McGonagall expresses concern: 'The students' schedules are already overflowing with spellwork and history. Where will we find the hours in the day?'",
+            opponent: { name: "Professor McGonagall", title: "Deputy Headmistress", emoji: "🏰" },
+            reactions: {
+                correct: "McGonagall's eyebrows rise — not in disapproval, but in genuine surprise. She had expected you to propose cutting courses, which would have given her grounds to block you on faculty solidarity alone. Instead, your integration model respects existing teachers' expertise while expanding it. She gives a small, measured nod, and the other governors take note — if McGonagall is intrigued, this proposal has academic credibility.",
+                wrong: "McGonagall's expression tightens almost imperceptibly — the look of a professor watching a student reach for the wrong answer. Your response either insulted her colleagues' subjects or conceded the scheduling point so completely that your reform proposal lost its teeth. She folds her hands, and the governors read her silence as a verdict: this advocate hasn't thought the implementation through."
+            },
+            text: "The students' schedules are already overflowing with spellwork and history. Where will we find the hours in the day?",
             rebuttals: [
                 { id: 'p1', text: "Some existing subjects like Divination have questionable academic value. We should cut the weakest courses to make room for what matters.", correct: false, feedback: "Too aggressive. Calling colleagues' subjects worthless insults current faculty and creates unnecessary enemies on the board." },
                 { id: 'p2', text: "You are absolutely right that scheduling is tight. Perhaps we should only introduce these subjects in the later years as optional additions.", correct: false, feedback: "Too concessive. Limiting it to optional later-year additions guts your entire proposal for mandatory, integrated curriculum reform." },
