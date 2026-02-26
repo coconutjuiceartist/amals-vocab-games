@@ -607,21 +607,51 @@ export default function DebateSimulator() {
                 <div className="glass-panel" style={{ padding: '2rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Step 3: The Counter-Argument</h2>
 
-                    {currentScenario.counterArgument.opponent && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.5rem', background: 'rgba(0,0,0,0.4)', borderRadius: '1rem', border: '2px solid #ef4444', marginBottom: '1.5rem' }}>
-                            <div style={{ fontSize: '2.5rem', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.3)', borderRadius: '50%', flexShrink: 0 }}>
-                                {currentScenario.counterArgument.opponent.emoji}
+                    {currentScenario.counterArgument.opponent ? (
+                        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                            <div style={{
+                                display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
+                                background: 'linear-gradient(180deg, rgba(239,68,68,0.15) 0%, rgba(0,0,0,0.4) 100%)',
+                                border: '3px solid #ef4444', borderRadius: '1.5rem',
+                                padding: '2rem 3rem 1.5rem', position: 'relative',
+                                boxShadow: '0 0 30px rgba(239,68,68,0.15)',
+                            }}>
+                                <img
+                                    src={`https://api.dicebear.com/9.x/lorelei/svg?seed=${encodeURIComponent(currentScenario.counterArgument.opponent.name)}`}
+                                    alt={currentScenario.counterArgument.opponent.name}
+                                    style={{
+                                        width: '100px', height: '100px', borderRadius: '50%',
+                                        border: '3px solid #ef4444', marginBottom: '0.75rem',
+                                        background: 'rgba(255,255,255,0.1)',
+                                        boxShadow: '0 0 20px rgba(239,68,68,0.2)',
+                                    }}
+                                />
+                                <div style={{ fontWeight: 'bold', fontSize: '1.3rem', color: 'white', marginBottom: '0.25rem' }}>
+                                    {currentScenario.counterArgument.opponent.name}
+                                </div>
+                                <div style={{
+                                    fontSize: '0.85rem', color: '#ef4444', textTransform: 'uppercase',
+                                    letterSpacing: '0.1em', fontWeight: 600,
+                                }}>
+                                    {currentScenario.counterArgument.opponent.title}
+                                </div>
                             </div>
-                            <div>
-                                <div style={{ fontWeight: 'bold', fontSize: '1.15rem', color: 'white' }}>{currentScenario.counterArgument.opponent.name}</div>
-                                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{currentScenario.counterArgument.opponent.title}</div>
+                            <div style={{
+                                background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239,68,68,0.3)',
+                                borderRadius: '1rem', padding: '1.5rem 2rem', marginTop: '1.25rem',
+                                fontSize: '1.2rem', lineHeight: 1.7, fontStyle: 'italic', textAlign: 'left',
+                                position: 'relative',
+                            }}>
+                                <span style={{ fontSize: '2rem', color: '#ef4444', position: 'absolute', top: '0.5rem', left: '0.75rem', lineHeight: 1 }}>&ldquo;</span>
+                                <span style={{ display: 'block', paddingLeft: '1.5rem' }}>{currentScenario.counterArgument.text}</span>
+                                <span style={{ fontSize: '2rem', color: '#ef4444', float: 'right', lineHeight: 1, marginTop: '-0.5rem' }}>&rdquo;</span>
                             </div>
                         </div>
+                    ) : (
+                        <div style={{ background: 'rgba(239, 68, 68, 0.1)', borderLeft: '4px solid #ef4444', padding: '1.5rem', marginBottom: '1.5rem', fontSize: '1.25rem', borderRadius: '0 1rem 1rem 0' }}>
+                            <span style={{ fontStyle: 'italic' }}>"{currentScenario.counterArgument.text}"</span>
+                        </div>
                     )}
-
-                    <div style={{ background: 'rgba(239, 68, 68, 0.1)', borderLeft: '4px solid #ef4444', padding: '1.5rem', marginBottom: '1.5rem', fontSize: '1.25rem', borderRadius: '0 1rem 1rem 0' }}>
-                        <span style={{ fontStyle: 'italic' }}>"{currentScenario.counterArgument.text}"</span>
-                    </div>
 
                     {opponentReaction && (
                         <div style={{
@@ -676,21 +706,51 @@ export default function DebateSimulator() {
                     <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#eab308' }}>Step 4: Council Pushback!</h2>
                     <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Unexpected pressure from the gallery. Think on your feet!</p>
 
-                    {currentScenario.pushback.opponent && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.5rem', background: 'rgba(0,0,0,0.4)', borderRadius: '1rem', border: '2px solid #eab308', marginBottom: '1.5rem' }}>
-                            <div style={{ fontSize: '2.5rem', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.3)', borderRadius: '50%', flexShrink: 0 }}>
-                                {currentScenario.pushback.opponent.emoji}
+                    {currentScenario.pushback.opponent ? (
+                        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                            <div style={{
+                                display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
+                                background: 'linear-gradient(180deg, rgba(234,179,8,0.15) 0%, rgba(0,0,0,0.4) 100%)',
+                                border: '3px solid #eab308', borderRadius: '1.5rem',
+                                padding: '2rem 3rem 1.5rem', position: 'relative',
+                                boxShadow: '0 0 30px rgba(234,179,8,0.15)',
+                            }}>
+                                <img
+                                    src={`https://api.dicebear.com/9.x/lorelei/svg?seed=${encodeURIComponent(currentScenario.pushback.opponent.name)}`}
+                                    alt={currentScenario.pushback.opponent.name}
+                                    style={{
+                                        width: '100px', height: '100px', borderRadius: '50%',
+                                        border: '3px solid #eab308', marginBottom: '0.75rem',
+                                        background: 'rgba(255,255,255,0.1)',
+                                        boxShadow: '0 0 20px rgba(234,179,8,0.2)',
+                                    }}
+                                />
+                                <div style={{ fontWeight: 'bold', fontSize: '1.3rem', color: 'white', marginBottom: '0.25rem' }}>
+                                    {currentScenario.pushback.opponent.name}
+                                </div>
+                                <div style={{
+                                    fontSize: '0.85rem', color: '#eab308', textTransform: 'uppercase',
+                                    letterSpacing: '0.1em', fontWeight: 600,
+                                }}>
+                                    {currentScenario.pushback.opponent.title}
+                                </div>
                             </div>
-                            <div>
-                                <div style={{ fontWeight: 'bold', fontSize: '1.15rem', color: 'white' }}>{currentScenario.pushback.opponent.name}</div>
-                                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{currentScenario.pushback.opponent.title}</div>
+                            <div style={{
+                                background: 'rgba(234, 179, 8, 0.08)', border: '1px solid rgba(234,179,8,0.3)',
+                                borderRadius: '1rem', padding: '1.5rem 2rem', marginTop: '1.25rem',
+                                fontSize: '1.2rem', lineHeight: 1.7, fontStyle: 'italic', textAlign: 'left',
+                                position: 'relative',
+                            }}>
+                                <span style={{ fontSize: '2rem', color: '#eab308', position: 'absolute', top: '0.5rem', left: '0.75rem', lineHeight: 1 }}>&ldquo;</span>
+                                <span style={{ display: 'block', paddingLeft: '1.5rem' }}>{currentScenario.pushback.text}</span>
+                                <span style={{ fontSize: '2rem', color: '#eab308', float: 'right', lineHeight: 1, marginTop: '-0.5rem' }}>&rdquo;</span>
                             </div>
                         </div>
+                    ) : (
+                        <div style={{ background: 'rgba(234, 179, 8, 0.1)', borderLeft: '4px solid #eab308', padding: '1.5rem', marginBottom: '1.5rem', fontSize: '1.25rem', borderRadius: '0 1rem 1rem 0' }}>
+                            <span style={{ fontStyle: 'italic' }}>"{currentScenario.pushback.text}"</span>
+                        </div>
                     )}
-
-                    <div style={{ background: 'rgba(234, 179, 8, 0.1)', borderLeft: '4px solid #eab308', padding: '1.5rem', marginBottom: '1.5rem', fontSize: '1.25rem', borderRadius: '0 1rem 1rem 0' }}>
-                        <span style={{ fontStyle: 'italic' }}>"{currentScenario.pushback.text}"</span>
-                    </div>
 
                     {opponentReaction && (
                         <div style={{
