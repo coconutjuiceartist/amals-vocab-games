@@ -15,6 +15,7 @@ import { Confetti, MiniBurst } from './Confetti';
 import { playCorrect, playMiss, playFanfare, playBossHit, playVictory, playTap } from '../engine/audio';
 import { speak, hasFrenchVoice } from '../engine/speech';
 import { pick } from '../engine/rng';
+import { SpeakBack } from './SpeakBack';
 
 const PRAISE = [
   'That strategy cracked it!',
@@ -294,6 +295,9 @@ function ExerciseLoop({
               </div>
               {item.explanation && (
                 <div style={{ marginTop: 6, fontSize: '0.97rem' }}>{item.explanation}</div>
+              )}
+              {item.realm === 'french' && item.data?.audioText && save.settings.speaking && (
+                <SpeakBack text={item.data.audioText} lang={item.data.lang ?? 'fr-FR'} />
               )}
             </div>
             <button className="btn btn-primary btn-big" onClick={next} autoFocus>

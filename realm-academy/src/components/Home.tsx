@@ -15,6 +15,10 @@ import { playChest, playTap, playCorrect } from '../engine/audio';
 import { speak, hasSwahiliVoice } from '../engine/speech';
 import { seededRng, hashString, pick } from '../engine/rng';
 
+const AVATAR_EMOJI: Record<string, string> = {
+  wizard: '🧙‍♀️', knitter: '🧶', baker: '🧁', catfriend: '🐱', popstar: '🎤', explorer: '🗺️',
+};
+
 const REALM_META: Record<RealmId, { name: string; icon: string; blurb: string }> = {
   math: { name: 'Gearspring Mountains', icon: '⚙️', blurb: 'clockwork peaks of number magic' },
   science: { name: 'Fieldstation Isles', icon: '🔬', blurb: 'an archipelago of experiments' },
@@ -103,7 +107,8 @@ export function Home({
           {save.streak.shields > 0 && <span className="small dim">🛡×{save.streak.shields}</span>}
         </span>
         <span className="stat"><span className="icon">💎</span>{save.gems}</span>
-        <span className="stat" style={{ flex: 1, maxWidth: 200 }}>
+        <span className="stat" style={{ flex: 1, maxWidth: 220 }}>
+          <span className="icon">{AVATAR_EMOJI[save.avatarId] ?? '🧙‍♀️'}</span>
           <span className="small dim">Lv{level.level}</span>
           <span className="levelbar" style={{ flex: 1 }}><div style={{ width: `${(level.into / level.needed) * 100}%` }} /></span>
         </span>

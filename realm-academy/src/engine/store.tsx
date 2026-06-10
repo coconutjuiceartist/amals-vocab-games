@@ -9,7 +9,7 @@ import { newSave, persistSave, loadSave, rollDay, creditStreak, importSave } fro
 import { newCard, review, dayKey } from './scheduler';
 import { newSkillState, recordResult, markTaught, markCrowned, applyDustySweep } from './mastery';
 import { decide } from './governor';
-import { recordProbe } from './placement';
+import { recordProbe, nextProbes } from './placement';
 import { buildDailyQuests, openChest } from './novelty';
 import { loadRegistry } from './loadContent';
 import { setMuted } from './audio';
@@ -79,7 +79,7 @@ function bumpQuest(save: SaveState, kind: QuestDef['kind'], realm: RealmId | und
   return changed ? { ...save, quests: { ...save.quests, progress } } : save;
 }
 
-function reducer(save: SaveState, action: Action): SaveState {
+export function reducer(save: SaveState, action: Action): SaveState {
   const now = Date.now();
   switch (action.type) {
     case 'ONBOARD':
