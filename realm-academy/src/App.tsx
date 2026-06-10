@@ -63,6 +63,8 @@ function AppInner() {
         onDone={(mascotName, avatarId) => {
           dispatch({ type: 'ONBOARD', mascotName, avatarId });
           dispatch({ type: 'TICK_DAY' });
+          window.location.hash = '';
+          setRoute({ view: 'home' });
         }}
       />
     );

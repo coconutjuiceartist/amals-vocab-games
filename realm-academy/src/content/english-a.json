@@ -1,0 +1,660 @@
+{
+  "sequences": [
+    {
+      "id": "teach.english.grammar",
+      "skill": "english.grammar",
+      "title": "Grammar: Two Needles, Every Sentence",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Two needles, every sentence",
+          "lines": [
+            "A sentence is knitting: the SUBJECT and the PREDICATE are your two needles — who or what it's about, and what it does.",
+            "Drop a needle and the row unravels into a fragment; jam two rows together without a legal join and you've knitted a run-on."
+          ],
+          "vocab": [
+            { "term": "subject", "meaning": "who or what the sentence is about" },
+            { "term": "predicate", "meaning": "what the subject does or is" },
+            { "term": "fragment", "meaning": "an incomplete sentence — a dropped stitch missing its subject or predicate" },
+            { "term": "run-on", "meaning": "two complete sentences jammed together without a legal join" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "english.grammar.t01" },
+        { "kind": "completion", "itemId": "english.grammar.t02" },
+        { "kind": "completion", "itemId": "english.grammar.t03" },
+        { "kind": "burst", "itemIds": ["english.grammar.001", "english.grammar.002", "english.grammar.003"] }
+      ]
+    },
+    {
+      "id": "teach.english.vocab",
+      "skill": "english.vocab",
+      "title": "Word Roots: Crack One, Unlock Dozens",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Word-parts carry meaning",
+          "lines": [
+            "In Duolingo Swahili, mtoto is one child and watoto is many — the word-part does the talking.",
+            "English plays the same game with Greek and Latin ROOTS: crack one root and you unlock dozens of words at once."
+          ],
+          "vocab": [
+            { "term": "root", "meaning": "the meaning-carrying core of a word, like bene (good) or aud (hear)" },
+            { "term": "prefix", "meaning": "a word-part attached before the root, like mal- or tele-" },
+            { "term": "context clues", "meaning": "hints in the surrounding sentence that reveal what an unknown word means" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "english.vocab.t01" },
+        { "kind": "completion", "itemId": "english.vocab.t02" },
+        { "kind": "completion", "itemId": "english.vocab.t03" },
+        { "kind": "burst", "itemIds": ["english.vocab.001", "english.vocab.002", "english.vocab.003"] }
+      ]
+    },
+    {
+      "id": "teach.english.writing",
+      "skill": "english.writing",
+      "title": "Essay Architect: The Cathedral Blueprint",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "The essay cathedral",
+          "lines": [
+            "A five-paragraph essay is a cathedral: the hook is the doorway, the body paragraphs are pillars, the conclusion rings the bell — and the THESIS is the spine holding it all up.",
+            "Pingry hands you this blueprint in sixth grade; today you learn to read it like an architect."
+          ],
+          "vocab": [
+            { "term": "thesis", "meaning": "the one arguable sentence your whole essay defends" },
+            { "term": "topic sentence", "meaning": "the opening sentence of a body paragraph, announcing its one job" },
+            { "term": "hook", "meaning": "an opening line that pulls the reader through the doorway" },
+            { "term": "transition", "meaning": "a signpost word showing how ideas connect — however, therefore, for example" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "english.writing.t01" },
+        { "kind": "completion", "itemId": "english.writing.t02" },
+        { "kind": "completion", "itemId": "english.writing.t03" },
+        { "kind": "burst", "itemIds": ["english.writing.001", "english.writing.002", "english.writing.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "english.grammar.t01",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.english.grammar",
+      "prompt": "Let's knit a sentence together — and watch what happens when a needle drops.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Knit with me: 'The kitten pounced on the yarn.' Needle one, the SUBJECT: 'The kitten' — who it's about. Needle two, the PREDICATE: 'pounced on the yarn' — what it did." },
+          {
+            "text": "Drop the subject needle and the row unravels: 'Pounced on the yarn.' Who pounced?! That's a FRAGMENT — it cannot stand alone.",
+            "check": {
+              "question": "Why is 'Pounced on the yarn' a fragment?",
+              "options": [
+                "It has no subject — nobody is doing the pouncing",
+                "It is too short to be a sentence",
+                "It needs an adjective"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Opposite problem: two complete rows jammed together. 'The kitten pounced the yarn unraveled' is a RUN-ON; with only a comma between them ('The kitten pounced, the yarn unraveled'), it's called a comma SPLICE." },
+          {
+            "text": "Three legal joins: a period. A semicolon. Or a comma + joining word (and, but, so).",
+            "check": {
+              "question": "Which version is legally joined?",
+              "options": [
+                "The kitten pounced, and the yarn unraveled.",
+                "The kitten pounced, the yarn unraveled.",
+                "The kitten pounced and, the yarn unraveled."
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats", "knitting"]
+    },
+    {
+      "id": "english.grammar.t02",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.english.grammar",
+      "prompt": "Your turn on the needles: label the two halves of 'My oldest cat sleeps in the yarn basket.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Subject (who or what it's about): My oldest [[cat]]",
+          "Predicate (what the subject does): [[sleeps]] in the yarn basket"
+        ]
+      },
+      "hint": "Ask WHO first; then ask what that who is up to.",
+      "explanation": "Subject = 'my oldest cat,' predicate = 'sleeps in the yarn basket' — both needles present, so the row holds.",
+      "tags": ["cats", "knitting"]
+    },
+    {
+      "id": "english.grammar.t03",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.english.grammar",
+      "prompt": "Repair shop: fix the jammed rows in 'The timer beeped, the cookies were done.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A comma alone can't join two complete sentences — that error is called a comma [[splice]].",
+          "Legal fix: 'The timer beeped, [[and|so]] the cookies were done.'"
+        ]
+      },
+      "hint": "Name the error first (you just met it), then give the comma a joining-word partner.",
+      "explanation": "A comma needs a partner like 'and' or 'so' to join complete sentences — alone, it's a splice.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.grammar.001",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Find the SUBJECT: 'The fluffy gray cat napped on the warm laundry.'",
+      "answer": "The fluffy gray cat",
+      "options": [
+        "The fluffy gray cat",
+        "napped on the warm laundry",
+        "the warm laundry",
+        "napped"
+      ],
+      "hint": "Ask: who or what is this sentence about?",
+      "explanation": "The subject is who or what the sentence is about — here, that magnificent cat. 'Napped on the warm laundry' is the predicate.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.grammar.002",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which of these is a COMPLETE sentence?",
+      "answer": "The yarn rolled under the couch.",
+      "options": [
+        "The yarn rolled under the couch.",
+        "Rolling under the couch.",
+        "Because the yarn rolled.",
+        "Under the couch, near the dust."
+      ],
+      "hint": "Check both needles: a subject AND a predicate.",
+      "explanation": "'The yarn rolled under the couch' has a subject (the yarn) and a predicate (rolled…) — the others are fragments missing a needle.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.grammar.003",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 1,
+      "type": "drag_categorize",
+      "prompt": "Sort each word into its part of speech.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Nouns": ["wand", "bakery", "kitten"],
+          "Verbs": ["whispered", "pounced"],
+          "Adjectives": ["sparkly", "chewy"]
+        }
+      },
+      "hint": "Nouns name, verbs do, adjectives describe.",
+      "explanation": "Nouns name people, places, and things; verbs show action; adjectives describe nouns."
+    },
+    {
+      "id": "english.grammar.004",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Type the correct word: their, there, or they're.",
+      "answer": "blanks",
+      "data": { "lines": ["The cats groomed [[their]] whiskers after dinner."] },
+      "hint": "You need the word that shows the whiskers BELONG to the cats.",
+      "explanation": "'Their' shows ownership; 'there' points to a place, and 'they're' is short for 'they are.'",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.grammar.005",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Find the PREDICATE: 'Every owl in the tower hooted at midnight.'",
+      "answer": "hooted at midnight",
+      "options": [
+        "hooted at midnight",
+        "Every owl in the tower",
+        "in the tower",
+        "Every owl"
+      ],
+      "hint": "The predicate tells what the subject DID.",
+      "explanation": "'Hooted at midnight' is what the owls did — that's the predicate; 'every owl in the tower' is the whole subject.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.grammar.006",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort these words from a fan's concert diary into parts of speech.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Nouns": ["needle", "concert"],
+          "Verbs": ["devour", "rehearse"],
+          "Adjectives": ["fierce", "golden"],
+          "Adverbs": ["gently", "loudly"]
+        }
+      },
+      "hint": "Adverbs often end in -ly and tell HOW something happens.",
+      "explanation": "Adverbs describe how, when, or where an action happens — 'gently' and 'loudly' modify verbs, while adjectives stick to nouns.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "english.grammar.007",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which group of words is a DEPENDENT clause — a thought that leans on a main clause?",
+      "answer": "Because the oven timer beeped",
+      "options": [
+        "Because the oven timer beeped",
+        "The oven timer beeped",
+        "The cookies are ready",
+        "We grabbed the oven mitts"
+      ],
+      "hint": "Read each one aloud — which leaves you waiting to hear what happened?",
+      "explanation": "'Because' turns a complete thought into a leaner: 'Because the oven timer beeped…' — then WHAT?! It needs a main clause to hold it up.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.grammar.008",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "spot_error",
+      "prompt": "One segment hides an apostrophe error. Tap it.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "The bakery is proud of",
+          "it's famous lemon tarts,",
+          "which sell out by nine."
+        ]
+      },
+      "hint": "Expand the apostrophe: does 'it is' make sense there?",
+      "explanation": "'It's' always means 'it is' — here you want the possessive 'its': the tarts belong to the bakery.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.grammar.009",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Fill in each blank: your or you're?",
+      "answer": "blanks",
+      "data": { "lines": ["[[You're]] going to love this chapter — bring [[your]] bookmark."] },
+      "hint": "One of them is secretly 'you are' wearing a trench coat.",
+      "explanation": "'You're' = 'you are'; 'your' shows the bookmark belongs to you.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.grammar.010",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Fix this run-on: 'The encore ended, the fans kept chanting.'",
+      "answer": "The encore ended, but the fans kept chanting.",
+      "options": [
+        "The encore ended, but the fans kept chanting.",
+        "The encore ended, the fans, kept chanting.",
+        "The encore ended the fans kept chanting.",
+        "The encore, ended, but the fans kept chanting."
+      ],
+      "hint": "A comma alone can't weld two sentences — it needs a conjunction partner.",
+      "explanation": "Comma + 'but' legally joins the two complete thoughts. Removing the comma just fuses them, and the extra commas chop the sentence in the wrong places.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "english.grammar.011",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Amal wrote: 'I baked treats for my parents, two cats and a wizard.' How should she punctuate it so her parents are NOT the two cats and the wizard?",
+      "answer": "I baked treats for my parents, two cats, and a wizard.",
+      "options": [
+        "I baked treats for my parents, two cats, and a wizard.",
+        "I baked treats for my parents two cats and a wizard.",
+        "I baked treats, for my parents, two cats and a wizard.",
+        "I baked treats for my parents, two cats and, a wizard."
+      ],
+      "hint": "A comma before the final 'and' separates the last two list members.",
+      "explanation": "That last comma (the serial comma) makes a clear list of three: parents, cats, wizard. Without it, the sentence can read as if her parents ARE two cats and a wizard!",
+      "tags": ["cats", "baking", "harry-potter"]
+    },
+    {
+      "id": "english.grammar.012",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each comma rule to the sentence that shows it.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Commas in a list", "We packed yarn, needles, and snacks."],
+          ["Comma after an introductory phrase", "After the rain stopped, we walked to the library."],
+          ["Commas around an interrupter", "My cat, a true menace, stole the wool."],
+          ["Comma before a joining word", "I knitted a row, and Dad iced the cake."]
+        ]
+      },
+      "hint": "Look at WHERE the commas sit in each sentence.",
+      "explanation": "Lists, introductions, interrupters, and compound sentences — four different jobs for one tiny mark.",
+      "tags": ["knitting", "cats"]
+    },
+    {
+      "id": "english.grammar.013",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Word-Pick Lightning! Type the word that fits each sentence.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["The kittens chased ___ tails (their/they're)", "their"],
+          ["___ is my favorite bakery (Their/There)", "There"],
+          ["___ rereading the whole series (Their/They're)", "They're"],
+          ["Is this ___ wand? (your/you're)", "your"],
+          ["___ on stage in five minutes! (Your/You're)", "You're"],
+          ["Knit two rows, ___ purl one (then/than)", "then"],
+          ["Sugar is sweeter ___ flour (then/than)", "than"],
+          ["Don't ___ the stitch marker (lose/loose)", "lose"],
+          ["This sweater is too ___ (lose/loose)", "loose"],
+          ["The cat licked ___ paw (its/it's)", "its"],
+          ["___ raining again (Its/It's)", "It's"],
+          ["Take ___ time (your/you're)", "your"]
+        ]
+      },
+      "hint": "Expand contractions in your head: they're = they are, it's = it is.",
+      "explanation": "Fast checks win: expand the contraction, then ask if you mean ownership, place, time, or comparison.",
+      "tags": ["cats", "knitting"]
+    },
+    {
+      "id": "english.grammar.014",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "Exactly one segment has a confused word. Tap it.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "The school owls",
+          "delivered they're letters",
+          "before breakfast ended."
+        ]
+      },
+      "hint": "Try swapping in 'they are' and listen to the sentence.",
+      "explanation": "'Delivered they are letters' makes no sense — it should be the possessive 'their,' because the letters belong to someone.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.grammar.015",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "In 'Although the yarn was hopelessly tangled, Amal finished the sleeve before bedtime,' which part is the DEPENDENT clause?",
+      "answer": "Although the yarn was hopelessly tangled",
+      "options": [
+        "Although the yarn was hopelessly tangled",
+        "Amal finished the sleeve",
+        "Amal finished the sleeve before bedtime",
+        "before bedtime"
+      ],
+      "hint": "Which chunk has a subject and a verb but still can't stand alone?",
+      "explanation": "'Although' makes that clause lean on the main one — it has a subject and verb but leaves you hanging by itself. 'Before bedtime' is only a phrase, with no subject-verb pair.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.grammar.016",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Choose the BEST repair: 'Amal practiced the choreography for two hours her legs felt like noodles.'",
+      "answer": "Amal practiced the choreography for two hours; her legs felt like noodles.",
+      "options": [
+        "Amal practiced the choreography for two hours; her legs felt like noodles.",
+        "Amal practiced the choreography for two hours, her legs felt like noodles.",
+        "Amal practiced the choreography, for two hours her legs felt like noodles.",
+        "Amal practiced the choreography for two hours her legs, felt like noodles."
+      ],
+      "hint": "Two complete thoughts need a real boundary: period, semicolon, or comma + joining word.",
+      "explanation": "A semicolon is a legal weld between two related complete thoughts. A comma alone just trades the fused sentence for a comma splice.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "english.grammar.017",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Fill in each blank: affect or effect?",
+      "answer": "blanks",
+      "data": { "lines": ["The storm didn't [[affect]] our plans, and candlelight gave the reading nook a magical [[effect]]."] },
+      "hint": "Affect is the Action (a verb); effect is the End result (a noun).",
+      "explanation": "'Affect' acts — it's the verb meaning 'to influence.' 'Effect' is the noun result, the thing you end up with.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.grammar.018",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about clauses — tap the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "An independent clause can stand alone as a complete sentence.",
+          "Words like 'because' and 'although' turn a clause into a dependent one."
+        ],
+        "lie": "If a group of words is long enough, it counts as a complete sentence."
+      },
+      "hint": "Can a sentence's completeness be measured in inches?",
+      "explanation": "Length is a decoy — 'Run!' is a complete sentence, while 'the enormous dragon sleeping on the mountain of gold' is still a fragment. Completeness needs a subject plus a predicate, not a word count."
+    },
+    {
+      "id": "english.grammar.019",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Fill in each blank: its or it's?",
+      "answer": "blanks",
+      "data": { "lines": ["The dragon stretched [[its]] wings — [[it's]] grumpy when travelers wake it."] },
+      "hint": "If 'it is' fits, use the apostrophe; ownership gets none.",
+      "explanation": "'Its' (no apostrophe) is possessive, like 'his.' 'It's' is only ever the contraction of 'it is.'",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.grammar.020",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Repair this run-on like an editor: 'The yarn rolled away, the kitten gave chase.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Two independent clauses joined by only a comma — that's a comma [[splice]].",
+          "Fix one: 'The yarn rolled away, [[so|and]] the kitten gave chase.'",
+          "Fix two: swap the comma for a [[semicolon|;]]."
+        ]
+      },
+      "hint": "Name the crime first, then pick a legal weld.",
+      "explanation": "A comma needs a conjunction partner (so/and), or you can upgrade to a semicolon — either turns the splice into a legal sentence.",
+      "tags": ["cats", "knitting"]
+    },
+    {
+      "id": "english.grammar.021",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: which sentence means MORE THAN ONE cat shares the yarn basket?",
+      "answer": "The cats' yarn basket tipped over.",
+      "options": [
+        "The cats' yarn basket tipped over.",
+        "The cat's yarn basket tipped over.",
+        "The cats's yarn basket tipped over.",
+        "The cat yarn's basket tipped over."
+      ],
+      "hint": "Where the apostrophe sits tells you how many owners there are.",
+      "explanation": "Apostrophe AFTER the s = plural owners (cats'); before the s = one cat. Position is everything.",
+      "tags": ["cats", "knitting", "legendary"]
+    },
+    {
+      "id": "english.grammar.022",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 4,
+      "type": "fill_blank",
+      "prompt": "Legendary triple: complete the fan-club update with then, than, or lose.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "If the tour tickets cost more [[than]] we saved, [[then]] we'll stream the concert from home — either way, we won't [[lose]] our spot in the fan club."
+        ]
+      },
+      "hint": "'Than' compares; 'then' tells when; 'lose' is the opposite of win (one o!).",
+      "explanation": "Comparison takes 'than,' sequence takes 'then,' and 'lose' (one o) means to misplace or be defeated — 'loose' means not tight.",
+      "tags": ["kpop", "legendary"]
+    },
+    {
+      "id": "english.grammar.023",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: which sentence is punctuated perfectly?",
+      "answer": "My broom, an ancient Comet 140, still beats its rivals in a dive.",
+      "options": [
+        "My broom, an ancient Comet 140, still beats its rivals in a dive.",
+        "My broom an ancient Comet 140, still beats its rivals in a dive.",
+        "My broom, an ancient Comet 140 still beats it's rivals in a dive.",
+        "My broom, an ancient Comet 140, still beats it's rivals in a dive."
+      ],
+      "hint": "Check two things: the PAIR of commas around the interrupter, and the apostrophe.",
+      "explanation": "The interrupter 'an ancient Comet 140' needs commas on BOTH sides, and possessive 'its' takes no apostrophe.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "english.grammar.024",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "Legendary: combine into ONE correct sentence using a dependent clause: 'The kitten was curious. The kitten opened the cabinet. The flour spilled.'",
+      "answer": "Because the curious kitten opened the cabinet, the flour spilled.",
+      "options": [
+        "Because the curious kitten opened the cabinet, the flour spilled.",
+        "The curious kitten opened the cabinet, the flour spilled.",
+        "The kitten was curious she opened the cabinet and the flour spilled.",
+        "Because the curious kitten opened the cabinet. The flour spilled."
+      ],
+      "hint": "The winner starts with 'Because…' AND stays attached to a main clause.",
+      "explanation": "'Because…cabinet' is a dependent clause correctly attached to its main clause with a comma. The rivals are a comma splice, a fused run-on, and a stranded fragment.",
+      "tags": ["cats", "baking", "legendary"]
+    },
+    {
+      "id": "english.grammar.025",
+      "realm": "english", "skill": "english.grammar", "tier": "frontier", "difficulty": 5,
+      "type": "spot_error",
+      "prompt": "Legendary edit: exactly one segment creates a comma splice. Tap it.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "My cat adores the knitting basket,",
+          "she burrows into the wool",
+          "and refuses to come out",
+          "until dinnertime."
+        ]
+      },
+      "hint": "'And refuses' is innocent — a verb may share its subject. Where does a brand-new sentence sneak in after a mere comma?",
+      "explanation": "'She burrows…' starts a second complete sentence after only a comma — that's the splice. Fix: a semicolon, or 'basket, where she burrows.'",
+      "tags": ["cats", "knitting", "legendary"]
+    },
+    {
+      "id": "english.vocab.t01",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.english.vocab",
+      "prompt": "Word-cracking, Duolingo-style: what does 'benevolent' mean in 'The benevolent witch left warm bread out for tired travelers'?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "In Swahili, mtoto is one child and watoto is many — the word-part carries the meaning. English hides meaning in word-parts too: Greek and Latin ROOTS." },
+          {
+            "text": "Spot the root: bene- is Latin for 'good' or 'well.' You already know it from benefit (a good thing) and benefactor (a do-gooder).",
+            "check": {
+              "question": "What does the root bene- tell you about 'benevolent'?",
+              "options": [
+                "Something about goodness is baked into the word",
+                "The word has to do with bread",
+                "The word is about size"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Now add context clues: she 'left warm bread out for tired travelers.' Root says GOOD + context shows kindness → benevolent means kind and generous." },
+          {
+            "text": "That's the two-key unlock: ROOT + CONTEXT. Crack one root and you can pick the lock on its whole word family.",
+            "check": {
+              "question": "Swap bene- for mal- ('bad'): a MALevolent witch is one who…",
+              "options": [
+                "wishes harm on others",
+                "bakes badly",
+                "travels a lot"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["duolingo", "swahili", "harry-potter"]
+    },
+    {
+      "id": "english.vocab.t02",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.english.vocab",
+      "prompt": "Your turn: crack 'audible' in 'The kitten's purr was barely audible across the room.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Root: aud = hear (audio, audience, auditorium)",
+          "Suffix: -ible = able to be",
+          "So the purr could barely be [[heard]]."
+        ]
+      },
+      "hint": "aud shows up in AUDio — what do you do with audio?",
+      "explanation": "aud (hear) + -ible (able to be) = able to be heard. Root families always share their core meaning.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.vocab.t03",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.english.vocab",
+      "prompt": "Crack two roots at once: port (porter, transport) and dict (dictate, dictionary).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A hotel porter [[carries]] your bags — port = carry.",
+          "To dictate a letter is to [[say]] it aloud while someone writes — dict = say."
+        ]
+      },
+      "hint": "What does a porter DO with luggage? What does your mouth do when you dictate?",
+      "explanation": "port = carry and dict = say — now transport, import, predict, and contradict all crack open."
+    },
+    {
+      "id": "english.vocab.001",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Benefit, benevolent, benefactor — the Latin root bene- means…",
+      "answer": "good or well",
+      "options": ["good or well", "money", "friendly animals", "two"],
+      "hint": "A BENEfit is a ___ thing that helps you.",
+      "explanation": "bene = good/well, so the whole family glows: benefit (a good thing), benevolent (kind), benefactor (a do-gooder)."
+    },
+    {
+      "id": "english.vocab.002",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each root to its meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["port", "to carry"],
+          ["dict", "to say"],
+          ["aud", "to hear"],
+          ["vis", "to see"]
+        ]
+      },
+      "hint": "Think of one familiar word for each: transport, predict, audio, visible.",
+      "explanation": "Roots are reusable bricks: transport, dictate, audible, and visible all snap together from these four."
+    },
+    {
+      "id": "english.vocab.003",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Use the context clue: 'Kittens were abundant at the shelter this spring — every cage, basket, and lap seemed to hold three.' Abundant means…",
+      "answer": "present in large amounts",
+      "options": ["present in large amounts", "very rare", "sleepy", "noisy"],
+      "hint": "The second half of the sentence paints the picture — lots, or few?",
+      "explanation": "The clue 'every cage, basket, and lap' shows overflow — abundant means plentiful.",
+      "tags": ["cats"]
+    },

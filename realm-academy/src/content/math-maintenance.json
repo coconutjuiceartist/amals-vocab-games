@@ -4,32 +4,32 @@
       "id": "math.m.expressions.001",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 2,
       "type": "type_answer",
-      "prompt": "Evaluate: 3 + 2 × (5² − 1) ÷ 8.",
+      "prompt": "Evaluate: 3 + 2 × (5² − 1) ÷ 8",
       "answer": ["9"],
-      "hint": "Parentheses first — and inside them, the exponent.",
-      "explanation": "5² − 1 = 24, then 2 × 24 ÷ 8 = 6, and 3 + 6 = 9. Order of operations, executed like a pro.",
+      "hint": "Parentheses first — and inside them, the exponent goes before the subtraction.",
+      "explanation": "5² − 1 = 24, then 2 × 24 ÷ 8 = 6, and 3 + 6 = 9. Order of operations, executed cleanly.",
       "tags": ["probe"]
     },
     {
       "id": "math.m.expressions.002",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 2,
       "type": "multiple_choice",
-      "prompt": "Which expression shows the distributive property correctly applied to 7 × 23?",
-      "answer": "7 × 20 + 7 × 3",
-      "options": ["7 × 20 + 7 × 3", "7 × 20 + 3", "7 × 2 × 7 × 3", "7 + 20 × 7 + 3"],
-      "hint": "Distributing means 7 multiplies BOTH parts of 23 = 20 + 3.",
-      "explanation": "7 × 23 = 7 × (20 + 3) = 7 × 20 + 7 × 3 = 161 — both chunks get their 7.",
+      "prompt": "Which expression uses the distributive property to rewrite 6 × 27?",
+      "answer": "6 × 20 + 6 × 7",
+      "options": ["6 × 20 + 6 × 7", "6 × 20 + 7", "6 × 2 + 6 × 7", "6 + 20 × 6 + 7"],
+      "hint": "27 = 20 + 7, and the 6 must multiply BOTH parts.",
+      "explanation": "6 × 27 = 6 × (20 + 7) = 6 × 20 + 6 × 7 = 162. Every part of the sum gets its own 6.",
       "tags": ["probe"]
     },
     {
       "id": "math.m.expressions.003",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 2,
       "type": "fill_blank",
-      "prompt": "Amal tracks her knitting with the expression 5y − 4, where y is the number of evenings. Evaluate it.",
+      "prompt": "Amal's pattern tracker uses the expression 7n − 5 for the stitches in row n. Evaluate it.",
       "answer": "blanks",
-      "data": { "lines": ["When y = 6: 5y − 4 = [[26]]", "When y = 10: 5y − 4 = [[46]]"] },
-      "hint": "Substitute, then multiply before subtracting.",
-      "explanation": "5 × 6 − 4 = 26 and 5 × 10 − 4 = 46 — multiplication always outranks subtraction.",
+      "data": { "lines": ["Row 8: 7 × 8 − 5 = [[51]]", "Row 12: 7 × 12 − 5 = [[79]]"] },
+      "hint": "Substitute, multiply, then subtract — in that order.",
+      "explanation": "7 × 8 − 5 = 51 and 7 × 12 − 5 = 79. Multiplication always outranks subtraction.",
       "tags": ["knitting"]
     },
     {
@@ -41,279 +41,563 @@
       "options": [],
       "data": {
         "segments": [
-          "Problem: 36 − 12 ÷ 4 + 2²",
-          "Step A: 2² = 4",
-          "Step B: 36 − 12 = 24, then 24 ÷ 4 = 6",
-          "Step C: 6 + 4 = 10"
+          "Evaluate: 40 − 12 ÷ 4 + 2³",
+          "Step A: 2³ = 8",
+          "Step B: 40 − 12 = 28, so it becomes 28 ÷ 4 + 8",
+          "Step C: 28 ÷ 4 = 7, then 7 + 8 = 15"
         ]
       },
-      "hint": "Which operation has priority: subtraction or division?",
-      "explanation": "Division outranks subtraction: 12 ÷ 4 = 3 first, so the value is 36 − 3 + 4 = 37."
+      "hint": "Which operation has the right to go before subtraction?",
+      "explanation": "Division beats subtraction: 12 ÷ 4 = 3 first, so it's 40 − 3 + 8 = 45. Goblins always rush left to right."
     },
     {
       "id": "math.m.expressions.005",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 3,
       "type": "multiple_choice",
-      "prompt": "Which expression is equivalent to (48 + 12x) ÷ 6?",
-      "answer": "8 + 2x",
-      "options": ["8 + 2x", "8 + 12x", "48 + 2x", "42 + 6x"],
-      "hint": "Division distributes: each term inside the parentheses gets divided by 6.",
-      "explanation": "(48 ÷ 6) + (12x ÷ 6) = 8 + 2x — division spreads across a sum just like multiplication does."
+      "prompt": "Choose the symbol that makes this true: 3² + 4² ___ (3 + 4)²",
+      "answer": "<",
+      "options": ["<", ">", "="],
+      "hint": "Compute each side fully — squaring a sum is not the same as summing squares.",
+      "explanation": "3² + 4² = 25 while (3 + 4)² = 49, so < is the truth. Exponents refuse to distribute over addition!"
     },
     {
       "id": "math.m.expressions.006",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 2,
       "type": "multiple_choice",
-      "prompt": "Choose the symbol that makes this true: 3 × 4² ___ (3 × 4)²",
-      "answer": "<",
-      "options": ["<", ">", "="],
-      "hint": "On the left only the 4 is squared; on the right the whole product is.",
-      "explanation": "3 × 4² = 48 but (3 × 4)² = 144 — parentheses decide who gets squared."
+      "prompt": "5 × (20 × 7) = (5 × 20) × 7 is an example of which property?",
+      "answer": "Associative property of multiplication",
+      "options": ["Associative property of multiplication", "Commutative property of multiplication", "Distributive property", "Identity property of multiplication"],
+      "hint": "The factors kept their order — only the grouping moved.",
+      "explanation": "Regrouping factors without reordering them is the associative property. (Commutative is when they swap places.)"
     },
     {
       "id": "math.m.expressions.007",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Use the distributive property to evaluate mentally: (84 + 56) ÷ 7",
+      "answer": ["20"],
+      "hint": "Division distributes over the sum — split it into two friendly divisions.",
+      "explanation": "84 ÷ 7 + 56 ÷ 7 = 12 + 8 = 20. Distributing division turns one ugly division into two easy ones."
+    },
+    {
+      "id": "math.m.expressions.008",
+      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "A cupcake box costs $3, plus $2 per cupcake. Which expression gives the total cost in dollars for c cupcakes?",
+      "answer": "2c + 3",
+      "options": ["2c + 3", "3c + 2", "2(c + 3)", "5c"],
+      "hint": "Which number repeats with every cupcake, and which is paid once?",
+      "explanation": "The $2 scales with every cupcake (2c) and the $3 box is a one-time add-on: 2c + 3.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.m.expressions.009",
+      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 3,
       "type": "order_sequence",
-      "prompt": "Arrange the steps to evaluate 5 + 3 × (10 − 2²) ÷ 9 in the correct order.",
+      "prompt": "Put the steps in the correct order to evaluate 5 + 3 × (10 − 2²).",
       "answer": "sequence",
       "data": {
         "sequence": [
           "Inside the parentheses, do the exponent: 2² = 4",
           "Finish the parentheses: 10 − 4 = 6",
           "Multiply: 3 × 6 = 18",
-          "Divide: 18 ÷ 9 = 2",
-          "Add: 5 + 2 = 7"
+          "Add: 5 + 18 = 23"
         ]
       },
-      "hint": "PEMDAS — and multiplication/division run left to right.",
-      "explanation": "Parentheses (exponent first inside), then × and ÷ left to right, then +: the value is 7."
-    },
-    {
-      "id": "math.m.expressions.008",
-      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 2,
-      "type": "multiple_choice",
-      "prompt": "Which expression means 'the product of 7 and k, decreased by 4'?",
-      "answer": "7k − 4",
-      "options": ["7k − 4", "7(k − 4)", "4 − 7k", "7 + k − 4"],
-      "hint": "'Decreased by 4' happens AFTER the product is built.",
-      "explanation": "First the product 7k, then subtract 4: 7k − 4 — the words build the expression in order."
-    },
-    {
-      "id": "math.m.expressions.009",
-      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 4,
-      "type": "type_answer",
-      "prompt": "A vault in the wizard bank opens with the value of 100 − 3 × (2 + 3)² + 48 ÷ (4 + 2²). Crack it.",
-      "answer": ["31"],
-      "hint": "Settle BOTH sets of parentheses before any big moves.",
-      "explanation": "100 − 3 × 25 + 48 ÷ 8 = 100 − 75 + 6 = 31. Steady order of operations beats any vault door.",
-      "tags": ["harry-potter", "legendary"]
+      "hint": "PEMDAS sets the marching order — and inside parentheses, exponents still go first.",
+      "explanation": "Exponent, parentheses, multiply, add — landing on 23 every time."
     },
     {
       "id": "math.m.expressions.010",
-      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 3,
-      "type": "fill_blank",
-      "prompt": "Amal splits a cookie order evenly among 9 boxes by distributing the division.",
-      "answer": "blanks",
-      "data": { "lines": ["(54 + 18b) ÷ 9 = [[6]] + [[2]]b"] },
-      "hint": "Divide each term by 9 separately.",
-      "explanation": "54 ÷ 9 = 6 and 18b ÷ 9 = 2b — every term takes its turn being divided.",
-      "tags": ["baking"]
+      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "A wizard's vault lock opens only for the value of 2⁴ − (18 − 3 × 4) ÷ 3 + 5 × 2². What number opens it?",
+      "answer": ["34"],
+      "hint": "Clear the parentheses first (multiplication before subtraction inside), then settle every ÷ and × before the final adds.",
+      "explanation": "Inside: 18 − 12 = 6, so it's 16 − 6 ÷ 3 + 5 × 4 = 16 − 2 + 20 = 34. The lock clicks open.",
+      "tags": ["harry-potter", "legendary"]
     },
     {
       "id": "math.m.expressions.011",
-      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 4,
+      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 3,
       "type": "type_answer",
-      "prompt": "A K-pop fan-vote total is computed as 2⁴ + (9 − 4)² × 2 − 18 ÷ 3². Find the total.",
-      "answer": ["64"],
-      "hint": "Exponents everywhere first: 2⁴, (9 − 4)², and 3².",
-      "explanation": "16 + 25 × 2 − 18 ÷ 9 = 16 + 50 − 2 = 64. Handling three exponents in one expression is real fluency.",
-      "tags": ["kpop", "legendary"]
+      "prompt": "Evaluate 3a² − 2b when a = 4 and b = 5.",
+      "answer": ["38"],
+      "hint": "Square a first — the exponent touches only the a, not the 3.",
+      "explanation": "3 × 16 − 2 × 5 = 48 − 10 = 38. The 3 waits politely while a gets squared."
     },
     {
       "id": "math.m.expressions.012",
-      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 3,
-      "type": "two_truths",
-      "prompt": "Two of these properties are real. Tap the impostor.",
-      "answer": "lie",
-      "data": {
-        "truths": [
-          "Addition is commutative: a + b = b + a for all numbers",
-          "The distributive property says a(b + c) = ab + ac"
-        ],
-        "lie": "Division is commutative: a ÷ b = b ÷ a for all numbers"
-      },
-      "hint": "Test each claim with small numbers like 10 and 5.",
-      "explanation": "10 ÷ 5 = 2 but 5 ÷ 10 = 0.5 — swapping the order of division changes the answer, so it is NOT commutative."
+      "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 4,
+      "type": "fill_blank",
+      "prompt": "Expand and simplify: 4(3x + 2) − 2(x − 5)",
+      "answer": "blanks",
+      "data": { "lines": ["4(3x + 2) − 2(x − 5) = [[10]]x + [[18]]"] },
+      "hint": "Distribute the −2 to BOTH terms — including that −5.",
+      "explanation": "12x + 8 − 2x + 10 = 10x + 18. The sneaky part is −2 × (−5) = +10."
     },
     {
       "id": "math.m.expressions.013",
       "realm": "math", "skill": "math.m.expressions", "tier": "maintenance", "difficulty": 5,
       "type": "type_answer",
-      "prompt": "Let A = 2⁵ − 5 × 2 and B = (2⁵ − 5) × 2. Compute A − B.",
-      "answer": ["-32"],
-      "hint": "In A only the 5 × 2 multiplies; in B the parentheses finish before the × 2.",
-      "explanation": "A = 32 − 10 = 22 and B = 27 × 2 = 54, so A − B = −32 — those parentheses moved the whole calculation.",
-      "tags": ["legendary"]
+      "prompt": "Mrs. Norris guards the cat-flap with a riddle: enter the value of ((9 − 5)² × 3 − 6) ÷ (2³ − 1). What number lets you through?",
+      "answer": ["6"],
+      "hint": "Work the inner parentheses and the square first, then treat top and bottom as their own little problems.",
+      "explanation": "Top: 4² × 3 − 6 = 48 − 6 = 42; bottom: 2³ − 1 = 7; and 42 ÷ 7 = 6. Mrs. Norris is unimpressed but lets you pass.",
+      "tags": ["cats", "harry-potter", "legendary"]
     },
     {
       "id": "math.m.equations.001",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 2,
       "type": "type_answer",
-      "prompt": "Solve for x: 5x − 7 = 2x + 8.",
+      "prompt": "Solve for x: 5x − 7 = 2x + 8",
       "answer": ["5", "x=5", "x = 5"],
-      "hint": "Gather the x's on one side first.",
-      "explanation": "Subtract 2x to get 3x − 7 = 8, add 7 to get 3x = 15, so x = 5. Balanced moves, both sides, every time.",
+      "hint": "Gather the x's on one side first — subtract 2x from both sides.",
+      "explanation": "5x − 7 = 2x + 8 → 3x = 15 → x = 5. Variables on both sides hold no fear for you.",
       "tags": ["probe"]
     },
     {
       "id": "math.m.equations.002",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 3,
       "type": "multiple_choice",
-      "prompt": "Which equation has NO solution?",
-      "answer": "3x + 5 = 3x − 2",
-      "options": ["3x + 5 = 3x − 2", "3x + 5 = 2x + 5", "3x + 5 = 3x + 5", "3x + 5 = 5"],
-      "hint": "Subtract 3x from both sides of each — what statement is left?",
-      "explanation": "3x + 5 = 3x − 2 collapses to 5 = −2, which is never true — no x can rescue it.",
-      "tags": ["probe"]
+      "prompt": "The cat café has 4 identical rooms, each holding n − 3 cats, and 28 cats in all: 4(n − 3) = 28. What is n?",
+      "answer": "n = 10",
+      "options": ["n = 10", "n = 7", "n = 4", "n = 7.75"],
+      "hint": "Divide both sides by 4 before touching the parentheses — or distribute first; both roads arrive.",
+      "explanation": "n − 3 = 7, so n = 10. (n = 7 is the classic forgot-to-add-back-the-3 trap.)",
+      "tags": ["probe", "cats"]
     },
     {
       "id": "math.m.equations.003",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 2,
       "type": "visual_model", "model": "balance_scale",
-      "prompt": "The alchemy scale balances 3 identical potion vials plus 2 drops against 11 drops. Work the scale to find x, the drops per vial.",
+      "prompt": "The scale shows 3x + 2 balancing 11. Pick the move at each step to find x.",
       "answer": "3",
       "data": { "model": { "left": "3x + 2", "right": "11", "steps": ["subtract 2 from both sides", "divide both sides by 3"] } },
-      "hint": "Clear the loose 2 drops from BOTH pans first.",
-      "explanation": "3x = 9 once the 2 is cleared, so x = 3 — and the scale stayed level the whole way.",
-      "tags": ["harry-potter"]
+      "hint": "Strip away the loose 2 first so the x-blocks stand alone.",
+      "explanation": "3x = 9, so x = 3. Whatever leaves the left pan must leave the right pan too."
     },
     {
       "id": "math.m.equations.004",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 3,
       "type": "visual_model", "model": "balance_scale",
-      "prompt": "Both pans hold x this time: 4x + 3 balances x + 18. Work the scale to find x.",
+      "prompt": "Both pans hold x-blocks this time: 5x − 4 balances 2x + 11. Pick each balance move to find x.",
       "answer": "5",
-      "data": { "model": { "left": "4x + 3", "right": "x + 18", "steps": ["subtract x from both sides", "subtract 3 from both sides", "divide both sides by 3"] } },
-      "hint": "Strip one x off BOTH pans, then clear the 3.",
-      "explanation": "3x + 3 = 18, then 3x = 15, so x = 5 — variables on both sides just cost one extra balanced move."
+      "data": { "model": { "left": "5x − 4", "right": "2x + 11", "steps": ["subtract 2x from both sides", "add 4 to both sides", "divide both sides by 3"] } },
+      "hint": "Clear the smaller pile of x-blocks first, then deal with the loose numbers.",
+      "explanation": "3x − 4 = 11 → 3x = 15 → x = 5. Both pans always get identical treatment."
     },
     {
       "id": "math.m.equations.005",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 3,
-      "type": "type_answer",
-      "prompt": "Solve for y: 7(y − 2) = 3y + 10.",
-      "answer": ["6", "y=6", "y = 6"],
-      "hint": "Distribute the 7 before collecting terms.",
-      "explanation": "7y − 14 = 3y + 10 gives 4y = 24, so y = 6. Distribute, gather, divide — clean."
+      "type": "multiple_choice",
+      "prompt": "How many solutions does 3(x + 4) = 3x + 12 have?",
+      "answer": "Infinitely many — every value of x works",
+      "options": ["Infinitely many — every value of x works", "Exactly one: x = 0", "Exactly one: x = 4", "None"],
+      "hint": "Distribute the left side and stare hard at what you get.",
+      "explanation": "Both sides simplify to 3x + 12 — the equation is an identity, true for every x."
     },
     {
       "id": "math.m.equations.006",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 3,
       "type": "spot_error",
-      "prompt": "A house-elf solved this equation. Tap the step with the mistake.",
+      "prompt": "A goblin solved this equation. Tap the step where the logic broke.",
       "answer": "2",
       "options": [],
       "data": {
         "segments": [
-          "Problem: 6x − 9 = 3x + 15",
-          "Step A: subtract 3x from both sides → 3x − 9 = 15",
-          "Step B: add 9 to both sides → 3x = 6",
-          "Step C: divide both sides by 3 → x = 2"
+          "Solve: 4x + 6 = 2x + 18",
+          "Step A: subtract 2x from both sides → 2x + 6 = 18",
+          "Step B: add 6 to both sides → 2x = 24",
+          "Step C: divide both sides by 2 → x = 12"
         ]
       },
-      "hint": "When 9 is added to the right side, what does 15 become?",
-      "explanation": "15 + 9 = 24, not 6, so 3x = 24 and x = 8. One arithmetic slip — exactly what checking catches.",
-      "tags": ["harry-potter"]
+      "hint": "To undo a +6, which operation keeps the balance?",
+      "explanation": "The 6 was being ADDED, so it leaves by subtraction: 2x = 12 and x = 6. Adding 6 again only dug the hole deeper."
     },
     {
       "id": "math.m.equations.007",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 2,
-      "type": "multiple_choice",
-      "prompt": "How many solutions does 2(x + 4) = 2x + 8 have?",
-      "answer": "Infinitely many — every x works",
-      "options": ["Infinitely many — every x works", "Exactly one: x = 0", "Exactly one: x = 4", "None"],
-      "hint": "Distribute the left side, then compare the two sides.",
-      "explanation": "Both sides are literally 2x + 8, so the equation is true for EVERY x — an identity."
+      "type": "fill_blank",
+      "prompt": "Amal sells cookie trays at the bake sale: 7y + 4 = 39, where y is the number of trays. Fill in the solve.",
+      "answer": "blanks",
+      "data": { "lines": ["Subtract 4 from both sides: 7y = [[35]]", "Divide both sides by 7: y = [[5]]"] },
+      "hint": "Undo operations in reverse order — the +4 leaves first.",
+      "explanation": "7y = 35, so y = 5 trays. Inverse operations, peeled off in reverse.",
+      "tags": ["baking"]
     },
     {
       "id": "math.m.equations.008",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 2,
-      "type": "fill_blank",
-      "prompt": "Solve it in two balanced moves: x/4 + 7 = 12.",
-      "answer": "blanks",
-      "data": { "lines": ["Subtract 7 from both sides: x/4 = [[5]]", "Multiply both sides by 4: x = [[20]]"] },
-      "hint": "Undo the + 7 first, then undo the ÷ 4.",
-      "explanation": "x/4 = 5 leads to x = 20. Check: 20 ÷ 4 + 7 = 12 ✓"
+      "type": "type_answer",
+      "prompt": "Amal's Duolingo day: a quarter of her XP goal plus 7 bonus XP came to 12 XP, so x/4 + 7 = 12. Find x.",
+      "answer": ["20", "x=20", "x = 20"],
+      "hint": "Peel away the +7 first, then undo the division by 4.",
+      "explanation": "x/4 = 5, so x = 20. Multiplying both sides by 4 finishes it.",
+      "tags": ["duolingo"]
     },
     {
       "id": "math.m.equations.009",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 3,
       "type": "order_sequence",
-      "prompt": "Put the solution steps for 5x + 4 = 2x + 19 in order.",
+      "prompt": "Arrange the steps to solve 6x − 5 = 3x + 16.",
       "answer": "sequence",
       "data": {
         "sequence": [
-          "Subtract 2x from both sides: 3x + 4 = 19",
-          "Subtract 4 from both sides: 3x = 15",
-          "Divide both sides by 3: x = 5",
-          "Check: 5(5) + 4 = 29 and 2(5) + 19 = 29 ✓"
+          "Subtract 3x from both sides: 3x − 5 = 16",
+          "Add 5 to both sides: 3x = 21",
+          "Divide both sides by 3: x = 7",
+          "Check: 6(7) − 5 = 37 and 3(7) + 16 = 37 ✓"
         ]
       },
-      "hint": "Variables together first, then constants, then divide, then verify.",
-      "explanation": "Collect the x's, clear the constant, divide, check — the four-beat rhythm of equation solving."
+      "hint": "Collect the x's, then the constants, then divide — and always end with the check.",
+      "explanation": "x = 7 makes both sides 37. The final check turns probably-right into provably-right."
     },
     {
       "id": "math.m.equations.010",
-      "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 2,
+      "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 3,
       "type": "speed_round",
-      "prompt": "Equation Blitz! Solve each quick equation for x at top speed.",
+      "prompt": "Equation Lightning! Solve each for x — fast and fearless.",
       "answer": "cards",
       "data": {
         "cards": [
-          ["x + 7 = 12", "5"],
-          ["3x = 21", "7"],
+          ["x + 7 = 15", "8"],
           ["x − 4 = 9", "13"],
-          ["x ÷ 2 = 8", "16"],
-          ["2x + 1 = 9", "4"],
-          ["10 − x = 3", "7"],
+          ["3x = 27", "9"],
+          ["x ÷ 5 = 4", "20"],
+          ["2x + 1 = 11", "5"],
+          ["x + 12 = 12", "0"],
           ["4x = 36", "9"],
-          ["x + 15 = 15", "0"],
-          ["x ÷ 3 = 5", "15"],
-          ["2x = 11", "5.5"],
-          ["7x = 56", "8"],
-          ["x − 7 = −2", "5"]
+          ["x − 9 = −2", "7"],
+          ["5x − 5 = 20", "5"],
+          ["x ÷ 3 = 7", "21"],
+          ["2x = 9", "4.5"],
+          ["10 − x = 3", "7"]
         ]
       },
-      "hint": "Undo each operation — these should feel automatic.",
-      "explanation": "Fast one-steppers keep the big multi-step solves running smooth."
+      "hint": "One inverse operation per card — trust your instincts.",
+      "explanation": "Fast one-steppers keep the big multi-step solves feeling smooth."
     },
     {
       "id": "math.m.equations.011",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 4,
       "type": "type_answer",
-      "prompt": "Amal's Duolingo XP rose by exactly 1 each day for three days in a row, totaling 84 XP. What was the LARGEST day's XP?",
-      "answer": ["29", "29 XP"],
-      "hint": "Call the smallest day n — then the days are n, n + 1, n + 2.",
-      "explanation": "n + (n + 1) + (n + 2) = 3n + 3 = 84 gives n = 27, so the days were 27, 28, 29. An equation tames any 'consecutive' puzzle.",
-      "tags": ["duolingo", "legendary"]
+      "prompt": "Solve for x: 3(2x − 4) = 2(x + 6)",
+      "answer": ["6", "x=6", "x = 6"],
+      "hint": "Distribute on both sides before anything else.",
+      "explanation": "6x − 12 = 2x + 12 → 4x = 24 → x = 6. Distribute first, then it's a familiar both-sides solve."
     },
     {
       "id": "math.m.equations.012",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 4,
-      "type": "type_answer",
-      "prompt": "Solve for k: 4(2k − 3) = 5k + 9.",
-      "answer": ["7", "k=7", "k = 7"],
-      "hint": "Distribute first; then it's a familiar variables-on-both-sides equation.",
-      "explanation": "8k − 12 = 5k + 9 gives 3k = 21, so k = 7. Check: 4(11) = 44 and 35 + 9 = 44 ✓",
-      "tags": ["legendary"]
+      "type": "multiple_choice",
+      "prompt": "Which equation has NO solution?",
+      "answer": "4x + 3 = 4x − 5",
+      "options": ["4x + 3 = 4x − 5", "4x + 3 = 3x + 3", "4x + 3 = 4x + 3", "4x + 3 = 5"],
+      "hint": "Subtract the x-terms in each — one equation collapses into a false statement.",
+      "explanation": "4x + 3 = 4x − 5 collapses to 3 = −5, never true. (4x + 3 = 3x + 3 DOES have a solution: x = 0.)"
     },
     {
       "id": "math.m.equations.013",
       "realm": "math", "skill": "math.m.equations", "tier": "maintenance", "difficulty": 5,
       "type": "type_answer",
-      "prompt": "For what value of a does 6x + a = 2(3x + 4) have infinitely many solutions?",
-      "answer": ["8", "a=8", "a = 8"],
-      "hint": "Expand the right side — when are the two sides the SAME expression?",
-      "explanation": "The right side is 6x + 8, so the equation is an identity exactly when a = 8. Any other a leaves NO solution at all!",
-      "tags": ["legendary"]
+      "prompt": "The Potions door demands the brewing constant x: 4(2x − 3) − 5 = 3(x + 1) + 20. Solve it.",
+      "answer": ["8", "x=8", "x = 8"],
+      "hint": "Tidy each side into its simplest form before moving anything across the equals sign.",
+      "explanation": "8x − 17 = 3x + 23 → 5x = 40 → x = 8. The door swings open.",
+      "tags": ["harry-potter", "legendary"]
     },
+    {
+      "id": "math.m.fractions.001",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Compute: 5/6 − 3/8",
+      "answer": ["11/24"],
+      "hint": "Both denominators march to 24.",
+      "explanation": "20/24 − 9/24 = 11/24. A common denominator makes unlike fractions comparable.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.fractions.002",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Compute: 5/8 ÷ 3/4",
+      "answer": ["5/6", "10/12", "20/24"],
+      "hint": "Keep, change, flip — multiply by the reciprocal of the divisor.",
+      "explanation": "5/8 × 4/3 = 20/24 = 5/6. Dividing by a fraction is multiplying by its flip.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.fractions.003",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Croissant dough takes 2 3/4 cups of flour; brioche takes 1 5/8 cups. How much flour in total?",
+      "answer": "4 3/8 cups",
+      "options": ["4 3/8 cups", "3 3/8 cups", "4 1/8 cups", "3 8/12 cups"],
+      "hint": "Eighths are the common ground: 2 3/4 = 2 6/8.",
+      "explanation": "2 6/8 + 1 5/8 = 3 11/8 = 4 3/8 cups. The extra 8/8 rolls up into a whole cup.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.m.fractions.004",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Multiply and simplify: 2/3 × 9/10",
+      "answer": "blanks",
+      "data": { "lines": ["2/3 × 9/10 = 18/30 = [[3/5]] in simplest form"] },
+      "hint": "Divide 18 and 30 by their GCF.",
+      "explanation": "18/30 ÷ 6/6 = 3/5. (Cross-cancelling before you multiply gets there even faster.)"
+    },
+    {
+      "id": "math.m.fractions.005",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Solve for x: (3/4)x = 5/6",
+      "answer": ["10/9", "1 1/9", "20/18"],
+      "hint": "Multiply both sides by the reciprocal of 3/4.",
+      "explanation": "x = 5/6 × 4/3 = 20/18 = 10/9. Multiplying by 4/3 cancels the 3/4 perfectly."
+    },
+    {
+      "id": "math.m.fractions.006",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 3,
+      "type": "number_line_tap",
+      "prompt": "Tap the position of 7/4 on the number line.",
+      "answer": "1.75",
+      "data": { "numberLine": { "min": 0, "max": 3, "step": 0.25 } },
+      "hint": "7/4 is 4/4 plus 3/4 — one whole and a bit more.",
+      "explanation": "7/4 = 1 3/4 = 1.75. Improper fractions are just mixed numbers in disguise."
+    },
+    {
+      "id": "math.m.fractions.007",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin divided fractions. Tap the step where it went wrong.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Compute: 2/5 ÷ 4/3",
+          "Step A: division by a fraction means multiplying by a reciprocal",
+          "Step B: flip the FIRST fraction: 5/2 × 4/3",
+          "Step C: 5/2 × 4/3 = 20/6 = 10/3"
+        ]
+      },
+      "hint": "Which fraction is the divisor — and which one actually gets flipped?",
+      "explanation": "Only the DIVISOR flips: 2/5 × 3/4 = 6/20 = 3/10. Keep, change, flip — the first fraction stays put."
+    },
+    {
+      "id": "math.m.fractions.008",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which is greater: 5/8 or 7/12?",
+      "answer": "5/8",
+      "options": ["5/8", "7/12", "They are equal"],
+      "hint": "Rewrite both over 24 — then it's just a numerator contest.",
+      "explanation": "5/8 = 15/24 and 7/12 = 14/24, so 5/8 wins by exactly one twenty-fourth."
+    },
+    {
+      "id": "math.m.fractions.009",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "A skein holds 4 1/3 m of yarn. Amal's cabled cuff uses 1 5/6 m. How many meters remain?",
+      "answer": ["2 1/2", "5/2", "2.5"],
+      "hint": "Sixths make the subtraction friendly — and you may need to borrow a whole.",
+      "explanation": "4 2/6 − 1 5/6 = 3 8/6 − 1 5/6 = 2 3/6 = 2 1/2 m. Borrowing a whole turns 2/6 into 8/6.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.m.fractions.010",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Order the steps to compute 2 1/2 ÷ 3/4.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Rewrite 2 1/2 as the improper fraction 5/2",
+          "Flip the divisor: dividing by 3/4 becomes multiplying by 4/3",
+          "Multiply: 5/2 × 4/3 = 20/6",
+          "Simplify: 20/6 = 10/3 = 3 1/3"
+        ]
+      },
+      "hint": "Mixed numbers must turn improper before any flipping happens.",
+      "explanation": "Improper first, flip second, multiply, simplify — 3 1/3 every time."
+    },
+    {
+      "id": "math.m.fractions.011",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Amal has 5 1/4 cups of flour, and each tray of croissants takes exactly 3/4 cup. How many full trays can she bake?",
+      "answer": ["7", "7 trays"],
+      "hint": "This is a division question wearing a baking apron: 5 1/4 ÷ 3/4.",
+      "explanation": "21/4 × 4/3 = 21/3 = 7 trays, with not a speck of flour to spare. Dividing by 3/4 asks how many 3/4-cups fit.",
+      "tags": ["baking", "legendary"]
+    },
+    {
+      "id": "math.m.fractions.012",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 4,
+      "type": "fill_blank",
+      "prompt": "Careful — order of operations applies to fractions too: 1/2 + 2/3 × 3/4",
+      "answer": "blanks",
+      "data": { "lines": ["1/2 + 2/3 × 3/4 = 1/2 + [[1/2]] = [[1]]"] },
+      "hint": "The × fires before the + — even in fraction land.",
+      "explanation": "2/3 × 3/4 = 6/12 = 1/2, and 1/2 + 1/2 = 1. PEMDAS doesn't take days off."
+    },
+    {
+      "id": "math.m.fractions.013",
+      "realm": "math", "skill": "math.m.fractions", "tier": "maintenance", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Amal read 2/5 of her novel on Monday and 1/4 of it on Tuesday. Exactly 84 pages remain. How many pages does the novel have?",
+      "answer": ["240", "240 pages"],
+      "hint": "First find what fraction of the book is LEFT — twentieths will appear.",
+      "explanation": "Read so far: 8/20 + 5/20 = 13/20, so the remaining 7/20 equals 84 pages. One twentieth is 12 pages, and 20 × 12 = 240.",
+      "tags": ["reading", "legendary"]
+    },
+    {
+      "id": "math.m.numbertheory.001",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Write the prime factorization of 72 using exponents.",
+      "answer": ["2^3 * 3^2", "2^3*3^2", "2³·3²", "2³ · 3²", "2³ × 3²", "2^3 × 3^2", "2^3 x 3^2", "3^2 * 2^3"],
+      "hint": "Keep splitting until every factor is prime, then gather the repeats into exponents.",
+      "explanation": "72 = 8 × 9 = 2³ × 3². Exponents are just tidy bookkeeping for repeated primes.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.numbertheory.002",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "What is the LCM of 12 and 18?",
+      "answer": "36",
+      "options": ["36", "6", "72", "216"],
+      "hint": "List multiples of 18 and catch the first one that 12 also divides.",
+      "explanation": "Multiples of 18: 18, 36 — and 36 = 12 × 3, so 36 it is. (6 is the GCF; 216 is the product, far past the least.)",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.numbertheory.003",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which number is divisible by 9?",
+      "answer": "7,524",
+      "options": ["7,524", "4,386", "2,156", "8,131"],
+      "hint": "Sum the digits — the 9 test cares about nothing else.",
+      "explanation": "7 + 5 + 2 + 4 = 18, a multiple of 9, so 7,524 passes. (4,386's digits sum to 21: divisible by 3 but not 9.)"
+    },
+    {
+      "id": "math.m.numbertheory.004",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Amal cuts a 36 cm strand and a 60 cm strand of yarn into equal pieces with no waste. What is the longest possible piece, in cm?",
+      "answer": ["12", "12 cm"],
+      "hint": "The longest length that divides both numbers is a GCF in a yarn costume.",
+      "explanation": "36 = 2² × 3² and 60 = 2² × 3 × 5 share 2² × 3 = 12. Twelve-cm pieces use every last centimeter.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.m.numbertheory.005",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Which pair of numbers is relatively prime?",
+      "answer": "14 and 15",
+      "options": ["14 and 15", "14 and 21", "15 and 25", "16 and 18"],
+      "hint": "Relatively prime means a GCF of exactly 1 — test each pair.",
+      "explanation": "14 = 2 × 7 and 15 = 3 × 5 share no prime at all. The other pairs share 7, 5, and 2."
+    },
+    {
+      "id": "math.m.numbertheory.006",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Prime hunting season is open:",
+      "answer": "blanks",
+      "data": { "lines": ["The smallest prime greater than 90 is [[97]]", "The largest prime less than 30 is [[29]]"] },
+      "hint": "Test each candidate against the small primes: 2, 3, 5, 7…",
+      "explanation": "91 = 7 × 13, and 93, 95 fall to 3 and 5 — but 97 stands firm. Below 30, 29 holds the crown."
+    },
+    {
+      "id": "math.m.numbertheory.007",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin factored 180 into primes. Tap the step with the flaw.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Factor 180 into primes",
+          "Step A: 180 = 18 × 10",
+          "Step B: 18 = 2 × 9 and 10 = 2 × 5",
+          "Step C: so 180 = 2² × 9 × 5 — all prime ✓"
+        ]
+      },
+      "hint": "Is every factor in the final line actually prime?",
+      "explanation": "9 = 3² is no prime! Keep splitting: 180 = 2² × 3² × 5."
+    },
+    {
+      "id": "math.m.numbertheory.008",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Order the factor-tree steps for 84.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Split: 84 = 2 × 42",
+          "Split again: 42 = 2 × 21",
+          "Split again: 21 = 3 × 7",
+          "Collect with exponents: 84 = 2² × 3 × 7"
+        ]
+      },
+      "hint": "Halve while you can, then hunt the odd primes.",
+      "explanation": "Two halvings, one split into 3 × 7, and exponents tidy it up: 2² × 3 × 7."
+    },
+    {
+      "id": "math.m.numbertheory.009",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Amal reviews Swahili every 6 days and French every 8 days on Duolingo. She did both today. In how many days will both reviews land on the same day again?",
+      "answer": ["24", "24 days"],
+      "hint": "You need a day-number that both 6 and 8 divide — the least one.",
+      "explanation": "LCM(6, 8) = 24, since 2³ × 3 covers both. Streaks: synchronized.",
+      "tags": ["duolingo", "swahili"]
+    },
+    {
+      "id": "math.m.numbertheory.010",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "A mystery number is divisible by both 2 and 3. Which number MUST it also be divisible by?",
+      "answer": "6",
+      "options": ["6", "5", "9", "12"],
+      "hint": "Combine the two prime factors it definitely owns.",
+      "explanation": "Owning factors 2 and 3 guarantees 6 — but not 12 (witness 18: divisible by 2, 3, and 6, but not 12)."
+    },
+    {
+      "id": "math.m.numbertheory.011",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Three cats nap on strict schedules: Biscuit every 4 hours, Mochi every 6 hours, Clementine every 10 hours. All three just curled up together. In how many hours will all three nap at the same time again?",
+      "answer": ["60", "60 hours"],
+      "hint": "Three schedules, one LCM — prime factors make it painless.",
+      "explanation": "LCM(4, 6, 10) = 2² × 3 × 5 = 60 hours. The synchronized nap is mathematically inevitable.",
+      "tags": ["cats", "legendary"]
+    },
+    {
+      "id": "math.m.numbertheory.012",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 4,
+      "type": "fill_blank",
+      "prompt": "GCF and LCM are a secret team. For the numbers 8 and 20:",
+      "answer": "blanks",
+      "data": { "lines": ["GCF(8, 20) = [[4]] and LCM(8, 20) = [[40]]", "Check: GCF × LCM = [[160]] = 8 × 20"] },
+      "hint": "Factor both into primes — lower powers build the GCF, higher powers build the LCM.",
+      "explanation": "GCF 4 × LCM 40 = 160 = 8 × 20. For any two numbers, GCF × LCM equals their product — sneaky and beautiful."
+    },
+    {
+      "id": "math.m.numbertheory.013",
+      "realm": "math", "skill": "math.m.numbertheory", "tier": "maintenance", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "The castle gate opens for the smallest number divisible by EVERY whole number from 2 through 8. What is it?",
+      "answer": ["840"],
+      "hint": "Build the LCM from prime powers: the strongest power of 2, of 3, plus the 5 and the 7 you need.",
+      "explanation": "2³ × 3 × 5 × 7 = 840 — the 8 demands 2³, and 6 rides along free. The gate grinds open.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    "___CHUNK_3___"
+  ]
+}
