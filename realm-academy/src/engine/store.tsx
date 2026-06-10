@@ -6,7 +6,7 @@
 import React, { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { Item, SaveState, RealmId, QuestDef } from './types';
 import { newSave, persistSave, loadSave, rollDay, creditStreak, importSave } from './persistence';
-import { newCard, review, dayKey, isSpacedRetrieval } from './scheduler';
+import { newCard, review, dayKey } from './scheduler';
 import { newSkillState, recordResult, markTaught, markCrowned, applyDustySweep } from './mastery';
 import { decide } from './governor';
 import { recordProbe } from './placement';
@@ -90,11 +90,13 @@ function reducer(save: SaveState, action: Action): SaveState {
       const next = { ...save, skills: { ...save.skills }, cards: { ...save.cards } };
       // card scheduling
       const card = next.cards[item.id] ?? newCard(now);
-      const spaced = isReviewDue && isSpacedRetrieval(card, now);
+      // a success counts toward the 3-day successive-relearning rule when this
+      // card hasn't already been reviewed today (first exposure counts as day 1)
+      const spaced = card.lastReviewDay !== dayKey(now);
       next.cards[item.id] = review(card, correct, now);
       // skill mastery + state machine
       const prior = next.skills[item.skill] ?? newSkillState();
-      let st = recordResult(prior, correct, { spaced: spaced || (prior.window.length >= 3 && isReviewDue), now });
+      let st = recordResult(prior, correct, { spaced, now });
       st = { ...st, scaffold: decide(st).scaffold };
       next.skills[item.skill] = st;
       // today's bookkeeping
@@ -266,6 +268,13 @@ function reducer(save: SaveState, action: Action): SaveState {
         }
       }
       if (dirty) next = { ...next, skills };
+      // placement window closed (2 days run, none left for today) → wrap it up
+      if (!next.placement.complete) {
+        const remaining = nextProbes(loadRegistry(), next, now);
+        if (remaining.length === 0) {
+          next = { ...next, placement: { ...next.placement, complete: true } };
+        }
+      }
       return ensureQuests(next, now);
     }
   }

@@ -72,6 +72,7 @@ function AppInner() {
 
   const startSkill = (skill: SkillDef) => {
     const plan = buildLesson(registry, save, skill.id);
+    if (plan.kind !== 'teach' && plan.items.length === 0) return; // no servable items yet
     setRoute({ view: 'lesson', plan });
     window.scrollTo({ top: 0 });
   };
@@ -101,7 +102,13 @@ function AppInner() {
   const startMiniGame = () => {
     // mini-game of the day: a themed speed round drawn from content speed_round items
     const flavor = dailyFlavor();
-    const speedItems = registry.items.filter(i => i.type === 'speed_round' && !i.teachSequenceId);
+    const speedItems = registry.items.filter(i => {
+      if (i.type !== 'speed_round' || i.teachSequenceId) return false;
+      // fluency rounds only on owned material: maintenance pools or taught skills
+      if (i.tier === 'maintenance') return true;
+      const st = save.skills[i.skill];
+      return !!st && (st.teachDone || st.override === 'known');
+    });
     if (speedItems.length === 0) return;
     const rng = seededRng(hashString('mini' + dayKey()));
     const item: Item = { ...pick(speedItems, rng) };

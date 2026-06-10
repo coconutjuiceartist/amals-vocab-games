@@ -4,7 +4,7 @@
  * All interactions are tap-first (tap to select, tap to place) — reliable on iPad.
  */
 
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ExProps } from './common';
 import { useStableShuffle } from './common';
 import { checkAnswer } from '../../engine/checker';
@@ -516,11 +516,17 @@ export function SpeedRound({ item, onResult, locked }: ExProps & { theme?: { nam
   const [flash, setFlash] = useState<'good' | 'bad' | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const endedRef = useRef(false);
+  const scoreRef = useRef({ right: 0, attempted: 0 });
 
-  const finish = (r: number, a: number) => {
+  useEffect(() => () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+  }, []);
+
+  const finish = () => {
     if (endedRef.current) return;
     endedRef.current = true;
     if (timerRef.current) clearInterval(timerRef.current);
+    const { right: r, attempted: a } = scoreRef.current;
     setPhase('done');
     onResult(a >= 5 && r / Math.max(a, 1) >= 0.6, `${r}/${a}`);
   };
@@ -530,13 +536,7 @@ export function SpeedRound({ item, onResult, locked }: ExProps & { theme?: { nam
     timerRef.current = setInterval(() => {
       setTimeLeft(t => {
         if (t <= 1) {
-          setRight(r => {
-            setAttempted(a => {
-              finish(r, a);
-              return a;
-            });
-            return r;
-          });
+          setTimeout(finish, 0);
           return 0;
         }
         return t - 1;
@@ -545,18 +545,20 @@ export function SpeedRound({ item, onResult, locked }: ExProps & { theme?: { nam
   };
 
   const submitCard = () => {
-    if (text.trim() === '') return;
+    if (text.trim() === '' || endedRef.current) return;
     const card = cards[idx % cards.length];
     const ok = checkAnswer(text, card[1]).correct;
-    const newRight = right + (ok ? 1 : 0);
-    const newAtt = attempted + 1;
-    setRight(newRight);
-    setAttempted(newAtt);
+    scoreRef.current = {
+      right: scoreRef.current.right + (ok ? 1 : 0),
+      attempted: scoreRef.current.attempted + 1,
+    };
+    setRight(scoreRef.current.right);
+    setAttempted(scoreRef.current.attempted);
     setFlash(ok ? 'good' : 'bad');
     setTimeout(() => setFlash(null), 250);
     setText('');
-    if (newAtt >= cards.length) {
-      finish(newRight, newAtt);
+    if (scoreRef.current.attempted >= cards.length) {
+      finish();
     } else {
       setIdx(idx + 1);
     }

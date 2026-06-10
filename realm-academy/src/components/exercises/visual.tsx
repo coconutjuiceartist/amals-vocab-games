@@ -102,7 +102,7 @@ function DoubleNumberLine({ item, onResult, locked }: ExProps) {
           {/* known anchor */}
           <g>
             <line x1={px(m.knownBottom ?? 0, bottomMax)} y1={32} x2={px(m.knownBottom ?? 0, bottomMax)} y2={113} stroke="var(--good)" strokeWidth="2" strokeDasharray="5 4" />
-            <circle cx={px(m.knownTop ?? 0, topMax) * 0 + px(m.knownBottom ?? 0, bottomMax)} cy={40} r={7} fill="var(--gem)" />
+            <circle cx={px(m.knownBottom ?? 0, bottomMax)} cy={40} r={7} fill="var(--gem)" />
             <circle cx={px(m.knownBottom ?? 0, bottomMax)} cy={105} r={7} fill="var(--accent)" />
             <text x={px(m.knownBottom ?? 0, bottomMax)} y={24} fontSize="13" fontWeight="900" fill="var(--gem)" textAnchor="middle">{m.knownTop}</text>
             <text x={px(m.knownBottom ?? 0, bottomMax)} y={130} fontSize="13" fontWeight="900" fill="var(--accent)" textAnchor="middle">{m.knownBottom}</text>

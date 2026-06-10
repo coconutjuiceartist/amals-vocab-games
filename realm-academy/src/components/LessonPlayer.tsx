@@ -112,6 +112,7 @@ function ExerciseLoop({
   const [exKey, setExKey] = useState(0);
   const requeued = useRef(new Set<string>());
   const startTime = useRef(Date.now());
+  const finishedRef = useRef(false);
 
   // boss drama
   const totalPlanned = plan.items.length;
@@ -139,7 +140,8 @@ function ExerciseLoop({
   const done = pos >= queue.length;
 
   useEffect(() => {
-    if (done && queue.length > 0) {
+    if (done && queue.length > 0 && !finishedRef.current) {
+      finishedRef.current = true;
       const minutes = Math.max(1, Math.round((Date.now() - startTime.current) / 60000));
       const bossWon = isBoss ? correctCount / totalPlanned >= 0.7 : undefined;
       let xp = correctCount * 5 + (plan.kind === 'warmup' ? 5 : 12);

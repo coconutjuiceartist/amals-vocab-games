@@ -1,16 +1,28 @@
 # amals-vocab-games
-A game for fifth graders to learn vocabulary
 
-Next.js 14 app for 5th grade vocabulary learning: Word Unscramble & Crossword Puzzle. Uses Tailwind CSS.
+A collection of learning games built for Amal.
 
-Run locally:
+## 🐱✨ Realm Academy (newest — start here)
 
-1. npm install
-2. npm run dev
+A full offline learning game for her 6th-grade year at Pingry: Math, Science, English,
+French, and Humanities as five explorable realms, with a teach-first curriculum engine,
+spaced repetition, bosses, streaks, and a mascot she names herself.
 
-Open http://localhost:3000 and enter 12 vocabulary words on the Home page. The app will fetch definitions and create two games: Unscramble and Crossword.
+```bash
+cd realm-academy
+npm install
+npm run dev
+```
 
-Notes:
-- The app uses a simple bad-word filter; if an inappropriate word is detected you'll see "Oops! Please use school-appropriate words.".
-- Definitions are provided in `data/vocab.js` (the app no longer fetches them from an external API).
-- This is a single-page experience that stores the chosen words in localStorage for the games.
+See [`realm-academy/README.md`](realm-academy/README.md) for full docs (content authoring,
+Parent Corner, placement, tests).
+
+## Earlier experiments (Next.js, repo root)
+
+5th-grade vocabulary games (Word Unscramble & Crossword) plus assorted mini-games.
+
+1. `npm install`
+2. `npm run dev`
+
+Open http://localhost:3000 and enter 12 vocabulary words on the Home page. Definitions are
+provided in `data/vocab.js`; chosen words are stored in localStorage for the games.

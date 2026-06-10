@@ -1,0 +1,957 @@
+{
+  "sequences": [
+    {
+      "id": "teach.english.literary",
+      "skill": "english.literary",
+      "title": "Literary Elements: The Story X-Ray",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Every story has a skeleton",
+          "lines": [
+            "You've devoured enough books to FEEL the moment a story 'gets good' — that feeling has a map.",
+            "Today we x-ray stories: the mountain every plot climbs, the trouble that powers it, and the message hiding inside the bones."
+          ],
+          "vocab": [
+            { "term": "plot", "meaning": "the chain of events in a story — what happens, in order" },
+            { "term": "conflict", "meaning": "the struggle that powers a story: a character pushing against some opposing force" },
+            { "term": "theme", "meaning": "the message about life a story shows, stated as a complete idea — not just one word" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "english.literary.t01" },
+        { "kind": "completion", "itemId": "english.literary.t02" },
+        { "kind": "completion", "itemId": "english.literary.t03" },
+        { "kind": "burst", "itemIds": ["english.literary.001", "english.literary.002", "english.literary.003"] }
+      ]
+    },
+    {
+      "id": "teach.english.reading",
+      "skill": "english.reading",
+      "title": "Reading Quests: Clues + What You Know",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "You already read minds (sort of)",
+          "lines": [
+            "When your cat sits glaring beside an empty bowl, nobody has to TELL you dinner is late — you read the clues.",
+            "Authors play the same game: they plant clues and trust you, the detective, to crack them. That detective move is called an inference."
+          ],
+          "vocab": [
+            { "term": "inference", "meaning": "a conclusion you reach by combining clues from the text with what you already know" },
+            { "term": "evidence", "meaning": "the exact words or details in the text that back up an idea" },
+            { "term": "main idea", "meaning": "what a passage is mostly about — the point all the other details support" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "english.reading.t01" },
+        { "kind": "completion", "itemId": "english.reading.t02" },
+        { "kind": "completion", "itemId": "english.reading.t03" },
+        { "kind": "burst", "itemIds": ["english.reading.001", "english.reading.002", "english.reading.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "english.literary.t01",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.english.literary",
+      "prompt": "Let's x-ray a story you've known forever — the Tortoise and the Hare — and map it onto the plot mountain.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Every story climbs a PLOT MOUNTAIN with five stops. Stop one, the EXPOSITION: we meet the racers and their world — the hare is fast and boastful, the tortoise slow and steady. No trouble yet, just the setup." },
+          {
+            "text": "RISING ACTION: the race begins and tension builds. The hare sprints ahead, gets cocky, and settles in for a nap under a tree — while the tortoise keeps plodding, step after step.",
+            "check": {
+              "question": "Which event belongs to the rising action?",
+              "options": [
+                "The hare naps while the tortoise keeps walking — trouble is building",
+                "We learn that the hare is fast and boastful",
+                "The crowd goes home after the race"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "CLIMAX — the peak of the mountain, the moment of highest tension: the hare jolts awake and sees the tortoise only steps from the finish line. Everything hangs on this one desperate sprint." },
+          {
+            "text": "Then the mountain slopes down. FALLING ACTION: the hare's dash falls just short. RESOLUTION: the tortoise crosses the line, and the story settles into its ending — steady effort beat careless speed.",
+            "check": {
+              "question": "What makes the climax the climax?",
+              "options": [
+                "It's the peak of tension, where the outcome gets decided",
+                "It's the longest part of the story",
+                "It's wherever the main character is introduced"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Five stops, one mountain: exposition → rising action → climax → falling action → resolution. You can map ANY story onto it — even a three-second cat video has a tiny mountain. 🐱" }
+        ]
+      },
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.literary.t02",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.english.literary",
+      "prompt": "Your turn to x-ray one. Mini-story: Pip the kitten lives in a cozy bakery. One morning the flour bin tips over and buries the day's recipe cards. Pip digs and sneezes and digs — and the oven timer rings with NOTHING ready to bake. At last she paws the final recipe card free; the baker bakes, the shelves fill, and Pip earns the first warm roll.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "We meet Pip in her bakery world, before any trouble → that's the [[exposition]]",
+          "The timer rings with nothing ready — the peak of tension → the [[climax]]",
+          "The shelves fill and Pip gets her warm roll — the story settles → the [[resolution]]"
+        ]
+      },
+      "hint": "Setup at the base, peak of tension at the top, settled ending at the far side.",
+      "explanation": "Setup → exposition, highest tension → climax, settled ending → resolution. You just x-rayed a whole story.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "english.literary.t03",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.english.literary",
+      "prompt": "Last x-ray tool: TOPIC vs THEME. A topic names a subject; a theme is what the story SAYS about it. Finish the labels for the Tortoise and the Hare.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "'Racing' and 'pride' each name a subject in a single word — each one is a [[topic]]",
+          "'Steady effort beats careless speed' states the story's full message — that is the [[theme]]",
+          "A theme is always a complete [[idea|sentence|thought]], never just one word"
+        ]
+      },
+      "hint": "One of them fits on a sticky note; the other needs a whole sentence.",
+      "explanation": "Topics are one-word subjects; themes are full ideas a story argues about life.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.literary.001",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "On the plot mountain, which part introduces the characters and setting BEFORE the trouble starts?",
+      "answer": "Exposition",
+      "options": ["Exposition", "Climax", "Falling action", "Resolution"],
+      "hint": "It's the base camp of the mountain — where you meet everyone.",
+      "explanation": "The exposition is the setup: characters and setting first, trouble later."
+    },
+    {
+      "id": "english.literary.002",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 1,
+      "type": "order_sequence",
+      "prompt": "Climb the plot mountain: put the five stages in story order.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Exposition",
+          "Rising action",
+          "Climax",
+          "Falling action",
+          "Resolution"
+        ]
+      },
+      "hint": "Up the mountain to the peak of tension, then down the other side.",
+      "explanation": "Stories climb: setup, building trouble, peak, unwinding, settled ending."
+    },
+    {
+      "id": "english.literary.003",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "'The new ball of yarn was as round as a little moon.' Which device is this?",
+      "answer": "Simile",
+      "options": ["Simile", "Metaphor", "Personification", "Hyperbole"],
+      "hint": "Hunt for the comparison words 'as … as'.",
+      "explanation": "A simile compares using 'like' or 'as' — here, 'as round as a little moon'.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.literary.004",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each device to its example line.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Simile", "The frosting was as smooth as glass"],
+          ["Metaphor", "The bakery was a furnace by noon"],
+          ["Personification", "The kettle grumbled on the stove"],
+          ["Alliteration", "Six sleepy cats sat on the sunny step"]
+        ]
+      },
+      "hint": "Simile uses 'as'; metaphor says IS; personification gives human moods; alliteration repeats a starting sound.",
+      "explanation": "Each device has a fingerprint: 'as', is, human behavior, repeated sounds.",
+      "tags": ["baking", "cats"]
+    },
+    {
+      "id": "english.literary.005",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Rosa and her sister both want the last ball of gray yarn, and neither will give in. Which conflict is this?",
+      "answer": "Character vs character",
+      "options": ["Character vs character", "Character vs self", "Character vs nature", "Character vs society"],
+      "hint": "Who — or what — is Rosa pushing against?",
+      "explanation": "Two people pushing against each other is character vs character.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.literary.006",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "These five events make one tiny storm story. Put them in the order the plot mountain would climb them.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "A storm warning crackles over the lighthouse radio",
+          "Wind rips the signal flag from the tower",
+          "Minka the cat drags the flag back up the spiral stairs",
+          "The rescued flag waves the fishing boats safely home",
+          "Minka sleeps by the stove, a small unnoticed hero"
+        ]
+      },
+      "hint": "Follow cause and effect: warning, disaster, brave deed, rescue, rest.",
+      "explanation": "Each event causes the next — that chain of cause and effect IS the plot.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.literary.007",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort each mini-scenario by the type of conflict driving it.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Character vs character": [
+            "Two bakers feud over a stolen secret recipe",
+            "A knight duels the bandit king at the bridge"
+          ],
+          "Character vs nature": [
+            "A shepherd is trapped on a cliff ledge by a blizzard",
+            "A sailor rows against a rising storm"
+          ],
+          "Character vs self": [
+            "A singer battles her own stage fright",
+            "A boy fights the urge to peek at his sister's diary"
+          ]
+        }
+      },
+      "hint": "Ask: is the hero pushing against a person, the wild world, or something inside themselves?",
+      "explanation": "Name the opposing force and the conflict names itself: another person, nature, or a feeling within.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.literary.008",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "'I pressed my nose to the bakery window and decided the éclairs were definitely calling my name.' Which point of view?",
+      "answer": "First person",
+      "options": ["First person", "Third person limited", "Third person omniscient", "Second person"],
+      "hint": "Who is telling this — and what tiny word gives it away?",
+      "explanation": "The narrator says 'I' and 'my' — a character inside the story is speaking, so it's first person.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.literary.009",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "'Fog curled through the empty street, and somewhere behind her, a gate creaked twice.' What MOOD do these lines create for the reader?",
+      "answer": "Eerie",
+      "options": ["Eerie", "Cheerful", "Triumphant", "Cozy"],
+      "hint": "Mood is the feeling that settles over YOU as you read.",
+      "explanation": "Fog, emptiness, and an unseen creaking gate build an eerie, uneasy feeling — that's mood, the reader's side of the page."
+    },
+    {
+      "id": "english.literary.010",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank", "scaffoldLevel": 1,
+      "prompt": "Name each device. (You've seen both on the x-ray table already.)",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "'The storm rattled the windows and muttered all night' treats the storm like a person — that's [[personification]]",
+          "'I have knitted this row a million times' exaggerates wildly — that's [[hyperbole]]"
+        ]
+      },
+      "hint": "One device gives human behavior to a thing; the other stretches the truth past breaking.",
+      "explanation": "Storms can't mutter (personification), and nobody knits a million rows (hyperbole).",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.literary.011",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "'By July, Aunt Bea's kitchen is a furnace.' Which device is this?",
+      "answer": "Metaphor",
+      "options": ["Metaphor", "Simile", "Personification", "Alliteration"],
+      "hint": "No 'like', no 'as' — the sentence says the kitchen IS something.",
+      "explanation": "A metaphor declares one thing IS another: kitchen = furnace, no comparison words needed.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.literary.012",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two of these statements about THEME are true. Find the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "A theme is a message about life, stated as a complete idea",
+          "One story can carry more than one theme"
+        ],
+        "lie": "A theme is a single word, like 'jealousy'"
+      },
+      "hint": "One of these is actually describing a topic.",
+      "explanation": "A single word like 'jealousy' is a TOPIC. The theme is what the story says ABOUT jealousy, in a full idea."
+    },
+    {
+      "id": "english.literary.013",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "'Mara hoped the snow would cancel school. Across town, her teacher wished for exactly the same thing, though neither would ever admit it.' Which point of view?",
+      "answer": "Third person omniscient",
+      "options": ["Third person omniscient", "Third person limited", "First person", "Second person"],
+      "hint": "Count how many characters' private thoughts the narrator can enter.",
+      "explanation": "The narrator dips into TWO minds — Mara's and the teacher's — so it's the all-knowing third person omniscient."
+    },
+    {
+      "id": "english.literary.014",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A bard wrote four lines about night. Exactly one is NOT a metaphor — tap it.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Her braid was a rope of midnight.",
+          "The moon was a silver coin spent on the sea.",
+          "The dark was as thick as new wool.",
+          "Sleep was a tide that pulled her under."
+        ]
+      },
+      "hint": "Metaphors say one thing IS another. One line compares a different way.",
+      "explanation": "'As thick as new wool' uses 'as … as', so it's a simile. The other three each declare one thing IS another.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.literary.015",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "'Jonas counted his coins for the third time and slid them across the counter. The shopkeeper's face gave away nothing — Jonas had no idea if it would be enough.' Which point of view?",
+      "answer": "Third person limited",
+      "options": ["Third person limited", "Third person omniscient", "First person", "Second person"],
+      "hint": "The narrator says 'he' — but whose head are we locked inside?",
+      "explanation": "We hear Jonas's thoughts but are locked out of the shopkeeper's — third person limited rides along with one mind only."
+    },
+    {
+      "id": "english.literary.016",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A sparrow mocked the old cat for dozing all day, calling her lazy while he showed off loops in the air. When a hawk dove at the yard that afternoon, the show-off froze — and the 'lazy' cat exploded off her windowsill, scattering feathers until the hawk gave up. The sparrow never trusted appearances again.\n\nWhat is the THEME of this fable?",
+      "answer": "Appearances can hide what someone is truly capable of",
+      "options": [
+        "Appearances can hide what someone is truly capable of",
+        "Cats and birds",
+        "Hawks always lose in the end",
+        "Sleeping all day makes you stronger"
+      ],
+      "hint": "Which choice is a complete message about life — and matches what the sparrow learned?",
+      "explanation": "'Cats and birds' is just a topic, and the others miss the point: the 'lazy' cat's hidden strength is the lesson.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.literary.017",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "drag_categorize",
+      "prompt": "Sort each original line by its figurative device.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Simile": [
+            "Her purr was like a tiny engine",
+            "The dough rose slowly, like a sleepy moon"
+          ],
+          "Metaphor": [
+            "The library was a forest of stories",
+            "His temper was a kettle near the boil"
+          ],
+          "Personification": [
+            "The last cookie begged to be eaten",
+            "The old stairs complained under our feet"
+          ]
+        }
+      },
+      "hint": "'Like' flags one family; IS flags another; human behavior in objects flags the third.",
+      "explanation": "Similes compare with 'like', metaphors declare IS, and personification lets cookies beg and stairs complain.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "english.literary.018",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "'Of course our hero the rooster, brave defender of the barnyard, had bravely hidden behind the smallest hen.' What is the author's TONE toward the rooster?",
+      "answer": "Mocking",
+      "options": ["Mocking", "Admiring", "Fearful", "Neutral"],
+      "hint": "Do the praise words match what the rooster actually did?",
+      "explanation": "Calling a hider 'brave' twice is sarcasm — the author is mocking the rooster, and tone is the author's attitude."
+    },
+    {
+      "id": "english.literary.019",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A storm scene leaves YOU shivery and tense, while the author describes the storm in delighted, playful words. Which one is the TONE?",
+      "answer": "Delighted and playful — the author's attitude",
+      "options": [
+        "Delighted and playful — the author's attitude",
+        "Shivery and tense — the reader's feeling",
+        "The storm itself",
+        "The nighttime setting"
+      ],
+      "hint": "Tone belongs to the writer; mood belongs to the reader.",
+      "explanation": "Tone = the author's attitude (playful delight here); the shivery feeling you get is the mood."
+    },
+    {
+      "id": "english.literary.020",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Read the mini-scene, then finish the story x-ray. 'Captain Idra stood at the rail as the first hailstones hit. For three days the sea had pushed her ship backward, and her crew's eyes had begun to ask the question no one would say aloud.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The captain's struggle against the sea is a character vs [[nature]] conflict",
+          "The unspoken question builds tension, so this scene belongs to the [[rising action|rising]]"
+        ]
+      },
+      "hint": "Name the opposing force first; then ask where on the mountain tension is still BUILDING.",
+      "explanation": "The sea is a force of nature, and mounting dread before the peak is rising action."
+    },
+    {
+      "id": "english.literary.021",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Nadia had practiced her solo for months, and tonight the concert hall glowed. Halfway through the first verse, a string on her guitar snapped with a crack that echoed to the back row. The audience held its breath while Nadia stared at the broken string, fingers frozen. Then, with the whole hall silent, Nadia made her choice: she shifted her grip and played on. Afterward, her teacher called it the bravest music he had ever heard.\n\nWhich sentence is the CLIMAX — the peak where the outcome is decided?",
+      "answer": "Then, with the whole hall silent, Nadia made her choice: she shifted her grip and played on.",
+      "options": [
+        "Nadia had practiced her solo for months, and tonight the concert hall glowed.",
+        "Halfway through the first verse, a string on her guitar snapped with a crack that echoed to the back row.",
+        "The audience held its breath while Nadia stared at the broken string, fingers frozen.",
+        "Then, with the whole hall silent, Nadia made her choice: she shifted her grip and played on.",
+        "Afterward, her teacher called it the bravest music he had ever heard."
+      ],
+      "hint": "Tension RISES while things go wrong — the climax is where the character's choice settles it.",
+      "explanation": "The snap and the frozen fingers build tension; the moment Nadia chooses to play on decides everything. That decision is the peak.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.literary.022",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 4,
+      "type": "matching_pairs",
+      "prompt": "The myth of Persephone, x-rayed. Match each plot stage to its event.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Exposition", "Persephone gathers flowers in a sunlit meadow"],
+          ["Rising action", "Hades takes her below while Demeter's grief lets the crops fail"],
+          ["Climax", "Zeus demands her return — but she has eaten six pomegranate seeds"],
+          ["Falling action", "The gods strike a deal: part of each year below, part above"],
+          ["Resolution", "Every spring the world blooms when she rejoins her mother"]
+        ]
+      },
+      "hint": "Find the single moment the whole outcome hinges on — that's your climax; everything after it unwinds.",
+      "explanation": "The pomegranate seeds are the hinge of the whole myth; the deal and the seasons flow downhill from that moment.",
+      "tags": ["legendary", "reading"]
+    },
+    {
+      "id": "english.literary.023",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "All summer, Jo and Wren built a raft together. The day it finally floated, they argued so fiercely about its name that Wren stomped home. The raft sat untouched for a week — until Wren returned with a paintbrush and painted JO'S FOLLY on the bow, and Jo laughed until she cried. They shoved off together, captains of a boat with a ridiculous name neither would change.\n\nWhich statement BEST expresses the theme?",
+      "answer": "Real friendship can survive disagreement",
+      "options": [
+        "Real friendship can survive disagreement",
+        "Friendship",
+        "Never argue with a friend or you will lose them forever",
+        "Building a raft takes all summer"
+      ],
+      "hint": "One option is only a topic, and one is contradicted by the ending. Which message does the story actually prove?",
+      "explanation": "'Friendship' is just the topic, and the friends DON'T lose each other — the story shows their bond outlasting the fight.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.literary.024",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "A theatre goblin labeled the plot stages of Pip the bakery kitten's tale. Tap the label that is WRONG.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Exposition: We meet Pip the kitten in her cozy bakery home.",
+          "Rising action: The flour bin tips and buries the day's recipe cards.",
+          "Resolution: The oven timer rings with NOTHING ready to bake.",
+          "Falling action: The baker bakes the rescued recipe and the shelves slowly fill."
+        ]
+      },
+      "hint": "A resolution SETTLES a story. Does that moment feel settled to you?",
+      "explanation": "The timer ringing over an empty oven is the peak of tension — the CLIMAX, not a resolution. Resolutions calm the story down.",
+      "tags": ["legendary", "cats", "baking"]
+    },
+    {
+      "id": "english.literary.025",
+      "realm": "english", "skill": "english.literary", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "The day after the championship, Priya's medal hung on her bedpost, where it caught the morning light. She had imagined this exact sunbeam all season. Yet at breakfast she found herself talking not about the final point, but about the bus rides, the inside jokes, the way the whole team groaned in harmony whenever Coach announced wind sprints. The medal was gold. The groaning, she decided, had been golden.\n\nWhich statement BEST expresses the theme?",
+      "answer": "The shared journey can matter more than the prize at the end",
+      "options": [
+        "The shared journey can matter more than the prize at the end",
+        "Winning medals",
+        "Hard work always ends in a gold medal",
+        "Trophies should be displayed where the light catches them"
+      ],
+      "hint": "Reread the last two sentences — which 'gold' does Priya value more?",
+      "explanation": "Priya calls the team's groaning 'golden,' quietly ranking the journey above the medal. That contrast carries the theme.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.reading.t01",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.english.reading",
+      "prompt": "Read this tiny scene like a detective: 'Amal opened the front door. Her cat shot past her, fur soaked flat, and refused to come out from under the bed all evening. Outside, the gutters were still dripping.'",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "A detective reads a room; a reader reads a page. Step one: collect the CLUES the text actually gives. Clue one: the cat's fur is soaked flat. Clue two: the gutters are still dripping." },
+          {
+            "text": "Step two: add what YOU already know about the world — dripping gutters mean recent rain, and no cat soaks itself on purpose.",
+            "check": {
+              "question": "Which of these is a CLUE from the text, not outside knowledge?",
+              "options": [
+                "The gutters are still dripping",
+                "Rain falls from clouds",
+                "Most cats dislike water"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Step three: combine them. Clues + what you know = the cat got caught outside in a rainstorm. Notice: the text never SAYS it rained. You concluded it — that's an INFERENCE." },
+          {
+            "text": "That's the detective's move you'll use on every Reading Quest: text clues + what you know = inference. Some call it reading between the lines.",
+            "check": {
+              "question": "What makes 'it rained' an inference rather than a stated fact?",
+              "options": [
+                "The passage never says it — we concluded it from clues",
+                "The narrator announces the weather report",
+                "It's a wild guess with no support"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.reading.t02",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.english.reading",
+      "prompt": "Finish this inference like a detective. The scene: 'Omar slid his pie onto the contest table, then checked the clock for the third time and re-tied his apron twice.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Clue from the text: Omar keeps checking the clock and fidgeting with his apron",
+          "What I know: people fidget and clock-watch when they feel [[nervous|anxious|worried]]",
+          "Inference: Omar is anxious about how the pie contest will go"
+        ]
+      },
+      "hint": "When have YOU re-tied, re-checked, re-counted something? What were you feeling?",
+      "explanation": "Fidgeting plus clock-watching are classic clues — your own experience fills in the feeling: nervous.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.reading.t03",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.english.reading",
+      "prompt": "One more — this time pair the inference WITH its evidence. The scene: 'Every evening at five, long before any human reached for the can opener, Biscuit was already seated beside her bowl, eyes fixed on the cupboard.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Inference: Biscuit has learned the family's feeding [[routine|schedule]]",
+          "Evidence: she is waiting by her bowl at [[five|5]], before anyone even moves toward the food"
+        ]
+      },
+      "hint": "The evidence is the exact detail in the text that would convince a doubter.",
+      "explanation": "An inference is only as strong as its evidence — and a cat seated at five o'clock sharp is strong evidence indeed.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.reading.001",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "SPROCKET OF THE CINNAMON WHEEL\n\nSprocket the cat had worked at the Cinnamon Wheel Bakery for three years, though no one had ever hired him. He arrived each morning at six, just as Mr. Abel unlocked the door, and took up his post on the wide windowsill — the one spot where sunlight, oven warmth, and the smell of rising dough met in the air like three friends shaking hands.\n\nCustomers thought Sprocket was decoration. The regulars knew better. When the line grew long and toddlers began to wail, Sprocket would stroll the counter's edge, tail high, until the crying turned to giggling. When old Mrs. Okafor came in on Thursdays, he sat beside her chair while she drank her tea, because Thursdays were the days she visited the bench where her husband used to feed pigeons.\n\nMr. Abel never said any of this out loud. He simply set out a saucer of cream each evening, marked the calendar every Thursday with a small paw print, and left the windowsill cushion exactly where it was, even when the new shelves arrived and every other corner of the bakery changed.\n\nWhat is this story MOSTLY about?",
+      "answer": "A bakery cat who quietly looks after the people around him",
+      "options": [
+        "A bakery cat who quietly looks after the people around him",
+        "Step-by-step instructions for baking bread",
+        "A baker who wants to get rid of a stray cat",
+        "A woman who opens her own bakery"
+      ],
+      "hint": "Main idea = the point that EVERY paragraph helps build.",
+      "explanation": "Every detail — calming toddlers, sitting with Mrs. Okafor, the saucer of cream — builds one idea: Sprocket quietly takes care of people.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "english.reading.002",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "SPROCKET OF THE CINNAMON WHEEL\n\nSprocket the cat had worked at the Cinnamon Wheel Bakery for three years, though no one had ever hired him. He arrived each morning at six, just as Mr. Abel unlocked the door, and took up his post on the wide windowsill — the one spot where sunlight, oven warmth, and the smell of rising dough met in the air like three friends shaking hands.\n\nCustomers thought Sprocket was decoration. The regulars knew better. When the line grew long and toddlers began to wail, Sprocket would stroll the counter's edge, tail high, until the crying turned to giggling. When old Mrs. Okafor came in on Thursdays, he sat beside her chair while she drank her tea, because Thursdays were the days she visited the bench where her husband used to feed pigeons.\n\nMr. Abel never said any of this out loud. He simply set out a saucer of cream each evening, marked the calendar every Thursday with a small paw print, and left the windowsill cushion exactly where it was, even when the new shelves arrived and every other corner of the bakery changed.\n\nWhy does Mr. Abel mark every Thursday with a paw print?",
+      "answer": "He treats Sprocket's Thursday visits with Mrs. Okafor like a real appointment",
+      "options": [
+        "He treats Sprocket's Thursday visits with Mrs. Okafor like a real appointment",
+        "He is reminding himself to give Sprocket a bath",
+        "He stamps every page of the calendar for decoration",
+        "Thursday is the day the new shelves arrive"
+      ],
+      "hint": "What happens at the bakery every Thursday — and who notices?",
+      "explanation": "Mrs. Okafor's hard Thursdays are when Sprocket sits with her; the paw print shows Mr. Abel treats that comfort like real work.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "english.reading.003",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "SPROCKET OF THE CINNAMON WHEEL\n\nSprocket the cat had worked at the Cinnamon Wheel Bakery for three years, though no one had ever hired him. He arrived each morning at six, just as Mr. Abel unlocked the door, and took up his post on the wide windowsill — the one spot where sunlight, oven warmth, and the smell of rising dough met in the air like three friends shaking hands.\n\nCustomers thought Sprocket was decoration. The regulars knew better. When the line grew long and toddlers began to wail, Sprocket would stroll the counter's edge, tail high, until the crying turned to giggling. When old Mrs. Okafor came in on Thursdays, he sat beside her chair while she drank her tea, because Thursdays were the days she visited the bench where her husband used to feed pigeons.\n\nMr. Abel never said any of this out loud. He simply set out a saucer of cream each evening, marked the calendar every Thursday with a small paw print, and left the windowsill cushion exactly where it was, even when the new shelves arrived and every other corner of the bakery changed.\n\nIn the first paragraph, Sprocket 'took up his post on the wide windowsill.' Here, 'post' means…",
+      "answer": "his regular spot, like a guard's assigned place",
+      "options": [
+        "his regular spot, like a guard's assigned place",
+        "a wooden fence pole",
+        "a letter dropped in the mail",
+        "an online message"
+      ],
+      "hint": "Swap each meaning into the sentence — only one makes sense for a cat reporting to work.",
+      "explanation": "Sprocket 'works' at the bakery, so his post is his duty station — context picks the meaning.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "english.reading.004",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "SPROCKET OF THE CINNAMON WHEEL\n\nSprocket the cat had worked at the Cinnamon Wheel Bakery for three years, though no one had ever hired him. He arrived each morning at six, just as Mr. Abel unlocked the door, and took up his post on the wide windowsill — the one spot where sunlight, oven warmth, and the smell of rising dough met in the air like three friends shaking hands.\n\nCustomers thought Sprocket was decoration. The regulars knew better. When the line grew long and toddlers began to wail, Sprocket would stroll the counter's edge, tail high, until the crying turned to giggling. When old Mrs. Okafor came in on Thursdays, he sat beside her chair while she drank her tea, because Thursdays were the days she visited the bench where her husband used to feed pigeons.\n\nMr. Abel never said any of this out loud. He simply set out a saucer of cream each evening, marked the calendar every Thursday with a small paw print, and left the windowsill cushion exactly where it was, even when the new shelves arrived and every other corner of the bakery changed.\n\nTwo of these statements about the story are true. Find the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Sprocket arrives at the bakery at six each morning",
+          "Mr. Abel keeps the windowsill cushion in place even after the bakery gets new shelves"
+        ],
+        "lie": "Mr. Abel often tells customers how helpful Sprocket is"
+      },
+      "hint": "Check the last paragraph carefully — what does Mr. Abel do instead of talking?",
+      "explanation": "The story says Mr. Abel 'never said any of this out loud' — he shows his thanks with cream and paw prints, not words.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "english.reading.005",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "THE WEAVER AND THE NORTH WIND\n\nLong ago, in a village pinned between the mountains and the sea, the North Wind grew jealous of human warmth. Each winter he howled down the slopes, snuffing out fires and scattering roofs like playing cards. The villagers begged the goddess of the hearth for help. But it was Melia, a weaver with calloused fingers and a patient eye, who answered.\n\n'Great Boreas,' she called from the cliff, 'I will weave you a cloak worthy of a king of storms — if you can tear it, our village is yours. If you cannot, you will only ever visit us gently.' The wind, who was as vain as he was loud, roared his agreement.\n\nFor thirty nights Melia wove. She did not choose wool. She spun thread from things no wind has ever beaten: the roots of mountain pines, the patience of stones, the last warmth of a banked fire. When Boreas wrapped the cloak around his shoulders, he swelled himself into a hurricane and blew — and the cloak only settled closer, snug as snow on a sleeping field.\n\nThree times he raged. Three times the weave held. At last the North Wind sighed, and his sigh was almost gentle. From that day on, winter in the village arrived like a guest, not a thief.\n\nWhy does Melia's plan work on Boreas?",
+      "answer": "She counts on his vanity — he cannot resist a challenge that flatters his power",
+      "options": [
+        "She counts on his vanity — he cannot resist a challenge that flatters his power",
+        "She knows he is secretly afraid of the goddess of the hearth",
+        "She uses magic that controls the weather",
+        "He is too tired from the long winter to argue with her"
+      ],
+      "hint": "Reread how the wind is described right before he agrees to the bargain.",
+      "explanation": "The text calls him 'as vain as he was loud' — Melia baits that vanity with 'a cloak worthy of a king of storms,' and he can't refuse.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.006",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "THE WEAVER AND THE NORTH WIND\n\nLong ago, in a village pinned between the mountains and the sea, the North Wind grew jealous of human warmth. Each winter he howled down the slopes, snuffing out fires and scattering roofs like playing cards. The villagers begged the goddess of the hearth for help. But it was Melia, a weaver with calloused fingers and a patient eye, who answered.\n\n'Great Boreas,' she called from the cliff, 'I will weave you a cloak worthy of a king of storms — if you can tear it, our village is yours. If you cannot, you will only ever visit us gently.' The wind, who was as vain as he was loud, roared his agreement.\n\nFor thirty nights Melia wove. She did not choose wool. She spun thread from things no wind has ever beaten: the roots of mountain pines, the patience of stones, the last warmth of a banked fire. When Boreas wrapped the cloak around his shoulders, he swelled himself into a hurricane and blew — and the cloak only settled closer, snug as snow on a sleeping field.\n\nThree times he raged. Three times the weave held. At last the North Wind sighed, and his sigh was almost gentle. From that day on, winter in the village arrived like a guest, not a thief.\n\nThe wind is described as 'as vain as he was loud.' In this myth, 'vain' means…",
+      "answer": "overly proud of himself",
+      "options": [
+        "overly proud of himself",
+        "useless and hopeless",
+        "impossible to see",
+        "freezing cold"
+      ],
+      "hint": "What kind of personality falls for flattery about being 'a king of storms'?",
+      "explanation": "Boreas accepts because the wager flatters him — vanity here is excessive pride, not the 'in vain' kind of useless.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.007",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "THE WEAVER AND THE NORTH WIND\n\nLong ago, in a village pinned between the mountains and the sea, the North Wind grew jealous of human warmth. Each winter he howled down the slopes, snuffing out fires and scattering roofs like playing cards. The villagers begged the goddess of the hearth for help. But it was Melia, a weaver with calloused fingers and a patient eye, who answered.\n\n'Great Boreas,' she called from the cliff, 'I will weave you a cloak worthy of a king of storms — if you can tear it, our village is yours. If you cannot, you will only ever visit us gently.' The wind, who was as vain as he was loud, roared his agreement.\n\nFor thirty nights Melia wove. She did not choose wool. She spun thread from things no wind has ever beaten: the roots of mountain pines, the patience of stones, the last warmth of a banked fire. When Boreas wrapped the cloak around his shoulders, he swelled himself into a hurricane and blew — and the cloak only settled closer, snug as snow on a sleeping field.\n\nThree times he raged. Three times the weave held. At last the North Wind sighed, and his sigh was almost gentle. From that day on, winter in the village arrived like a guest, not a thief.\n\nWhich line BEST supports the idea that Melia plans her victory carefully instead of trusting luck?",
+      "answer": "'She did not choose wool. She spun thread from things no wind has ever beaten.'",
+      "options": [
+        "'She did not choose wool. She spun thread from things no wind has ever beaten.'",
+        "'The villagers begged the goddess of the hearth for help.'",
+        "'He swelled himself into a hurricane and blew.'",
+        "'From that day on, winter in the village arrived like a guest, not a thief.'"
+      ],
+      "hint": "Find the line showing a deliberate CHOICE Melia makes before the test.",
+      "explanation": "Rejecting wool and choosing wind-proof materials is strategy in action — the other lines describe the villagers, the wind, and the ending.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.reading.008",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "THE WEAVER AND THE NORTH WIND\n\nLong ago, in a village pinned between the mountains and the sea, the North Wind grew jealous of human warmth. Each winter he howled down the slopes, snuffing out fires and scattering roofs like playing cards. The villagers begged the goddess of the hearth for help. But it was Melia, a weaver with calloused fingers and a patient eye, who answered.\n\n'Great Boreas,' she called from the cliff, 'I will weave you a cloak worthy of a king of storms — if you can tear it, our village is yours. If you cannot, you will only ever visit us gently.' The wind, who was as vain as he was loud, roared his agreement.\n\nFor thirty nights Melia wove. She did not choose wool. She spun thread from things no wind has ever beaten: the roots of mountain pines, the patience of stones, the last warmth of a banked fire. When Boreas wrapped the cloak around his shoulders, he swelled himself into a hurricane and blew — and the cloak only settled closer, snug as snow on a sleeping field.\n\nThree times he raged. Three times the weave held. At last the North Wind sighed, and his sigh was almost gentle. From that day on, winter in the village arrived like a guest, not a thief.\n\nWhich sentence BEST states a theme of this myth?",
+      "answer": "Patience and cleverness can succeed where raw force fails",
+      "options": [
+        "Patience and cleverness can succeed where raw force fails",
+        "Weaving and winter",
+        "The strongest one always wins in the end",
+        "Never make a bargain with a stranger"
+      ],
+      "hint": "Toss out the topic and anything the ending contradicts.",
+      "explanation": "'Weaving and winter' is a topic, and the strongest one LOSES here — the myth shows patient craft outlasting a hurricane.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.reading.009",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "WHAT THE STORM LEFT\n\nAll night the storm was a knitter\nwho had lost her pattern —\nshe unraveled the clouds to gray wool,\ndropped stitches of rain on the roof,\ncast on, pulled out, cast on again.\n\nHer needles were the pine trees,\nclicking and crossing in the dark.\nI lay in bed and counted rows of thunder.\n\nBy morning she had given up,\nor finished. On every fence post,\non every wire and web and branch:\nsmall silver beads of water,\nstrung like the edge of a shawl\nnobody will ever wear.\n\nThroughout the poem, the storm is pictured as…",
+      "answer": "a knitter working without a pattern",
+      "options": [
+        "a knitter working without a pattern",
+        "an army attacking the house",
+        "a baker kneading gray dough",
+        "a cat prowling across the roof"
+      ],
+      "hint": "The very first lines hand you the comparison — then the whole poem extends it.",
+      "explanation": "The poem opens 'the storm was a knitter who had lost her pattern' and keeps knitting: wool clouds, dropped stitches, pine-tree needles.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.reading.010",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "WHAT THE STORM LEFT\n\nAll night the storm was a knitter\nwho had lost her pattern —\nshe unraveled the clouds to gray wool,\ndropped stitches of rain on the roof,\ncast on, pulled out, cast on again.\n\nHer needles were the pine trees,\nclicking and crossing in the dark.\nI lay in bed and counted rows of thunder.\n\nBy morning she had given up,\nor finished. On every fence post,\non every wire and web and branch:\nsmall silver beads of water,\nstrung like the edge of a shawl\nnobody will ever wear.\n\nComplete the picture the poem paints (use the poem's own words).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "In the second stanza, the pine trees serve as the storm's [[needles]], and the speaker counts rows of [[thunder]]."
+        ]
+      },
+      "hint": "Both answers are right there in stanza two.",
+      "explanation": "The metaphor stays consistent: pine trees are the knitter's needles, and thunder rumbles by in 'rows' like knitting.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.reading.011",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "WHAT THE STORM LEFT\n\nAll night the storm was a knitter\nwho had lost her pattern —\nshe unraveled the clouds to gray wool,\ndropped stitches of rain on the roof,\ncast on, pulled out, cast on again.\n\nHer needles were the pine trees,\nclicking and crossing in the dark.\nI lay in bed and counted rows of thunder.\n\nBy morning she had given up,\nor finished. On every fence post,\non every wire and web and branch:\nsmall silver beads of water,\nstrung like the edge of a shawl\nnobody will ever wear.\n\nThe final lines — 'strung like the edge of a shawl / nobody will ever wear' — suggest that…",
+      "answer": "the storm left behind something delicate and beautiful that exists for no one's use",
+      "options": [
+        "the storm left behind something delicate and beautiful that exists for no one's use",
+        "the speaker is sad that her own shawl was ruined in the rain",
+        "the fences and spiderwebs were destroyed during the night",
+        "the storm is certain to return and finish its knitting"
+      ],
+      "hint": "What ARE those 'silver beads' literally — and who are they for?",
+      "explanation": "The water drops are lovely as a beaded shawl, yet 'nobody will ever wear' it — beauty made for no one. Subtle clue-work; nicely cracked.",
+      "tags": ["legendary", "knitting"]
+    },
+    {
+      "id": "english.reading.012",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "THE PROP ROOM (a scene from a play)\n\nSETTING: The school prop room, ten minutes before the talent show. Shelves of painted swords and paper crowns. JUNE, eleven, paces in a costume cape, mouthing words silently. Her brother TEO, nine, watches from an overturned bucket.\n\nTEO: You've practiced that speech a hundred times.\nJUNE (still pacing): A hundred and six.\nTEO: So you know it.\nJUNE: Knowing it isn't the problem. (She peeks through the curtain at the audience, then snaps it shut.) There are so many of them.\nTEO (hopping off the bucket): Want to hear a secret? (He holds out a paper crown.) Last year, before my magic act, my hands were shaking so hard I dropped my cards. Twice.\nJUNE: Your act won.\nTEO: Because Mom told me to pick one face in the crowd and do the whole show just for them. (beat) I picked you.\nJUNE (taking the crown slowly, almost smiling): One face.\nTEO: One face.\n(Beyond the curtain, a microphone crackles. JUNE straightens her cape.)\nANNOUNCER (offstage): Next up — June Ramos!\nJUNE (whispering, to TEO): Watch me the whole time.\n\nWhat do the stage directions reveal about June that her spoken lines alone do not fully show?",
+      "answer": "Her pacing, silent rehearsing, and quick peek through the curtain show how nervous she is",
+      "options": [
+        "Her pacing, silent rehearsing, and quick peek through the curtain show how nervous she is",
+        "She has never actually practiced her speech",
+        "She is angry that Teo followed her backstage",
+        "She plans to skip her performance and go home"
+      ],
+      "hint": "Read only the words in parentheses and italics — what is June's body doing?",
+      "explanation": "Stage directions are the playwright's camera: pacing, mouthing words, and snapping the curtain shut act out a nervousness June never names.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.013",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "THE PROP ROOM (a scene from a play)\n\nSETTING: The school prop room, ten minutes before the talent show. Shelves of painted swords and paper crowns. JUNE, eleven, paces in a costume cape, mouthing words silently. Her brother TEO, nine, watches from an overturned bucket.\n\nTEO: You've practiced that speech a hundred times.\nJUNE (still pacing): A hundred and six.\nTEO: So you know it.\nJUNE: Knowing it isn't the problem. (She peeks through the curtain at the audience, then snaps it shut.) There are so many of them.\nTEO (hopping off the bucket): Want to hear a secret? (He holds out a paper crown.) Last year, before my magic act, my hands were shaking so hard I dropped my cards. Twice.\nJUNE: Your act won.\nTEO: Because Mom told me to pick one face in the crowd and do the whole show just for them. (beat) I picked you.\nJUNE (taking the crown slowly, almost smiling): One face.\nTEO: One face.\n(Beyond the curtain, a microphone crackles. JUNE straightens her cape.)\nANNOUNCER (offstage): Next up — June Ramos!\nJUNE (whispering, to TEO): Watch me the whole time.\n\nWhat does June's last line — 'Watch me the whole time' — show?",
+      "answer": "She is taking Teo's advice and choosing him as her one face in the crowd",
+      "options": [
+        "She is taking Teo's advice and choosing him as her one face in the crowd",
+        "She is afraid Teo will wander off and get lost backstage",
+        "She wants Teo to write down every word of her speech",
+        "She is ordering Teo to guard the prop room"
+      ],
+      "hint": "Connect her last line to the secret Teo just shared.",
+      "explanation": "Teo beat his stage fright by performing for one face — June's whisper means she's chosen hers: him. Clue plus clue equals inference.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.reading.014",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "THE PROP ROOM (a scene from a play)\n\nSETTING: The school prop room, ten minutes before the talent show. Shelves of painted swords and paper crowns. JUNE, eleven, paces in a costume cape, mouthing words silently. Her brother TEO, nine, watches from an overturned bucket.\n\nTEO: You've practiced that speech a hundred times.\nJUNE (still pacing): A hundred and six.\nTEO: So you know it.\nJUNE: Knowing it isn't the problem. (She peeks through the curtain at the audience, then snaps it shut.) There are so many of them.\nTEO (hopping off the bucket): Want to hear a secret? (He holds out a paper crown.) Last year, before my magic act, my hands were shaking so hard I dropped my cards. Twice.\nJUNE: Your act won.\nTEO: Because Mom told me to pick one face in the crowd and do the whole show just for them. (beat) I picked you.\nJUNE (taking the crown slowly, almost smiling): One face.\nTEO: One face.\n(Beyond the curtain, a microphone crackles. JUNE straightens her cape.)\nANNOUNCER (offstage): Next up — June Ramos!\nJUNE (whispering, to TEO): Watch me the whole time.\n\nBased on the scene's clues, what will June MOST LIKELY do during her performance?",
+      "answer": "Focus on Teo's face in the audience while she gives her speech",
+      "options": [
+        "Focus on Teo's face in the audience while she gives her speech",
+        "Forget her speech and run offstage",
+        "Perform Teo's magic act instead of her speech",
+        "Ask the announcer to let her go last"
+      ],
+      "hint": "She straightens her cape and steps up — armed with whose strategy?",
+      "explanation": "A prediction rides on clues: she takes the crown, repeats 'one face,' and asks Teo to watch — she's about to use his trick.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.015",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "from THE LIGHT ON GULL ISLAND — Chapter One\n\nThe ferry to Gull Island ran twice a week, and it carried three kinds of passengers: birdwatchers, lighthouse tourists, and people with something to avoid on the mainland. Nora Quinn, age twelve, suspected she was the third kind, even though it was her mother who had packed the suitcases.\n\n'Six months,' her mother had said. 'Just until Grandpa's hip heals. You'll love the lighthouse.'\n\nThe lighthouse, Nora learned that first evening, had not been lit in forty years. Ships used satellites now. The great lamp room at the top of the spiral stairs was kept locked, and the key — according to Grandpa — had gone to the bottom of the harbor with a rowboat called the Petrel before Nora was born. He said it cheerfully, the way he said most things, but Nora noticed he told the story while polishing a small brass key he wore on a cord around his neck.\n\nThat night, wind moaned around the cottage and Nora couldn't sleep. She counted gulls instead of sheep. She was somewhere past ninety when her dark bedroom suddenly wasn't dark. A slow beam of light swept across her wall — once, then again.\n\nThree stories above her, behind a locked door, the lamp of Gull Island was burning.\n\nPut these events in the order they happened.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Nora's mother announces a six-month stay with Grandpa",
+          "Nora rides the ferry to Gull Island",
+          "Grandpa tells the lost-key story while polishing a brass key",
+          "Unable to sleep, Nora counts gulls in the dark",
+          "A beam of light sweeps across Nora's bedroom wall"
+        ]
+      },
+      "hint": "Careful — the chapter MENTIONS the mother's promise after the ferry, but when did she say it?",
+      "explanation": "Story order isn't always telling order: the mother's 'six months' came before the ferry ride, even though the narrator reports it second.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.016",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "from THE LIGHT ON GULL ISLAND — Chapter One\n\nThe ferry to Gull Island ran twice a week, and it carried three kinds of passengers: birdwatchers, lighthouse tourists, and people with something to avoid on the mainland. Nora Quinn, age twelve, suspected she was the third kind, even though it was her mother who had packed the suitcases.\n\n'Six months,' her mother had said. 'Just until Grandpa's hip heals. You'll love the lighthouse.'\n\nThe lighthouse, Nora learned that first evening, had not been lit in forty years. Ships used satellites now. The great lamp room at the top of the spiral stairs was kept locked, and the key — according to Grandpa — had gone to the bottom of the harbor with a rowboat called the Petrel before Nora was born. He said it cheerfully, the way he said most things, but Nora noticed he told the story while polishing a small brass key he wore on a cord around his neck.\n\nThat night, wind moaned around the cottage and Nora couldn't sleep. She counted gulls instead of sheep. She was somewhere past ninety when her dark bedroom suddenly wasn't dark. A slow beam of light swept across her wall — once, then again.\n\nThree stories above her, behind a locked door, the lamp of Gull Island was burning.\n\nBased on the clues, what is Nora MOST LIKELY to do in the next chapter?",
+      "answer": "Try to find out how the locked lamp room could possibly be burning",
+      "options": [
+        "Try to find out how the locked lamp room could possibly be burning",
+        "Decide the light was only a dream and never mention it",
+        "Leave the island on the next ferry",
+        "Start a collection of brass keys like Grandpa's"
+      ],
+      "hint": "Cliffhangers are invitations — what question is the chapter daring Nora (and you) to chase?",
+      "explanation": "The chapter plants a mystery (a 'lost' key, an impossible light) precisely so its curious heroine — and its reader — must investigate.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.017",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "from THE LIGHT ON GULL ISLAND — Chapter One\n\nThe ferry to Gull Island ran twice a week, and it carried three kinds of passengers: birdwatchers, lighthouse tourists, and people with something to avoid on the mainland. Nora Quinn, age twelve, suspected she was the third kind, even though it was her mother who had packed the suitcases.\n\n'Six months,' her mother had said. 'Just until Grandpa's hip heals. You'll love the lighthouse.'\n\nThe lighthouse, Nora learned that first evening, had not been lit in forty years. Ships used satellites now. The great lamp room at the top of the spiral stairs was kept locked, and the key — according to Grandpa — had gone to the bottom of the harbor with a rowboat called the Petrel before Nora was born. He said it cheerfully, the way he said most things, but Nora noticed he told the story while polishing a small brass key he wore on a cord around his neck.\n\nThat night, wind moaned around the cottage and Nora couldn't sleep. She counted gulls instead of sheep. She was somewhere past ninety when her dark bedroom suddenly wasn't dark. A slow beam of light swept across her wall — once, then again.\n\nThree stories above her, behind a locked door, the lamp of Gull Island was burning.\n\nWhich inference is BEST supported by the chapter's clues?",
+      "answer": "Grandpa probably still has the lamp-room key and may have lit the lamp himself",
+      "options": [
+        "Grandpa probably still has the lamp-room key and may have lit the lamp himself",
+        "A passing ship aimed its searchlight at the cottage by accident",
+        "The rowboat called the Petrel has sailed back into the harbor",
+        "Nora's mother secretly followed her to the island"
+      ],
+      "hint": "Put two clues side by side: what Grandpa SAYS about the key, and what he is HOLDING as he says it.",
+      "explanation": "He claims the key sank — while polishing a brass key on a cord — and that night the 'locked' lamp burns. Stack the clues and they point at Grandpa.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.reading.018",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "ANANSI AND THE POT OF WISDOM (a tale from the Ashanti tradition, retold)\n\nLong ago, Anansi the spider decided that wisdom was far too valuable to leave lying around in everyone's heads. So he crept from village to village with a clay pot, and into it he gathered every scrap of wisdom he could find: the farmer's knowledge of rain, the fisher's knowledge of tides, the grandmother's knowledge of which silences mean sorrow and which mean peace.\n\nWhen the pot was full, Anansi decided to hide it at the top of the tallest palm tree, where no one else could ever reach it. He tied the pot to his belly and began to climb. But the pot was wide and his legs were thin; with the pot in front of him, his knees scraped and slipped, and for every step up he slid two steps down.\n\nFrom the foot of the tree, his youngest son watched. 'Father,' the boy finally called, 'wouldn't it be easier to tie the pot to your back?'\n\nAnansi stopped. He had collected all the wisdom in the world — and a child had just handed him a piece he didn't have. He laughed so hard that the pot shook loose, fell, and cracked open, and the wisdom blew away on the wind, a little of it landing on everyone.\n\nPut the events of the tale in order.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Anansi gathers wisdom from every village into a clay pot",
+          "He ties the pot to his belly and starts to climb the palm tree",
+          "His son suggests tying the pot to his back instead",
+          "Anansi laughs until the pot falls and cracks open",
+          "The wisdom scatters on the wind, landing on everyone"
+        ]
+      },
+      "hint": "Follow the pot: filled, carried, questioned, dropped, scattered.",
+      "explanation": "The pot's journey IS the plot — each event pushes the next one over like dominoes."
+    },
+    {
+      "id": "english.reading.019",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "ANANSI AND THE POT OF WISDOM (a tale from the Ashanti tradition, retold)\n\nLong ago, Anansi the spider decided that wisdom was far too valuable to leave lying around in everyone's heads. So he crept from village to village with a clay pot, and into it he gathered every scrap of wisdom he could find: the farmer's knowledge of rain, the fisher's knowledge of tides, the grandmother's knowledge of which silences mean sorrow and which mean peace.\n\nWhen the pot was full, Anansi decided to hide it at the top of the tallest palm tree, where no one else could ever reach it. He tied the pot to his belly and began to climb. But the pot was wide and his legs were thin; with the pot in front of him, his knees scraped and slipped, and for every step up he slid two steps down.\n\nFrom the foot of the tree, his youngest son watched. 'Father,' the boy finally called, 'wouldn't it be easier to tie the pot to your back?'\n\nAnansi stopped. He had collected all the wisdom in the world — and a child had just handed him a piece he didn't have. He laughed so hard that the pot shook loose, fell, and cracked open, and the wisdom blew away on the wind, a little of it landing on everyone.\n\nWhich sentence BEST states the lesson of this tale?",
+      "answer": "No one can hold all wisdom — everyone, even a child, has some to share",
+      "options": [
+        "No one can hold all wisdom — everyone, even a child, has some to share",
+        "Spiders should never climb palm trees",
+        "Children should stay quiet while their parents are working",
+        "Wisdom and palm trees"
+      ],
+      "hint": "What does Anansi realize in the instant before he laughs?",
+      "explanation": "The hoarder of ALL wisdom misses an idea a child sees at once — and the wisdom ends up shared with everyone. That's the lesson.",
+      "tags": []
+    },
+    {
+      "id": "english.reading.020",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "ANANSI AND THE POT OF WISDOM (a tale from the Ashanti tradition, retold)\n\nLong ago, Anansi the spider decided that wisdom was far too valuable to leave lying around in everyone's heads. So he crept from village to village with a clay pot, and into it he gathered every scrap of wisdom he could find: the farmer's knowledge of rain, the fisher's knowledge of tides, the grandmother's knowledge of which silences mean sorrow and which mean peace.\n\nWhen the pot was full, Anansi decided to hide it at the top of the tallest palm tree, where no one else could ever reach it. He tied the pot to his belly and began to climb. But the pot was wide and his legs were thin; with the pot in front of him, his knees scraped and slipped, and for every step up he slid two steps down.\n\nFrom the foot of the tree, his youngest son watched. 'Father,' the boy finally called, 'wouldn't it be easier to tie the pot to your back?'\n\nAnansi stopped. He had collected all the wisdom in the world — and a child had just handed him a piece he didn't have. He laughed so hard that the pot shook loose, fell, and cracked open, and the wisdom blew away on the wind, a little of it landing on everyone.\n\nWhat makes the ending IRONIC — the opposite of what Anansi intended?",
+      "answer": "By trying to keep all wisdom for himself, Anansi ends up giving it to everyone",
+      "options": [
+        "By trying to keep all wisdom for himself, Anansi ends up giving it to everyone",
+        "Anansi reaches the top of the tree but forgets why he climbed it",
+        "The pot turns out to have been empty the entire time",
+        "His son secretly wanted the pot for himself"
+      ],
+      "hint": "Compare Anansi's goal in paragraph one with the very last line.",
+      "explanation": "His plan to hoard wisdom causes the exact opposite — wisdom scattered to all. When a plan boomerangs like that, that's irony.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.reading.021",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank", "scaffoldLevel": 1,
+      "prompt": "THE INVISIBLE ZOO IN THE JAR\n\nA jar of sourdough starter looks like a science experiment napping on the kitchen counter — and that is exactly what it is. A starter begins as nothing but flour and water. Within days, it becomes home to a busy, invisible zoo.\n\nWild yeast — a microscopic fungus that drifts in flour, in the air, even on your hands — moves into the mixture and begins to eat the sugars in the flour. As the yeast feeds, it releases carbon dioxide, the same gas you breathe out. The gas forms bubbles, which is why a healthy starter looks foamy and rises in its jar as if it were breathing.\n\nThe yeast has roommates: bacteria called lactobacilli. They feed alongside the yeast and produce acids, and those acids give sourdough bread its famous tang. The acids also act as bodyguards, making the starter too sour for most harmful microbes to survive.\n\nBakers 'feed' a starter every day by stirring in fresh flour and water. Skip the feedings and the colony weakens; keep them up and a starter can outlive its baker. Some bakeries in San Francisco still use starters begun more than a century ago — billions of great-great-grandchildren of the original yeast, still making bubbles, still raising bread.\n\nUse the passage to finish the explanation.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "As wild yeast eats the flour's sugars, it releases [[carbon dioxide|carbon-dioxide|CO2|co2]] — the gas whose bubbles make the starter [[rise|rises|foam]] in its jar."
+        ]
+      },
+      "hint": "Both answers hide in the second paragraph.",
+      "explanation": "Yeast eats sugars and breathes out carbon dioxide; the trapped bubbles puff the starter up — and later, the bread.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.reading.022",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "THE INVISIBLE ZOO IN THE JAR\n\nA jar of sourdough starter looks like a science experiment napping on the kitchen counter — and that is exactly what it is. A starter begins as nothing but flour and water. Within days, it becomes home to a busy, invisible zoo.\n\nWild yeast — a microscopic fungus that drifts in flour, in the air, even on your hands — moves into the mixture and begins to eat the sugars in the flour. As the yeast feeds, it releases carbon dioxide, the same gas you breathe out. The gas forms bubbles, which is why a healthy starter looks foamy and rises in its jar as if it were breathing.\n\nThe yeast has roommates: bacteria called lactobacilli. They feed alongside the yeast and produce acids, and those acids give sourdough bread its famous tang. The acids also act as bodyguards, making the starter too sour for most harmful microbes to survive.\n\nBakers 'feed' a starter every day by stirring in fresh flour and water. Skip the feedings and the colony weakens; keep them up and a starter can outlive its baker. Some bakeries in San Francisco still use starters begun more than a century ago — billions of great-great-grandchildren of the original yeast, still making bubbles, still raising bread.\n\nWhat is this passage MAINLY about?",
+      "answer": "How living yeast and bacteria turn flour and water into an active sourdough starter",
+      "options": [
+        "How living yeast and bacteria turn flour and water into an active sourdough starter",
+        "The history of famous San Francisco bakeries",
+        "Why bread should always be eaten fresh from the oven",
+        "How humans breathe out carbon dioxide"
+      ],
+      "hint": "San Francisco gets one sentence — the invisible zoo gets the whole passage.",
+      "explanation": "Every paragraph feeds one main idea: a starter is a living colony of yeast and bacteria at work. The rest are supporting details.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.reading.023",
+      "realm": "english", "skill": "english.reading", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "THE INVISIBLE ZOO IN THE JAR\n\nA jar of sourdough starter looks like a science experiment napping on the kitchen counter — and that is exactly what it is. A starter begins as nothing but flour and water. Within days, it becomes home to a busy, invisible zoo.\n\nWild yeast — a microscopic fungus that drifts in flour, in the air, even on your hands — moves into the mixture and begins to eat the sugars in the flour. As the yeast feeds, it releases carbon dioxide, the same gas you breathe out. The gas forms bubbles, which is why a healthy starter looks foamy and rises in its jar as if it were breathing.\n\nThe yeast has roommates: bacteria called lactobacilli. They feed alongside the yeast and produce acids, and those acids give sourdough bread its famous tang. The acids also act as bodyguards, making the starter too sour for most harmful microbes to survive.\n\nBakers 'feed' a starter every day by stirring in fresh flour and water. Skip the feedings and the colony weakens; keep them up and a starter can outlive its baker. Some bakeries in San Francisco still use starters begun more than a century ago — billions of great-great-grandchildren of the original yeast, still making bubbles, still raising bread.\n\nWhy does the author call the acids 'bodyguards'?",
+      "answer": "To show how the acids protect the starter from harmful microbes",
+      "options": [
+        "To show how the acids protect the starter from harmful microbes",
+        "To warn readers that sourdough starters are dangerous",
+        "To explain why sourdough bread tastes sweet",
+        "To describe how bakers guard their secret recipes"
+      ],
+      "hint": "What job does a bodyguard do — and what do the acids do for the colony?",
+      "explanation": "It's a comparison with a purpose: like bodyguards, the acids keep dangerous intruders (harmful microbes) away from the colony.",
+      "tags": ["baking"]
+    }
+  ]
+}

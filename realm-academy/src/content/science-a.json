@@ -415,6 +415,555 @@
       "hint": "Work downward: multiply by 10 for each step from eagle back to the producers — three steps.",
       "explanation": "Eagle 75 → secondary 750 → primary 7,500 → producers 75,000 kcal. Energy loss means producers must capture far more than the top needs.",
       "tags": ["legendary"]
+    },
+    {
+      "id": "science.waves.t01",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice", "teachSequenceId": "teach.science.waves",
+      "prompt": "No grade — just explore. You pluck one tight strand of knitting yarn and a shiver races to the far end. What does that wave actually carry to the other end?",
+      "answer": "Energy",
+      "options": ["Energy", "The yarn itself", "Air pushed along the strand", "Nothing at all"],
+      "hint": "The strand wiggles but stays put — so what made the trip?",
+      "explanation": "A wave carries ENERGY from place to place; the yarn just jiggles and stays where it is.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "science.waves.t02",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.science.waves",
+      "prompt": "Let's map the parts of a wave together.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Draw a wavy line with a middle resting line through it. The highest point above the middle is the CREST; the lowest point below is the TROUGH." },
+          {
+            "text": "The distance from one crest to the very next crest is the WAVELENGTH — that's one full cycle of the wave.",
+            "check": {
+              "question": "Which part is the lowest point of the wave?",
+              "options": ["The trough", "The crest", "The wavelength"],
+              "answer": 0
+            }
+          },
+          { "text": "How far the wave swings from the middle line up to a crest is the AMPLITUDE. A taller swing means the wave carries MORE energy." },
+          {
+            "text": "FREQUENCY is how many full waves pass a point each second. Squeeze the waves closer together and more of them go by per second.",
+            "check": {
+              "question": "A wave with taller crests (bigger amplitude) carries…?",
+              "options": ["more energy", "less energy", "the same energy"],
+              "answer": 0
+            }
+          },
+          {
+            "text": "Here's the key link: if the wavelength gets SHORTER, more waves fit in the same space and more pass each second — so the frequency goes UP. Higher frequency means a shorter wavelength.",
+            "check": {
+              "question": "If a wave's wavelength gets shorter, its frequency…?",
+              "options": ["goes up", "goes down", "stays the same"],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "science.waves.t03",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.science.waves",
+      "prompt": "Your turn — fill in the parts of the wave.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The highest point of a wave is the [[crest]]; the lowest point is the trough.",
+          "The distance from one crest to the next is the [[wavelength]], and how tall it swings from the middle is the amplitude.",
+          "If the wavelength gets shorter, the frequency gets [[higher]]."
+        ]
+      },
+      "hint": "Highest point, crest-to-crest distance, then the wavelength–frequency link.",
+      "explanation": "Crest = highest point, wavelength = crest-to-crest distance, and shorter wavelength means higher frequency."
+    },
+    {
+      "id": "science.waves.001",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "On a wave, what do we call the highest point?",
+      "answer": "Crest",
+      "options": ["Crest", "Trough", "Wavelength", "Amplitude"],
+      "hint": "Picture the very top of the wave's hump.",
+      "explanation": "The crest is the highest point of a wave; the matching low point is the trough."
+    },
+    {
+      "id": "science.waves.002",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What do we call the LOWEST point of a wave?",
+      "answer": "Trough",
+      "options": ["Trough", "Crest", "Amplitude", "Frequency"],
+      "hint": "It's the dip, the opposite of the crest.",
+      "explanation": "The trough is the lowest point of a wave, the opposite of the crest."
+    },
+    {
+      "id": "science.waves.003",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Sound is a wave. For a sound wave to reach your ears at a K-pop concert, what does it need to travel through?",
+      "answer": "Something to travel through, like air or water",
+      "options": ["Something to travel through, like air or water", "Nothing at all — it travels through empty space", "Only bright sunlight", "A magnet"],
+      "hint": "Sound has to push on tiny bits of material to move.",
+      "explanation": "Sound needs a medium (a material like air, water, or a solid) to carry it — it cannot travel through empty space.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "science.waves.004",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 1,
+      "type": "two_truths",
+      "prompt": "Two of these statements about water waves are true. Spot the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "A wave carries energy from one place to another.",
+          "As a wave passes, the water mostly bobs up and down in place rather than racing along with it."
+        ],
+        "lie": "A wave carries the water itself all the way across the ocean."
+      },
+      "explanation": "Waves move ENERGY, not the material — a floating duck just bobs in place as the wave passes underneath."
+    },
+    {
+      "id": "science.waves.005",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 2,
+      "type": "diagram_label",
+      "prompt": "A plucked guitar string makes this wave shape. Label its parts.",
+      "answer": "labels",
+      "data": {
+        "diagram": "wave",
+        "slots": { "crest": "Crest", "trough": "Trough", "wavelength": "Wavelength", "amplitude": "Amplitude" },
+        "labels": ["Crest", "Trough", "Wavelength", "Amplitude", "Frequency"]
+      },
+      "hint": "Highest point, lowest point, crest-to-crest distance, and the height of the swing.",
+      "explanation": "Crest = top, trough = bottom, wavelength = crest-to-crest distance, amplitude = swing height. Frequency isn't a position, so it's the decoy.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "science.waves.006",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "When a K-pop singer hits a really HIGH note, what is true of that sound wave?",
+      "answer": "It has a higher frequency",
+      "options": ["It has a higher frequency", "It has a higher amplitude", "It has no wavelength", "It travels without any air"],
+      "hint": "Pitch — how high or low a note sounds — is set by one wave property.",
+      "explanation": "Pitch is set by frequency: a higher note means a higher-frequency wave. (Loudness is the separate one — that's amplitude.)",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "science.waves.007",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Fill in which wave property controls each thing about a sound.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Turn the music up and the sound waves get a bigger [[amplitude]], so it sounds louder.",
+          "Sing a higher note and the sound waves get a higher [[frequency]], so the pitch goes up."
+        ]
+      },
+      "hint": "Loudness pairs with the swing size; pitch pairs with how often waves arrive.",
+      "explanation": "Amplitude controls loudness; frequency controls pitch — two separate dials on a sound wave."
+    },
+    {
+      "id": "science.waves.008",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 3,
+      "type": "diagram_label",
+      "prompt": "A wizard's wand sends a ripple of light down this wave. Label its parts.",
+      "answer": "labels",
+      "data": {
+        "diagram": "wave",
+        "slots": { "crest": "Crest", "trough": "Trough", "wavelength": "Wavelength", "amplitude": "Amplitude" },
+        "labels": ["Crest", "Trough", "Wavelength", "Amplitude", "Resting line"]
+      },
+      "hint": "The flat middle isn't labelled here — find the top, bottom, the repeat distance, and the swing height.",
+      "explanation": "Crest = top, trough = bottom, wavelength = one full cycle, amplitude = height from the middle. 'Resting line' is the decoy.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "science.waves.009",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "Match each wave property to the thing it controls.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Frequency of a sound wave", "Controls its pitch"],
+          ["Amplitude of a sound wave", "Controls its loudness"],
+          ["Wavelength of light", "Controls its colour"],
+          ["Amplitude of light", "Controls its brightness"]
+        ]
+      },
+      "hint": "Amplitude is the energy dial — for sound it sets loudness, for light it sets brightness.",
+      "explanation": "Frequency sets a sound's pitch and wavelength sets light's colour, while amplitude controls loudness for sound and brightness for light."
+    },
+    {
+      "id": "science.waves.010",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Order this part of the electromagnetic spectrum from LONGEST wavelength (lowest frequency) to SHORTEST wavelength (highest frequency).",
+      "answer": "sequence",
+      "data": { "sequence": ["Radio waves", "Microwaves", "Infrared", "Visible light", "Ultraviolet"] },
+      "hint": "Radio waves are the long, low-frequency end; ultraviolet is past the visible end.",
+      "explanation": "Going radio → microwave → infrared → visible → ultraviolet, the wavelength shrinks and the frequency climbs."
+    },
+    {
+      "id": "science.waves.011",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "White light splits into a rainbow because each colour is a different wavelength. Order the colours from LONGEST wavelength to SHORTEST.",
+      "answer": "sequence",
+      "data": { "sequence": ["Red", "Orange", "Yellow", "Green", "Blue", "Violet"] },
+      "hint": "Red light has the longest wavelength of the visible colours; violet the shortest.",
+      "explanation": "Colour is just wavelength: red is the longest visible wavelength and violet the shortest, which is the rainbow's order."
+    },
+    {
+      "id": "science.waves.012",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements about light and sound are true. Spot the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Light can travel through the empty vacuum of space, which is why sunlight reaches Earth.",
+          "Sound needs a material like air or water to travel through."
+        ],
+        "lie": "If a star exploded nearby, you would hear a loud boom out in space."
+      },
+      "explanation": "Space is nearly empty, so sound has no material to travel through — space is silent. Light needs no medium, so we still see the explosion."
+    },
+    {
+      "id": "science.waves.013",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Pop a straw into a glass of chocolate milk and it looks bent or broken at the surface. Why?",
+      "answer": "Light bends (refracts) as it passes between the milk and the air",
+      "options": [
+        "Light bends (refracts) as it passes between the milk and the air",
+        "The straw really snaps in half underwater",
+        "The milk dissolves the bottom of the straw",
+        "Sound waves push the straw sideways"
+      ],
+      "hint": "The straw is fine — it's the light's path that changes speed and direction.",
+      "explanation": "Light changes speed and direction (refraction) crossing between water and air, so the submerged part of the straw looks shifted.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "science.waves.014",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Sound travels at different speeds in different materials. In which one would a sound wave travel FASTEST?",
+      "answer": "A steel railway track (a solid)",
+      "options": ["A steel railway track (a solid)", "A swimming pool (a liquid)", "The open air (a gas)", "The vacuum of space"],
+      "hint": "The more tightly packed the particles, the faster they pass the wave along.",
+      "explanation": "Sound goes fastest in solids, slower in liquids, slowest in gases — and not at all in a vacuum, because its particles are packed tightest in solids.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.waves.015",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: you shout at a canyon wall and hear the echo 2 seconds later. Sound travels about 340 metres each second in air. How far away is the wall, in metres?",
+      "answer": ["340", "340 m", "340 metres"],
+      "hint": "In 2 seconds the sound goes to the wall AND back — that round trip is the long way.",
+      "explanation": "In 2 s the sound travels 340 × 2 = 680 m round trip, so the wall is half of that: 340 m away.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.waves.016",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "At a fireworks show you see the bright flash, then hear the BOOM a moment later. Why does the flash arrive first?",
+      "answer": "Light travels much faster than sound, so it reaches you first",
+      "options": [
+        "Light travels much faster than sound, so it reaches you first",
+        "The flash happens before the explosion makes any sound",
+        "Sound waves are blocked by the dark sky",
+        "Your eyes simply react before your ears do"
+      ],
+      "hint": "Compare the speeds of the two waves racing toward you.",
+      "explanation": "Light travels far faster than sound, so the flash reaches you almost instantly while the slower sound arrives a moment later.",
+      "tags": ["reading", "legendary"]
+    },
+    {
+      "id": "science.waves.017",
+      "realm": "science", "skill": "science.waves", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "A dog whistle makes a sound so high that cats and dogs hear it but people can't. Compared with a low note a person CAN hear, the whistle's sound wave has…",
+      "answer": "a higher frequency and a shorter wavelength",
+      "options": [
+        "a higher frequency and a shorter wavelength",
+        "a lower frequency and a longer wavelength",
+        "a bigger amplitude but the same frequency",
+        "no wavelength at all"
+      ],
+      "hint": "Higher pitch means higher frequency — and remember how frequency and wavelength trade off.",
+      "explanation": "A higher pitch is a higher frequency, and higher frequency always means a shorter wavelength.",
+      "tags": ["cats", "legendary"]
+    },
+    {
+      "id": "science.method.t01",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.science.method",
+      "prompt": "Let's build a claim–evidence–reasoning argument about cookies together.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "Start with a testable question: 'Which makes chewier cookies — brown sugar or white sugar?' You bake two batches changing ONLY the sugar type, keeping amounts, oven temp, and time the same. That's a fair test.",
+            "check": {
+              "question": "Why keep everything the same except the sugar?",
+              "options": ["So any difference in chewiness must come from the one thing you changed", "So the cookies bake faster", "So you need less flour"],
+              "answer": 0
+            }
+          },
+          { "text": "The CLAIM is your answer to the question. After baking, your claim is: 'The brown-sugar cookies are chewier.'" },
+          {
+            "text": "The EVIDENCE is your data — what you actually measured. Ten tasters rated chewiness: the brown-sugar batch averaged 8 out of 10, the white-sugar batch only 4 out of 10.",
+            "check": {
+              "question": "Which of these is EVIDENCE for the claim?",
+              "options": ["The chewiness ratings: brown 8/10 vs white 4/10", "Brown sugar is a pretty colour", "You really like cookies"],
+              "answer": 0
+            }
+          },
+          { "text": "The REASONING explains WHY the evidence supports the claim: brown sugar contains molasses, which holds extra moisture, and moister dough bakes up chewier — so higher chewiness scores make sense." },
+          {
+            "text": "Put it together: Claim (brown sugar is chewier) + Evidence (8 vs 4) + Reasoning (molasses keeps dough moist) = a strong scientific argument. 🍪",
+            "check": {
+              "question": "What does the REASONING add that the evidence alone doesn't?",
+              "options": ["It explains WHY the evidence backs the claim", "It just repeats the numbers", "It changes the recipe"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["baking"]
+    },
+    {
+      "id": "science.method.t02",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.science.method",
+      "prompt": "Your turn — finish this claim–evidence–reasoning about a plant experiment.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "We change only ONE thing — the amount of light — and keep water and soil the same, which makes it a [[fair test]].",
+          "Our answer to the question is the [[claim]]: plants in more sunlight grow taller.",
+          "The measured heights, 20 cm in the sun versus 12 cm in the shade, are our [[evidence]]."
+        ]
+      },
+      "hint": "One-thing-changed = the kind of test; your answer = the C word; your data = the E word.",
+      "explanation": "Changing one variable makes it a fair test; the claim is your answer; the evidence is the measured data that backs it up."
+    },
+    {
+      "id": "science.method.001",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which question can you actually TEST with an experiment?",
+      "answer": "Do bean plants grow taller when music is played to them?",
+      "options": [
+        "Do bean plants grow taller when music is played to them?",
+        "Is jazz the most beautiful kind of music?",
+        "Which colour is the prettiest?",
+        "Should everyone love cats?"
+      ],
+      "hint": "A testable question can be answered by measuring something, not by opinion.",
+      "explanation": "You can measure plant height with and without music — that's testable. The others are matters of opinion, which experiments can't settle."
+    },
+    {
+      "id": "science.method.002",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "You change the type of yarn to test which one knits the warmest scarf. What is the INDEPENDENT variable — the thing YOU change on purpose?",
+      "answer": "The type of yarn",
+      "options": ["The type of yarn", "How warm the scarf is", "The size of the knitting needles", "The room temperature"],
+      "hint": "The independent variable is the one you deliberately set yourself.",
+      "explanation": "You choose the yarn type, so that's the independent variable; the warmth you measure is the dependent variable.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "science.method.003",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "To run a FAIR test, how many things should you change at one time?",
+      "answer": "Just one",
+      "options": ["Just one", "As many as you can", "Two or three", "None of them"],
+      "hint": "If you change several things, you can't tell which one caused the result.",
+      "explanation": "A fair test changes only ONE variable at a time, so any difference must come from that single change."
+    },
+    {
+      "id": "science.method.004",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each experiment word to what it means.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Independent variable", "The one thing you change on purpose"],
+          ["Dependent variable", "What you measure as the result"],
+          ["Controlled variable", "Something you keep the same to stay fair"],
+          ["Hypothesis", "A testable prediction you can check"]
+        ]
+      },
+      "hint": "One you change, one you measure, ones you keep the same, and your prediction.",
+      "explanation": "Independent = what you change, dependent = what you measure, controlled = kept the same, hypothesis = your testable prediction."
+    },
+    {
+      "id": "science.method.005",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Fill in the variable words for this baking experiment.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "We change the baking [[time]] — that's the thing we set on purpose.",
+          "We then measure how crispy the cookies are, so the crispiness rating is the [[dependent]] variable."
+        ]
+      },
+      "hint": "First blank: what you change. Second blank: the kind of variable you measure.",
+      "explanation": "Baking time is what you change (independent); the crispiness you measure is the dependent variable.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "science.method.006",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "An experiment tests how the AMOUNT OF WATER affects how tall sunflowers grow. Sort each part by its role.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Independent (changed)": ["amount of water"],
+          "Dependent (measured)": ["sunflower height"],
+          "Controlled (kept the same)": ["pot size", "type of soil", "hours of sunlight"]
+        }
+      },
+      "hint": "One thing is changed, one is measured, and several are deliberately kept the same.",
+      "explanation": "You change the water (independent), measure the height (dependent), and keep pot, soil, and sunlight the same (controlled)."
+    },
+    {
+      "id": "science.method.007",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Claim: your cat prefers the warm laundry pile over the cold floor. Which EVIDENCE best supports this claim?",
+      "answer": "Over ten days, the cat chose the warm laundry 9 times and the cold floor only once",
+      "options": [
+        "Over ten days, the cat chose the warm laundry 9 times and the cold floor only once",
+        "The laundry pile smells nice and clean",
+        "Cats are very fluffy animals",
+        "You think warm spots are cosy too"
+      ],
+      "hint": "Evidence is measured data about the actual choice, not a feeling or a guess.",
+      "explanation": "The count of choices (9 warm vs 1 cold) is data that directly supports the claim; the rest are opinions or unrelated facts.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.method.008",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements about fair tests are true. Spot the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "In a fair test you change only one variable at a time.",
+          "Controlled variables are the conditions you deliberately keep the same."
+        ],
+        "lie": "Changing several variables at once makes your results clearer."
+      },
+      "explanation": "If you change several things at once you can't tell which one caused the result — that makes results LESS clear, not clearer."
+    },
+    {
+      "id": "science.method.009",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "This plan is meant to be a fair test of a new plant food. One part breaks the fairness — tap it.",
+      "answer": "2",
+      "data": {
+        "segments": [
+          "To test a new plant food,",
+          "she gives Plant A the food and Plant B none,",
+          "but she also puts Plant A on a sunny windowsill and Plant B in a dark closet,",
+          "then measures how tall each plant grows."
+        ]
+      },
+      "hint": "Look for a SECOND thing that changed besides the plant food.",
+      "explanation": "She changed two things — the food AND the light — so she can't tell which caused the difference. Keep the light the same for both plants."
+    },
+    {
+      "id": "science.method.010",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A bar graph of plant growth shows: No fertilizer = 5 cm, Low = 9 cm, High = 14 cm. What does the data show?",
+      "answer": "More fertilizer is linked to taller plants",
+      "options": [
+        "More fertilizer is linked to taller plants",
+        "Fertilizer has no effect on height",
+        "Less fertilizer grows the tallest plants",
+        "All three groups grew the same amount"
+      ],
+      "hint": "Read the bars in order and see which way the heights move.",
+      "explanation": "As the fertilizer goes from none to low to high, the heights rise (5 → 9 → 14 cm), so more fertilizer links to taller plants."
+    },
+    {
+      "id": "science.method.011",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Put the steps of a scientific investigation in the right order.",
+      "answer": "sequence",
+      "data": { "sequence": ["Ask a testable question", "Make a hypothesis", "Run a fair test and collect data", "Analyse the data", "Draw a conclusion (your claim)"] },
+      "hint": "You can't analyse data before you've collected it.",
+      "explanation": "Question → hypothesis → fair test and data → analysis → conclusion is the path of a scientific investigation."
+    },
+    {
+      "id": "science.method.012",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: a young wizard claims her left-handed wand casts brighter sparks. Which reply is the strongest claim–evidence–reasoning argument?",
+      "answer": "Bright sparks appeared in 9 of 10 left-hand casts but only 3 of 10 right-hand casts, and the left grip lets more magic flow — so the data fits the claim",
+      "options": [
+        "Bright sparks appeared in 9 of 10 left-hand casts but only 3 of 10 right-hand casts, and the left grip lets more magic flow — so the data fits the claim",
+        "Left-handed wands are simply better, everyone knows it",
+        "I measured the sparks very carefully with a ruler",
+        "Lefties are just luckier than right-handers"
+      ],
+      "hint": "A full argument needs a claim, real measured evidence, AND reasoning that links them.",
+      "explanation": "Only the first reply has all three: a claim, evidence (9/10 vs 3/10), and reasoning explaining why the grip would cause it.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "science.method.013",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "Legendary: this experiment has a hidden design flaw. Tap the part that makes the result untrustworthy.",
+      "answer": "1",
+      "data": {
+        "segments": [
+          "A gardener tests whether a new plant food works",
+          "by feeding it to just ONE plant and comparing with one untreated plant,",
+          "keeping the water, light, and soil the same for both,",
+          "then measures each plant's height after two weeks."
+        ]
+      },
+      "hint": "Even with everything controlled, could a single plant's result just be luck?",
+      "explanation": "With only one plant in each group, a difference could be chance — a trustworthy test needs several plants per group (a bigger sample).",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.method.014",
+      "realm": "science", "skill": "science.method", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: Amal tests whether warmer water makes bread yeast bubble more. She uses 1 tsp yeast and 1 tsp sugar in EACH cup and changes only the water temperature. Which is a CONTROLLED variable?",
+      "answer": "The amount of sugar — 1 tsp in every cup",
+      "options": [
+        "The amount of sugar — 1 tsp in every cup",
+        "The temperature of the water",
+        "The number of bubbles that form",
+        "Which cup bubbles first"
+      ],
+      "hint": "A controlled variable is one she keeps exactly the same in every cup.",
+      "explanation": "The sugar is kept the same in every cup, so it's a controlled variable. The temperature is what she changes; the bubbles are what she measures.",
+      "tags": ["baking", "legendary"]
     }
   ]
 }
