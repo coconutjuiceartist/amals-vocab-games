@@ -108,7 +108,7 @@ export function TeachPlayer({
       </div>
 
       {screen?.kind === 'bridge' && (
-        <div className="bridge-card pop-in">
+        <div className="bridge-card pop-in" key={idx}>
           <div className="row">
             <div style={{ fontSize: '2.6rem' }}>{BRIDGE_ART[screen.visual ?? 'none']}</div>
             <h2 style={{ flex: 1 }}>{screen.title}</h2>
@@ -133,7 +133,7 @@ export function TeachPlayer({
       )}
 
       {isGambit && item && (
-        <div className="pop-in">
+        <div className="pop-in" key={idx}>
           <div className="gambit-badge">🧭 Explorer's Gambit — ungraded</div>
           <p className="dim" style={{ margin: '8px 2px' }}>
             {(screen as Extract<TeachScreen, { kind: 'gambit' }>).framing}
@@ -159,7 +159,7 @@ export function TeachPlayer({
       )}
 
       {isWorked && item && (
-        <div className="pop-in">
+        <div className="pop-in" key={idx}>
           <div className="chip" style={{ marginBottom: 8 }}>🔍 watch + tap along</div>
           <div className="prompt-card">{item.prompt}</div>
           <div className="exercise-stage">
@@ -176,7 +176,7 @@ export function TeachPlayer({
       )}
 
       {screen?.kind === 'completion' && item && (
-        <div className="pop-in">
+        <div className="pop-in" key={idx}>
           <div className="chip" style={{ marginBottom: 8 }}>🧩 your turn — fill the gaps</div>
           <div className="prompt-card">{item.prompt}</div>
           <div className="exercise-stage">
@@ -189,7 +189,7 @@ export function TeachPlayer({
       )}
 
       {screen?.kind === 'burst_item' && item && (
-        <div className="pop-in">
+        <div className="pop-in" key={idx}>
           <div className="chip" style={{ marginBottom: 8 }}>
             ⚡ quick practice {(screen as { n: number; of: number }).n}/{(screen as { n: number; of: number }).of}
           </div>
