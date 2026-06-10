@@ -1,0 +1,420 @@
+{
+  "sequences": [
+    {
+      "id": "teach.science.ecology",
+      "skill": "science.ecology",
+      "title": "Ecology: Following the Energy",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Your cat is part of a food chain",
+          "lines": [
+            "When your cat pounces on a sparrow in the backyard, she's the top of a food chain you can watch from the window.",
+            "That sparrow ate caterpillars, the caterpillars ate the rosebush, and the rosebush ate sunlight. Energy is on the move."
+          ],
+          "vocab": [
+            { "term": "producer", "meaning": "a living thing that makes its own food from sunlight, like a plant" },
+            { "term": "consumer", "meaning": "a living thing that gets energy by eating other living things" },
+            { "term": "food chain", "meaning": "a path showing who eats whom, with energy passing along it" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "science.ecology.t01", "framing": "No grade, no pressure — just explore. Even a guess teaches your brain what to notice." },
+        { "kind": "worked", "itemId": "science.ecology.t02" },
+        { "kind": "completion", "itemId": "science.ecology.t03" },
+        { "kind": "burst", "itemIds": ["science.ecology.001", "science.ecology.002", "science.ecology.003"] }
+      ]
+    },
+    {
+      "id": "teach.science.waves",
+      "skill": "science.waves",
+      "title": "Waves: Energy on the Move",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Waves carry energy, not stuff",
+          "lines": [
+            "Pluck a tight strand of knitting yarn and it shivers — but the yarn itself stays put. The wiggle (the energy) travels; the yarn doesn't go anywhere.",
+            "Feel a K-pop bass drop in your chest: that thump is a sound wave moving energy through the air to you, while the air just jiggles in place."
+          ],
+          "vocab": [
+            { "term": "wave", "meaning": "a disturbance that carries energy from place to place without carrying the material along" },
+            { "term": "frequency", "meaning": "how many wave cycles pass a point each second" },
+            { "term": "amplitude", "meaning": "how big a wave's swing is — its height from the middle line" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "science.waves.t01", "framing": "No grade here — just try it. Wrong guesses still tune your instincts." },
+        { "kind": "worked", "itemId": "science.waves.t02" },
+        { "kind": "completion", "itemId": "science.waves.t03" },
+        { "kind": "burst", "itemIds": ["science.waves.001", "science.waves.002", "science.waves.003"] }
+      ]
+    },
+    {
+      "id": "teach.science.method",
+      "skill": "science.method",
+      "title": "The Scientist's Toolkit",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Thinking like a scientist (and a baker)",
+          "lines": [
+            "Every time you tweak a cookie recipe and ask 'did that make them chewier?', you're running an experiment.",
+            "Scientists just make it FAIR and write down the evidence — then argue from it. Let's learn the moves."
+          ],
+          "vocab": [
+            { "term": "variable", "meaning": "anything in an experiment that can change, like oven temperature or amount of sugar" },
+            { "term": "fair test", "meaning": "a test where you change only ONE thing and keep everything else the same" },
+            { "term": "claim, evidence, reasoning", "meaning": "a claim is your answer, evidence is the data behind it, reasoning explains why the data supports the claim" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "science.method.t01" },
+        { "kind": "completion", "itemId": "science.method.t02" },
+        { "kind": "burst", "itemIds": ["science.method.001", "science.method.002", "science.method.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "science.ecology.t01",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice", "teachSequenceId": "teach.science.ecology",
+      "prompt": "Backyard food chain: rosebush → caterpillar → sparrow → your cat. No grade here — just explore: which one is the PRODUCER that makes its own food?",
+      "answer": "The rosebush",
+      "options": ["The rosebush", "The caterpillar", "The sparrow", "Your cat"],
+      "hint": "Producers don't eat anything — they capture sunlight.",
+      "explanation": "The rosebush is the producer: it makes food from sunlight. Everything after it is a consumer that eats to get energy.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.ecology.t02",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.science.ecology",
+      "prompt": "Let's follow the energy through that backyard food chain together.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "It starts with the SUN. The rosebush is a producer: it captures sunlight and stores that energy as food (sugar). In a food chain, arrows point the way energy FLOWS." },
+          {
+            "text": "The caterpillar is a consumer — it can't make food, so it eats the rosebush's leaves to get that stored energy. We draw rosebush → caterpillar, the arrow pointing TO the eater.",
+            "check": {
+              "question": "Why does the arrow point toward the caterpillar, not away from it?",
+              "options": ["Because energy flows INTO the thing that eats", "Because caterpillars are bigger than leaves", "Because the rosebush is moving"],
+              "answer": 0
+            }
+          },
+          { "text": "The sparrow eats the caterpillar, and your cat eats the sparrow. Each arrow passes energy up the chain: caterpillar → sparrow → cat." },
+          {
+            "text": "But here's the twist: only about a tenth of the energy makes it to each next level — the rest is used up living and moving. That's why food chains stay short.",
+            "check": {
+              "question": "Why are there usually only 4–5 links in a food chain?",
+              "options": ["Energy shrinks at every step, so little is left near the top", "Animals get bored of eating", "The sun runs out of light"],
+              "answer": 0
+            }
+          },
+          { "text": "So energy flows one way: sun → rosebush → caterpillar → sparrow → cat, shrinking each step. Your cat rules the top on the leftovers. 🐱" }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.ecology.t03",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.science.ecology",
+      "prompt": "Your turn — finish tracing this pond food chain: algae → minnow → heron.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Algae is the producer: it makes its own food from [[sunlight]].",
+          "The minnow eats the algae, so the energy arrow points to the [[minnow]].",
+          "Energy flows one way: algae → minnow → [[heron]]."
+        ]
+      },
+      "hint": "Producers capture light; arrows point toward whatever does the eating.",
+      "explanation": "Energy starts in the producer (algae) and flows up the chain: algae → minnow → heron."
+    },
+    {
+      "id": "science.ecology.001",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Your cat naps in a backyard full of living and non-living things. Which of these is an ABIOTIC (non-living) part of that ecosystem?",
+      "answer": "A flat stepping stone",
+      "options": ["A flat stepping stone", "An earthworm", "A dandelion", "A sparrow"],
+      "hint": "Abiotic parts were never alive.",
+      "explanation": "Abiotic means non-living — rocks, water, air, sunlight. The worm, dandelion, and sparrow are all biotic (living).",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.ecology.002",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 1,
+      "type": "drag_categorize",
+      "prompt": "Sort each part of a pond into living or non-living.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Biotic (living)": ["frog", "cattail reed", "water beetle"],
+          "Abiotic (non-living)": ["pond water", "sunlight", "mud"]
+        }
+      },
+      "hint": "If it can grow, eat, or reproduce, it's biotic.",
+      "explanation": "Biotic = living (frog, reed, beetle); abiotic = the non-living surroundings (water, sunlight, mud)."
+    },
+    {
+      "id": "science.ecology.003",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Fill in the three roles every ecosystem needs.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A [[producer]] makes its own food from sunlight.",
+          "A [[consumer]] gets energy by eating other living things.",
+          "A [[decomposer]] breaks down dead matter and returns nutrients to the soil."
+        ]
+      },
+      "hint": "Think: the maker, the eater, the recycler.",
+      "explanation": "Producers make food, consumers eat, and decomposers recycle the leftovers back into the soil."
+    },
+    {
+      "id": "science.ecology.004",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Grass is a producer. What does it use to make its own food?",
+      "answer": "Sunlight, water, and carbon dioxide",
+      "options": ["Sunlight, water, and carbon dioxide", "Soil, worms, and small rocks", "Oxygen and insects", "Only minerals from the soil"],
+      "hint": "Producers run on light, not on eating.",
+      "explanation": "Through photosynthesis, producers turn sunlight, water, and carbon dioxide into sugar — their food."
+    },
+    {
+      "id": "science.ecology.005",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which biome is hot and dry, with cacti and animals that hide from the midday heat?",
+      "answer": "Desert",
+      "options": ["Desert", "Rainforest", "Tundra", "Coral reef"],
+      "hint": "Think of a place with very little rain and lots of sand.",
+      "explanation": "A desert is defined by very low rainfall; its plants and animals are built to save water."
+    },
+    {
+      "id": "science.ecology.006",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "In the Herbology greenhouse, drag each organism into its ecosystem role.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Producer": ["mandrake plant", "fanged geranium"],
+          "Consumer": ["garden gnome", "flobberworm"],
+          "Decomposer": ["puffball fungus", "soil bacteria"]
+        }
+      },
+      "hint": "Producers make food, consumers eat it, decomposers break down the dead.",
+      "explanation": "The plants (mandrake, geranium) produce; the gnome and flobberworm consume; the fungus and bacteria decompose.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "science.ecology.007",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "How is a food WEB different from a single food chain?",
+      "answer": "A food web links many food chains, since most animals eat several things and are eaten by several others",
+      "options": [
+        "A food web links many food chains, since most animals eat several things and are eaten by several others",
+        "A food web contains only plants",
+        "A food web shows energy flowing in a never-ending circle",
+        "A food web is just a food chain drawn backwards"
+      ],
+      "hint": "Real animals rarely eat just one food.",
+      "explanation": "A food web is many overlapping food chains, because organisms usually have several food sources and predators."
+    },
+    {
+      "id": "science.ecology.008",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "diagram_label",
+      "prompt": "Label this meadow food web. Energy starts at the sun.",
+      "answer": "labels",
+      "data": {
+        "diagram": "food_web",
+        "slots": { "sun": "Sun", "producer": "Clover", "herbivore": "Grasshopper", "carnivore": "Shrew", "decomposer": "Mushroom" },
+        "labels": ["Sun", "Clover", "Grasshopper", "Shrew", "Mushroom", "Hawk"]
+      },
+      "hint": "Find the energy source, the plant, the plant-eater, the meat-eater, and the recycler.",
+      "explanation": "Sun → clover (producer) → grasshopper (herbivore) → shrew (carnivore); the mushroom (decomposer) recycles the dead."
+    },
+    {
+      "id": "science.ecology.009",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Put this ocean food chain in order, starting with the producer.",
+      "answer": "sequence",
+      "data": { "sequence": ["Phytoplankton", "Krill", "Mackerel", "Seal"] },
+      "hint": "Producers come first; the largest predator is last.",
+      "explanation": "Energy flows phytoplankton → krill → mackerel → seal."
+    },
+    {
+      "id": "science.ecology.010",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Air is almost four-fifths nitrogen, but plants can't grab it from the sky. What changes nitrogen into a form plant roots can absorb?",
+      "answer": "Bacteria in the soil and on plant roots",
+      "options": ["Bacteria in the soil and on plant roots", "Sunlight hitting the leaves", "Rain washing it off the leaves", "Bees carrying it between flowers"],
+      "hint": "Tiny living recyclers underground do this job.",
+      "explanation": "Nitrogen-fixing bacteria turn air nitrogen into compounds plants can take up through their roots."
+    },
+    {
+      "id": "science.ecology.011",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "diagram_label",
+      "prompt": "Label this grassland energy pyramid, widest level first.",
+      "answer": "labels",
+      "data": {
+        "diagram": "energy_pyramid",
+        "slots": { "producers": "Grasses", "primary": "Grasshopper", "secondary": "Lizard", "tertiary": "Hawk" },
+        "labels": ["Grasses", "Grasshopper", "Lizard", "Hawk", "Mushroom"]
+      },
+      "hint": "The bottom level makes its own food; energy shrinks going up.",
+      "explanation": "Producers (grasses) hold the most energy; it passes up to grasshopper → lizard → hawk, shrinking about 90% each step."
+    },
+    {
+      "id": "science.ecology.012",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements about energy pyramids are true. Spot the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Only about 10% of the energy at one level passes up to the next level.",
+          "The producer level at the bottom has the most available energy."
+        ],
+        "lie": "Top predators have the most energy available to them."
+      },
+      "explanation": "Energy shrinks about 90% at every step, so the top level has the LEAST energy — which is why top predators are rare."
+    },
+    {
+      "id": "science.ecology.013",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "diagram_label",
+      "prompt": "Label this enchanted-forest food web.",
+      "answer": "labels",
+      "data": {
+        "diagram": "food_web",
+        "slots": { "sun": "Sun", "producer": "Oak tree", "herbivore": "Deer", "carnivore": "Wolf", "decomposer": "Toadstool" },
+        "labels": ["Sun", "Oak tree", "Deer", "Wolf", "Toadstool", "Owl"]
+      },
+      "hint": "Trace energy from the sun to the producer, then up to the predators.",
+      "explanation": "Sun → oak (producer) → deer (herbivore) → wolf (carnivore); the toadstool (decomposer) breaks down the dead.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "science.ecology.014",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements about decomposers are true. Spot the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Decomposers such as fungi and bacteria break down dead plants and animals.",
+          "Decomposers return nutrients to the soil so producers can use them again."
+        ],
+        "lie": "A healthy ecosystem doesn't really need decomposers."
+      },
+      "explanation": "Without decomposers, dead matter and nutrients would pile up and never cycle back, and producers would starve — decomposers are essential."
+    },
+    {
+      "id": "science.ecology.015",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "Match each population interaction to an example.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Predation", "A cat stalking and catching a mouse"],
+          ["Competition", "Two oak trees reaching for the same sunlight"],
+          ["Mutualism", "A bee feeding on nectar while pollinating a flower"],
+          ["Decomposition", "A mushroom breaking down a fallen log"]
+        ]
+      },
+      "hint": "Who hunts? Who shares a resource? Who BOTH benefit? Who recycles?",
+      "explanation": "Predation = one hunts another; competition = both need the same resource; mutualism = both benefit; decomposition = breaking down the dead.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.ecology.016",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Trace water as it cycles through the environment.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The sun heats a lake and water rises as vapor: [[evaporation]].",
+          "High up, the vapor cools into cloud droplets: [[condensation]].",
+          "The droplets fall back as rain or snow: [[precipitation]]."
+        ]
+      },
+      "hint": "Up as vapor, cool into clouds, fall back down.",
+      "explanation": "Water cycles endlessly: evaporation → condensation → precipitation."
+    },
+    {
+      "id": "science.ecology.017",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements about the carbon cycle are true. Spot the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "A plant builds most of its body from carbon it pulls out of the air as carbon dioxide.",
+          "Breathing out (respiration) and decay return carbon to the air as carbon dioxide."
+        ],
+        "lie": "Carbon gets used up and disappears as it passes through living things."
+      },
+      "explanation": "Carbon is never destroyed — it cycles: plants capture CO₂, animals eat plants, and respiration and decay release it again."
+    },
+    {
+      "id": "science.ecology.018",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "An energy pyramid starts with 60,000 kcal of energy in the producers. Using the 10% rule, how many kcal reach the SECONDARY consumers (two levels up)?",
+      "answer": ["600", "600 kcal"],
+      "hint": "Take 10%, then 10% of that.",
+      "explanation": "10% of 60,000 = 6,000 at the primary level, and 10% of 6,000 = 600 kcal at the secondary level.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.ecology.019",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "In the wizarding forest's food chain the producers store 10,000 kcal. Using the 10% rule, how many kcal reach the TERTIARY consumers (three levels up)?",
+      "answer": ["10", "10 kcal"],
+      "hint": "Drop to a tenth, three times.",
+      "explanation": "10,000 → 1,000 → 100 → 10 kcal: about 90% is lost at every step, so the top predator gets very little.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "science.ecology.020",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "A savanna easily feeds thousands of grass-eating zebras but only a few lions. Using the idea that about 90% of energy is lost at each step up a food chain, why?",
+      "answer": "Each level up has far less energy, so the top can support only a few large predators",
+      "options": [
+        "Each level up has far less energy, so the top can support only a few large predators",
+        "Lions are simply lazy hunters",
+        "Zebras reproduce but lions never do",
+        "Grass is poisonous to lions"
+      ],
+      "hint": "Follow the shrinking energy from grass upward.",
+      "explanation": "Only about 10% of energy passes up each step, so by the predator level there is little left — only a few top predators can be fed.",
+      "tags": ["reading", "legendary"]
+    },
+    {
+      "id": "science.ecology.021",
+      "realm": "science", "skill": "science.ecology", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: an eagle is a tertiary consumer that needs 75 kcal of energy. Using the 10% rule (each level holds about ten times the level above it), at LEAST how many kcal must the producers capture from the sun?",
+      "answer": ["75000", "75000 kcal"],
+      "hint": "Work downward: multiply by 10 for each step from eagle back to the producers — three steps.",
+      "explanation": "Eagle 75 → secondary 750 → primary 7,500 → producers 75,000 kcal. Energy loss means producers must capture far more than the top needs.",
+      "tags": ["legendary"]
+    }
+  ]
+}

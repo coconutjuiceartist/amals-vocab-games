@@ -1,0 +1,433 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.probability",
+      "skill": "math.probability",
+      "title": "Probability: Taming the Chance Mines",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "You already own this fraction",
+          "lines": [
+            "Probability is a fraction wearing a cloak: the outcomes you WANT over ALL the equally likely outcomes.",
+            "Every chance in the universe lives on a number line from 0 (impossible) to 1 (certain) — 1/2 is the coin-flip middle."
+          ],
+          "vocab": [
+            { "term": "probability", "meaning": "a number from 0 to 1 measuring how likely something is" },
+            { "term": "outcome", "meaning": "one possible result, like rolling a 4" },
+            { "term": "event", "meaning": "the outcome(s) you're watching for, like 'rolling an even number'" }
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "gambit", "itemId": "math.probability.t01", "framing": "No grade, no pressure — just poke at it. What fraction feels right? Even a wild guess tunes your brain for what's coming." },
+        { "kind": "worked", "itemId": "math.probability.t02" },
+        { "kind": "completion", "itemId": "math.probability.t03" },
+        { "kind": "completion", "itemId": "math.probability.t04" },
+        {
+          "kind": "bridge",
+          "title": "The NOT trick & the master list",
+          "lines": [
+            "An event and its opposite always add to 1, so P(NOT A) = 1 − P(A) — sometimes counting the failures is faster.",
+            "When TWO things happen at once (two coins, coin + die), write an ORGANIZED LIST of every outcome: chaos becomes counting.",
+            "One more secret: real experiments WOBBLE around theory. A 1/3-red spinner spun 60 times gives ABOUT 20 reds, not exactly — wobble is normal, not broken."
+          ],
+          "vocab": [
+            { "term": "complement", "meaning": "the event NOT happening; P(A) + P(not A) = 1" },
+            { "term": "theoretical probability", "meaning": "the fraction the math predicts — a 1/3-red spinner should land red about 1/3 of the time" },
+            { "term": "experimental probability", "meaning": "the fraction your actual trials produced, like 22 reds out of 60 spins" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "worked", "itemId": "math.probability.t05" },
+        { "kind": "completion", "itemId": "math.probability.t06" },
+        { "kind": "completion", "itemId": "math.probability.t07" },
+        { "kind": "completion", "itemId": "math.probability.t08" },
+        { "kind": "burst", "itemIds": ["math.probability.001", "math.probability.002", "math.probability.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.probability.t01",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.probability",
+      "prompt": "A jar holds 5 cat treats: 4 salmon and 1 chicken. Whiskers paws one out without looking — what is the probability it's salmon? (Try writing it as a fraction.)",
+      "answer": ["4/5", "0.8", "80%"],
+      "hint": "Out of ALL the treats in the jar, how many are the kind you want?",
+      "explanation": "All 5 treats are equally likely and 4 of them are salmon, so P(salmon) = 4/5. Probability is just the fraction of outcomes you want.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.probability.t02",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.probability",
+      "prompt": "Let's crack the treat jar together: 4 salmon and 1 chicken treat. What is P(salmon)?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Probability is a fraction with a job: P(event) = (outcomes you WANT) ÷ (ALL equally likely outcomes). No new machinery — your fraction skills run the show." },
+          {
+            "text": "Count ALL outcomes: 5 treats in the jar, each equally likely to be grabbed. That's the denominator: 5.",
+            "check": {
+              "question": "Why is the denominator 5, not 4?",
+              "options": [
+                "It counts ALL equally likely treats — salmon and chicken together",
+                "Because 5 is bigger than 4",
+                "The denominator is always one more than the numerator"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Count the winners: 4 of those treats are salmon. So P(salmon) = 4/5." },
+          {
+            "text": "Now place it on the 0–1 line: 4/5 = 0.8, close to 1 — likely, but never guaranteed. P(chicken) = 1/5 sits near 0 — unlikely. 0 means impossible, 1 means certain. 🐱",
+            "check": {
+              "question": "What would P = 1 mean here?",
+              "options": [
+                "Certain — every single treat in the jar is salmon",
+                "It happens about half the time",
+                "Impossible — no salmon at all"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.probability.t03",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.probability",
+      "prompt": "Your turn to finish one. A fair six-sided die is rolled once. Find P(rolling a number bigger than 4).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "All equally likely outcomes: 1, 2, 3, 4, 5, 6 → six of them",
+          "Winners (bigger than 4): 5 and 6 → two winners",
+          "P(bigger than 4) = 2/6 = [[1/3]]"
+        ]
+      },
+      "hint": "Simplify 2/6 — your fraction fluency does the heavy lifting.",
+      "explanation": "Two winning outcomes out of six equally likely ones: 2/6 = 1/3. Same fraction moves you've always owned."
+    },
+    {
+      "id": "math.probability.t04",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.probability",
+      "prompt": "A wizard-duel spinner has 8 equal sections: 3 purple, 4 silver, 1 gold. Finish finding P(purple).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "All equally likely sections: 3 + 4 + 1 = [[8]]",
+          "Purple winners: 3",
+          "P(purple) = [[3/8]]"
+        ]
+      },
+      "hint": "Total sections first — then it's winners over total.",
+      "explanation": "8 equal sections and 3 are purple, so P(purple) = 3/8. That's a bit under 1/2 — purple is slightly unlikely.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.probability.t05",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.probability",
+      "prompt": "Two coins fly: what is P(at least one head)? The organized list saves the day.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "List EVERY outcome of two flips in order: HH, HT, TH, TT. Four equally likely outcomes — the whole universe of this experiment.",
+            "check": {
+              "question": "Why do HT and TH both appear in the list?",
+              "options": [
+                "Heads-then-tails and tails-then-heads are genuinely different results",
+                "To make the list look longer",
+                "They shouldn't — they're the same outcome"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Warm-up: P(two heads). Only HH wins → 1/4. The list turns a fuzzy question into plain counting." },
+          {
+            "text": "P(at least one head), the slick way: the ONLY failure is TT. Use the NOT trick: 1 − P(TT) = 1 − 1/4 = 3/4.",
+            "check": {
+              "question": "Why is the NOT trick fair here?",
+              "options": [
+                "'At least one head' and 'no heads at all' cover every outcome exactly once between them",
+                "Because 3/4 looks like a nicer answer",
+                "Subtracting always makes a probability bigger"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Check by counting directly: HH, HT, TH all contain a head — 3 of the 4 outcomes. Same 3/4. Two roads, one treasure." }
+        ]
+      }
+    },
+    {
+      "id": "math.probability.t06",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.probability",
+      "prompt": "Finish the NOT trick. Amal's knitting basket holds 2 green, 3 cream, and 5 rainbow yarn balls; she grabs one without peeking. Find P(NOT green).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Total yarn balls: 2 + 3 + 5 = 10",
+          "P(green) = 2/10 = [[1/5]]",
+          "P(NOT green) = 1 − 1/5 = [[4/5]]"
+        ]
+      },
+      "hint": "Find P(green) first — the complement handles the rest.",
+      "explanation": "P(green) = 1/5, so P(not green) = 1 − 1/5 = 4/5. One subtraction instead of counting two whole colors!",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.probability.t07",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.probability",
+      "prompt": "Flip a coin AND roll a die. Finish counting the outcomes to find P(heads and a 6).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Each of the coin's 2 results pairs with each of the die's 6: 2 × 6 = [[12]] equally likely pairs",
+          "Only one pair wins: H6",
+          "P(heads and a 6) = [[1/12]]"
+        ]
+      },
+      "hint": "The organized list runs H1, H2, H3… all the way to T6 — how many pairs in all?",
+      "explanation": "There are 12 equally likely pairs and exactly one is H6, so P = 1/12. Organized lists make compound events countable."
+    },
+    {
+      "id": "math.probability.t08",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.probability",
+      "prompt": "Last one — you drive. A spinner is 1/3 red. Amal spins it 60 times and counts 22 reds. Is the spinner broken?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Theoretical expectation: 1/3 of 60 = [[20]] reds",
+          "Experimental result: 22 reds — only [[2]] away from expected",
+          "Verdict: the spinner is [[fine|normal|not broken|no]] — real results wobble around theory"
+        ]
+      },
+      "hint": "First compute what theory EXPECTS from 60 spins, then judge the size of the gap.",
+      "explanation": "Theory expects about 20 reds and 22 is a perfectly normal wobble. Experiments dance around theoretical values — that's chance being chance."
+    },
+
+    {
+      "id": "math.probability.001",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A spinner has 4 equal sections: 1 red and 3 blue. What is P(red)?",
+      "answer": "1/4",
+      "options": ["1/4", "1/3", "3/4", "1"],
+      "hint": "Winners over ALL equally likely sections.",
+      "explanation": "One red section out of 4 equal sections gives P(red) = 1/4. Comparing red to blue (1/3) is the classic trap — the denominator counts everything."
+    },
+    {
+      "id": "math.probability.002",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 1,
+      "type": "number_line_tap",
+      "prompt": "Amal bakes 12 chocolate-chip cookies — no raisins anywhere. She grabs one cookie. Tap P(it's a raisin cookie) on the line.",
+      "answer": "0",
+      "data": { "numberLine": { "min": 0, "max": 1, "step": 0.5 } },
+      "hint": "Can that event happen AT ALL?",
+      "explanation": "No raisin cookies exist in the batch, so the event is impossible: P = 0, the far-left end of the line.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.probability.003",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "One fair coin flip: what is P(heads)? Type it as a fraction.",
+      "answer": ["1/2", "0.5", "50%"],
+      "hint": "Two equally likely sides, one winner.",
+      "explanation": "One winning side out of two equally likely sides: P(heads) = 1/2, the exact middle of the 0–1 line."
+    },
+    {
+      "id": "math.probability.004",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "A K-pop photocard pack holds 1 random card from 4 equally likely designs — 3 band members and 1 album logo. Tap P(member card) on the line.",
+      "answer": "0.75",
+      "data": { "numberLine": { "min": 0, "max": 1, "step": 0.25 } },
+      "hint": "3 winners out of 4 designs — where does that fraction sit between 0 and 1?",
+      "explanation": "3/4 = 0.75, close to 1: a member card is likely but never promised. The number line shows likelihood at a glance.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.probability.005",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort each event by its likelihood.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Unlikely (P < 1/2)": ["Rolling a 6 on one die roll", "Pulling the 1 gold ball from a bag of 10 balls"],
+          "Even chance (P = 1/2)": ["A fair coin landing heads", "Spinning blue on a half-blue, half-yellow spinner"],
+          "Likely (P > 1/2)": ["Rolling 1, 2, 3, 4, or 5 on one die roll", "Grabbing a gray sock from a drawer of 9 gray and 1 white"]
+        }
+      },
+      "hint": "Turn each event into a fraction first, then compare it to 1/2.",
+      "explanation": "Under 1/2 is unlikely, exactly 1/2 is an even chance, over 1/2 is likely — every probability tells you where it lives on the line."
+    },
+    {
+      "id": "math.probability.006",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "A standard die is rolled once. Finish finding P(rolling a multiple of 3).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "All equally likely outcomes: 6",
+          "Winners (multiples of 3): 3 and 6 → [[2]] outcomes",
+          "P(multiple of 3) = 2/6 = [[1/3]]"
+        ]
+      },
+      "hint": "Which faces of a die are multiples of 3?",
+      "explanation": "Only 3 and 6 qualify: 2 winners out of 6 equally likely outcomes, so P = 2/6 = 1/3."
+    },
+    {
+      "id": "math.probability.007",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Amal's knitting basket holds 4 blue, 5 gray, and 3 white yarn balls. She grabs one without looking. What is P(white)?",
+      "answer": ["1/4", "3/12"],
+      "hint": "Count ALL the yarn balls first.",
+      "explanation": "3 white out of 4 + 5 + 3 = 12 balls: P(white) = 3/12 = 1/4.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.probability.008",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Finish the NOT trick. Each morning, Amal's Duolingo chest holds a streak freeze with probability 0.3.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "P(freeze) + P(no freeze) = 1",
+          "P(no freeze) = 1 − 0.3 = [[0.7]]"
+        ]
+      },
+      "hint": "The two probabilities must total exactly 1.",
+      "explanation": "Complements always sum to 1, so P(no freeze) = 1 − 0.3 = 0.7.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "math.probability.009",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Coin wisdom from the Chance Mines: two of these are true. Tap the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "A fair coin flipped 50 times usually lands NEAR 25 heads, but not exactly 25 every time",
+          "P(heads) is still 1/2 on the next flip, even after five heads in a row"
+        ],
+        "lie": "After five heads in a row, tails becomes more likely because it is 'due'"
+      },
+      "hint": "Does a coin remember its past flips?",
+      "explanation": "Coins have no memory — every flip is a fresh 1/2, and streaks happen naturally in fair coins. Expecting tails to be 'due' is the famous gambler's fallacy."
+    },
+    {
+      "id": "math.probability.010",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A spinner is 1/4 green. Theo spins it 80 times and gets 23 greens. What is the best conclusion?",
+      "answer": "Nothing is wrong — results normally wobble around the expected 20",
+      "options": [
+        "Nothing is wrong — results normally wobble around the expected 20",
+        "The spinner is broken and favors green",
+        "The true probability must now be 23/80",
+        "Theo miscounted, because 80 spins must give exactly 20 greens"
+      ],
+      "hint": "First compute what theory expects: 1/4 of 80 spins.",
+      "explanation": "Theory expects 80 × 1/4 = 20 greens, and 23 is a perfectly normal wobble. Experimental results vary around theoretical ones."
+    },
+    {
+      "id": "math.probability.011",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "Match each event to its probability.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Heads on one fair coin flip", "1/2"],
+          ["Rolling a 6 on a standard die", "1/6"],
+          ["Rolling a number from 1 to 6 on a standard die", "1"],
+          ["Two heads when flipping two coins", "1/4"],
+          ["Rolling a 7 on a standard die", "0"]
+        ]
+      },
+      "hint": "Certain events score 1 and impossible ones 0 — for the rest, count winners over all outcomes.",
+      "explanation": "Winners over equally likely outcomes: 1/2, 1/6, 6/6 = 1, 1/4 (HH out of HH/HT/TH/TT), and 0/6 = 0."
+    },
+    {
+      "id": "math.probability.012",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Order the moves for finding P(exactly one head) when two coins are flipped.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Write the organized list of outcomes: HH, HT, TH, TT",
+          "Count ALL equally likely outcomes in the list: 4",
+          "Pick out the winners among those 4: HT and TH → 2",
+          "Divide winners by total: P = 2/4 = 1/2"
+        ]
+      },
+      "hint": "List first — everything after that is just counting the list.",
+      "explanation": "List → count all → count winners → divide is the master plan for compound events."
+    },
+    {
+      "id": "math.probability.013",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin found P(tuna) for the treat jar. Tap the step where it went wrong.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Problem: a jar holds 2 tuna and 3 cheese cat treats — find P(tuna)",
+          "Step A: total equally likely treats = 2 + 3 = 5",
+          "Step B: P(tuna) = 2/3, comparing tuna treats to cheese treats",
+          "Step C: since 2/3 > 1/2, grabbing tuna is likely"
+        ]
+      },
+      "hint": "A probability's denominator counts ALL outcomes — what did the goblin's denominator count?",
+      "explanation": "P(tuna) = 2/5: winners over ALL 5 treats. The goblin built 2/3, a tuna-to-cheese ratio, which is not a probability.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.probability.014",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: Amal's sock drawer holds 3 blue, 5 gray, and 4 striped socks, all jumbled. She pulls one out in the dark. What is P(NOT gray)? Answer as a fraction.",
+      "answer": ["7/12"],
+      "hint": "Two roads: count every non-gray sock, or find P(gray) and subtract it from 1.",
+      "explanation": "P(gray) = 5/12, so P(not gray) = 1 − 5/12 = 7/12 — and counting 3 + 4 = 7 non-gray socks confirms it.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.probability.015",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: a wizard duel uses two spinners — one with 3 equal sections numbered 1–3, the other with 4 equal sections numbered 1–4. Both spin and the numbers are ADDED. What is P(the sum equals 4)?",
+      "answer": ["1/4", "3/12"],
+      "hint": "Build the organized table of every spinner pair — how many pairs exist, and which of them sum to 4?",
+      "explanation": "The table holds 3 × 4 = 12 equally likely pairs, and exactly (1,3), (2,2), (3,1) sum to 4: P = 3/12 = 1/4. That organized list tamed a two-spinner beast!",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.probability.016",
+      "realm": "math", "skill": "math.probability", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: a bakery mystery box holds 6 vanilla cupcakes and some chocolate ones. The probability of grabbing chocolate is 2/5. How many chocolate cupcakes are in the box?",
+      "answer": ["4", "4 cupcakes", "4 chocolate cupcakes"],
+      "hint": "Let c = chocolate cupcakes: then c/(c + 6) = 2/5. Cross-multiply — equations are your home turf.",
+      "explanation": "5c = 2(c + 6) gives 3c = 12, so c = 4. Check: 4 chocolate out of 10 total cupcakes = 2/5 ✓",
+      "tags": ["baking", "legendary"]
+    }
+  ]
+}

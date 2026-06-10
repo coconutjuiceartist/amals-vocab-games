@@ -1,0 +1,343 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.enrichment",
+      "skill": "math.enrichment",
+      "title": "Starlight Vault: Math-Circle Candy",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "The Starlight Vault is open (100% bonus)",
+          "lines": [
+            "Everything in this vault is BONUS — math-circle candy, zero pressure, maximum 'whoa'.",
+            "Four star-tracks glitter inside: Percent Alchemy, Chance Stacking, the Steepness Lab, and Power Patterns — each hides a result that LOOKS wrong but isn't."
+          ],
+          "vocab": [
+            { "term": "percent change", "meaning": "a percent is always taken OF the current amount — so the base can shift mid-problem" },
+            { "term": "compound event", "meaning": "two chance events stacked together; independent chances multiply" }
+          ],
+          "visual": "percent"
+        },
+        { "kind": "gambit", "itemId": "math.enrichment.t01", "framing": "No grade — just trust your gut and lock in a guess. The twist IS the treat." },
+        { "kind": "worked", "itemId": "math.enrichment.t02" },
+        { "kind": "completion", "itemId": "math.enrichment.t03" },
+        { "kind": "worked", "itemId": "math.enrichment.t04" },
+        { "kind": "completion", "itemId": "math.enrichment.t05" },
+        { "kind": "completion", "itemId": "math.enrichment.t06" },
+        { "kind": "burst", "itemIds": ["math.enrichment.001", "math.enrichment.002", "math.enrichment.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.enrichment.t01",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice", "teachSequenceId": "teach.math.enrichment",
+      "prompt": "Percent Alchemy ✦ A $40 sweater's price rises 10%, then drops 10%. Gut feeling — where does the price land?",
+      "answer": "$39.60 — a smidge BELOW where it started",
+      "options": [
+        "Exactly $40 — the changes cancel out",
+        "$39.60 — a smidge BELOW where it started",
+        "$40.40 — a smidge above where it started",
+        "$36 — way below where it started"
+      ],
+      "hint": "The rise and the drop are both 10%… but 10% OF WHAT, each time?",
+      "explanation": "The drop bites a bigger number ($44) than the rise did ($40), so it bites harder — final price $39.60."
+    },
+    {
+      "id": "math.enrichment.t02",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.enrichment",
+      "prompt": "Percent Alchemy ✦ Let's see exactly why the $40 sweater refuses to return to $40.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "The rise: 10% of $40 is 40 × 0.10 = $4, so the price climbs to $44.",
+            "check": {
+              "question": "Where does the $4 come from?",
+              "options": [
+                "It's 10% of the CURRENT price, $40",
+                "Every 10% is always worth $4",
+                "It's just $44 minus $40, picked to fit"
+              ],
+              "answer": 0
+            }
+          },
+          {
+            "text": "The drop: 10% of the NEW price. 10% of $44 = $4.40 — same percent, bigger base.",
+            "check": {
+              "question": "Why is the drop ($4.40) bigger than the rise ($4)?",
+              "options": [
+                "10% of a bigger number is more",
+                "Drops are always stronger than rises",
+                "Stores round their discounts up"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Final price: 44 − 4.40 = $39.60. Not $40! Matching percents with DIFFERENT bases never cancel." },
+          {
+            "text": "Multiplier magic: +10% means ×1.1 and −10% means ×0.9, and 1.1 × 0.9 = 0.99. The sweater quietly lost 1% — alchemy revealed.",
+            "check": {
+              "question": "A rise of 25% then a drop of 25% multiplies to…",
+              "options": [
+                "×0.9375 — a stealth loss",
+                "×1.0 — a perfect cancel",
+                "×1.25 — still a gain"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.enrichment.t03",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.enrichment",
+      "prompt": "Percent Alchemy ✦ Your turn: a $60 concert hoodie rises 25%, then drops 25%.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Rise: 60 × 1.25 = 75",
+          "Drop: 75 × 0.75 = [[56.25]]",
+          "Overall: from 60 down to 56.25 — a loss of $[[3.75]]"
+        ]
+      },
+      "hint": "The drop is 25% of 75, not of 60.",
+      "explanation": "75 × 0.75 = 56.25, so the round trip costs $3.75 — exactly the ×0.9375 stealth loss from the worked example.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.enrichment.t04",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.enrichment",
+      "prompt": "Chance Stacking ✦ Two spinners, each with 4 equal sections — 1 gold, 3 silver. Spin both: what's the chance of DOUBLE gold?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "One spinner alone: P(gold) = 1/4. Add a second spinner and outcomes become PAIRS: 4 × 4 = 16 equally likely pairs.",
+            "check": {
+              "question": "Why 16 pairs?",
+              "options": [
+                "Each of A's 4 results can meet each of B's 4 results",
+                "Because 4 + 4 = 8, and then you double it",
+                "Two spinners always make 16 pairs, whatever the sections"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Double gold: only 1 of those 16 pairs is (gold, gold), so P = 1/16. Notice the shortcut hiding there: 1/4 × 1/4 = 1/16 — independent chances MULTIPLY." },
+          {
+            "text": "Double silver the fast way: 3/4 × 3/4 = 9/16. (Count check: 3 silvers × 3 silvers = 9 pairs out of 16 ✓)",
+            "check": {
+              "question": "P(gold on A AND silver on B)?",
+              "options": ["3/16", "4/16", "1/16"],
+              "answer": 0
+            }
+          },
+          { "text": "The whoa: each spin alone gives decent odds, but BOTH-AND keeps multiplying fractions under 1, so stacked chances shrink fast. That's why double jackpots are rare." }
+        ]
+      }
+    },
+    {
+      "id": "math.enrichment.t05",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.enrichment",
+      "prompt": "Chance Stacking ✦ Flip a coin, then roll a 6-sided die. Finish finding P(heads AND a six).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "P(heads) = 1/2 and P(six) = [[1/6]]",
+          "Stack the independent events: 1/2 × 1/6 = [[1/12]]"
+        ]
+      },
+      "hint": "Independent events stack by multiplying their probabilities.",
+      "explanation": "1/2 × 1/6 = 1/12 — rarer than either event alone. Stacking always shrinks the chance."
+    },
+    {
+      "id": "math.enrichment.t06",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.enrichment",
+      "prompt": "Percent Alchemy ✦ You drive: an $80 yarn haul goes 50% off in a sale, then the price RISES 50%. Where does it end?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Drop as a multiplier: 80 × [[0.5]] = 40",
+          "Rise as a multiplier: 40 × [[1.5]] = 60",
+          "Net: from 80 to 60 — a [[25]]% loss overall"
+        ]
+      },
+      "hint": "Write each move as a multiplier first; measure the final loss against the START price.",
+      "explanation": "0.5 × 1.5 = 0.75, so the round trip keeps only 75% of the price — a 25% loss, and the order doesn't even matter.",
+      "tags": ["knitting"]
+    },
+
+    {
+      "id": "math.enrichment.001",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Power Patterns ✦ Amal casts on 2 stitches and doubles the count every row: 2, 4, 8, … How many stitches in row 6?",
+      "answer": ["64", "64 stitches"],
+      "hint": "Row 4 is 16 — keep doubling.",
+      "explanation": "Doubling six times lands on 2^6 = 64. Powers of 2 grow scary-fast: row 20 would top a million stitches.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.enrichment.002",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Steepness Lab ✦ Speed-reader rule: p = 6m (pages = 6 × minutes). Each extra minute adds how many pages?",
+      "answer": ["6", "6 pages"],
+      "hint": "In y = kx, the k is the growth per single step of x.",
+      "explanation": "k = 6 is the rate of change — every +1 minute means +6 pages, and that number is exactly what makes a graph steep.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.enrichment.003",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Chance Stacking ✦ Two fair coins are flipped together. Tap the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "There are 4 equally likely outcomes: HH, HT, TH, TT",
+          "The probability of double heads is 1/4"
+        ],
+        "lie": "P(at least one head) = 1/2 + 1/2 = 1, a guarantee"
+      },
+      "hint": "Can two coin flips really GUARANTEE a head?",
+      "explanation": "Adding overlapping chances double-counts: TT has no head at all, so P(at least one head) is 3/4, not 1."
+    },
+    {
+      "id": "math.enrichment.004",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Steepness Lab ✦ Three cat ramps rise from the floor along y = 2x, y = 5x, and y = 0.5x (x = steps out, y = height). Which ramp is steepest for Biscuit?",
+      "answer": "y = 5x — each step out climbs 5",
+      "options": [
+        "y = 5x — each step out climbs 5",
+        "y = 0.5x — a small k means a sharp climb",
+        "y = 2x — the middle k is always steepest",
+        "They're equally steep — all pass through (0, 0)"
+      ],
+      "hint": "k tells you the rise for every 1 across.",
+      "explanation": "Bigger k, faster rise: 5 beats 2 beats 0.5. You just previewed 'slope' — algebra's favorite number.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.enrichment.005",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Chance Stacking ✦ Spinner A: 3 equal sections, 1 red. Spinner B: 5 equal sections, 2 red. Spin both — what's P(double red)?",
+      "answer": ["2/15"],
+      "hint": "Multiply the two single-spin probabilities.",
+      "explanation": "1/3 × 2/5 = 2/15 — barely a 13% chance, even though red felt easy on each spinner alone."
+    },
+    {
+      "id": "math.enrichment.006",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Power Patterns ✦ Climb the powers-of-ten ladder (10^3 means 10 × 10 × 10) — then take one surprising step DOWN.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "10^3 = [[1000|1,000]]",
+          "10^6 = 1 followed by [[6]] zeros (a million)",
+          "Step down by ÷10 each time: 10^2 = 100, 10^1 = 10, so 10^0 = [[1]]"
+        ]
+      },
+      "hint": "The exponent counts the zeros; each step down the ladder divides by 10.",
+      "explanation": "10^0 = 1, not 0 — the ladder's ÷10 pattern forces it. Every mathematician gasps at this exactly once."
+    },
+    {
+      "id": "math.enrichment.007",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "Percent Alchemy ✦ A goblin shopkeeper repriced a $50 cloak. Tap the flawed step.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Start: $50, and the price rises 20% — that's $10 — so it becomes $60",
+          "Step A: later, the price drops 20%",
+          "Step B: a 20% drop takes that same $10 back off",
+          "Step C: final price $50 — perfectly back to the start"
+        ]
+      },
+      "hint": "A percent always bites the CURRENT price.",
+      "explanation": "The drop is 20% of $60 = $12, so the cloak lands at $48 — matching percents never undo each other."
+    },
+    {
+      "id": "math.enrichment.008",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Chance Stacking ✦ Legendary: two vault spinners each have 4 equal sections with 1 gold. Spin both — what's P(at least ONE gold)?",
+      "answer": ["7/16"],
+      "hint": "The sneaky route: find P(zero gold) first, then subtract from 1.",
+      "explanation": "P(no gold) = 3/4 × 3/4 = 9/16, so P(at least one) = 1 − 9/16 = 7/16 — the complement trick turns a monster into one subtraction.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.enrichment.009",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 3,
+      "type": "speed_round",
+      "prompt": "Power Patterns ✦ Lightning vault drill: powers only (the ^ means 'to the power of').",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["2^3", "8"],
+          ["2^4", "16"],
+          ["2^5", "32"],
+          ["2^6", "64"],
+          ["2^7", "128"],
+          ["2^8", "256"],
+          ["2^10", "1024"],
+          ["10^2", "100"],
+          ["10^4", "10000"],
+          ["10^0", "1"]
+        ]
+      },
+      "hint": "Doubling for the 2s; counting zeros for the 10s.",
+      "explanation": "Knowing small powers cold makes exponent patterns jump out everywhere — like 1024 hiding inside computer memory."
+    },
+    {
+      "id": "math.enrichment.010",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Steepness Lab ✦ Legendary: Robot A walks along y = 1.5x (meters in x seconds). Robot B only left a data table: (2, 4) and (5, 10). Whose line is steeper?",
+      "answer": "Robot B — its table gives k = 2 meters per second, beating 1.5",
+      "options": [
+        "Robot B — its table gives k = 2 meters per second, beating 1.5",
+        "Robot A — a rule in symbols always beats a table",
+        "They tie — both have k = 2",
+        "Robot B — it has bigger numbers in its table"
+      ],
+      "hint": "Find B's k: divide y by x in either row of its table.",
+      "explanation": "B's k = 4 ÷ 2 = 10 ÷ 5 = 2 m/s while A's is 1.5 — steepness lives in k, not in how the rule is dressed.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.enrichment.011",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Percent Alchemy ✦ Legendary: an outfit for the Duolingo owl drops 20% in a sale, then rises 20% — it now costs 96 gems. What did it cost BEFORE the sale?",
+      "answer": ["100", "100 gems"],
+      "hint": "Multipliers: original × 0.8 × 1.2 = 96, which is 0.96 × original — solve it like any equation.",
+      "explanation": "0.8 × 1.2 = 0.96, and 96 ÷ 0.96 = 100 gems — running the alchemy backward is just equation-solving.",
+      "tags": ["duolingo", "legendary"]
+    },
+    {
+      "id": "math.enrichment.012",
+      "realm": "math", "skill": "math.enrichment", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Power Patterns ✦ Legendary: the vault offers two prize piles — 2^10 star-coins or 10^3 star-coins. They sound wildly different. Work out BOTH, then type how many more coins the bigger pile holds.",
+      "answer": ["24", "24 coins"],
+      "hint": "Double your way up: 2, 4, 8, … ten times. Then count zeros for 10^3.",
+      "explanation": "2^10 = 1024 sneaks past 10^3 = 1000 by just 24 — small bases out-race big ones once exponents take over.",
+      "tags": ["legendary"]
+    }
+  ]
+}

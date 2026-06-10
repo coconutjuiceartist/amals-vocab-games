@@ -1,0 +1,476 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.geometry",
+      "skill": "math.geometry",
+      "title": "Geometry: Every Shape Hides a Rectangle",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Area you already own",
+          "lines": [
+            "You can already find a rectangle's area: base × height counts the unit squares hiding inside.",
+            "Today's secret: every triangle is HALF of some rectangle, and a parallelogram is a rectangle that leaned sideways — shear it back upright and not one square is lost."
+          ],
+          "vocab": [
+            { "term": "area", "meaning": "the number of unit squares a shape covers (cm², m², …)" },
+            { "term": "height", "meaning": "the straight-up distance from the base — never the slanted side" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "gambit", "itemId": "math.geometry.t01", "framing": "No grade, no pressure — just try something. Even a wild guess teaches your brain what to listen for." },
+        { "kind": "worked", "itemId": "math.geometry.t02" },
+        { "kind": "completion", "itemId": "math.geometry.t03" },
+        { "kind": "completion", "itemId": "math.geometry.t04" },
+        {
+          "kind": "bridge",
+          "title": "Every circle keeps the same secret",
+          "lines": [
+            "Measure AROUND any circle (the circumference), measure ACROSS it (the diameter), then divide: you always get about 3.14 — for a teacup, a bike wheel, the moon. Every circle ever.",
+            "That forever-number is π (pi): C = π × d, and area A = π × r². In this realm we use π ≈ 3.14."
+          ],
+          "vocab": [
+            { "term": "π (pi)", "meaning": "circumference ÷ diameter — always about 3.14, for every circle ever" },
+            { "term": "radius", "meaning": "the distance from the center to the edge: half the diameter" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "math.geometry.t05" },
+        { "kind": "completion", "itemId": "math.geometry.t06" },
+        { "kind": "completion", "itemId": "math.geometry.t07" },
+        { "kind": "completion", "itemId": "math.geometry.t08" },
+        { "kind": "burst", "itemIds": ["math.geometry.001", "math.geometry.002", "math.geometry.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.geometry.t01",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.geometry",
+      "prompt": "Amal cuts a rectangular brownie slab, 8 inches by 6 inches, along its diagonal into two matching triangles. What is the area of ONE triangle, in square inches?",
+      "answer": ["24", "24 in2", "24 in²", "24 square inches"],
+      "hint": "What's the area of the whole slab — and what does the diagonal do to it?",
+      "explanation": "The slab is 8 × 6 = 48 square inches, and the diagonal splits it into two equal halves: 24 each. You just discovered the triangle formula!",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.geometry.t02",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.geometry",
+      "prompt": "Let's catch the Shape Shifter's two favorite disguises: a triangle with base 10 cm and height 6 cm, and the sheared rectangle called a parallelogram.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Build a rectangle around the triangle: same base 10 cm, same height 6 cm. The rectangle's area is 10 × 6 = 60 cm²." },
+          {
+            "text": "The triangle fills exactly HALF of that rectangle: 60 ÷ 2 = 30 cm². That's the whole formula: A = ½ × base × height.",
+            "check": {
+              "question": "Why divide by 2?",
+              "options": [
+                "A triangle covers half of the rectangle built on its base and height",
+                "Because a triangle has fewer sides than a rectangle",
+                "To make the answer smaller and tidier"
+              ],
+              "answer": 0
+            }
+          },
+          {
+            "text": "A parallelogram is a SHEARED rectangle: slice a triangle off one end, slide it to the other end, and it stands up straight again. Nothing gained, nothing lost — A = base × height, no halving.",
+            "check": {
+              "question": "A parallelogram has base 7 cm and height 4 cm. Its area is…",
+              "options": ["28 cm²", "11 cm²", "56 cm²"],
+              "answer": 0
+            }
+          },
+          { "text": "One trap to dodge: 'height' always means the straight-up distance, never the slanted side. The Shape Shifter LOVES handing you the slant." }
+        ]
+      }
+    },
+    {
+      "id": "math.geometry.t03",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.geometry",
+      "prompt": "Your turn to finish one. A wizard-house banner is a parallelogram with base 8 dm and height 5 dm.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A parallelogram is a sheared rectangle, so A = base × height",
+          "A = 8 × 5 = [[40]] dm²"
+        ]
+      },
+      "hint": "Sheared rectangles keep their full area — no halving here.",
+      "explanation": "Base × height does it all: 8 × 5 = 40 dm². The shear changes the look, never the area.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.geometry.t04",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.geometry",
+      "prompt": "A triangular boat sail has base 12 m, height 5 m — and a slanted edge of 13 m trying to distract you.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Pick the TRUE height (ignore the slant!): height = [[5]] m",
+          "A = ½ × 12 × 5 = [[30]] m²"
+        ]
+      },
+      "hint": "Which of the two measurements points straight up from the base?",
+      "explanation": "The 13 m slant is bait — area uses the straight-up 5 m: ½ × 12 × 5 = 30 m². Spotting the trap is the real skill here."
+    },
+    {
+      "id": "math.geometry.t05",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.geometry",
+      "prompt": "A round cake pan is 10 cm across. Let's find its circumference AND its area (use π ≈ 3.14).",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Across = the diameter, d = 10 cm. Circumference is the distance AROUND: C = π × d ≈ 3.14 × 10 = 31.4 cm." },
+          {
+            "check": {
+              "question": "A circle is 20 cm across. Its circumference is about…",
+              "options": ["62.8 cm", "23.14 cm", "314 cm"],
+              "answer": 0
+            },
+            "text": "That ratio never changes: around ÷ across ≈ 3.14 for every circle in every realm. So 'times 3.14' turns across into around."
+          },
+          { "text": "Area uses the RADIUS, half the diameter: r = 10 ÷ 2 = 5 cm. A = π × r² ≈ 3.14 × 5 × 5 = 3.14 × 25 = 78.5 cm²." },
+          {
+            "text": "Keep the two apart: C = 31.4 cm is a length around the rim; A = 78.5 cm² counts the squares of cake inside.",
+            "check": {
+              "question": "In A = π × r², what does r² mean?",
+              "options": ["r × r", "r × 2", "r + r"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.geometry.t06",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.geometry",
+      "prompt": "The Duolingo owl's giant circular streak-medal is 30 cm across. Finish finding the trim needed to wrap its rim (use π ≈ 3.14).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "C = π × d ≈ 3.14 × [[30]]",
+          "C ≈ [[94.2]] cm of trim"
+        ]
+      },
+      "hint": "'Across' hands you the diameter — circumference is π times that.",
+      "explanation": "C = 3.14 × 30 = 94.2 cm. Around is always about 3.14 times across — that's π's whole job.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "math.geometry.t07",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.geometry",
+      "prompt": "Mr. Whiskers naps on a round rug with radius 3 ft. Finish finding the napping area (use π ≈ 3.14).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A = π × r² ≈ 3.14 × 3 × [[3]]",
+          "A ≈ [[28.26]] square feet"
+        ]
+      },
+      "hint": "Squaring means the radius multiplies ITSELF.",
+      "explanation": "A = 3.14 × 9 = 28.26 square feet of prime napping territory. r² = 3 × 3, never 3 × 2.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.geometry.t08",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.geometry",
+      "prompt": "Last one — you drive. A personal pizza is 8 inches ACROSS. Find its area (use π ≈ 3.14).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Area needs the RADIUS first: r = 8 ÷ 2 = [[4]] inches",
+          "A = π × r² ≈ 3.14 × 4 × 4 = [[50.24]] in²"
+        ]
+      },
+      "hint": "You were handed the diameter. What does the area formula actually ask for?",
+      "explanation": "Halve first, then square: r = 4, so A = 3.14 × 16 = 50.24 in². Catching the diameter-vs-radius switch is exactly the strategy that beats the Shape Shifter.",
+      "tags": ["baking"]
+    },
+
+    {
+      "id": "math.geometry.001",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Two straight yarn strands cross, making an X. One angle of the X measures 62°. What is the angle directly opposite it?",
+      "answer": "62° — vertical angles are always equal",
+      "options": [
+        "62° — vertical angles are always equal",
+        "118° — angles across an X make a straight line",
+        "28° — angles across an X add up to 90°",
+        "It cannot be found without a protractor"
+      ],
+      "hint": "Opposite angles at a crossing are called vertical angles — what's their famous property?",
+      "explanation": "Vertical angles are mirror twins: always equal, so it's 62°. (The 118° lives NEXT to it, sharing the straight line.)",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.geometry.002",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "A parallelogram-shaped sticker has base 9 cm and height 4 cm. What is its area in cm²?",
+      "answer": ["36", "36 cm2", "36 cm²", "36 square cm"],
+      "hint": "A parallelogram is a sheared rectangle — same area rule, no halving.",
+      "explanation": "Base × height: 9 × 4 = 36 cm². Shearing never spills a single square."
+    },
+    {
+      "id": "math.geometry.003",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "area_decomposer",
+      "prompt": "The realm's L-shaped courtyard is drawn on a meter grid. Split it into rectangles and add them up: total area in m²?",
+      "answer": "30",
+      "data": { "model": { "shape": "L", "grid": [6, 7], "cells": [[0, 0, 6, 3], [0, 3, 3, 4]], "unit": "m" } },
+      "hint": "Slice the L into two rectangles — a wide one and a tall one — and sum them.",
+      "explanation": "6 × 3 = 18 and 3 × 4 = 12, so the courtyard is 18 + 12 = 30 m². Decomposing beats memorizing!"
+    },
+    {
+      "id": "math.geometry.004",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Angle partners: complementary angles add to 90°, supplementary angles add to 180°. Fill in both partners of a 25° angle.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Complement of 25°: 90 − 25 = [[65]]°",
+          "Supplement of 25°: 180 − 25 = [[155]]°"
+        ]
+      },
+      "hint": "C comes before S in the alphabet, and 90 comes before 180.",
+      "explanation": "Complement: 90 − 25 = 65°; supplement: 180 − 25 = 155°. Two subtractions, two named partnerships."
+    },
+    {
+      "id": "math.geometry.005",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "A knitted shawl is a trapezoid: parallel edges 7 dm and 11 dm, height 4 dm. Finish finding its area.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A trapezoid uses the AVERAGE of its two parallel bases: (7 + 11) ÷ 2 = [[9]]",
+          "Area = 9 × 4 = [[36]] dm²"
+        ]
+      },
+      "hint": "Average the two parallel edges first — that turns the trapezoid into an honest rectangle.",
+      "explanation": "Average base 9 dm times height 4 dm gives 36 dm². Averaging the bases is the trapezoid's whole trick.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.geometry.006",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Amal cuts a triangular felt ear for a cat costume: base 12 cm, height 7 cm. What is its area in cm²?",
+      "answer": ["42", "42 cm2", "42 cm²"],
+      "hint": "A triangle is half of the rectangle built on its base and height.",
+      "explanation": "½ × 12 × 7 = 42 cm². Half-a-rectangle thinking strikes again!",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.geometry.007",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "In a right triangle, the two acute angles measure x° and (2x + 15)°. Solve for x.",
+      "answer": ["25", "x=25", "x = 25"],
+      "hint": "All three angles of a triangle total 180° — and one of them here is already 90°.",
+      "explanation": "x + (2x + 15) + 90 = 180, so 3x = 75 and x = 25. Check: 25 + 65 + 90 = 180 ✓ — your equation skills just conquered geometry."
+    },
+    {
+      "id": "math.geometry.008",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A giant cookie is 10 cm across. Use π ≈ 3.14: what is its circumference, in cm?",
+      "answer": ["31.4", "31.4 cm"],
+      "hint": "Across = diameter, and C = π × d.",
+      "explanation": "C = 3.14 × 10 = 31.4 cm. Around is always about 3.14 times across — every circle, every cookie.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.geometry.009",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "A round cat bed has radius 10 cm (use π ≈ 3.14). Match each measure to its value.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["radius", "10 cm"],
+          ["diameter", "20 cm"],
+          ["circumference", "62.8 cm"],
+          ["area", "314 cm²"]
+        ]
+      },
+      "hint": "Diameter doubles the radius; C = π × d; A = π × r². The units whisper clues too.",
+      "explanation": "d = 20, C = 3.14 × 20 = 62.8 cm, A = 3.14 × 100 = 314 cm². Area is the only one wearing square units!",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.geometry.010",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "The Shape Shifter's goblin apprentice computed a circle's area. Tap the step where it went wrong.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Problem: area of a circle with radius 5 cm (use π ≈ 3.14)",
+          "Step A: the formula is A = π × r²",
+          "Step B: r² = 5 × 2 = 10",
+          "Step C: A = 3.14 × 10 = 31.4 cm²"
+        ]
+      },
+      "hint": "Suspicious: Step C's result is exactly this circle's CIRCUMFERENCE. What does the little ² really command?",
+      "explanation": "Squaring means multiply by ITSELF: r² = 5 × 5 = 25, so A = 3.14 × 25 = 78.5 cm². Doubling and squaring are different spells!"
+    },
+    {
+      "id": "math.geometry.011",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "area_decomposer",
+      "prompt": "The Shape Shifter hides behind a T-shaped wall on a meter grid. Decompose it into rectangles: total area in m²?",
+      "answer": "26",
+      "data": { "model": { "shape": "T", "grid": [8, 7], "cells": [[0, 0, 8, 2], [3, 2, 2, 5]], "unit": "m" } },
+      "hint": "A T is just a long bar plus a stem — two rectangles in disguise.",
+      "explanation": "Bar: 8 × 2 = 16; stem: 2 × 5 = 10; total 26 m². Every weird shape is rectangles wearing a costume."
+    },
+    {
+      "id": "math.geometry.012",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "area_decomposer",
+      "prompt": "A staircase-shaped garden bed sits on a meter grid. Break it into rectangles and total the area in m².",
+      "answer": "33",
+      "data": { "model": { "shape": "staircase", "grid": [7, 7], "cells": [[0, 0, 7, 3], [0, 3, 4, 2], [0, 5, 2, 2]], "unit": "m" } },
+      "hint": "Three steps, three rectangles — sum all three.",
+      "explanation": "7 × 3 = 21, 4 × 2 = 8, 2 × 2 = 4, and 21 + 8 + 4 = 33 m². Slice, multiply, add — works on any staircase."
+    },
+    {
+      "id": "math.geometry.013",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Three corners of the rectangular Great Stacks library sit at (1, 1), (5, 1), and (1, 4) on the realm map. Tap the fourth corner.",
+      "answer": "5,4",
+      "data": { "coordinatePlane": { "size": 6 } },
+      "hint": "A rectangle's opposite sides match: borrow the x from one given corner and the y from another.",
+      "explanation": "The missing corner takes x = 5 and y = 4: (5, 4). Bonus: that makes the library 4 wide and 3 tall — area 12.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.geometry.014",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 1,
+      "type": "visual_model", "model": "net_match",
+      "prompt": "Unfold a cube like a cardboard box flattened for recycling. Which net folds back into a perfect cube?",
+      "answer": "a cross of 6 squares",
+      "data": {
+        "model": {
+          "solid": "cube",
+          "options": [
+            "a cross of 6 squares",
+            "a straight row of 6 squares",
+            "a 2-by-3 grid of 6 squares",
+            "a cross of 5 squares"
+          ],
+          "correct": "a cross of 6 squares"
+        }
+      },
+      "hint": "Fold each option in your head — every face needs a place, with no overlaps.",
+      "explanation": "The cross of 6 squares folds up perfectly. A straight row or a 2×3 grid overlaps itself, and 5 squares leaves a hole."
+    },
+    {
+      "id": "math.geometry.015",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "net_match",
+      "prompt": "A chocolate-bar box is a triangular prism (triangle ends, long rectangular sides). Which net wraps it exactly?",
+      "answer": "2 triangles + 3 rectangles",
+      "data": {
+        "model": {
+          "solid": "triangular_prism",
+          "options": [
+            "2 triangles + 3 rectangles",
+            "2 triangles + 2 rectangles",
+            "4 triangles around a square",
+            "6 identical squares in a cross"
+          ],
+          "correct": "2 triangles + 3 rectangles"
+        }
+      },
+      "hint": "Count the solid's faces first: how many ends, how many long sides?",
+      "explanation": "A triangular prism has 2 triangle ends plus 3 rectangle sides — 5 faces total. (4 triangles around a square folds into a pyramid instead!)"
+    },
+    {
+      "id": "math.geometry.016",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Surface area = the total area of ALL the faces (think: wrapping paper). Finish this for a cube with edge 4 cm.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "One face: 4 × 4 = [[16]] cm²",
+          "A cube has [[6]] identical faces",
+          "Surface area: 6 × 16 = [[96]] cm²"
+        ]
+      },
+      "hint": "Picture the cube's net — count every square it unfolds into.",
+      "explanation": "Six faces of 16 cm² each: 6 × 16 = 96 cm². Nets turn surface area into simple counting."
+    },
+    {
+      "id": "math.geometry.017",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "A mini loaf pan is 4 in long, 3 in wide, and 2½ in deep. How many cubic inches of batter fill it to the brim?",
+      "answer": ["30", "30 in3", "30 in³", "30 cubic inches"],
+      "hint": "Volume of a box = length × width × height — the ½ behaves like any fraction.",
+      "explanation": "4 × 3 × 2½ = 12 × 2.5 = 30 cubic inches. Fractional edges follow exactly the same rule as whole ones.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.geometry.018",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Shape Lightning! Quick-fire areas, perimeters, and angle facts.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["Area: rectangle 8 × 5", "40"],
+          ["Area: triangle, base 10, height 4", "20"],
+          ["Area: parallelogram, base 7, height 6", "42"],
+          ["Perimeter: square with side 9", "36"],
+          ["Perimeter: rectangle 8 × 5", "26"],
+          ["Complement of 30°", "60"],
+          ["Supplement of 30°", "150"],
+          ["Vertical angle partner of 75°", "75"],
+          ["Area: triangle, base 6, height 6", "18"],
+          ["Triangle has angles 90° and 45° — third angle?", "45"],
+          ["Area: trapezoid, bases 4 and 6, height 5", "25"],
+          ["Perimeter: equilateral triangle with side 7", "21"]
+        ]
+      },
+      "hint": "Formulas on reflex: ½bh for triangles, average-the-bases for trapezoids.",
+      "explanation": "Fast formula facts free your brain for the legendary multi-step quests."
+    },
+    {
+      "id": "math.geometry.019",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: The Knotty Skein yarn shop has an L-shaped floor. The left wall runs 8 m, the bottom wall runs 10 m, the tall section is 4 m wide, and the shorter right section's wall is only 3 m tall. How many m² of carpet cover the whole floor?",
+      "answer": ["50", "50 m2", "50 m²", "50 square meters"],
+      "hint": "One measurement is missing — the bottom is 10 m and the tall section claims 4 m of it. Sketch it!",
+      "explanation": "The missing width is 10 − 4 = 6 m, so the floor is 4 × 8 = 32 plus 6 × 3 = 18: 50 m². Hunting the hidden measure first is the legendary move.",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.geometry.020",
+      "realm": "math", "skill": "math.geometry", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: Amal builds a display case for her K-pop lightstick — a rectangular prism 30 cm long, 20 cm wide, and 10 cm tall. Mirror film for all 6 faces costs 2¢ per cm². What is the total cost, in dollars?",
+      "answer": ["44", "$44", "44 dollars"],
+      "hint": "The six faces come in 3 matching pairs — find each pair's area, total them, THEN bring in the price.",
+      "explanation": "SA = 2(30×20) + 2(30×10) + 2(20×10) = 1200 + 600 + 400 = 2200 cm², and 2200 × $0.02 = $44. Surface area first, money second — two quests in one.",
+      "tags": ["kpop", "legendary"]
+    }
+  ]
+}

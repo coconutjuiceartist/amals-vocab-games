@@ -1,0 +1,1058 @@
+{
+  "sequences": [
+    {
+      "id": "teach.french.family",
+      "skill": "french.family",
+      "title": "La Famille: Meet the Family (and the Cats)",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Family words are your first French superpower",
+          "lines": [
+            "When you introduce your family in French, every person wears a tiny gender tag: LA mère (the mother) but LE père (the father).",
+            "Spot the tag and whole sentences fall into place — it even works for the cats."
+          ],
+          "vocab": [
+            { "term": "la famille", "meaning": "the family" },
+            { "term": "la mère / le père", "meaning": "the mother / the father" },
+            { "term": "le frère / la sœur", "meaning": "the brother / the sister" },
+            { "term": "le chat / le chien", "meaning": "the cat / the dog" },
+            { "term": "j'ai", "meaning": "I have (from the verb avoir)" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "french.family.t01", "framing": "No grade, just explore — French drops clues everywhere. What would YOU guess?" },
+        { "kind": "worked", "itemId": "french.family.t02" },
+        { "kind": "completion", "itemId": "french.family.t03" },
+        { "kind": "burst", "itemIds": ["french.family.001", "french.family.002", "french.family.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.school",
+      "skill": "french.school",
+      "title": "L'École: What's in the Backpack?",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Point at anything and ask",
+          "lines": [
+            "In a French classroom you can survive with ONE question: « Qu'est-ce que c'est ? » — 'What is it?'",
+            "The answer is always « C'est… » plus the object — and every object wears un or une, its gender badge."
+          ],
+          "vocab": [
+            { "term": "Qu'est-ce que c'est ?", "meaning": "What is it?" },
+            { "term": "C'est…", "meaning": "It is… / This is…" },
+            { "term": "un livre / un cahier", "meaning": "a book / a notebook" },
+            { "term": "un stylo / un crayon", "meaning": "a pen / a pencil" },
+            { "term": "une règle / une trousse", "meaning": "a ruler / a pencil case" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "french.school.t01", "framing": "Zero pressure — just listen to the sounds and take a swing. Guessing is how detectives warm up." },
+        { "kind": "worked", "itemId": "french.school.t02" },
+        { "kind": "completion", "itemId": "french.school.t03" },
+        { "kind": "burst", "itemIds": ["french.school.001", "french.school.002", "french.school.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.colors",
+      "skill": "french.colors",
+      "title": "Les Couleurs: The Agreement Game",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Colors that change their outfit",
+          "lines": [
+            "Amal's yarn stash speaks French today: la laine bleue, la laine verte… and the color word itself changes its spelling!",
+            "French adjectives AGREE with their noun — and they line up AFTER it: un pull bleu, never un bleu pull."
+          ],
+          "vocab": [
+            { "term": "rouge / bleu / vert", "meaning": "red / blue / green" },
+            { "term": "jaune / noir / blanc", "meaning": "yellow / black / white" },
+            { "term": "la laine", "meaning": "wool, yarn" },
+            { "term": "De quelle couleur est… ?", "meaning": "What color is… ?" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "french.colors.t01", "framing": "No grade here — sniff out the cognate hiding in the question and take your best shot." },
+        { "kind": "worked", "itemId": "french.colors.t02" },
+        { "kind": "completion", "itemId": "french.colors.t03" },
+        { "kind": "burst", "itemIds": ["french.colors.001", "french.colors.002", "french.colors.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "french.family.t01",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.family",
+      "prompt": "Sofia slides a photo across the desk: « Voici ma famille ! » What is she showing Amal?",
+      "answer": "Her family",
+      "options": ["Her family", "Her school", "Her favorite food", "Her vacation plans"],
+      "hint": "« Famille » looks a LOT like an English word…",
+      "explanation": "« Voici ma famille » = 'Here is my family.' French and English share heaps of look-alike words — trust the clues."
+    },
+    {
+      "id": "french.family.t02",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.family",
+      "prompt": "Let's decode 'my': why is it « ma mère » but « mon oncle »? Walk through it.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Every French noun wears a gender tag: la mère (mother) and la tante (aunt) are feminine; le père (father) and l'oncle (uncle) are masculine." },
+          {
+            "text": "'My' copies the tag: MA for feminine (ma mère, ma tante), MON for masculine (mon père, mon oncle).",
+            "check": {
+              "question": "La sœur (the sister) is feminine — so 'my sister' is…",
+              "options": ["ma sœur", "mon sœur", "ma frère"],
+              "answer": 0
+            }
+          },
+          { "text": "More than one? MES covers every plural, no matter the gender: mes parents (my parents), mes chats (my cats)." },
+          {
+            "text": "That's the whole machine: ma + feminine, mon + masculine, mes + plural. Family unlocked.",
+            "check": {
+              "question": "'My cats' (plural!) is…",
+              "options": ["mes chats", "mon chats", "ma chats"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.family.t03",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.family",
+      "prompt": "Finish Amal's introduction — match each 'my' to the noun's gender tag.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "My mother → [[ma]] mère",
+          "My uncle → [[mon]] oncle",
+          "My parents → [[mes]] parents"
+        ]
+      },
+      "hint": "Feminine takes ma, masculine takes mon, any plural takes mes.",
+      "explanation": "Ma mère (feminine), mon oncle (masculine), mes parents (plural) — the tag does the choosing for you."
+    },
+    {
+      "id": "french.family.001",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What does « la mère » mean?",
+      "answer": "the mother",
+      "options": ["the mother", "the sister", "the grandmother", "the aunt"],
+      "hint": "Think of the English word 'maternal'.",
+      "explanation": "La mère = the mother — English 'maternal' hides the same Latin root."
+    },
+    {
+      "id": "french.family.002",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each family word to its English.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["le frère", "brother"],
+          ["la sœur", "sister"],
+          ["la grand-mère", "grandmother"],
+          ["le grand-père", "grandfather"]
+        ]
+      },
+      "hint": "The « grand- » words are one generation up.",
+      "explanation": "Frère and sœur are the siblings; grand-mère and grand-père are the grandparents."
+    },
+    {
+      "id": "french.family.003",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Amal writes her first French sentence: « J'ai un chat. » What did she say?",
+      "answer": "I have a cat",
+      "options": ["I have a cat", "I am a cat", "I see a cat", "I want a cat"],
+      "hint": "« J'ai » comes from avoir — 'to have'.",
+      "explanation": "J'ai = 'I have', so j'ai un chat = 'I have a cat.' (Only one? She'd better learn deux chats fast.)",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.family.004",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Tap play. Which family member do you hear?",
+      "answer": "my mother",
+      "options": ["my mother", "my brother", "my aunt"],
+      "data": { "audioText": "ma mère", "lang": "fr-FR" },
+      "hint": "No sound? It sounds like: mah MAIR.",
+      "explanation": "« Ma mère » = my mother — that long 'air' sound is the giveaway."
+    },
+    {
+      "id": "french.family.005",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "« Les parents » means…",
+      "answer": "the parents",
+      "options": ["the parents", "the grandparents", "the cousins", "the children"],
+      "hint": "It's the most look-alike word on the whole list.",
+      "explanation": "Les parents = the parents: la mère + le père. (In France it can also mean 'relatives' — sneaky bonus fact.)"
+    },
+    {
+      "id": "french.family.006",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Type the French for 'the brother' — include le or la.",
+      "answer": ["le frère"],
+      "hint": "Brothers are masculine, so it's le. The word rhymes with « mère ».",
+      "explanation": "Le frère = the brother. The little accent (è) marks that open 'eh' sound."
+    },
+    {
+      "id": "french.family.007",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Tap play. What is this proud cat-owner announcing?",
+      "answer": "I have two cats",
+      "options": ["I have two cats", "I have two dogs", "I have twelve cats"],
+      "data": { "audioText": "J'ai deux chats.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: zhay duh SHAH.",
+      "explanation": "J'ai deux chats = 'I have two cats.' The final -ts goes silent — French cats are stealthy.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.family.008",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Finish the family introductions — 'my' must match each noun's gender.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Here is my aunt. → Voici [[ma]] tante.",
+          "And here is my uncle. → Et voici [[mon]] oncle."
+        ]
+      },
+      "hint": "La tante is feminine; l'oncle is masculine.",
+      "explanation": "Ma tante but mon oncle — the gender tag picks your 'my' every single time."
+    },
+    {
+      "id": "french.family.009",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort each family member by gender tag: would you say MON or MA?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "mon — masculin": ["père", "frère", "oncle", "chien"],
+          "ma — féminin": ["mère", "sœur", "tante", "cousine"]
+        }
+      },
+      "hint": "Cousine with the extra -e is the girl cousin.",
+      "explanation": "Masculine words take mon, feminine words take ma — and the -e on cousine marks her as feminine."
+    },
+    {
+      "id": "french.family.010",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the sentence: 'I have a brother and a sister.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["J'ai", "un frère", "et", "une sœur."]
+      },
+      "hint": "Start with 'I have', then list the siblings.",
+      "explanation": "J'ai un frère et une sœur — notice un for the brother but une for the sister."
+    },
+    {
+      "id": "french.family.011",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Tap play. What is this person telling you?",
+      "answer": "I don't have a dog",
+      "options": ["I don't have a dog", "I have a dog", "I don't have a cat"],
+      "data": { "audioText": "Je n'ai pas de chien.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: zhuh nay pah duh shee-EN.",
+      "explanation": "Ne… pas wraps the verb like a sandwich: je N'ai PAS de chien = I do NOT have a dog."
+    },
+    {
+      "id": "french.family.012",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Amal wants to say 'I don't have a sister.' Which sentence is correct?",
+      "answer": "Je n'ai pas de sœur.",
+      "options": ["Je n'ai pas de sœur.", "Je n'ai pas une sœur.", "Je ne pas ai de sœur.", "J'ai pas ne sœur."],
+      "hint": "Two rules: ne…pas hugs the verb, and after pas, un/une shrinks to de.",
+      "explanation": "Ne…pas wraps around ai, and un/une becomes de in the negative: je n'ai pas DE sœur."
+    },
+    {
+      "id": "french.family.013",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each form of avoir (to have) to its English.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["j'ai", "I have"],
+          ["tu as", "you have"],
+          ["elle a", "she has"],
+          ["nous avons", "we have"]
+        ]
+      },
+      "hint": "Avoir is the family verb — everyone HAS somebody.",
+      "explanation": "J'ai, tu as, elle a, nous avons — four faces of avoir you'll use constantly."
+    },
+    {
+      "id": "french.family.014",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Complete each sentence with the right form of avoir: as, a, or avons.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Tu [[as]] un cousin ? (you have)",
+          "Il [[a]] deux sœurs. (he has)",
+          "Nous [[avons]] un chat. (we have)"
+        ]
+      },
+      "hint": "Tu and il forms SOUND identical — only the spelling changes. Nous gets the long one.",
+      "explanation": "Tu as, il a, nous avons — tiny words doing big family business.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.family.015",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Tap play. What does this person say about their family?",
+      "answer": "We have a big family",
+      "options": ["We have a big family", "We have a small family", "They have a big family"],
+      "data": { "audioText": "Nous avons une grande famille.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: noo zah-VON oon grond fah-MEE.",
+      "explanation": "Nous avons = we have; une grande famille = a big family. The s of nous links into avons: 'noo-Zavons'."
+    },
+    {
+      "id": "french.family.016",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Amal introduces her two cats in French. Type the missing word: « J'ai deux ___ . »",
+      "answer": ["chats"],
+      "hint": "Two cats means plural — give chat its silent costume letter.",
+      "explanation": "J'ai deux chats — the plural -s is written but never pronounced.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.family.017",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "One word in this introduction is wrong. Tap it.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": ["Voici", "ma", "frère", "Paul."]
+      },
+      "hint": "Check the gender tag on frère.",
+      "explanation": "Frère is masculine, so it needs MON: voici mon frère Paul."
+    },
+    {
+      "id": "french.family.018",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Tap play. Who has which pet?",
+      "answer": "My cousin (a girl) has a dog",
+      "options": ["My cousin (a girl) has a dog", "My cousin (a boy) has a dog", "My cousin has a cat"],
+      "data": { "audioText": "Ma cousine a un chien.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: mah koo-ZEEN ah uh shee-EN. Listen for the 'een' ending.",
+      "explanation": "Cousine with the 'een' sound is the girl cousin — cousin (a boy) ends in a nasal 'an' sound instead."
+    },
+    {
+      "id": "french.family.019",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Build the sentence: 'She does not have a cat.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Elle", "n'a", "pas", "de", "chat."]
+      },
+      "hint": "The ne…pas sandwich: n' goes before the verb, pas right after it.",
+      "explanation": "Elle n'a pas de chat — tragic, but grammatically perfect.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.family.020",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements about French family words are true. Tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "« La fille » can mean 'the daughter' or 'the girl'.",
+          "« Le fils » means 'the son'."
+        ],
+        "lie": "« Mes parents » means 'my cousins'."
+      },
+      "hint": "One of these words got matched with the wrong relatives.",
+      "explanation": "Mes parents = my parents (mother and father). Fils and fille really are the son and the daughter."
+    },
+    {
+      "id": "french.family.021",
+      "realm": "french", "skill": "french.family", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Caption challenge for the photo wall (right under the K-pop posters): write 'I have a brother and two cats.' in French.",
+      "answer": ["J'ai un frère et deux chats", "Jai un frère et deux chats"],
+      "hint": "Start with j'ai; the brother takes un, and the cats need their plural -s.",
+      "explanation": "J'ai un frère et deux chats — counting, articles, and plurals in one caption. Très pro.",
+      "tags": ["cats", "kpop", "legendary"]
+    },
+
+    {
+      "id": "french.school.t01",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.school",
+      "prompt": "A French classmate taps Amal's desk and asks: « Qu'est-ce que c'est ? » What do they want to know?",
+      "answer": "What is it?",
+      "options": ["What is it?", "Where is it?", "Whose is it?", "How much is it?"],
+      "hint": "It's THE pointing-at-things question — four words mashed into one sound: kess-kuh-SAY.",
+      "explanation": "Qu'est-ce que c'est ? = 'What is it?' You'll ask it a hundred times, and that's exactly the point."
+    },
+    {
+      "id": "french.school.t02",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.school",
+      "prompt": "How do you ANSWER « Qu'est-ce que c'est ? » Let's build the reply — and pick the right un or une.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "The answer formula is C'est… ('it is'): Qu'est-ce que c'est ? → C'est un livre. (It's a book.)" },
+          {
+            "text": "Un or une? Masculine objects take UN (un stylo, un cahier); feminine objects take UNE (une règle, une trousse).",
+            "check": {
+              "question": "La chaise (the chair) is feminine. 'It's a chair' is…",
+              "options": ["C'est une chaise.", "C'est un chaise.", "C'est des chaise."],
+              "answer": 0
+            }
+          },
+          {
+            "text": "Several things? DES does plural duty: des stylos = some pens. And to say what's THERE, use il y a: Il y a des livres. (There are books.)",
+            "check": {
+              "question": "« Il y a un ordinateur » means…",
+              "options": ["There is a computer", "I have a computer", "It is my computer"],
+              "answer": 0
+            }
+          },
+          { "text": "So: c'est NAMES one thing, il y a announces what EXISTS somewhere. Two power tools, one backpack." }
+        ]
+      }
+    },
+    {
+      "id": "french.school.t03",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.school",
+      "prompt": "Answer the classmate — fill in un or une. (Cahier is masculine; trousse is feminine.)",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "— Qu'est-ce que c'est ?",
+          "— C'est [[un]] cahier.",
+          "— Et ça ? — C'est [[une]] trousse."
+        ]
+      },
+      "hint": "Masculine → un, feminine → une.",
+      "explanation": "Un cahier, une trousse — the badge matches the noun, not the speaker."
+    },
+    {
+      "id": "french.school.001",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What does « un livre » mean?",
+      "answer": "a book",
+      "options": ["a book", "a notebook", "a pen", "a desk"],
+      "hint": "Think of a 'library'.",
+      "explanation": "Un livre = a book — same root as 'library'. (Un cahier is the notebook.)"
+    },
+    {
+      "id": "french.school.002",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Pack the pencil case: match each object to its English.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["un stylo", "a pen"],
+          ["un crayon", "a pencil"],
+          ["une règle", "a ruler"],
+          ["un cahier", "a notebook"]
+        ]
+      },
+      "hint": "Crayon is a French trap — it's NOT the waxy kind.",
+      "explanation": "Stylo = pen, crayon = pencil (sneaky!), règle = ruler, cahier = notebook."
+    },
+    {
+      "id": "french.school.003",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "The mascot points at itself and purrs: « Qu'est-ce que c'est ?… C'est un chat ! » What did it say?",
+      "answer": "It's a cat!",
+      "options": ["It's a cat!", "It's a chair!", "It's a hat!", "It's a pencil!"],
+      "hint": "You met « chat » back in the Family region.",
+      "explanation": "C'est un chat = it's a cat. The mascot enjoys asking itself easy questions.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.school.004",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Tap play. Which school object do you hear?",
+      "answer": "a pen",
+      "options": ["a pen", "a pencil", "a ruler"],
+      "data": { "audioText": "un stylo", "lang": "fr-FR" },
+      "hint": "No sound? It's like: uh stee-LOH.",
+      "explanation": "Un stylo = a pen. Crayon would have given you that 'cray' sound instead."
+    },
+    {
+      "id": "french.school.005",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "On a French class schedule, « le français » is which subject?",
+      "answer": "French",
+      "options": ["French", "science", "history", "math"],
+      "hint": "The most famous cognate of them all.",
+      "explanation": "Le français = French class. L'anglais = English and l'histoire = history — schedules are cognate gold."
+    },
+    {
+      "id": "french.school.006",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Type the French for 'a pencil' (with un or une) — the one Amal sketches K-pop fan art with.",
+      "answer": ["un crayon"],
+      "hint": "It's the false friend from the matching game — and it's masculine.",
+      "explanation": "Un crayon = a pencil. In France, a wax crayon needs its full name: un crayon de cire.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.school.007",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Tap play. How does this student feel about math?",
+      "answer": "I like math",
+      "options": ["I like math", "I don't like math", "I'm good at math"],
+      "data": { "audioText": "J'aime les maths.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: zhem lay MAT.",
+      "explanation": "J'aime les maths = I like math. Excellent taste."
+    },
+    {
+      "id": "french.school.008",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Gender-badge sort: does each classroom object take UN or UNE?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "un — masculin": ["livre", "crayon", "bureau", "ordinateur"],
+          "une — féminin": ["règle", "trousse", "chaise"]
+        }
+      },
+      "hint": "Exactly three of these are feminine — the rest wear un.",
+      "explanation": "Un livre, un crayon, un bureau, un ordinateur — but une règle, une trousse, une chaise. Badges must be memorized, alas."
+    },
+    {
+      "id": "french.school.009",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each school subject to its English.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["les maths", "math"],
+          ["les sciences", "science"],
+          ["l'histoire", "history"],
+          ["l'anglais", "English"],
+          ["le français", "French"]
+        ]
+      },
+      "hint": "Several of these are nearly free — cognates!",
+      "explanation": "Subjects come with le/la/les attached: les maths, les sciences, l'histoire, l'anglais, le français."
+    },
+    {
+      "id": "french.school.010",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the sentence: 'In my room, there are three K-pop posters.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Dans ma chambre,", "il y a", "trois posters", "de K-pop."]
+      },
+      "hint": "Start with the place, then drop in the magic phrase « il y a ».",
+      "explanation": "Il y a = 'there is' AND 'there are' — one phrase covers both. Dans ma chambre, il y a trois posters de K-pop.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.school.011",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Tap play. What is the surprising classroom news?",
+      "answer": "There are two cats in the classroom",
+      "options": ["There are two cats in the classroom", "There are two desks in the classroom", "There is a cat on the chair"],
+      "data": { "audioText": "Il y a deux chats dans la classe !", "lang": "fr-FR" },
+      "hint": "No sound? It's like: eel-ee-AH duh SHAH dahn lah KLASS.",
+      "explanation": "Il y a deux chats dans la classe — there are two cats in class. Best school day ever.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.school.012",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Fill in the French for 'the': le, la, or les.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "the book → [[le]] livre",
+          "the chair → [[la]] chaise",
+          "the pens → [[les]] stylos"
+        ]
+      },
+      "hint": "Masculine → le, feminine → la, any plural → les.",
+      "explanation": "Le livre, la chaise, les stylos — 'the' owns three French outfits."
+    },
+    {
+      "id": "french.school.013",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Amal announces: « J'aime le français, mais je n'aime pas l'histoire. » What did she say?",
+      "answer": "She likes French but not history",
+      "options": [
+        "She likes French but not history",
+        "She likes history but not French",
+        "She likes neither subject",
+        "She loves both subjects"
+      ],
+      "hint": "« Mais » = but, and the ne…pas sandwich flips the second verb.",
+      "explanation": "J'aime = I like; je n'aime pas = I don't like. Mais (but) pivots between them."
+    },
+    {
+      "id": "french.school.014",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Tap play. Which object is being identified?",
+      "answer": "a ruler",
+      "options": ["a ruler", "a backpack", "a desk"],
+      "data": { "audioText": "C'est une règle.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: say toon REGL.",
+      "explanation": "C'est une règle = it's a ruler. Fun fact: règle also means 'rule' — rulers enforce straight lines."
+    },
+    {
+      "id": "french.school.015",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Amal's big line in the school play: « Je ___ une star de K-pop ! » (I AM a K-pop star!) Type the missing word.",
+      "answer": ["suis"],
+      "hint": "It's from être (to be): je …, tu es, c'est.",
+      "explanation": "Je suis = I am. Être's forms barely resemble each other — even French kids side-eye that verb.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.school.016",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Bake-sale poster supplies! Finish each line with un, une, or des.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "one pen → [[un]] stylo",
+          "some pens → [[des]] stylos",
+          "a chair for the cookie table → [[une]] chaise"
+        ]
+      },
+      "hint": "One masculine thing → un, one feminine thing → une, several of anything → des.",
+      "explanation": "Un stylo, des stylos, une chaise — des is the plural badge meaning 'some'.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.school.017",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "One chunk of this backpack report is wrong. Tap it.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": ["Dans mon sac à dos,", "il y a", "une livre", "et deux cahiers."]
+      },
+      "hint": "Check the gender badge on the book.",
+      "explanation": "Livre (book) is masculine: UN livre. « Une livre » actually means 'a pound' — a backpack full of weight, not words!"
+    },
+    {
+      "id": "french.school.018",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Tap play. Which object does the speaker name?",
+      "answer": "un sac à dos",
+      "options": ["un sac à dos", "un ordinateur", "une trousse"],
+      "data": { "audioText": "Qu'est-ce que c'est ? C'est un sac à dos.", "lang": "fr-FR" },
+      "hint": "No sound? The answer sounds like: sak-ah-DOH.",
+      "explanation": "C'est un sac à dos = it's a backpack — literally a 'bag for the back'."
+    },
+    {
+      "id": "french.school.019",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Build the sentence: 'I don't like history.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Je", "n'aime", "pas", "l'histoire."]
+      },
+      "hint": "Same ne…pas sandwich you used with avoir — now hugging aime.",
+      "explanation": "Je n'aime pas l'histoire — the negation sandwich works on every verb in French."
+    },
+    {
+      "id": "french.school.020",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these classroom-French facts are true. Tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "« C'est » means 'it is' or 'this is'.",
+          "« Des » means 'some' — used for more than one thing."
+        ],
+        "lie": "« Une » goes with masculine nouns like livre and stylo."
+      },
+      "hint": "Check which badge livre and stylo actually wear.",
+      "explanation": "Livre and stylo are masculine, so they take UN — une belongs to feminine nouns like règle and trousse."
+    },
+    {
+      "id": "french.school.021",
+      "realm": "french", "skill": "french.school", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Desk-tour challenge: write in French 'On my desk, there is a computer and a K-pop poster.'",
+      "answer": [
+        "Sur mon bureau, il y a un ordinateur et un poster de K-pop",
+        "Sur mon bureau il y a un ordinateur et un poster de K-pop",
+        "Sur mon bureau, il y a un ordinateur et un poster de K pop",
+        "Sur mon bureau il y a un ordinateur et un poster de K pop"
+      ],
+      "hint": "Start with « Sur mon bureau », then il y a, then list both objects with un.",
+      "explanation": "Sur mon bureau, il y a un ordinateur et un poster de K-pop. Il y a handles 'there is' AND 'there are' — one phrase, zero stress.",
+      "tags": ["kpop", "legendary"]
+    },
+
+    {
+      "id": "french.colors.t01",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.colors",
+      "prompt": "At the yarn shop, the owner holds up a skein and asks Amal: « De quelle couleur est cette laine ? » What does she want to know?",
+      "answer": "What color is this yarn?",
+      "options": ["What color is this yarn?", "How much does this yarn cost?", "Where is this yarn from?", "How soft is this yarn?"],
+      "hint": "« Couleur » is hiding in plain sight.",
+      "explanation": "De quelle couleur est… ? = 'What color is… ?' — your go-to question in any yarn or art shop.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.t02",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.colors",
+      "prompt": "Watch one color change its outfit: un chat noir → une chatte noire → des chats noirs.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Color words come AFTER the noun in French: un chat noir = a black cat (literally 'a cat black')." },
+          {
+            "text": "Feminine noun? The color grows an -e: une chatte noire (a black girl-cat). With vert you can even HEAR it: un pull vert ('vair') → une robe verte ('vairt').",
+            "check": {
+              "question": "La trousse is feminine. 'A green pencil case' is…",
+              "options": ["une trousse verte", "une verte trousse", "un trousse vert"],
+              "answer": 0
+            }
+          },
+          { "text": "Plural adds -s: des chats noirs. Feminine plural gets both: des chattes noires. (The -s stays silent — sneaky.)" },
+          {
+            "text": "Already ends in -e, like rouge or jaune? It never changes: un pull rouge, une robe rouge. And orange + marron refuse ALL changes — invariable rebels.",
+            "check": {
+              "question": "Which is correct for 'orange cats'?",
+              "options": ["des chats orange", "des chats oranges", "des oranges chats"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.colors.t03",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.colors",
+      "prompt": "Label Amal's yarn-basket chart — make each color agree.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "masculine: un pull vert ✓",
+          "feminine adds -e: une écharpe [[verte]]",
+          "feminine plural adds -es: des pelotes [[vertes]]"
+        ]
+      },
+      "hint": "Écharpe (scarf) and pelote (yarn ball) are both feminine.",
+      "explanation": "Une écharpe verte, des pelotes vertes — the adjective copies gender AND number from its noun.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.001",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Amal's favorite skein is labeled « rouge ». What color is it?",
+      "answer": "red",
+      "options": ["red", "pink", "purple", "orange"],
+      "hint": "Think of 'rouge' blush makeup.",
+      "explanation": "Rouge = red — same word as the red blush. Bonus: it never changes form, since it already ends in -e.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.002",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each color to its English.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["bleu", "blue"],
+          ["vert", "green"],
+          ["jaune", "yellow"],
+          ["noir", "black"],
+          ["blanc", "white"]
+        ]
+      },
+      "hint": "Two of them are near-twins of the English.",
+      "explanation": "Bleu, vert, jaune, noir, blanc — the core palette. Mont Blanc literally means 'White Mountain'!"
+    },
+    {
+      "id": "french.colors.003",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "« Un chat noir » crosses your path. What is it?",
+      "answer": "a black cat",
+      "options": ["a black cat", "a white cat", "a black dog", "a gray cat"],
+      "hint": "Noir like 'film noir' — those moody dark movies.",
+      "explanation": "Un chat noir = a black cat. In France plenty of people call it good luck — depends whom you ask!",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.colors.004",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Tap play. Which color do you hear?",
+      "answer": "yellow",
+      "options": ["yellow", "green", "blue"],
+      "data": { "audioText": "jaune", "lang": "fr-FR" },
+      "hint": "No sound? It's like: ZHOHN.",
+      "explanation": "Jaune = yellow — the French j sounds like the s in 'treasure'."
+    },
+    {
+      "id": "french.colors.005",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "« De quelle couleur est le ciel ? » (What color is the sky?) Answer in French — on a sunny day.",
+      "answer": "bleu",
+      "options": ["bleu", "vert", "marron", "rose"],
+      "hint": "It's almost the same word in English.",
+      "explanation": "Le ciel est bleu — the sky is blue. (Marron is brown and rose is pink.)"
+    },
+    {
+      "id": "french.colors.006",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Type the French for 'green'.",
+      "answer": ["vert", "verte"],
+      "hint": "Think 'verdant' — a fancy English word for green and leafy.",
+      "explanation": "Vert = green (verte with feminine nouns). Verdant fields, champs verts."
+    },
+    {
+      "id": "french.colors.007",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Tap play. What does Amal say about her new yarn?",
+      "answer": "The yarn is pink",
+      "options": ["The yarn is pink", "The yarn is red", "The yarn is gray"],
+      "data": { "audioText": "La laine est rose.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: lah LEN ay ROHZ.",
+      "explanation": "La laine est rose = the yarn is pink. Rose the color, rose the flower — same word.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.008",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Agreement sort: which color forms describe UN PULL (masculine) and which describe UNE ROBE (feminine)?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "un pull… (masculin)": ["bleu", "vert", "noir", "gris"],
+          "une robe… (féminin)": ["bleue", "verte", "noire", "grise"]
+        }
+      },
+      "hint": "The extra -e is the feminine signature.",
+      "explanation": "Un pull bleu/vert/noir/gris, but une robe bleue/verte/noire/grise — the -e tags along with feminine nouns."
+    },
+    {
+      "id": "french.colors.009",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each masculine color to its feminine form.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["blanc", "blanche"],
+          ["violet", "violette"],
+          ["vert", "verte"],
+          ["gris", "grise"]
+        ]
+      },
+      "hint": "Two of them do more than just add an -e.",
+      "explanation": "Blanc → blanche and violet → violette are shape-shifters; vert and gris simply add -e."
+    },
+    {
+      "id": "french.colors.010",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the sentence — Amal shows off a sweater she knit: 'I have a blue sweater.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["J'ai", "un", "pull", "bleu."]
+      },
+      "hint": "In French, the color goes AFTER the sweater.",
+      "explanation": "J'ai un pull bleu — adjective after the noun. « Un bleu pull » would make French knitters wince.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.011",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Tap play. What is this student showing you?",
+      "answer": "a purple pencil case",
+      "options": ["a purple pencil case", "a purple sweater", "a violet flower"],
+      "data": { "audioText": "J'ai une trousse violette.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: zhay oon trooss vee-oh-LET.",
+      "explanation": "Une trousse violette = a purple pencil case — violet doubles its t before the feminine -e."
+    },
+    {
+      "id": "french.colors.012",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Two cats, one color, two spellings. Fill in gris or grise.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Le chat est [[gris]]. (the boy cat)",
+          "La chatte est [[grise]]. (the girl cat)"
+        ]
+      },
+      "hint": "Feminine nouns pull an extra -e onto the color.",
+      "explanation": "Le chat est gris, la chatte est grise — and you can hear this one: 'gree' vs 'greez'.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.colors.013",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Amal knits orange socks. « Les chaussettes » is feminine plural — which is correct?",
+      "answer": "des chaussettes orange",
+      "options": ["des chaussettes orange", "des chaussettes oranges", "des chaussettes orangettes"],
+      "hint": "Orange is one of the two rebel colors.",
+      "explanation": "Orange (like marron) is invariable — it never takes -e or -s. Des chaussettes orange, des pulls marron.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.014",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Tap play. What color is the speaker's backpack?",
+      "answer": "black",
+      "options": ["black", "white", "brown"],
+      "data": { "audioText": "De quelle couleur est ton sac à dos ? Il est noir.", "lang": "fr-FR" },
+      "hint": "No sound? The answer sounds like: NWAHR.",
+      "explanation": "Il est noir = it's black. Noir as in 'film noir' — moody black-and-white movies."
+    },
+    {
+      "id": "french.colors.015",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Describe the bakery window — finish each line with the right form of blanc.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "a white cake → un gâteau [[blanc]]",
+          "white flour → de la farine [[blanche]]"
+        ]
+      },
+      "hint": "Blanc is a shape-shifter: its feminine form rhymes with 'avalanche'.",
+      "explanation": "Un gâteau blanc, de la farine blanche — blanc → blanche is one of the two big shape-shifters.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.colors.016",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Amal's new yarn is purple. Complete with the right form: « La laine est ___ . »",
+      "answer": ["violette"],
+      "hint": "La laine is feminine — and violet doubles a letter before its -e.",
+      "explanation": "La laine est violette — violet doubles the t before taking the feminine -e.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.017",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "One chunk of this outfit report is in the wrong order. Tap it.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": ["Amal porte", "un bleu pull", "et une écharpe grise."]
+      },
+      "hint": "Where do French colors stand — before or after the noun?",
+      "explanation": "Colors follow the noun: un pull bleu. The scarf got it right: une écharpe grise.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.colors.018",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Tap play. What is the speaker bragging about?",
+      "answer": "My two cats are black",
+      "options": ["My two cats are black", "My two cats are white", "My two dogs are black"],
+      "data": { "audioText": "Mes deux chats sont noirs.", "lang": "fr-FR" },
+      "hint": "No sound? It's like: may duh SHAH son NWAHR.",
+      "explanation": "Mes deux chats sont noirs — plural cats, plural adjective. The -s on noirs is silent but loyal.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.colors.019",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Build the question: 'What color is your pencil case?'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["De quelle", "couleur", "est", "ta trousse ?"]
+      },
+      "hint": "The question phrase « De quelle » launches the sentence.",
+      "explanation": "De quelle couleur est ta trousse ? — the color question runs: de quelle couleur + est + the thing."
+    },
+    {
+      "id": "french.colors.020",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these color-grammar facts are true. Tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "« Orange » and « marron » never change — not for feminine, not for plural.",
+          "Color words usually come AFTER the noun: un chat gris."
+        ],
+        "lie": "To make « rouge » feminine, you add an extra -e: « rougee »."
+      },
+      "hint": "What's the rule for colors that already end in -e?",
+      "explanation": "Rouge already ends in -e, so it never changes: un pull rouge, une robe rouge. No double-e words in this game!"
+    },
+    {
+      "id": "french.colors.021",
+      "realm": "french", "skill": "french.colors", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Portrait caption challenge: write in French 'I have a white cat and a black cat.'",
+      "answer": ["J'ai un chat blanc et un chat noir", "Jai un chat blanc et un chat noir"],
+      "hint": "Both colors go AFTER chat — and chat is masculine, so no extra -e.",
+      "explanation": "J'ai un chat blanc et un chat noir — colors after the noun, masculine forms, zero agreement drama.",
+      "tags": ["cats", "legendary"]
+    }
+  ]
+}

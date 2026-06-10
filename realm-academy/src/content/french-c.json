@@ -1,0 +1,1457 @@
+{
+  "sequences": [
+    {
+      "id": "teach.french.food",
+      "skill": "french.food",
+      "title": "Food & Café: The Magic Ordering Phrase",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "You already speak café",
+          "lines": [
+            "Croissant, chocolat, menu — French gave English half of its food words, so you arrive with a head start.",
+            "Today you learn the spell that turns those words into actual snacks: je voudrais."
+          ],
+          "vocab": [
+            { "term": "je voudrais", "meaning": "I would like — the polite ordering phrase" },
+            { "term": "s'il vous plaît", "meaning": "please (polite — to a waiter or any adult)" },
+            { "term": "et", "meaning": "and — for ordering two things at once" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "french.food.t01", "framing": "No grade, no pressure — guess with your gut. French food words are English's cousins." },
+        { "kind": "worked", "itemId": "french.food.t02" },
+        { "kind": "completion", "itemId": "french.food.t03" },
+        { "kind": "burst", "itemIds": ["french.food.001", "french.food.002", "french.food.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.hobbies",
+      "skill": "french.hobbies",
+      "title": "Hobbies: faire, jouer & aller",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Two tiny verbs run your whole weekend",
+          "lines": [
+            "Knitting, baking, reading, K-pop — you already HAVE the hobbies; French just needs the verbs.",
+            "Meet faire (to do), jouer (to play) and aller (to go): three little engines that describe almost any weekend."
+          ],
+          "vocab": [
+            { "term": "faire de", "meaning": "to do an activity — je fais du tricot (I knit)" },
+            { "term": "jouer à", "meaning": "to play a sport or game — je joue au foot" },
+            { "term": "aller", "meaning": "to go — je vais au parc (I go to the park)" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "french.hobbies.t01", "framing": "Just explore — say it out loud and see what your ear suspects." },
+        { "kind": "worked", "itemId": "french.hobbies.t02" },
+        { "kind": "completion", "itemId": "french.hobbies.t03" },
+        { "kind": "burst", "itemIds": ["french.hobbies.001", "french.hobbies.002", "french.hobbies.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.time",
+      "skill": "french.time",
+      "title": "Telling Time: Quelle heure est-il?",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Numbers wearing a tiny clock hat",
+          "lines": [
+            "Great news: you already own French numbers, and telling time is just numbers plus the word heures.",
+            "One question runs every clock in France: Quelle heure est-il?"
+          ],
+          "vocab": [
+            { "term": "Quelle heure est-il?", "meaning": "What time is it?" },
+            { "term": "Il est trois heures", "meaning": "It is 3 o'clock" },
+            { "term": "et demie", "meaning": "half past (:30) — demi means half, as in math!" }
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "worked", "itemId": "french.time.t01" },
+        { "kind": "completion", "itemId": "french.time.t02" },
+        { "kind": "completion", "itemId": "french.time.t03" },
+        { "kind": "burst", "itemIds": ["french.time.001", "french.time.002", "french.time.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.house",
+      "skill": "french.house",
+      "title": "House & Rooms: Où est le chat?",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "A house with a cat in every room",
+          "lines": [
+            "Welcome to the Maison du Port: five rooms, a door, a window… and one cat who refuses to sit still.",
+            "Learn the rooms first — then track that cat with five tiny position words."
+          ],
+          "vocab": [
+            { "term": "la maison", "meaning": "the house" },
+            { "term": "Où est…?", "meaning": "Where is…? — the cat-finding question" },
+            { "term": "il y a", "meaning": "there is / there are — Il y a trois chambres" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "gambit", "itemId": "french.house.t01", "framing": "Wild guess welcome — this word snuck onto English restaurant signs long ago." },
+        { "kind": "worked", "itemId": "french.house.t02" },
+        { "kind": "completion", "itemId": "french.house.t03" },
+        { "kind": "burst", "itemIds": ["french.house.001", "french.house.002", "french.house.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "french.food.t01",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.food",
+      "prompt": "You push open the door of the Café de la Lune. The waiter smiles: 'Bonjour!' Which phrase gets a croissant onto your plate?",
+      "answer": "Je voudrais un croissant, s'il vous plaît.",
+      "options": [
+        "Je voudrais un croissant, s'il vous plaît.",
+        "Je déteste les croissants.",
+        "Au revoir, monsieur!"
+      ],
+      "hint": "voudrais hides the English 'would'… and déteste looks a lot like 'detest'.",
+      "explanation": "Je voudrais = I would like — the politest food-summoning spell in France. Je déteste means I HATE, and au revoir is goodbye!"
+    },
+    {
+      "id": "french.food.t02",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.food",
+      "prompt": "Let's order at the café together — the full polite combo, start to finish.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Rule one: greet before you order. 'Bonjour!' opens every café door in France — skipping it is considered quite rude." },
+          {
+            "text": "The magic phrase: Je voudrais… = I would like… It orders ANYTHING: Je voudrais un croissant. Je voudrais un thé.",
+            "check": {
+              "question": "Your friend wants cake. What should they say?",
+              "options": [
+                "Je voudrais un gâteau, s'il vous plaît.",
+                "Un gâteau! Vite!",
+                "Je déteste le gâteau."
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Want two things? Join them with et (and): 'Je voudrais un croissant ET un chocolat chaud.' One bonjour, two treats." },
+          {
+            "text": "Seal it with s'il vous plaît (please): 'Bonjour! Je voudrais un croissant et un chocolat chaud, s'il vous plaît.'",
+            "check": {
+              "question": "Which little word joined the croissant and the hot chocolate?",
+              "options": ["et", "un", "plaît"],
+              "answer": 0
+            }
+          },
+          { "text": "The waiter returns: 'Voilà!' You answer 'Merci!' — and that is a complete café mission. 🥐" }
+        ]
+      }
+    },
+    {
+      "id": "french.food.t03",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.food",
+      "prompt": "Your first solo order: a hot chocolate, politely. Fill the gaps.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Greet the waiter: [[Bonjour]]!",
+          "Je [[voudrais]] un chocolat chaud, s'il vous [[plaît]]."
+        ]
+      },
+      "hint": "Greeting first, then the magic phrase, then the polite seal at the end.",
+      "explanation": "Bonjour → je voudrais → s'il vous plaît: the full café combo, ready for Paris."
+    },
+    {
+      "id": "french.food.001",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Fresh from the boulangerie: which word means 'bread'?",
+      "answer": "le pain",
+      "options": ["le pain", "le lait", "la pomme", "le gâteau"],
+      "hint": "Think of 'pain au chocolat' — the bakery classic.",
+      "explanation": "le pain = bread; a crusty baguette is France's daily pain. (Pain au chocolat is chocolate-filled bread pastry!)"
+    },
+    {
+      "id": "french.food.002",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each French drink to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["l'eau", "water"],
+          ["le lait", "milk"],
+          ["le thé", "tea"],
+          ["le jus d'orange", "orange juice"],
+          ["le café", "coffee"]
+        ]
+      },
+      "hint": "Two of them are near-twins of their English words.",
+      "explanation": "l'eau (water), le lait (milk), le thé (tea), le jus d'orange and le café — the whole café drink menu."
+    },
+    {
+      "id": "french.food.003",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Your Duolingo owl would be proud: what does 'je voudrais' mean?",
+      "answer": "I would like",
+      "options": ["I would like", "I hate", "How much is it?", "Goodbye"],
+      "hint": "It's the polite phrase that starts every café order.",
+      "explanation": "je voudrais = I would like — gentler than 'je veux' (I want). Waiters adore it.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "french.food.004",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen to the order at the counter. What does the customer want?",
+      "answer": "A croissant and a tea",
+      "options": ["A croissant and a tea", "A cake and a coffee", "Bread and milk"],
+      "data": { "audioText": "Un croissant et un thé, s'il vous plaît.", "lang": "fr-FR" },
+      "hint": "Sounds like: uhn krwah-SAHN ay uhn TAY, seel voo PLEH.",
+      "explanation": "un croissant et un thé — et (and) glues the two treats together."
+    },
+    {
+      "id": "french.food.005",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Translate into English: la pomme.",
+      "answer": ["apple", "an apple", "the apple"],
+      "hint": "France's favorite dessert is la tarte aux pommes…",
+      "explanation": "la pomme = apple. Bonus trivia: pomme de terre ('earth apple') is a potato!"
+    },
+    {
+      "id": "french.food.006",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which sentence means 'I hate cheese'? (Tragic, but grammatical.)",
+      "answer": "Je déteste le fromage",
+      "options": ["Je déteste le fromage", "J'adore le fromage", "J'aime le fromage"],
+      "hint": "déteste looks just like the English 'detest'.",
+      "explanation": "Your opinion toolkit: j'aime = I like, j'adore = I love, je déteste = I hate."
+    },
+    {
+      "id": "french.food.007",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen: which food do you hear?",
+      "answer": "Cheese",
+      "options": ["Cheese", "Cake", "Bread"],
+      "data": { "audioText": "le fromage", "lang": "fr-FR" },
+      "hint": "Sounds like: luh froh-MAHZH.",
+      "explanation": "le fromage = cheese — France makes more than 1,000 kinds, so this word earns its keep."
+    },
+    {
+      "id": "french.food.008",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each French meal to the moment of the day it belongs to.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["le petit déjeuner", "breakfast"],
+          ["le déjeuner", "lunch"],
+          ["le dîner", "dinner"],
+          ["le goûter", "after-school snack"]
+        ]
+      },
+      "hint": "Breakfast is literally the 'little lunch'.",
+      "explanation": "petit déjeuner, déjeuner, goûter, dîner — almost every French kid has le goûter around 4 pm, often pain au chocolat."
+    },
+    {
+      "id": "french.food.009",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort the café menu: is it a drink or a food?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Boissons (drinks)": ["l'eau", "le lait", "le thé", "le jus d'orange"],
+          "Nourriture (food)": ["le pain", "le fromage", "la pomme", "le gâteau"]
+        }
+      },
+      "hint": "boisson comes from boire, 'to drink'.",
+      "explanation": "Drinks: eau, lait, thé, jus d'orange. Foods: pain, fromage, pomme, gâteau. Menu mastered!"
+    },
+    {
+      "id": "french.food.010",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the order, word by word: 'I would like a croissant and a hot chocolate, please.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Je", "voudrais", "un croissant", "et", "un chocolat chaud", "s'il vous plaît"]
+      },
+      "hint": "Start with who (Je), then the wish, then the treats, then the politeness.",
+      "explanation": "Je voudrais un croissant et un chocolat chaud, s'il vous plaît — word order just like English here."
+    },
+    {
+      "id": "french.food.011",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Put the café conversation in a sensible order.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Le serveur: Bonjour! Vous désirez?",
+          "Amal: Je voudrais un jus d'orange et un croissant, s'il vous plaît.",
+          "Le serveur: Voilà! C'est trois euros.",
+          "Amal: Merci, monsieur! Au revoir!"
+        ]
+      },
+      "hint": "Greeting → order → serving and price → thanks and goodbye.",
+      "explanation": "Vous désirez? is waiter-speak for 'What would you like?' — then order, pay, merci, au revoir."
+    },
+    {
+      "id": "french.food.012",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "At the register you ask: 'C'est combien?' What are you asking in English?",
+      "answer": ["How much is it?", "How much", "How much does it cost?", "How much is it"],
+      "hint": "combien is the same word you use for counting questions — it asks about amounts.",
+      "explanation": "C'est combien? = How much is it? Pair it with your French numbers and no market can confuse you."
+    },
+    {
+      "id": "french.food.013",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Listen to the baker give the price. How many euros? (Type the number.)",
+      "answer": ["4", "quatre", "four", "4 euros"],
+      "data": { "audioText": "C'est quatre euros.", "lang": "fr-FR" },
+      "hint": "Sounds like: say KAT-ruh uh-ROH — a number you met at the Marché aux Nombres!",
+      "explanation": "C'est quatre euros = it's 4 euros. Food French runs on number French — they're a team."
+    },
+    {
+      "id": "french.food.014",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "You want SOME bread, not the whole bakery. Which order is correct?",
+      "answer": "Je voudrais du pain",
+      "options": ["Je voudrais du pain", "Je voudrais de la pain", "Je voudrais des pain"],
+      "hint": "le pain is masculine — which little word partners with le-words?",
+      "explanation": "'Some' of a le-word is du: du pain. de la is for la-words, like de la confiture (some jam)."
+    },
+    {
+      "id": "french.food.015",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Breakfast grammar, gently: fill in the 'some' words.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Bread is masculine (le pain) → 'some bread' = [[du]] pain.",
+          "Jam is feminine (la confiture) → 'some jam' = [[de la]] confiture."
+        ]
+      },
+      "hint": "du teams up with le-words; de la teams up with la-words.",
+      "explanation": "That's partitive-lite: du for masculine, de la for feminine — enough to order any breakfast in France.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.food.016",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Listen to the dessert review. How does the speaker feel about chocolate cake?",
+      "answer": "They LOVE it",
+      "options": ["They LOVE it", "They hate it", "They are asking its price"],
+      "data": { "audioText": "J'adore le gâteau au chocolat!", "lang": "fr-FR" },
+      "hint": "Sounds like: zhah-DOR luh gah-TOH oh shoh-koh-LAH — j'adore = I love.",
+      "explanation": "j'adore = I love it. Gâteau au chocolat earns that reaction often.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.food.017",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Café Lightning! Give the English meaning of each French word.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["le pain", "bread"],
+          ["le lait", "milk"],
+          ["l'eau", "water"],
+          ["le fromage", "cheese"],
+          ["la pomme", "apple"],
+          ["le gâteau", "cake"],
+          ["le thé", "tea"],
+          ["le café", "coffee"],
+          ["le jus d'orange", "orange juice"],
+          ["le chocolat", "chocolate"],
+          ["le croissant", "croissant"]
+        ]
+      },
+      "hint": "Cognates first — half of these are English's cousins.",
+      "explanation": "Fast food words make slow conversations possible. Délicieux!"
+    },
+    {
+      "id": "french.food.018",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Baker's secret stash: match the baking ingredients.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["la farine", "flour"],
+          ["le sucre", "sugar"],
+          ["les œufs", "eggs"],
+          ["le gâteau", "cake"]
+        ]
+      },
+      "hint": "sucre looks like 'sugar'; farine hides in the English word 'farina'.",
+      "explanation": "Flour, sugar, eggs — the holy trinity of cake. French recipes will be readable before you know it.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.food.019",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Complete the day's menu with the right meal names.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Le matin: le [[petit déjeuner]].",
+          "À midi: le [[déjeuner]].",
+          "Après l'école: le [[goûter]]!"
+        ]
+      },
+      "hint": "Breakfast = the 'little lunch'; the 4 pm snack sounds like goo-TAY.",
+      "explanation": "petit déjeuner → déjeuner → goûter (→ dîner at night). France schedules its snacks with pride."
+    },
+    {
+      "id": "french.food.020",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "A long order this time — listen closely. What THREE things does the customer ask for?",
+      "answer": "Bread, cheese, and an apple",
+      "options": ["Bread, cheese, and an apple", "Bread, cake, and an orange juice", "A croissant, milk, and an apple"],
+      "data": { "audioText": "Bonjour! Je voudrais du pain, du fromage et une pomme, s'il vous plaît.", "lang": "fr-FR" },
+      "hint": "Sounds like: dü PAN… dü froh-MAHZH… ün POM.",
+      "explanation": "du pain, du fromage et une pomme — a picnic in one sentence."
+    },
+    {
+      "id": "french.food.021",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "The café cat's manners slipped in exactly ONE line. Tap it.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Le chat: Bonjour! Je voudrais du lait, s'il vous plaît.",
+          "Le serveur: Très bien! Voilà votre lait.",
+          "Le serveur: C'est un euro, s'il vous plaît.",
+          "Le chat: Je déteste! Au revoir!"
+        ]
+      },
+      "hint": "He ASKED for that milk. What should a polite cat say when it arrives?",
+      "explanation": "After good service you say Merci! — je déteste means 'I hate it!' Even cats must mind their manners.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.food.022",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Fresh from the bookshop with a new novel, Amal orders her café snack. Finish each line.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Greet: [[Bonjour]], madame!",
+          "Order: Je [[voudrais]] un thé et un gâteau.",
+          "Be polite: s'il vous [[plaît]]!"
+        ]
+      },
+      "hint": "Greeting, magic phrase, polite seal — the café combo never changes.",
+      "explanation": "Bonjour, je voudrais, s'il vous plaît — tea, cake, and a book: a perfect afternoon.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "french.food.023",
+      "realm": "french", "skill": "french.food", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Read the full café scene:\n\nLe serveur: Bonjour! Vous désirez?\nAmal: Je voudrais du pain, de la confiture et un chocolat chaud, s'il vous plaît.\nLe serveur: Très bien! C'est six euros.\nAmal: Merci, monsieur!\n\nWhat does Amal order, and what does it cost?",
+      "answer": "Bread, jam, and a hot chocolate — 6 euros",
+      "options": [
+        "Bread, jam, and a hot chocolate — 6 euros",
+        "A croissant, jam, and a coffee — 6 euros",
+        "Bread, jam, and a hot chocolate — 10 euros",
+        "Bread, cheese, and a hot chocolate — 6 euros"
+      ],
+      "hint": "confiture = jam; six is a number you already own.",
+      "explanation": "du pain + de la confiture + un chocolat chaud, for six euros. You just read an entire French conversation — chapeau!",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "french.hobbies.t01",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.hobbies",
+      "prompt": "No grade, just a guess: your French friend says 'Je fais du tricot.' What are they doing?",
+      "answer": "Knitting",
+      "options": ["Knitting", "Swimming", "Cooking dinner"],
+      "hint": "tricot sounds a little like 'tricky knot'…",
+      "explanation": "le tricot = knitting, so je fais du tricot = I knit. Your hobby, now in French!",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.t02",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.hobbies",
+      "prompt": "Saying what you do: faire for activities, jouer for games, aller for going places.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "faire = to do: je fais (I do), tu fais (you do). Activities use faire de — Je fais du tricot = I knit, literally 'I do some knitting'." },
+          {
+            "text": "More faire de hobbies: je fais de la pâtisserie (I bake), je fais de la natation (I swim), je fais de la danse (I dance).",
+            "check": {
+              "question": "How would you say 'I swim'?",
+              "options": ["Je fais de la natation", "Je joue à la natation", "Je vais la natation"],
+              "answer": 0
+            }
+          },
+          { "text": "Sports and games you PLAY take jouer à instead: je joue au foot (soccer), je joue aux cartes (cards)." },
+          {
+            "text": "Going places is aller: je vais, tu vas, on va. Je vais au parc = I'm going to the park.",
+            "check": {
+              "question": "Which verb pairs with le foot?",
+              "options": ["jouer — je joue au foot", "faire — je fais au foot", "aller — je vais au foot"],
+              "answer": 0
+            }
+          },
+          { "text": "The big weekend question: Qu'est-ce que tu fais le week-end? Your answer can now be glorious: Je fais du tricot, je fais de la pâtisserie et je vais au parc!" }
+        ]
+      },
+      "tags": ["knitting", "baking"]
+    },
+    {
+      "id": "french.hobbies.t03",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.hobbies",
+      "prompt": "Pick the right verb for each weekend plan.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Knitting is an activity → Je [[fais]] du tricot.",
+          "Soccer is a game → Je [[joue]] au foot.",
+          "The park is a place to go → Je [[vais]] au parc."
+        ]
+      },
+      "hint": "faire for activities, jouer for games, aller for going somewhere.",
+      "explanation": "fais / joue / vais — three little verbs, one full French weekend.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.001",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which hobby is 'le tricot'?",
+      "answer": "Knitting",
+      "options": ["Knitting", "Swimming", "Reading", "Dancing"],
+      "hint": "It's the one with yarn and two needles.",
+      "explanation": "le tricot = knitting — je fais du tricot is about to be your most-used French sentence.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.002",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each French hobby to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["la lecture", "reading"],
+          ["la danse", "dancing"],
+          ["la natation", "swimming"],
+          ["le foot", "soccer"]
+        ]
+      },
+      "hint": "lecture looks bookish for a reason; natation hides 'swim' in fancy Latin clothes.",
+      "explanation": "la lecture (reading), la danse (dancing), la natation (swimming), le foot (soccer) — a starter pack of pastimes."
+    },
+    {
+      "id": "french.hobbies.003",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "'Je vais au parc.' What is happening?",
+      "answer": "I'm going to the park",
+      "options": ["I'm going to the park", "I play in the park", "I live near a park"],
+      "hint": "vais comes from aller, the GO verb.",
+      "explanation": "aller = to go: je vais = I go / I'm going. Le parc awaits!"
+    },
+    {
+      "id": "french.hobbies.004",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen: what is this person's hobby?",
+      "answer": "Knitting",
+      "options": ["Knitting", "Swimming", "Singing"],
+      "data": { "audioText": "Je fais du tricot.", "lang": "fr-FR" },
+      "hint": "Sounds like: zhuh FEH dü tree-KOH.",
+      "explanation": "Je fais du tricot = I knit. The needles are practically clicking in the audio.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.005",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen: what does this person like to do, and where?",
+      "answer": "Read in their bedroom",
+      "options": ["Read in their bedroom", "Dance in the kitchen", "Swim at the pool"],
+      "data": { "audioText": "J'aime lire dans ma chambre.", "lang": "fr-FR" },
+      "hint": "Sounds like: zhem LEER dahn ma SHAHN-bruh — lire = to read.",
+      "explanation": "J'aime lire dans ma chambre = I like to read in my room. Extremely relatable.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "french.hobbies.006",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen: what is happening?",
+      "answer": "They're listening to music",
+      "options": ["They're listening to music", "They're watching a movie", "They're playing cards"],
+      "data": { "audioText": "J'écoute de la musique.", "lang": "fr-FR" },
+      "hint": "Sounds like: zhay-KOOT duh la mü-ZEEK — écouter = to listen.",
+      "explanation": "j'écoute = I listen; je regarde = I watch. Ears for music, eyes for movies."
+    },
+    {
+      "id": "french.hobbies.007",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort each pastime: does it take 'faire de…' or 'jouer à…'?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "faire de… (activities)": ["le tricot", "la natation", "la pâtisserie", "la danse"],
+          "jouer à… (games & sports)": ["le foot", "le tennis", "les cartes", "les jeux vidéo"]
+        }
+      },
+      "hint": "If you can PLAY it against someone, it's jouer.",
+      "explanation": "Activities you DO take faire (tricot, natation, pâtisserie, danse); games you PLAY take jouer (foot, tennis, cartes, jeux vidéo).",
+      "tags": ["knitting", "baking"]
+    },
+    {
+      "id": "french.hobbies.008",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Saturday is baking day! Complete: 'I do baking on Saturdays.'",
+      "answer": "blanks",
+      "data": { "lines": ["Je [[fais]] de la pâtisserie le samedi."] },
+      "hint": "Baking is an activity — which verb do activities take?",
+      "explanation": "Je fais de la pâtisserie — faire powers the baking, the knitting, and the swimming.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.hobbies.009",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Your friend asks: 'Tu ___ au parc?' Which form of aller fits with tu?",
+      "answer": "vas",
+      "options": ["vas", "vais", "va"],
+      "hint": "je vais, tu …, on va — say the chant.",
+      "explanation": "tu vas — the aller chant goes je vais, tu vas, on va."
+    },
+    {
+      "id": "french.hobbies.010",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the sentence: 'I'm going to the park with my cat.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Je", "vais", "au parc", "avec", "mon chat"]
+      },
+      "hint": "Who → go-verb → where → with → whom.",
+      "explanation": "Je vais au parc avec mon chat — the cat insists on supervising every outing.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.hobbies.011",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Assemble THE weekend question: 'What do you do on the weekend?'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Qu'est-ce que", "tu", "fais", "le week-end?"]
+      },
+      "hint": "Qu'est-ce que is one big chunk meaning 'what' — it goes first.",
+      "explanation": "Qu'est-ce que tu fais le week-end? Ask it and any French kid will tell you their whole life."
+    },
+    {
+      "id": "french.hobbies.012",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Listen: what is this fan doing, and where?",
+      "answer": "Listening to K-pop in their bedroom",
+      "options": ["Listening to K-pop in their bedroom", "Dancing to K-pop at school", "Watching K-pop videos in the living room"],
+      "data": { "audioText": "J'écoute de la K-pop dans ma chambre.", "lang": "fr-FR" },
+      "hint": "Sounds like: zhay-KOOT duh la kay-POP dahn ma SHAHN-bruh.",
+      "explanation": "J'écoute de la K-pop dans ma chambre — écouter (listen) + la chambre (bedroom). A universal scene.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.hobbies.013",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each verb form to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["je vais", "I go"],
+          ["tu vas", "you go"],
+          ["on va", "we go"],
+          ["je fais", "I do"],
+          ["tu fais", "you do"]
+        ]
+      },
+      "hint": "vais/vas/va belong to aller (go); fais/fais to faire (do).",
+      "explanation": "je vais, tu vas, on va — and je fais, tu fais. Two pocket-sized verb families."
+    },
+    {
+      "id": "french.hobbies.014",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which sentence says 'I like to knit'?",
+      "answer": "J'aime tricoter",
+      "options": ["J'aime tricoter", "J'aime le tricoter", "Je tricoter aime"],
+      "hint": "After j'aime, the second verb stays in its plain 'to…' form — no extra words.",
+      "explanation": "j'aime + infinitive: J'aime tricoter, j'aime lire, j'aime danser. Clean and simple.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.015",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Noun or verb? Finish the reading sentence.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The hobby NOUN is la lecture (reading); the VERB is lire (to read).",
+          "After j'aime, use the verb: J'aime [[lire]] le soir."
+        ]
+      },
+      "hint": "j'aime + the 'to…' form. It's hiding in plain sight on line 1.",
+      "explanation": "J'aime lire le soir = I like to read in the evening. la lecture is the noun, lire is the verb.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "french.hobbies.016",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Hobby Lightning! English meaning of each French word or phrase.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["le tricot", "knitting"],
+          ["la lecture", "reading"],
+          ["la danse", "dance"],
+          ["la natation", "swimming"],
+          ["le foot", "soccer"],
+          ["la musique", "music"],
+          ["la pâtisserie", "baking"],
+          ["je fais", "I do"],
+          ["je vais", "I go"],
+          ["je regarde", "I watch"],
+          ["j'écoute", "I listen"]
+        ]
+      },
+      "hint": "regarde = watch (eyes), écoute = listen (ears).",
+      "explanation": "Fast hobby words = smooth weekend stories."
+    },
+    {
+      "id": "french.hobbies.017",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Weekend report — listen for TWO activities.",
+      "answer": "Baking and listening to K-pop",
+      "options": ["Baking and listening to K-pop", "Swimming and dancing", "Knitting and playing soccer"],
+      "data": { "audioText": "Le week-end, je fais de la pâtisserie et j'écoute de la K-pop.", "lang": "fr-FR" },
+      "hint": "Sounds like: pah-tee-SREE (the baking word!) … then kay-POP.",
+      "explanation": "je fais de la pâtisserie (I bake) + j'écoute de la K-pop (I listen to K-pop). Honestly, a perfect weekend.",
+      "tags": ["baking", "kpop"]
+    },
+    {
+      "id": "french.hobbies.018",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin wrote about Saturday knitting — one chunk uses the wrong verb. Tap it.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "Le samedi,",
+          "je joue",
+          "du tricot",
+          "avec ma grand-mère."
+        ]
+      },
+      "hint": "Is knitting a game you play against someone… or an activity you do?",
+      "explanation": "Knitting is an activity: je FAIS du tricot. jouer is reserved for games and sports like le foot.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.019",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Plan the weekend in French — drop in the right verb each time.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Samedi matin: Je [[fais]] de la natation.",
+          "Samedi après-midi: Je [[joue]] au foot avec mes amis.",
+          "Dimanche: Je [[vais]] à la bibliothèque pour lire."
+        ]
+      },
+      "hint": "Activity → faire. Game → jouer. Going somewhere → aller.",
+      "explanation": "fais, joue, vais — swimming is done, soccer is played, and the library is gone to.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "french.hobbies.020",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Production time: write 'I knit' in French — the four-word faire version.",
+      "answer": ["Je fais du tricot", "je fais du tricot"],
+      "hint": "faire + du + the hobby noun you love most.",
+      "explanation": "Je fais du tricot — literally 'I do some knitting'. The faire family powers half your hobbies.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.hobbies.021",
+      "realm": "french", "skill": "french.hobbies", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Read the weekend chat:\n\nLéa: Qu'est-ce que tu fais le week-end?\nAmal: Le samedi, je fais de la pâtisserie — des gâteaux au chocolat! Le dimanche, je vais au parc et je fais du tricot.\nLéa: Moi, je joue au foot et j'écoute de la musique.\n\nWho goes to the park, and on which day?",
+      "answer": "Amal — on Sunday",
+      "options": ["Amal — on Sunday", "Léa — on Saturday", "Amal — on Saturday", "Léa — on Sunday"],
+      "hint": "dimanche = Sunday; scan for 'je vais au parc'.",
+      "explanation": "Amal says: Le dimanche, je vais au parc. Saturday is for cake, Sunday is for park-knitting — excellent priorities.",
+      "tags": ["legendary", "knitting", "baking"]
+    },
+
+    {
+      "id": "french.time.t01",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.time",
+      "prompt": "Telling time like a Parisian — one question, one pattern, two VIP words.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "The question: Quelle heure est-il? (What time is it?) The answer ALWAYS begins the same way: Il est… (It is…)." },
+          {
+            "text": "Il est trois heures = it's 3 o'clock. Swap in any number you already know: il est huit heures = 8:00.",
+            "check": {
+              "question": "Il est six heures means…",
+              "options": ["6:00", "It costs six euros", "There are six clocks"],
+              "answer": 0
+            }
+          },
+          { "text": "Add-ons: et quart = quarter past (:15), et demie = half past (:30), moins le quart = quarter TO (:45). Il est trois heures et demie = 3:30." },
+          {
+            "text": "Careful — moins le quart leans on the NEXT hour: il est quatre heures moins le quart = 3:45 (a quarter taken AWAY from 4).",
+            "check": {
+              "question": "Il est neuf heures moins le quart — what time is it?",
+              "options": ["8:45", "9:45", "9:15"],
+              "answer": 0
+            }
+          },
+          { "text": "Two VIP times skip numbers entirely: midi (noon) and minuit (midnight). Il est midi — lunchtime across all of France." }
+        ]
+      }
+    },
+    {
+      "id": "french.time.t02",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.time",
+      "prompt": "Finish the clock readings.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "3:00 → Il est trois [[heures]].",
+          "3:30 → Il est trois heures et [[demie]]."
+        ]
+      },
+      "hint": "heures = o'clock; the half-past word is demie.",
+      "explanation": "Il est + number + heures, then et demie bolts the half hour on."
+    },
+    {
+      "id": "french.time.t03",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.french.time",
+      "prompt": "Now the tricky ones — quarters and a VIP hour.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "7:15 → Il est sept heures et [[quart]].",
+          "8:45 → Il est neuf heures [[moins]] le quart.",
+          "Noon → Il est [[midi]]."
+        ]
+      },
+      "hint": "8:45 leans forward onto 9 — that's the moins move. And noon needs no number at all.",
+      "explanation": "et quart adds 15, moins le quart borrows from the next hour, and midi stands proudly alone."
+    },
+    {
+      "id": "french.time.001",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A passerby asks: 'Quelle heure est-il?' What do they want to know?",
+      "answer": "What time is it?",
+      "options": ["What time is it?", "How much is it?", "How old are you?", "What's the weather?"],
+      "hint": "heure is hiding inside — it looks like 'hour'.",
+      "explanation": "Quelle heure est-il? = What time is it? The answer always starts with Il est…"
+    },
+    {
+      "id": "french.time.002",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "'Il est cinq heures.' What time is it? Type it in digits, like 4:00.",
+      "answer": ["5:00", "5", "5h00", "five o'clock"],
+      "hint": "cinq is one of your Marché aux Nombres numbers.",
+      "explanation": "Il est cinq heures = 5:00. French time is just French numbers plus heures."
+    },
+    {
+      "id": "french.time.003",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What does 'midi' mean?",
+      "answer": "Noon",
+      "options": ["Noon", "Midnight", "Morning", "Monday"],
+      "hint": "It's the hour when boulangeries get crowded.",
+      "explanation": "midi = noon and minuit = midnight. Bonus: the sunny south of France is nicknamed le Midi!"
+    },
+    {
+      "id": "french.time.004",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen to the clock tower announcement. What time is it?",
+      "answer": "2:00",
+      "options": ["2:00", "12:00", "10:00"],
+      "data": { "audioText": "Il est deux heures.", "lang": "fr-FR" },
+      "hint": "Sounds like: eel eh duh ZUHR — deux = 2 (douze would be 12!).",
+      "explanation": "Il est deux heures = 2:00. Training your ear to split deux/douze/dix is clock-tower level skill."
+    },
+    {
+      "id": "french.time.005",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each part of the day to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["le matin", "the morning"],
+          ["l'après-midi", "the afternoon"],
+          ["le soir", "the evening"],
+          ["minuit", "midnight"]
+        ]
+      },
+      "hint": "après-midi literally means 'after-noon'. French shows its work!",
+      "explanation": "matin, après-midi, soir, minuit — glue them to times: sept heures du matin vs sept heures du soir."
+    },
+    {
+      "id": "french.time.006",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen: what time is it?",
+      "answer": "8:30",
+      "options": ["8:30", "8:15", "8:00"],
+      "data": { "audioText": "Il est huit heures et demie.", "lang": "fr-FR" },
+      "hint": "Sounds like: weet UHR ay duh-MEE — et demie = half past.",
+      "explanation": "huit heures et demie = 8:30. demie = half, exactly like demi in math."
+    },
+    {
+      "id": "french.time.007",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "It's 3:15 — the K-pop countdown show is starting! How do you say the time in French?",
+      "answer": "Il est trois heures et quart",
+      "options": ["Il est trois heures et quart", "Il est trois heures et demie", "Il est trois heures moins le quart"],
+      "hint": "A quarter PAST uses et quart; demie would mean :30.",
+      "explanation": "3:15 = trois heures et quart — quart = quarter, 15 of the hour's 60 minutes.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.time.008",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Listen, then TYPE the time in digits (like 4:15).",
+      "answer": ["7:30", "7h30", "seven thirty", "half past seven"],
+      "data": { "audioText": "Il est sept heures et demie.", "lang": "fr-FR" },
+      "hint": "Sounds like: set UHR ay duh-MEE — sept = 7, et demie = half past.",
+      "explanation": "Il est sept heures et demie = 7:30. Number + heures + et demie: the pattern never wobbles."
+    },
+    {
+      "id": "french.time.009",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the sentence for 4:15.",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Il", "est", "quatre heures", "et quart"]
+      },
+      "hint": "Il est first — then the hour, then the quarter.",
+      "explanation": "Il est quatre heures et quart = 4:15. Every French time sentence keeps this skeleton."
+    },
+    {
+      "id": "french.time.010",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each clock phrase to the minutes it adds.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["et quart", "quarter past (:15)"],
+          ["et demie", "half past (:30)"],
+          ["moins le quart", "quarter to (:45)"],
+          ["midi", "noon (12:00)"]
+        ]
+      },
+      "hint": "moins means MINUS — it subtracts from the next hour.",
+      "explanation": "quart = 15, demie = 30, moins le quart = 45 (leaning on the next hour), and midi needs no numbers at all."
+    },
+    {
+      "id": "french.time.011",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Listen: what's the situation?",
+      "answer": "It's noon — the cat wants its lunch",
+      "options": ["It's noon — the cat wants its lunch", "It's midnight — the cat is asleep", "It's 2:00 — the cat wants a snack"],
+      "data": { "audioText": "Il est midi. Le chat veut son déjeuner!", "lang": "fr-FR" },
+      "hint": "Sounds like: eel eh mee-DEE — midi = noon… plus one very determined cat.",
+      "explanation": "Il est midi (it's noon) and the cat wants son déjeuner (its lunch). Cats are excellent clocks.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.time.012",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank", "scaffoldLevel": 2,
+      "prompt": "Daily routine: 'At eight o'clock, I go to school.' Drop in the missing number word.",
+      "answer": "blanks",
+      "data": { "lines": ["À [[huit]] heures, je vais à l'école."] },
+      "hint": "Eight — the number that sounds like 'wheat' without the w-h.",
+      "explanation": "À huit heures, je vais à l'école — à + time says WHEN something happens."
+    },
+    {
+      "id": "french.time.013",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "A Paris train board flashes 15h30. What is that on Amal's 12-hour watch?",
+      "answer": "3:30 pm",
+      "options": ["3:30 pm", "5:30 pm", "1:30 pm", "3:30 am"],
+      "hint": "Subtract 12 from 15 — pure arithmetic, your home turf.",
+      "explanation": "French stations run on the 24-hour clock: 15 − 12 = 3, so 15h30 = 3:30 in the afternoon."
+    },
+    {
+      "id": "french.time.014",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Train-station sort: which 24-hour times fall before noon, and which after?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "le matin (am)": ["6h30", "8h00", "10h15"],
+          "l'après-midi ou le soir (pm)": ["15h00", "17h45", "20h30"]
+        }
+      },
+      "hint": "13h00 and up = past noon. Subtract 12 to translate.",
+      "explanation": "15h00 = 3 pm, 17h45 = 5:45 pm, 20h30 = 8:30 pm — subtract 12 and the mystery dissolves."
+    },
+    {
+      "id": "french.time.015",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Station announcement! When does the Paris train leave?",
+      "answer": "3:30 pm",
+      "options": ["3:30 pm", "5:30 pm", "9:30 am"],
+      "data": { "audioText": "Le train pour Paris part à quinze heures trente.", "lang": "fr-FR" },
+      "hint": "Sounds like: kanz UHR TRAHNT — quinze = 15, and 15h is already past noon.",
+      "explanation": "quinze heures trente = 15h30 = 3:30 pm. Announcements use full 24-hour style: no et demie at the station!"
+    },
+    {
+      "id": "french.time.016",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Tricky one: 'Il est onze heures moins le quart.' What time is that? (Type digits.)",
+      "answer": ["10:45", "10h45", "quarter to eleven"],
+      "hint": "moins le quart takes 15 minutes AWAY from eleven o'clock.",
+      "explanation": "Eleven minus a quarter = 10:45. moins le quart always borrows from the hour it names."
+    },
+    {
+      "id": "french.time.017",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Put Amal's school day in time order, earliest first.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "À sept heures du matin, je mange le petit déjeuner.",
+          "À huit heures, je vais à l'école.",
+          "À midi, je mange le déjeuner.",
+          "À quatre heures, c'est le goûter!",
+          "À sept heures du soir, je mange le dîner."
+        ]
+      },
+      "hint": "du matin = am, du soir = pm — that's how two 'sept heures' can both exist.",
+      "explanation": "7 am breakfast → 8 am school → noon lunch → 4 pm goûter → 7 pm dinner. du matin/du soir keeps the two sevens apart."
+    },
+    {
+      "id": "french.time.018",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Movie-night conversion: turn the French 24-hour time into watch time.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Le film commence à 16h15. Convert: 16 − 12 = [[4]].",
+          "So 16h15 = [[4]]:15 pm — in French: quatre heures et [[quart]] de l'après-midi."
+        ]
+      },
+      "hint": "Subtract 12, keep the minutes, then name the quarter.",
+      "explanation": "16h15 = 4:15 pm = quatre heures et quart de l'après-midi. The 24-hour clock is just an off-by-12 puzzle."
+    },
+    {
+      "id": "french.time.019",
+      "realm": "french", "skill": "french.time", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Read the station scene:\n\nPapa: Le train part à quatorze heures trente.\nAmal: Il est treize heures quinze. On a du temps!\n\nOn a 12-hour watch, when does the train leave — and how many minutes do they have?",
+      "answer": "Leaves at 2:30 pm — 75 minutes to spare",
+      "options": [
+        "Leaves at 2:30 pm — 75 minutes to spare",
+        "Leaves at 4:30 pm — 3 hours to spare",
+        "Leaves at 2:30 pm — 15 minutes to spare",
+        "Leaves at 2:13 pm — 58 minutes to spare"
+      ],
+      "hint": "quatorze = 14 → subtract 12. Then walk 13h15 → 14h30 like a number line.",
+      "explanation": "14h30 is 2:30 pm, and from 1:15 pm to 2:30 pm is 75 minutes. French clocks + your arithmetic = unstoppable.",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "french.house.t01",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.house",
+      "prompt": "First guess, no pressure: in a French house, which room is la cuisine — the room where the gâteaux happen?",
+      "answer": "The kitchen",
+      "options": ["The kitchen", "The bathroom", "The garden"],
+      "hint": "English borrowed 'cuisine' for restaurant cooking…",
+      "explanation": "la cuisine = the kitchen, birthplace of every gâteau. English borrowed the word straight from French!",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.house.t02",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.french.house",
+      "prompt": "Où est le chat? Learn the rooms, then hunt the house cat with five tiny position words.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Meet the rooms: la cuisine (kitchen), la chambre (bedroom), le salon (living room), la salle de bains (bathroom), le jardin (garden)." },
+          {
+            "text": "Somewhere in this house, a cat is hiding. The question that finds him: Où est le chat? = Where is the cat?",
+            "check": {
+              "question": "Où est…? asks…",
+              "options": ["Where is…?", "Who is…?", "What is…?"],
+              "answer": 0
+            }
+          },
+          { "text": "Five position words crack every hiding spot: sur (on), sous (under), dans (in), devant (in front of), derrière (behind)." },
+          {
+            "text": "Le chat est sur le lit (on the bed). Le chat est sous la table (under the table). Le chat est dans le jardin (in the garden). He gets around.",
+            "check": {
+              "question": "Le chat est derrière le canapé — where is he?",
+              "options": ["Behind the sofa", "In front of the sofa", "On the sofa"],
+              "answer": 0
+            }
+          },
+          { "text": "Counting what a house holds: il y a = there is / there are. Il y a trois chambres — and, naturally, il y a un chat dans la cuisine." }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.t03",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.house",
+      "prompt": "The cat moved again. Pin him down with the right position words.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The cat is ON the sofa → Le chat est [[sur]] le canapé.",
+          "The cat is UNDER the bed → Le chat est [[sous]] le lit.",
+          "There are two cats IN the garden → Il y a deux chats [[dans]] le jardin."
+        ]
+      },
+      "hint": "sur = on, sous = under — sound-alike traps! dans = in.",
+      "explanation": "sur, sous, dans — three syllables that track one extremely busy cat.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.001",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which room is 'la cuisine'?",
+      "answer": "The kitchen",
+      "options": ["The kitchen", "The bedroom", "The bathroom", "The garden"],
+      "hint": "It's where the mixing bowls live.",
+      "explanation": "la cuisine = the kitchen — the same word English uses for fancy cooking.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.house.002",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each room to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["la chambre", "the bedroom"],
+          ["le salon", "the living room"],
+          ["la salle de bains", "the bathroom"],
+          ["le jardin", "the garden"]
+        ]
+      },
+      "hint": "salle de bains literally means 'room of baths'.",
+      "explanation": "chambre, salon, salle de bains, jardin — four rooms, four hiding spots for a certain cat."
+    },
+    {
+      "id": "french.house.003",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What does 'Où est le chat?' mean?",
+      "answer": "Where is the cat?",
+      "options": ["Where is the cat?", "What is the cat doing?", "Whose cat is this?", "How old is the cat?"],
+      "hint": "Où with its accent always asks about a PLACE.",
+      "explanation": "Où est…? = Where is…? You will ask this about the cat approximately forty times a day.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.004",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen: where is the cat?",
+      "answer": "On the bed",
+      "options": ["On the bed", "Under the bed", "In the garden"],
+      "data": { "audioText": "Le chat est sur le lit.", "lang": "fr-FR" },
+      "hint": "Sounds like: luh shah eh sür luh LEE — sur = on, lit = bed.",
+      "explanation": "Le chat est sur le lit = the cat is on the bed. Of course he is — it's the warmest spot.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.005",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match the furniture and house parts to English.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["le lit", "the bed"],
+          ["la table", "the table"],
+          ["le canapé", "the sofa"],
+          ["la porte", "the door"],
+          ["la fenêtre", "the window"]
+        ]
+      },
+      "hint": "canapé also names a tiny party snack that 'sits' on bread — both lounge around.",
+      "explanation": "lit, table, canapé, porte, fenêtre — many French windows swing inward, with shutters (les volets) outside."
+    },
+    {
+      "id": "french.house.006",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Listen to the house tour. How many bedrooms are there?",
+      "answer": "3",
+      "options": ["3", "2", "13"],
+      "data": { "audioText": "Il y a trois chambres dans la maison.", "lang": "fr-FR" },
+      "hint": "Sounds like: eel-ee-ah TRWAH SHAHN-bruh — trois is a number you know well.",
+      "explanation": "Il y a trois chambres = there are three bedrooms. il y a announces what exists."
+    },
+    {
+      "id": "french.house.007",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Le chat dort ___ la table. (The cat is asleep UNDER the table.) Which word fits?",
+      "answer": "sous",
+      "options": ["sous", "sur", "devant", "dans"],
+      "hint": "sur and sous are sound-alike twins — one vowel flips the cat upside down.",
+      "explanation": "sous = under; sur = on. One letter decides whether the cat naps under the table or on your homework.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.008",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "The cat is hiding BEHIND the sofa. Complete the sentence.",
+      "answer": "blanks",
+      "data": { "lines": ["Le chat est [[derrière]] le canapé."] },
+      "hint": "Behind = derrière — sounds like 'dairy-AIR'.",
+      "explanation": "derrière = behind (devant = in front of). The sofa's shadow is prime cat real estate.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.009",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Gender sort! Drop each house word under its article.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "le (masculine)": ["lit", "canapé", "salon", "jardin"],
+          "la (feminine)": ["cuisine", "chambre", "porte", "fenêtre"]
+        }
+      },
+      "hint": "Replay each word with its article in your head — you've heard them all: le lit, la porte…",
+      "explanation": "le lit, le canapé, le salon, le jardin — la cuisine, la chambre, la porte, la fenêtre. Gender is memory, not logic!"
+    },
+    {
+      "id": "french.house.010",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Build the sentence: 'The cat is under the kitchen table.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["Le chat", "est", "sous", "la table", "de la cuisine"]
+      },
+      "hint": "Cat → is → position word → the table → of the kitchen.",
+      "explanation": "Le chat est sous la table de la cuisine — closest seat to any falling crumbs.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.011",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Listen carefully: where IS the cat?",
+      "answer": "In the garden",
+      "options": ["In the garden", "In the living room", "In the kitchen"],
+      "data": { "audioText": "Le chat n'est pas dans le salon. Il est dans le jardin!", "lang": "fr-FR" },
+      "hint": "Sounds like: …eel eh dahn luh zhar-DAN. (n'est pas = is NOT — don't fall for the first room!)",
+      "explanation": "n'est pas dans le salon (NOT in the living room)… il est dans le jardin. The second sentence tells the truth.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.012",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each position word to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["sur", "on"],
+          ["sous", "under"],
+          ["dans", "in"],
+          ["devant", "in front of"],
+          ["derrière", "behind"]
+        ]
+      },
+      "hint": "sur/sous are the tricky twins; devant/derrière are the front/back pair.",
+      "explanation": "sur, sous, dans, devant, derrière — five tiny words, five hiding spots."
+    },
+    {
+      "id": "french.house.013",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Listen: where is the cat waiting?",
+      "answer": "In front of the door",
+      "options": ["In front of the door", "Behind the door", "On the door"],
+      "data": { "audioText": "Où est le chat? Il est devant la porte.", "lang": "fr-FR" },
+      "hint": "Sounds like: duh-VAHN la PORT — devant = in front of.",
+      "explanation": "Il est devant la porte = he's in front of the door, performing the international cat ritual of wanting OUT.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.014",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Dream-house brag: 'In my dream house, there are ten bedrooms!'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "'There is / there are' is one welded chunk in French: il y a.",
+          "Dans ma maison de rêve, [[il y a]] dix chambres!"
+        ]
+      },
+      "hint": "Three tiny words, always traveling together.",
+      "explanation": "il y a = there is/are — Dans ma maison de rêve, il y a dix chambres (and surely one knitting room)."
+    },
+    {
+      "id": "french.house.015",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Listen to the bedroom tour. Which list matches what's inside?",
+      "answer": "A bed, a table, and a window",
+      "options": ["A bed, a table, and a window", "A bed, a sofa, and a door", "A table, a window, and a cat"],
+      "data": { "audioText": "Dans ma chambre, il y a un lit, une table et une fenêtre.", "lang": "fr-FR" },
+      "hint": "Sounds like: uhn LEE… ün TAHBL… ün fuh-NETR.",
+      "explanation": "un lit, une table, une fenêtre — il y a lists everything a room owns."
+    },
+    {
+      "id": "french.house.016",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "One word puts the cat in an impossible spot. Tap the wrong chunk.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "Le chat est",
+          "sur",
+          "le jardin,",
+          "derrière la maison."
+        ]
+      },
+      "hint": "Can a cat really sit ON an entire garden?",
+      "explanation": "You're IN a garden, not on it: dans le jardin. (The garden being behind the house was perfectly fine.)",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.017",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Order Amal's cat hunt. (d'abord = first, ensuite = next, puis = then, enfin = finally)",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "D'abord, je regarde sous le lit.",
+          "Ensuite, je regarde derrière le canapé.",
+          "Puis, je regarde dans la cuisine.",
+          "Enfin — le chat est sur la table!"
+        ]
+      },
+      "hint": "The sequence words give the order away: d'abord → ensuite → puis → enfin.",
+      "explanation": "Under the bed, behind the sofa, in the kitchen… and enfin, ON the table — where he watched the whole search.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.house.018",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Describe the dream house — fill in the missing words.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Ma maison de rêve! Il y a huit [[chambres]] (bedrooms).",
+          "Dans le salon, il y a un grand [[canapé]] (sofa) pour lire.",
+          "Et le chat dort [[sur]] mon lit. (ON my bed. Obviously.)"
+        ]
+      },
+      "hint": "The English in parentheses is your map — convert each one back to French.",
+      "explanation": "chambres, canapé, sur — eight bedrooms, a reading sofa, and a bed that legally belongs to the cat now.",
+      "tags": ["cats", "reading"]
+    },
+    {
+      "id": "french.house.019",
+      "realm": "french", "skill": "french.house", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Read the dream-house description:\n\nVoici ma maison de rêve! Il y a quatre chambres et un grand jardin. Dans la cuisine, il y a une grande table pour la pâtisserie. Mon chat dort sur le canapé, devant la fenêtre.\n\nWhere does the cat sleep?",
+      "answer": "On the sofa, in front of the window",
+      "options": [
+        "On the sofa, in front of the window",
+        "Under the table, in the kitchen",
+        "On the bed, behind the door",
+        "In the garden, under a tree"
+      ],
+      "hint": "dort = sleeps. Find 'Mon chat dort…' and read its two position clues.",
+      "explanation": "Mon chat dort sur le canapé, devant la fenêtre — on the sofa, in front of the window: prime sunbeam real estate.",
+      "tags": ["legendary", "cats", "baking"]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.inequalities",
+      "skill": "math.inequalities",
+      "title": "Inequalities: One Answer vs. the Whole Crowd",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "One answer vs. a whole crowd",
+          "lines": [
+            "An equation like x + 2 = 5 pins down ONE answer. An inequality like x + 2 > 5 opens the gate to a whole CROWD of answers: 4, 7.5, a thousand…",
+            "You already graph x < 3 in your sleep — the new power is WRITING inequalities straight from real life: 'at least 13 to ride', 'no more than $20'."
+          ],
+          "vocab": [
+            { "term": "solution set", "meaning": "ALL the numbers that make an inequality true — often infinitely many" },
+            { "term": "at least / at most", "meaning": "at least = that many or MORE (≥); at most = that many or FEWER (≤)" }
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "gambit", "itemId": "math.inequalities.t01", "framing": "No grade, no pressure — just reason it out. Your hunch about the boundary is the whole lesson in disguise." },
+        { "kind": "worked", "itemId": "math.inequalities.t02" },
+        { "kind": "completion", "itemId": "math.inequalities.t03" },
+        { "kind": "completion", "itemId": "math.inequalities.t04" },
+        {
+          "kind": "bridge",
+          "title": "Balance moves still work",
+          "lines": [
+            "To SOLVE an inequality, use the exact balance moves you use on equations: add, subtract, or multiply/divide both sides by a positive number — the < or > keeps pointing the same way.",
+            "Then test-drive it like a scientist: grab an easy number from your solution set and feed it to the original inequality."
+          ],
+          "visual": "balance"
+        },
+        { "kind": "worked", "itemId": "math.inequalities.t05" },
+        { "kind": "completion", "itemId": "math.inequalities.t06" },
+        { "kind": "completion", "itemId": "math.inequalities.t07" },
+        { "kind": "completion", "itemId": "math.inequalities.t08" },
+        { "kind": "burst", "itemIds": ["math.inequalities.001", "math.inequalities.002", "math.inequalities.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.inequalities.t01",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice", "teachSequenceId": "teach.math.inequalities",
+      "prompt": "The wizard park's dragon coaster posts a rule: 'Riders must be AT LEAST 13.' Zara turned exactly 13 today. Can she ride?",
+      "answer": "Yes — 'at least 13' includes 13 itself",
+      "options": [
+        "Yes — 'at least 13' includes 13 itself",
+        "No — she must be OLDER than 13",
+        "Only if the ride operator rounds her age up"
+      ],
+      "hint": "'At least 13' draws a boundary line — is 13 standing on the allowed side of it?",
+      "explanation": "'At least 13' means 13 or more, so the boundary number itself gets to ride. Deciding whether the boundary counts is THE big inequality question.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.inequalities.t02",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Let's translate real-life rules into symbols — and meet the crowd of answers hiding inside each one.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "Bake-sale rule: 'spend NO MORE THAN $20.' That allows $20 itself and everything below it: m ≤ 20.",
+            "check": {
+              "question": "Which numbers obey m ≤ 20?",
+              "options": [
+                "20, 19.5, 7, and 0 — every one of them",
+                "Only 20 exactly",
+                "Only numbers below 20, so 20 is out"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "'AT LEAST 13' points the other way: a ≥ 13 means 13 or anything bigger. With ≤ and ≥, the boundary number is always invited." },
+          {
+            "text": "STRICT words drop the 'or equal'. 'MORE THAN 5 cats' is c > 5 — exactly 5 cats fails. 'FEWER THAN 5' is c < 5.",
+            "check": {
+              "question": "You have exactly 5 cats. Does that satisfy 'more than 5 cats'?",
+              "options": [
+                "No — c > 5 starts just above 5",
+                "Yes — 5 always counts as more than 5",
+                "Yes — boundary numbers satisfy every inequality"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Here's the deep shift: x = 5 names ONE hero, but x > 5 commands an infinite army — 5.1, 6, 70½, a million. That whole army is called the solution set." }
+        ]
+      },
+      "tags": ["baking", "cats"]
+    },
+    {
+      "id": "math.inequalities.t03",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Amal's library backpack holds AT MOST 8 books. Let b = number of books. Finish the translation.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "'At most 8' means 8 or fewer — the boundary is allowed",
+          "Inequality: b [[≤|<=]] 8",
+          "Can she pack exactly 8 books? [[yes|Yes|YES]]"
+        ]
+      },
+      "hint": "'At most' is the gentle kind of limit — does it let the boundary number in?",
+      "explanation": "b ≤ 8, and since ≤ includes the boundary, exactly 8 books is fine. 'At most' and 'no more than' both speak ≤.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.inequalities.t04",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Shelter rule: a kitten must weigh MORE THAN 2 pounds to be adopted. Let w = weight in pounds. Write the rule as an inequality.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "'More than' is strict — exactly 2 pounds is not enough yet",
+          "Inequality: w [[>]] [[2]]"
+        ]
+      },
+      "hint": "Strict words ban the boundary — pick the symbol with no 'or equal' underneath.",
+      "explanation": "w > 2: the kitten needs strictly more than 2 pounds, so a 2.0-pound kitten waits a little longer. Strict words, strict symbol.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.inequalities.t05",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Time to SOLVE inequalities — with the same balance moves you already use on equations.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "Solve x + 7 < 12 exactly like you'd solve x + 7 = 12: subtract 7 from both sides. Result: x < 5.",
+            "check": {
+              "question": "Why is subtracting 7 from both sides safe?",
+              "options": [
+                "Removing the same amount from both sides keeps the comparison true",
+                "Because 7 is smaller than 12",
+                "It isn't safe — inequalities forbid subtraction"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Test-drive the answer: pick an easy member of x < 5, say x = 0. Check the ORIGINAL: 0 + 7 = 7, and 7 < 12 ✓. The whole set works." },
+          {
+            "text": "Division version: 4y ≥ 24. Divide both sides by the positive number 4 to get y ≥ 6. Dividing by a POSITIVE never disturbs the symbol.",
+            "check": {
+              "question": "So 4y ≥ 24 solves to…",
+              "options": ["y ≥ 6", "y ≥ 20", "y ≥ 96"],
+              "answer": 0
+            }
+          },
+          { "text": "Notice what NEVER happened: the symbol never flipped. Adding, subtracting, and positive ×/÷ all leave the arrow aimed exactly where it started." }
+        ]
+      }
+    },
+    {
+      "id": "math.inequalities.t06",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Solve k − 4 ≥ 9. Finish the balance moves.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Add [[4]] to both sides to undo the subtraction",
+          "k ≥ [[13]]"
+        ]
+      },
+      "hint": "Same first move as the equation k − 4 = 9.",
+      "explanation": "Adding 4 to both sides gives k ≥ 13. Test-drive: k = 20 → 20 − 4 = 16 ≥ 9 ✓."
+    },
+    {
+      "id": "math.inequalities.t07",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Each cookie batch needs 5 cups of flour, and the pantry holds 35 cups. The inequality 5n ≤ 35 counts the possible batches n — solve it.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Divide both sides by [[5]]",
+          "n ≤ [[7]]"
+        ]
+      },
+      "hint": "Undo 'times 5' with one positive-number move.",
+      "explanation": "Dividing both sides by 5 gives n ≤ 7 — up to 7 batches before the flour runs dry. Positive division, no flip, no drama.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.inequalities.t08",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.inequalities",
+      "prompt": "Last one — you drive. Amal wants AT LEAST 300 Duolingo XP this week. She has 180 XP so far and will earn x more. Write the inequality, then solve it.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The inequality: 180 + x [[≥|>=]] 300",
+          "Subtract 180 from both sides: x ≥ [[120]]"
+        ]
+      },
+      "hint": "'At least' picks the symbol; a balance move does the rest.",
+      "explanation": "180 + x ≥ 300 solves to x ≥ 120 — she needs 120 XP or more. Translate first, then balance: that's the full inequality quest.",
+      "tags": ["duolingo"]
+    },
+
+    {
+      "id": "math.inequalities.001",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A sign reads: 'You must be AT LEAST 13 to ride.' With a = age, which inequality matches?",
+      "answer": "a ≥ 13",
+      "options": ["a ≥ 13", "a > 13", "a ≤ 13", "a < 13"],
+      "hint": "Does 'at least' welcome the boundary number, or banish it?",
+      "explanation": "'At least 13' means 13 or more: a ≥ 13. The little line under the > is the welcome mat for 13 itself."
+    },
+    {
+      "id": "math.inequalities.002",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Tap the SMALLEST whole number that satisfies x > 4.5.",
+      "answer": "5",
+      "data": { "numberLine": { "min": 0, "max": 10, "step": 1 } },
+      "hint": "4.5 sits between two whole numbers — which neighbor is on the allowed side?",
+      "explanation": "Whole numbers above 4.5 start at 5. (4 is below, and 4.5 itself isn't whole.)"
+    },
+    {
+      "id": "math.inequalities.003",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Translate into symbols: 'Amal may spend NO MORE THAN $20.' Use m for money spent.",
+      "answer": ["m ≤ 20", "m≤20", "m <= 20", "m<=20", "m ≤ $20", "m≤$20", "m <= $20", "m<=$20"],
+      "hint": "'No more than' allows the boundary — pick the symbol wearing its little equals line.",
+      "explanation": "m ≤ 20: she can spend $20 itself or anything under. 'No more than' and 'at most' are twins, and both speak ≤."
+    },
+    {
+      "id": "math.inequalities.004",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "The Lopsided King decrees y ≤ 12. Sort each number: loyal subject of the solution set, or rule-breaker?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Satisfies y ≤ 12": ["12", "11.5", "0", "-3"],
+          "Breaks y ≤ 12": ["12.1", "13", "100"]
+        }
+      },
+      "hint": "Check the boundary with care: does ≤ let 12 itself in?",
+      "explanation": "Everything up to AND including 12 obeys — even 0 and −3. The first rebel appears just past the boundary, at 12.1."
+    },
+    {
+      "id": "math.inequalities.005",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A K-pop video must collect MORE THAN 1000000 views to hit the trending page. Write the inequality with v for views.",
+      "answer": ["v > 1000000", "v>1000000", "v > 1,000,000", "v>1,000,000"],
+      "hint": "Strict or not? Ask whether exactly 1000000 views would be enough.",
+      "explanation": "v > 1000000 — 'more than' is strict, so exactly a million falls just short. One more view and it trends!",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.inequalities.006",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Fill in the matching symbol for each phrase (use >=, <=, <, > if symbols are hard to type).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "'at least 13' → a [[≥|>=]] 13",
+          "'fewer than 4' → c [[<]] 4",
+          "'at most 20' → m [[≤|<=]] 20"
+        ]
+      },
+      "hint": "'At least' and 'at most' both welcome the boundary; 'fewer than' slams the door on it.",
+      "explanation": "at least → ≥, fewer than → <, at most → ≤. Spotting the boundary words is the entire translation game."
+    },
+    {
+      "id": "math.inequalities.007",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Solve x + 9 < 15. Finish the final line.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Subtract 9 from both sides",
+          "x < [[6]]"
+        ]
+      },
+      "hint": "Treat it like x + 9 = 15, then keep the < pointing the same way.",
+      "explanation": "15 − 9 = 6, so x < 6. Test-drive: x = 0 gives 9 < 15 ✓ — the whole set checks out."
+    },
+    {
+      "id": "math.inequalities.008",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Solve 7t ≥ 56. Fill in both moves.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Divide both sides by [[7]]",
+          "t ≥ [[8]]"
+        ]
+      },
+      "hint": "One positive-number division undoes 'times 7' — and positive division never flips anything.",
+      "explanation": "56 ÷ 7 = 8, so t ≥ 8. Check with t = 10: 70 ≥ 56 ✓."
+    },
+    {
+      "id": "math.inequalities.009",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "One of the Lopsided King's goblins solved an inequality. Tap the step where it went wrong.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Problem: solve x − 3 > 8",
+          "Step A: add 3 to both sides to undo the − 3",
+          "Step B: adding flips the sign, so x < 11",
+          "Step C: check — x = 12 gives 12 − 3 = 9, and 9 > 8 ✓"
+        ]
+      },
+      "hint": "The goblin's own check passes x = 12… but does its Step B answer even allow 12?",
+      "explanation": "Adding to both sides NEVER flips an inequality — the answer is x > 11, which is exactly why the goblin's check number 12 works. (Flipping is a negative-number story for 7th grade.)"
+    },
+    {
+      "id": "math.inequalities.010",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "number_line_tap",
+      "prompt": "Solve x + 2 ≤ 9.5 in your head, then tap the LARGEST whole number in its solution set.",
+      "answer": "7",
+      "data": { "numberLine": { "min": 0, "max": 12, "step": 1 } },
+      "hint": "Balance move first: subtract 2 from both sides. Then hunt for the biggest whole number that still fits.",
+      "explanation": "x ≤ 7.5, and the largest whole number not past 7.5 is 7. Solve first, then read the set like a map."
+    },
+    {
+      "id": "math.inequalities.011",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A number-line graph shows a CLOSED (filled) dot at 30 with shading stretching to the left. Which road rule matches, for speed s?",
+      "answer": "s ≤ 30 — at most 30, and 30 itself is fine",
+      "options": [
+        "s ≤ 30 — at most 30, and 30 itself is fine",
+        "s < 30 — you must stay strictly under 30",
+        "s ≥ 30 — you must go 30 or faster",
+        "s = 30 — exactly 30, nothing else"
+      ],
+      "hint": "Decode the two clues separately: what does a FILLED dot say, and what does LEFTWARD shading say?",
+      "explanation": "Filled dot = the boundary 30 is included; shading left = everything below it. Together: s ≤ 30."
+    },
+    {
+      "id": "math.inequalities.012",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about x > 6 — find the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "x > 6 has infinitely many solutions",
+          "x = 6.001 is a solution of x > 6"
+        ],
+        "lie": "The smallest solution of x > 6 is 7"
+      },
+      "hint": "Whole numbers aren't the only citizens of a solution set — decimals live there too.",
+      "explanation": "Decimals like 6.001, 6.0001, … creep endlessly closer to 6, so there is NO smallest solution. 7 is only the smallest WHOLE-number one."
+    },
+    {
+      "id": "math.inequalities.013",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: Amal brings $18 to the yarn fair, where every skein costs $3.25. Write and solve an inequality for the number of skeins s she can afford — what is the GREATEST number of skeins she can buy?",
+      "answer": ["5", "5 skeins", "s ≤ 5", "s≤5", "s <= 5", "s<=5"],
+      "hint": "3.25s ≤ 18 — divide by the positive price, then remember that skeins only come in whole numbers.",
+      "explanation": "3.25s ≤ 18 gives s ≤ about 5.5, and you can't buy half a skein — so 5 skeins ($16.25) it is. Rounding DOWN to fit the budget is the legendary final step.",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.inequalities.014",
+      "realm": "math", "skill": "math.inequalities", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: promotion to the Duolingo Diamond League takes AT LEAST 1000 XP. Amal has 340 XP, and each perfect lesson earns 60 XP. Write and solve an inequality — at minimum, how many more perfect lessons does she need?",
+      "answer": ["11", "11 lessons", "d ≥ 11", "at least 11"],
+      "hint": "Build it like a story: 340 + 60d ≥ 1000. Two balance moves (both with positives) finish the quest.",
+      "explanation": "340 + 60d ≥ 1000 → 60d ≥ 660 → d ≥ 11, and 340 + 60 × 11 lands exactly on 1000 ✓. Your equation moves powered the whole solve!",
+      "tags": ["duolingo", "legendary"]
+    }
+  ]
+}

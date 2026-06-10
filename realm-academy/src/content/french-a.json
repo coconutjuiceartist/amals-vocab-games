@@ -1,0 +1,1062 @@
+{
+  "sequences": [
+    {
+      "id": "teach.french.greetings",
+      "skill": "french.greetings",
+      "title": "Bonjour! Your First French Hello",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "You already greet people in two languages",
+          "lines": [
+            "On Duolingo you wave with « Jambo! » in Swahili — French works the same way: one magic word opens every door.",
+            "French just adds a twist: a casual hello for friends and a polite one for everyone else."
+          ],
+          "vocab": [
+            { "term": "bonjour", "meaning": "hello / good day (bohn-ZHOOR) — works almost anywhere" },
+            { "term": "salut", "meaning": "hi / bye, casual (sah-LU) — for friends only" },
+            { "term": "je m'appelle", "meaning": "my name is (zhuh mah-PELL) — literally 'I call myself'" },
+            { "term": "ça va ?", "meaning": "how's it going? (sah VAH) — also the answer: ça va!" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "gambit", "itemId": "french.greetings.t01", "framing": "No grade, no pressure — just try. A wild guess teaches your brain what to listen for." },
+        { "kind": "worked", "itemId": "french.greetings.t02" },
+        { "kind": "completion", "itemId": "french.greetings.t03" },
+        { "kind": "burst", "itemIds": ["french.greetings.001", "french.greetings.002", "french.greetings.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.numbers",
+      "skill": "french.numbers",
+      "title": "Numbers 0–100: Secret Math Inside",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Numbers are secret math",
+          "lines": [
+            "In Swahili on Duolingo, numbers are built from pieces: kumi na moja = 'ten and one' = 11.",
+            "French does the same — and at 80 it literally multiplies: quatre-vingts means FOUR TWENTIES."
+          ],
+          "vocab": [
+            { "term": "un", "meaning": "one (uhn)" },
+            { "term": "deux", "meaning": "two (duh)" },
+            { "term": "trois", "meaning": "three (trwah)" },
+            { "term": "dix", "meaning": "ten (dees)" },
+            { "term": "vingt", "meaning": "twenty (van)" }
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "gambit", "itemId": "french.numbers.t01", "framing": "Just a hunch, no grade — what would YOU guess this number is?" },
+        { "kind": "worked", "itemId": "french.numbers.t02" },
+        { "kind": "completion", "itemId": "french.numbers.t03" },
+        { "kind": "burst", "itemIds": ["french.numbers.001", "french.numbers.002", "french.numbers.003"] }
+      ]
+    },
+    {
+      "id": "teach.french.calendar",
+      "skill": "french.calendar",
+      "title": "Days, Dates & Weather: Every Streak Day Has a Name",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Your streak calendar, en français",
+          "lines": [
+            "Your Duolingo streak calendar names every day — French does too, and the week starts on lundi (Monday), not Sunday!",
+            "Bonus: French weather talk is delightfully dramatic. Il fait beau literally means 'it makes beautiful' out there."
+          ],
+          "vocab": [
+            { "term": "lundi", "meaning": "Monday (luhn-DEE) — day ONE of the French week" },
+            { "term": "aujourd'hui", "meaning": "today (oh-zhoor-DWEE) — fancy spelling, everyday word" },
+            { "term": "il fait beau", "meaning": "the weather is nice (eel feh BOH)" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "gambit", "itemId": "french.calendar.t01", "framing": "Explorer's hunch — no grade, just guess and see!" },
+        { "kind": "worked", "itemId": "french.calendar.t02" },
+        { "kind": "completion", "itemId": "french.calendar.t03" },
+        { "kind": "burst", "itemIds": ["french.calendar.001", "french.calendar.002", "french.calendar.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "french.greetings.t01",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.greetings",
+      "prompt": "First mission in the French realm: a friendly baker waves at you in the morning. On Duolingo you'd say « Jambo! » — what's your best guess in French?",
+      "answer": "Bonjour !",
+      "options": ["Bonjour !", "Merci !", "Au revoir !", "Non !"],
+      "hint": "One of these literally means 'good day.'",
+      "explanation": "Bonjour (bohn-ZHOOR) = hello / good day — your all-purpose French greeting, just like Jambo.",
+      "tags": ["duolingo", "swahili", "baking"]
+    },
+    {
+      "id": "french.greetings.t02",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.french.greetings",
+      "prompt": "Let's build your first full French introduction, piece by piece: « Bonjour, je m'appelle Amal. Et toi ? »",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Start with the greeting: Bonjour (bohn-ZHOOR) — literally 'good day' (bon = good, jour = day)." },
+          {
+            "text": "Add your name: je m'appelle (zhuh mah-PELL) means 'my name is' — literally 'I call myself.' So: Bonjour, je m'appelle Amal.",
+            "check": {
+              "question": "What does « je m'appelle » literally mean?",
+              "options": ["I call myself", "My name letters", "I am Amal"],
+              "answer": 0
+            }
+          },
+          { "text": "Bounce the question back: Et toi ? (ay TWAH) = 'And you?' Now the other person introduces themselves." },
+          {
+            "text": "All together: « Bonjour, je m'appelle Amal. Et toi ? » — Hello, my name is Amal. And you? That's a real conversation!",
+            "check": {
+              "question": "To introduce your cat instead, which word do you swap out?",
+              "options": ["Amal → the cat's name", "Bonjour → the cat's name", "toi → the cat's name"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.greetings.t03",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.greetings",
+      "prompt": "A boy at the harbor introduces himself casually. Finish his line.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "« Salut ! Je [[m'appelle]] Luc. »",
+          "« Enchantée, Luc ! »"
+        ]
+      },
+      "hint": "The 'I call myself' word — sounds like mah-PELL.",
+      "explanation": "Je m'appelle Luc = my name is Luc. Salut is the casual 'hi' between friends, and enchantée = delighted to meet you."
+    },
+    {
+      "id": "french.greetings.001",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Pick the all-day, all-purpose French hello.",
+      "answer": "Bonjour",
+      "options": ["Bonjour", "Au revoir", "Merci", "Oui"],
+      "hint": "It literally means 'good day.'",
+      "explanation": "Bonjour works from morning to late afternoon — the Swiss Army knife of French greetings."
+    },
+    {
+      "id": "french.greetings.002",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Your French pen pal starts her video call with « Salut ! » What did she say?",
+      "answer": "Hi! (casual)",
+      "options": ["Hi! (casual)", "Thank you!", "Good evening!", "Please!"],
+      "hint": "It's what friends say to friends.",
+      "explanation": "Salut (sah-LU) is the relaxed hello — and it even works as 'bye' between friends."
+    },
+    {
+      "id": "french.greetings.003",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Two tiny words you'll use constantly — fill them in.",
+      "answer": "blanks",
+      "data": { "lines": ["Yes → [[oui]]", "No → [[non]]"] },
+      "hint": "They sound like 'wee' and 'nohn.'",
+      "explanation": "Oui = yes, non = no — short, mighty, everywhere.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "french.greetings.004",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each greeting to its English meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Bonjour, monsieur", "Hello, sir"],
+          ["Bonsoir, madame", "Good evening, ma'am"],
+          ["Salut !", "Hi! (casual)"],
+          ["Au revoir, mademoiselle", "Goodbye, miss"]
+        ]
+      },
+      "hint": "Bon SOIR = good EVENING; au revoir ends the conversation.",
+      "explanation": "Monsieur, madame and mademoiselle are the polite titles — sprinkle them onto greetings for extra courtesy."
+    },
+    {
+      "id": "french.greetings.005",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Press play. Which greeting did you hear?",
+      "answer": "Hello / Good day",
+      "options": ["Hello / Good day", "Goodbye", "Thank you", "Good evening"],
+      "data": { "audioText": "Bonjour !", "lang": "fr-FR" },
+      "hint": "Sounds like: bohn-ZHOOR.",
+      "explanation": "Bonjour — bon (good) + jour (day). The classic."
+    },
+    {
+      "id": "french.greetings.006",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "You arrive at a dinner party at 8 p.m. Which greeting fits the hour?",
+      "answer": "Bonsoir !",
+      "options": ["Bonsoir !", "Bonjour !", "À demain !", "Comme ci comme ça !"],
+      "hint": "Soir means evening.",
+      "explanation": "Bonsoir (bohn-SWAHR) takes over in the evening; bonjour covers the daytime."
+    },
+    {
+      "id": "french.greetings.007",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Arrange the words to say 'My name is Amal.'",
+      "answer": "sequence",
+      "data": { "sequence": ["Je", "m'appelle", "Amal"] },
+      "hint": "Start with 'I.'",
+      "explanation": "Je m'appelle Amal — literally 'I call myself Amal.'"
+    },
+    {
+      "id": "french.greetings.008",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Order like a polite Parisian! Complete the bakery exchange.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "— Bonjour, madame ! Un croissant, s'il [[vous]] plaît.",
+          "— Voilà !",
+          "— [[Merci]] ! Au revoir !"
+        ]
+      },
+      "hint": "With an adult you don't know, use the formal 'you'… then say thanks!",
+      "explanation": "S'il vous plaît is the polite 'please' for adults and strangers; merci seals the deal.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.greetings.009",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play. What is this person asking you?",
+      "answer": "What's your name?",
+      "options": ["What's your name?", "How are you?", "How old are you?", "Where do you live?"],
+      "data": { "audioText": "Comment t'appelles-tu ?", "lang": "fr-FR" },
+      "hint": "Sounds like: koh-mahn tah-pell-TU — you can hear 'appelle' hiding inside.",
+      "explanation": "Comment t'appelles-tu ? = what's your name? (Literally 'how do you call yourself?')"
+    },
+    {
+      "id": "french.greetings.010",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "You ask your teacher for help with a croissant recipe. Which 'please' is correct?",
+      "answer": "S'il vous plaît",
+      "options": ["S'il vous plaît", "S'il te plaît", "Salut", "Enchanté"],
+      "hint": "Teachers get the formal 'you.'",
+      "explanation": "Vous is the polite, formal 'you' (adults, strangers, groups); tu/te is for friends, family and pets.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.greetings.011",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Tu or vous? Sort each phrase by who you'd say it to.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "To your best friend (tu)": ["Salut !", "S'il te plaît", "Tu t'appelles comment ?"],
+          "To the school principal (vous)": ["Bonjour, madame", "S'il vous plaît", "Comment vous appelez-vous ?"]
+        }
+      },
+      "hint": "te / tu = casual crew; vous = respect mode.",
+      "explanation": "French has two 'you's: tu for friends and family, vous for adults you respect — mixing them up is the classic beginner stumble."
+    },
+    {
+      "id": "french.greetings.012",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank", "scaffoldLevel": 2,
+      "prompt": "Your friend asks « Ça va ? » You're having a GREAT day. Complete the classic reply.",
+      "answer": "blanks",
+      "data": { "lines": ["— Ça va ?", "— Ça va [[bien]], merci !"] },
+      "hint": "It sounds like 'byan' and means 'well.'",
+      "explanation": "Ça va bien, merci = I'm doing well, thanks. Ça va literally means 'it goes.'"
+    },
+    {
+      "id": "french.greetings.013",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each 'how are you' phrase to its meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Ça va ?", "How's it going?"],
+          ["Très bien", "Very well"],
+          ["Comme ci comme ça", "So-so"],
+          ["Ça va bien", "It's going well"]
+        ]
+      },
+      "hint": "Comme ci comme ça comes with a wobbly-hand gesture: meh.",
+      "explanation": "Ça va is both the question AND the answer — French efficiency at its finest."
+    },
+    {
+      "id": "french.greetings.014",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play. How is this person feeling?",
+      "answer": "Very well, thanks!",
+      "options": ["Very well, thanks!", "So-so, thanks.", "Terrible, actually.", "They're saying goodbye."],
+      "data": { "audioText": "Ça va très bien, merci !", "lang": "fr-FR" },
+      "hint": "Sounds like: sah vah tray BYAN, mair-SEE.",
+      "explanation": "Très bien = very well; merci = thanks. A five-star day."
+    },
+    {
+      "id": "french.greetings.015",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Your favorite K-pop group livestreams again TOMORROW. Which goodbye fits exactly?",
+      "answer": "À demain !",
+      "options": ["À demain !", "À bientôt !", "Bonsoir !", "Enchantée !"],
+      "hint": "Demain = tomorrow; bientôt = soon.",
+      "explanation": "À demain = see you tomorrow; à bientôt = see you soon (no exact date). Precision matters for comebacks!",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.greetings.016",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Press play. What did the shopkeeper say as you left?",
+      "answer": "Goodbye, miss! See you soon!",
+      "options": ["Goodbye, miss! See you soon!", "Hello, ma'am! See you tomorrow!", "Thank you, sir! Good evening!", "Goodbye, miss! See you tonight!"],
+      "data": { "audioText": "Au revoir, mademoiselle ! À bientôt !", "lang": "fr-FR" },
+      "hint": "Sounds like: oh ruh-VWAHR, mahd-mwah-ZELL… ah byan-TOH.",
+      "explanation": "Au revoir = goodbye (literally 'until the re-seeing'); à bientôt = see you soon."
+    },
+    {
+      "id": "french.greetings.017",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "Amal greets the school principal. One chunk is too casual — tap it.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "« Bonjour, madame ! »",
+          "« Je m'appelle Amal. »",
+          "« S'il te plaît, »",
+          "« comment vous appelez-vous ? »"
+        ]
+      },
+      "hint": "Principals get vous-level politeness in EVERY phrase.",
+      "explanation": "With the principal it's s'il VOUS plaît — te is reserved for friends and family."
+    },
+    {
+      "id": "french.greetings.018",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Put this tiny conversation in an order that makes sense.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "« Bonjour ! Ça va ? »",
+          "« Ça va bien, merci. Et toi ? »",
+          "« Très bien ! Au revoir ! »",
+          "« À bientôt ! »"
+        ]
+      },
+      "hint": "Greet → answer & ask back → wrap up → echo the goodbye.",
+      "explanation": "Real French chats follow this arc: greeting, news, goodbye, echo-goodbye."
+    },
+    {
+      "id": "french.greetings.019",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "A wizard-school owl delivers a name-tag form. Write 'My name is Hermione' in French.",
+      "answer": ["Je m'appelle Hermione", "je m'appelle Hermione", "Je m'appelle Hermione."],
+      "hint": "Three words before the name: 'I call myself…'",
+      "explanation": "Je m'appelle + name introduces anyone — witches included.",
+      "tags": ["harry-potter", "reading"]
+    },
+    {
+      "id": "french.greetings.020",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Your cat paws the play button. Type the single French word you hear (the casual hello).",
+      "answer": ["salut", "Salut", "salut !", "Salut !"],
+      "data": { "audioText": "Salut !", "lang": "fr-FR" },
+      "hint": "Sounds like: sah-LU.",
+      "explanation": "Salut — casual hi AND casual bye. A double agent of a word.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.greetings.021",
+      "realm": "french", "skill": "french.greetings", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: pick the exact translation of this doorway exchange.\n\n« Bonsoir, madame ! Je m'appelle Amal. — Enchantée, Amal ! Ça va ? — Très bien, merci. Au revoir ! — À demain ! »",
+      "answer": "Good evening, ma'am! My name is Amal. — Delighted to meet you, Amal! How are you? — Very well, thanks. Goodbye! — See you tomorrow!",
+      "options": [
+        "Good evening, ma'am! My name is Amal. — Delighted to meet you, Amal! How are you? — Very well, thanks. Goodbye! — See you tomorrow!",
+        "Good morning, ma'am! My name is Amal. — Delighted to meet you, Amal! How are you? — So-so, thanks. Goodbye! — See you soon!",
+        "Good evening, miss! My name is Amal. — Thank you, Amal! How old are you? — Very well, thanks. Good night! — See you Monday!",
+        "Hello, ma'am! My name is Amal. — Delighted, Amal! What's your name? — Very well, thanks. Goodbye! — See you tonight!"
+      ],
+      "hint": "Check three clues: bonsoir, très bien, à demain.",
+      "explanation": "Bonsoir = good evening, très bien = very well, à demain = see you tomorrow — every clue locks the answer in.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "french.numbers.t01",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.numbers",
+      "prompt": "The market baker says you may sample « dix-sept » mini-croissants. You know dix = 10 and sept = 7. Best guess: how many croissants is that?",
+      "answer": "17",
+      "options": ["17", "107", "3", "70"],
+      "hint": "French glues small numbers together with math. Which operation feels right here?",
+      "explanation": "Dix-sept = 10 + 7 = 17. French numbers are tiny addition problems wearing hyphens.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.numbers.t02",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.french.numbers",
+      "prompt": "Let's crack the French number machine: build 17, then 25, then the legendary 80 and 90.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Teens add onto ten: dix-sept (dees-SET) = 10 + 7 = 17. Same trick for dix-huit (18) and dix-neuf (19). But 11–16 have their own short names: onze, douze, treize, quatorze, quinze, seize." },
+          {
+            "text": "Tens + ones snap together with a hyphen: vingt-cinq (van-SANK) = 20 + 5 = 25. The tens to know: vingt 20, trente 30, quarante 40, cinquante 50, soixante 60.",
+            "check": {
+              "question": "Following the pattern, trente-deux = ?",
+              "options": ["32", "23", "302"],
+              "answer": 0
+            }
+          },
+          { "text": "One quirk: numbers ending in 1 (21, 31 … 61) add a tiny 'and': vingt et un = 'twenty AND one' = 21. Everything else keeps the hyphen: vingt-deux, vingt-trois…" },
+          {
+            "text": "Now the famous part. French has no plain word for 70, 80 or 90 — it does MATH instead: soixante-dix = 60 + 10 = 70, and quatre-vingts = 4 × 20 = 80. Yes, 'four twenties.'",
+            "check": {
+              "question": "So quatre-vingt-dix, which spells 4 × 20 + 10, = ?",
+              "options": ["90", "84", "410"],
+              "answer": 0
+            }
+          },
+          { "text": "Top it off with cent (sahn) = 100. So 99 = quatre-vingt-dix-neuf = 4 × 20 + 10 + 9. French numbers are equations — and you already speak fluent equation." }
+        ]
+      }
+    },
+    {
+      "id": "french.numbers.t03",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.numbers",
+      "prompt": "Decode each French number by finishing its math. Write the final values as digits.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "dix-neuf = 10 + 9 = [[19]]",
+          "soixante-dix = 60 + 10 = [[70]]",
+          "quatre-vingts = 4 × 20 = [[80]]"
+        ]
+      },
+      "hint": "Just do the arithmetic each name spells out.",
+      "explanation": "That's the whole secret: the name IS the equation — dix-neuf 19, soixante-dix 70, quatre-vingts 80."
+    },
+    {
+      "id": "french.numbers.001",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A sign at the harbor cat café brags: « Nous avons trois chats ! » How many cats do they have?",
+      "answer": "3",
+      "options": ["3", "13", "30", "8"],
+      "hint": "Trois sounds like 'trwah' — it's in your bridge vocab.",
+      "explanation": "Trois = 3. Un, deux, trois — one, two, three cats to pet.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.numbers.002",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Your Duolingo streak hits « huit » days. Which number is that?",
+      "answer": "8",
+      "options": ["8", "3", "18", "2"],
+      "hint": "It sounds like 'weet' — rhymes with 'sweet streak.'",
+      "explanation": "Huit = 8. Streak on: neuf (9) tomorrow!",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "french.numbers.003",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each French number word to its digit.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["un", "1"],
+          ["quatre", "4"],
+          ["cinq", "5"],
+          ["sept", "7"],
+          ["dix", "10"]
+        ]
+      },
+      "hint": "Cinq sounds like 'sank' — five fingers sank into the dough.",
+      "explanation": "Un 1, quatre 4, cinq 5, sept 7, dix 10 — the building blocks for every bigger number."
+    },
+    {
+      "id": "french.numbers.004",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Press play. Which digit did you hear?",
+      "answer": "7",
+      "options": ["7", "5", "6", "17"],
+      "data": { "audioText": "sept", "lang": "fr-FR" },
+      "hint": "Sounds like: set.",
+      "explanation": "Sept = 7 — the p stays silent, so it sounds like 'set.'"
+    },
+    {
+      "id": "french.numbers.005",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Launch-sequence practice! Fill in the two missing numbers.",
+      "answer": "blanks",
+      "data": { "lines": ["un, deux, [[trois]], quatre, [[cinq]], six"] },
+      "hint": "They sound like 'trwah' and 'sank.'",
+      "explanation": "Un, deux, trois, quatre, cinq, six — 1 through 6, the launch sequence of French counting."
+    },
+    {
+      "id": "french.numbers.006",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play. Which number did you hear?",
+      "answer": "14",
+      "options": ["14", "4", "40", "24"],
+      "data": { "audioText": "quatorze", "lang": "fr-FR" },
+      "hint": "Sounds like: kah-TORZ — one of the special teen names.",
+      "explanation": "Quatorze = 14. The numbers 11–16 get custom names: onze, douze, treize, quatorze, quinze, seize."
+    },
+    {
+      "id": "french.numbers.007",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Your knitting pattern calls for 16 stitches in the next row. How do you say 16 in French?",
+      "answer": "seize",
+      "options": ["seize", "six", "soixante", "dix-six"],
+      "hint": "16 is the LAST of the custom teen names — the dix-glue pattern only starts at 17.",
+      "explanation": "Seize (sez) = 16. There's no dix-six — French only starts gluing at dix-sept (17).",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.numbers.008",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "The teen machine: 17, 18 and 19 are built as ten-plus. Complete each one.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "17 = dix-[[sept]]",
+          "18 = dix-[[huit]]",
+          "19 = dix-[[neuf]]"
+        ]
+      },
+      "hint": "10 + 7, 10 + 8, 10 + 9 — you just need the words for 7, 8 and 9.",
+      "explanation": "Dix-sept, dix-huit, dix-neuf — ten-seven, ten-eight, ten-nine. Pure addition with hyphens."
+    },
+    {
+      "id": "french.numbers.009",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Lightning round! Type each digit's French name as fast as you can.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["7", "sept"], ["3", "trois"], ["10", "dix"], ["5", "cinq"], ["12", "douze"], ["15", "quinze"], ["9", "neuf"],
+          ["16", "seize"], ["2", "deux"], ["8", "huit"], ["13", "treize"], ["0", "zéro"], ["20", "vingt"]
+        ]
+      },
+      "hint": "Teens to watch: douze 12, treize 13, quinze 15, seize 16.",
+      "explanation": "Fast 0–20 recall makes the big composed numbers feel easy — they're just these plus glue."
+    },
+    {
+      "id": "french.numbers.010",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which French word means 40?",
+      "answer": "quarante",
+      "options": ["quarante", "quatorze", "quatre", "cinquante"],
+      "hint": "Careful — quatorze is 14! The tens end in -ante.",
+      "explanation": "Quarante = 40; quatorze = 14. The -ante ending marks the tens: trente, quarante, cinquante, soixante."
+    },
+    {
+      "id": "french.numbers.011",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each tens word to its value.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["vingt", "20"],
+          ["trente", "30"],
+          ["quarante", "40"],
+          ["cinquante", "50"],
+          ["soixante", "60"]
+        ]
+      },
+      "hint": "Cinquante hides cinq (5) — five tens. Soixante hides six.",
+      "explanation": "20–60 count up politely: vingt, trente, quarante, cinquante, soixante. The drama starts at 70."
+    },
+    {
+      "id": "french.numbers.012",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Your K-pop photocard binder holds « vingt-cinq » cards. Type that number in digits.",
+      "answer": "25",
+      "hint": "vingt + cinq, glued with a hyphen — add the pieces.",
+      "explanation": "Vingt-cinq = 20 + 5 = 25. Tens plus ones, hyphen included.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.numbers.013",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play. Which number did you hear?",
+      "answer": "33",
+      "options": ["33", "13", "3", "43"],
+      "data": { "audioText": "trente-trois", "lang": "fr-FR" },
+      "hint": "Sounds like: tront-TRWAH — a tens word plus a little one.",
+      "explanation": "Trente-trois = 30 + 3 = 33. You can hear the two pieces snap together."
+    },
+    {
+      "id": "french.numbers.014",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "21 is special — it sneaks in a tiny extra word. Which is the correct French for 21?",
+      "answer": "vingt et un",
+      "options": ["vingt et un", "vingt-un", "un et vingt", "vingt-deux"],
+      "hint": "Numbers ending in 1 say 'twenty AND one' — et means and.",
+      "explanation": "Vingt et un = 21, and the pattern repeats: trente et un (31) … soixante et un (61). Vingt-deux (22) and friends go back to hyphens."
+    },
+    {
+      "id": "french.numbers.015",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Arrange the words to say 'I am eleven years old' — literally 'I have eleven years.'",
+      "answer": "sequence",
+      "data": { "sequence": ["J'ai", "onze", "ans"] },
+      "hint": "Start with 'I have' — in French, age is something you HAVE.",
+      "explanation": "J'ai onze ans = I am 11. French speakers have their years like treasure; they don't 'be' them."
+    },
+    {
+      "id": "french.numbers.016",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "The fan site says the K-pop comeback drops in « soixante-dix » days. Decode the math: how many days?",
+      "answer": "70",
+      "options": ["70", "60", "17", "16"],
+      "hint": "soixante = 60, dix = 10. French has no plain word for this number — it adds.",
+      "explanation": "Soixante-dix = 60 + 10 = 70. French skips inventing a word for 70 and just keeps counting past sixty.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "french.numbers.017",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Your scarf pattern needs « quatre-vingts » stitches — literally 'four twenties.' Do the multiplication and type the stitch count in digits.",
+      "answer": "80",
+      "hint": "quatre × vingt = 4 × 20.",
+      "explanation": "Quatre-vingts = 4 × 20 = 80 — French genuinely multiplies here. (The -s on vingts stays only when no other number follows.)",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.numbers.018",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Press play. Which number did you hear? (It's one of the math-built ones.)",
+      "answer": "75",
+      "options": ["75", "65", "15", "85"],
+      "data": { "audioText": "soixante-quinze", "lang": "fr-FR" },
+      "hint": "Sounds like: swah-sont-KANZ — sixty plus a teen.",
+      "explanation": "Soixante-quinze = 60 + 15 = 75. Past 69, French keeps stacking teens onto soixante."
+    },
+    {
+      "id": "french.numbers.019",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Decode 92 like a code-breaker. Fill in the two missing pieces (digits).",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "quatre-vingt-douze",
+          "= (4 × [[20]]) + douze",
+          "= 80 + [[12]]",
+          "= 92"
+        ]
+      },
+      "hint": "quatre-vingt = four twenties; douze is a teen you know.",
+      "explanation": "Quatre-vingt-douze = 4 × 20 + 12 = 92. Every scary-looking big number falls to this two-step decode."
+    },
+    {
+      "id": "french.numbers.020",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A market stall lists its number translations. One is wrong — tap it.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "dix-sept = 17",
+          "soixante-dix = 70",
+          "quatre-vingt-dix = 80",
+          "cent = 100"
+        ]
+      },
+      "hint": "Run the math on each one: quatre-vingt-dix has a + 10 hiding in it.",
+      "explanation": "Quatre-vingt-dix = 4 × 20 + 10 = 90, not 80. Plain 80 is quatre-vingts."
+    },
+    {
+      "id": "french.numbers.021",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Arrange the words to announce 'There are eighty croissants.'",
+      "answer": "sequence",
+      "data": { "sequence": ["Il", "y", "a", "quatre-vingts", "croissants"] },
+      "hint": "'There is / there are' in French is the three-word combo il y a.",
+      "explanation": "Il y a quatre-vingts croissants = there are 80 croissants. Il y a is French's all-purpose 'there is/are.'",
+      "tags": ["baking"]
+    },
+    {
+      "id": "french.numbers.022",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play, then type the number you hear — in digits.",
+      "answer": ["19", "dix-neuf"],
+      "data": { "audioText": "dix-neuf", "lang": "fr-FR" },
+      "hint": "Sounds like: deez-NUF — a ten-plus teen.",
+      "explanation": "Dix-neuf = 10 + 9 = 19."
+    },
+    {
+      "id": "french.numbers.023",
+      "realm": "french", "skill": "french.numbers", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: at the wizard market, a spellbook costs « soixante-dix-sept » coins and a cat charm costs « vingt-trois » coins. Decode both numbers, add them, and type the total in digits.",
+      "answer": "100",
+      "hint": "60 + 10 + 7 for the book; 20 + 3 for the charm. Then add.",
+      "explanation": "Soixante-dix-sept = 77 and vingt-trois = 23, so 77 + 23 = 100 — which French calls cent. Magic budget: spent.",
+      "tags": ["legendary", "harry-potter", "cats"]
+    },
+    {
+      "id": "french.calendar.t01",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice", "teachSequenceId": "teach.french.calendar",
+      "prompt": "You know lundi = Monday, day one of the French week. Explorer's hunch: what does « mardi » mean?",
+      "answer": "Tuesday",
+      "options": ["Tuesday", "March", "Morning", "Sunday"],
+      "hint": "The days march in order — mardi comes right after lundi.",
+      "explanation": "Mardi = Tuesday, day two of the week. Fun fact: Mardi Gras literally means 'Fat Tuesday.'"
+    },
+    {
+      "id": "french.calendar.t02",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.french.calendar",
+      "prompt": "Let's build a full French calendar sentence: today's day, the date, and the weather.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "The seven days, in French order: lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. The week starts on Monday — and French days are never capitalized." },
+          {
+            "text": "Say the day: Aujourd'hui, c'est mardi = today is Tuesday. Aujourd'hui (oh-zhoor-DWEE) = today.",
+            "check": {
+              "question": "Which day starts the French week?",
+              "options": ["lundi (Monday)", "dimanche (Sunday)", "samedi (Saturday)"],
+              "answer": 0
+            }
+          },
+          { "text": "Add the date with le + number + month: le quatorze juillet = July 14, France's national holiday. French says the number BEFORE the month — backwards from English." },
+          {
+            "text": "One exception: the 1st of a month uses premier (first): le premier mai = May 1st. Every other date uses a plain number.",
+            "check": {
+              "question": "How would you say May 1st?",
+              "options": ["le premier mai", "le un mai", "mai le premier"],
+              "answer": 0
+            }
+          },
+          { "text": "Finish with weather: Il fait beau = it's lovely out. All together: Aujourd'hui, c'est mardi le quatorze juillet, et il fait beau ! A whole forecast in one breath." }
+        ]
+      }
+    },
+    {
+      "id": "french.calendar.t03",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.french.calendar",
+      "prompt": "It's Monday, July 14 — finish the journal entry with the French day.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Aujourd'hui, c'est [[lundi]] le quatorze juillet.",
+          "Il fait beau !"
+        ]
+      },
+      "hint": "Day ONE of the French week — it sounds like luhn-DEE.",
+      "explanation": "Aujourd'hui, c'est lundi = today is Monday. Le quatorze juillet is Bastille Day — fireworks over all of France."
+    },
+    {
+      "id": "french.calendar.001",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Your Duolingo streak screen says « samedi ». Which day is it?",
+      "answer": "Saturday",
+      "options": ["Saturday", "Sunday", "Monday", "Wednesday"],
+      "hint": "It's a weekend day — sounds like sahm-DEE.",
+      "explanation": "Samedi = Saturday. The weekend pair is samedi and dimanche.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "french.calendar.002",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each French day to its English day.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["lundi", "Monday"],
+          ["mercredi", "Wednesday"],
+          ["vendredi", "Friday"],
+          ["dimanche", "Sunday"]
+        ]
+      },
+      "hint": "Lundi launches the week; dimanche closes it.",
+      "explanation": "Lundi, mercredi, vendredi, dimanche — Monday, Wednesday, Friday, Sunday. Notice: no capital letters on French days."
+    },
+    {
+      "id": "french.calendar.003",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Your cat glares out the window: « Il pleut. » What's the weather?",
+      "answer": "It's raining",
+      "options": ["It's raining", "It's sunny", "It's snowing", "It's windy"],
+      "hint": "Pleut sounds like 'pluh' — think puddles.",
+      "explanation": "Il pleut = it's raining. Cats and rain: eternal enemies.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.calendar.004",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 1,
+      "type": "listening",
+      "prompt": "Press play. Which day did you hear?",
+      "answer": "Monday",
+      "options": ["Monday", "Tuesday", "Saturday", "Sunday"],
+      "data": { "audioText": "lundi", "lang": "fr-FR" },
+      "hint": "Sounds like: luhn-DEE — day one of the French week.",
+      "explanation": "Lundi = Monday, named after la lune (the moon) — moon-day, just like in English!"
+    },
+    {
+      "id": "french.calendar.005",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Your streak calendar got shuffled! Put the days in order, starting with the FIRST day of the French week.",
+      "answer": "sequence",
+      "data": { "sequence": ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"] },
+      "hint": "French calendars start on Monday, not Sunday.",
+      "explanation": "Lundi through samedi — then dimanche (Sunday) caps the weekend. French weeks launch on Monday.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "french.calendar.006",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Arrange the words to say 'Today is October 3rd.'",
+      "answer": "sequence",
+      "data": { "sequence": ["Aujourd'hui,", "c'est", "le", "trois", "octobre"] },
+      "hint": "Start with 'today' — and remember, the number comes BEFORE the month.",
+      "explanation": "Aujourd'hui, c'est le trois octobre. French dates flip English: the 3 marches in front of October."
+    },
+    {
+      "id": "french.calendar.007",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "French months are sneaky cognates. Match each one to its English month.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["janvier", "January"],
+          ["avril", "April"],
+          ["août", "August"],
+          ["octobre", "October"],
+          ["décembre", "December"]
+        ]
+      },
+      "hint": "Sound them out — most French months almost rhyme with their English twins.",
+      "explanation": "Janvier, avril, août, octobre, décembre — and like days, French months skip the capital letters."
+    },
+    {
+      "id": "french.calendar.008",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "School in France wraps up in « juin », and summer break rolls into the next month. Which month comes right after juin?",
+      "answer": "juillet",
+      "options": ["juillet", "août", "janvier", "mai"],
+      "hint": "June and July are the twin J months — juin, then…",
+      "explanation": "Juin (June) → juillet (July), the month of Bastille Day fireworks. Août (August) comes after that."
+    },
+    {
+      "id": "french.calendar.009",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Your Duolingo monthly-badge shelf shows the whole French year — fill in the two missing months.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "janvier, février, [[mars]], avril, [[mai]], juin,",
+          "juillet, août, septembre, octobre, novembre, décembre"
+        ]
+      },
+      "hint": "Month 3 shares its name with a red planet; month 5 sounds like 'meh.'",
+      "explanation": "Mars (March) and mai (May). Twelve months, zero capital letters — très French.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "french.calendar.010",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play for the forecast. Is it scarf-knitting weather?",
+      "answer": "It's cold",
+      "options": ["It's cold", "It's hot", "It's nice out", "It's windy"],
+      "data": { "audioText": "Il fait froid.", "lang": "fr-FR" },
+      "hint": "Sounds like: eel feh FRWAH — brrr.",
+      "explanation": "Il fait froid = it's cold. Absolutely scarf weather — cast on!",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "french.calendar.011",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each French season to its English season.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["le printemps", "spring"],
+          ["l'été", "summer"],
+          ["l'automne", "fall"],
+          ["l'hiver", "winter"]
+        ]
+      },
+      "hint": "L'hiver sounds shivery (lee-VAIR); l'été is when things get heated.",
+      "explanation": "Le printemps, l'été, l'automne, l'hiver — spring, summer, fall, winter. Été even looks sunny with those accents."
+    },
+    {
+      "id": "french.calendar.012",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Pack for the trip! Sort each phrase: blazing summer day or snowy winter day?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Summer day (l'été)": ["il fait chaud", "il y a du soleil", "il fait beau"],
+          "Winter day (l'hiver)": ["il neige", "il fait froid"]
+        }
+      },
+      "hint": "Chaud = hot (think hot chocolate: chocolat chaud); neige = snow.",
+      "explanation": "Chaud, soleil and beau belong to summer; neige and froid are winter's crew."
+    },
+    {
+      "id": "french.calendar.013",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "listening",
+      "prompt": "Press play. Which day did you hear?",
+      "answer": "Wednesday",
+      "options": ["Wednesday", "Tuesday", "Thursday", "Friday"],
+      "data": { "audioText": "mercredi", "lang": "fr-FR" },
+      "hint": "Sounds like: mair-kruh-DEE — the midweek mouthful.",
+      "explanation": "Mercredi = Wednesday. Many French schools traditionally took a midweek break on mercredi — quelle chance!"
+    },
+    {
+      "id": "french.calendar.014",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Your pen pal asks: « Quel jour sommes-nous ? » What does she want to know?",
+      "answer": "What day it is",
+      "options": ["What day it is", "What the weather is like", "What time it is", "What your name is"],
+      "hint": "Jour = day — you already know it from bonJOUR.",
+      "explanation": "Quel jour sommes-nous ? = what day is it? (Literally 'what day are we?' — answer: Nous sommes mardi.)"
+    },
+    {
+      "id": "french.calendar.015",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Bastille Day fireworks light up July 14. Which is the correct French date?",
+      "answer": "le quatorze juillet",
+      "options": ["le quatorze juillet", "juillet quatorze", "le juillet quatorze", "quatorze le juillet"],
+      "hint": "The formula is le + number + month, in exactly that order.",
+      "explanation": "Le quatorze juillet — le first, number before month. France's national holiday since 1880."
+    },
+    {
+      "id": "french.calendar.016",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "On May 1st, French friends trade lily-of-the-valley flowers for luck. Write 'May 1st' in French — remember, the 1st is the special one.",
+      "answer": ["le premier mai", "Le premier mai", "premier mai"],
+      "hint": "Not 'le un mai' — the 1st uses the word for 'first.'",
+      "explanation": "Le premier mai = May 1st, the only date that uses premier instead of a plain number. The lucky flower is called muguet."
+    },
+    {
+      "id": "french.calendar.017",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Press play for the announcement. What day and date did you hear?",
+      "answer": "Thursday, March 12",
+      "options": ["Thursday, March 12", "Tuesday, March 2", "Thursday, May 12", "Friday, March 13"],
+      "data": { "audioText": "Aujourd'hui, c'est jeudi le douze mars.", "lang": "fr-FR" },
+      "hint": "Sounds like: zhuh-DEE … DOOZ … MARSS — day, number, month.",
+      "explanation": "Jeudi le douze mars = Thursday, March 12. Douze = 12 and mars = March."
+    },
+    {
+      "id": "french.calendar.018",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Arrange the words to ask 'What's the weather like today?'",
+      "answer": "sequence",
+      "data": { "sequence": ["Quel", "temps", "fait-il", "aujourd'hui ?"] },
+      "hint": "Literally 'what weather makes it?' — start with Quel.",
+      "explanation": "Quel temps fait-il aujourd'hui ? — THE weather question. Answers usually begin with il fait…"
+    },
+    {
+      "id": "french.calendar.019",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Complete the four-season forecast with the missing weather words.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "En été, il fait [[chaud]].",
+          "En hiver, il fait froid et il [[neige]].",
+          "Au printemps, il [[pleut]] souvent."
+        ]
+      },
+      "hint": "Hot ↔ chaud, it snows ↔ il neige, it rains ↔ il pleut.",
+      "explanation": "Il fait chaud in summer, il neige in winter, il pleut in spring — your full forecast toolkit."
+    },
+    {
+      "id": "french.calendar.020",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 3,
+      "type": "listening",
+      "prompt": "Your cat refuses the door with great drama. Press play on the forecast — what's happening outside?",
+      "answer": "It's windy and raining",
+      "options": ["It's windy and raining", "It's sunny and hot", "It's snowing and cold", "It's nice out and calm"],
+      "data": { "audioText": "Il y a du vent et il pleut.", "lang": "fr-FR" },
+      "hint": "Sounds like: eel yah du VON … eel PLUH. Two weather events!",
+      "explanation": "Il y a du vent (it's windy) et il pleut (it's raining) — a two-part storm. Wise cat.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "french.calendar.021",
+      "realm": "french", "skill": "french.calendar", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: the fan club posts the concert details — « Le concert est samedi, le vingt et un juin, le premier jour de l'été. » Decode the FULL announcement.",
+      "answer": "The concert is Saturday, June 21, the first day of summer",
+      "options": [
+        "The concert is Saturday, June 21, the first day of summer",
+        "The concert is Sunday, June 21, the first day of July",
+        "The concert is Saturday, July 21, the first day of summer",
+        "The concert is Saturday, June 1, the last day of spring"
+      ],
+      "hint": "Three decodes: samedi, vingt et un (20 + 1), juin — then l'été.",
+      "explanation": "Samedi = Saturday, le vingt et un juin = June 21 (that's 20 + 1!), and l'été = summer. June 21 really does open summer — France throws the Fête de la Musique that day.",
+      "tags": ["kpop", "legendary"]
+    }
+  ]
+}

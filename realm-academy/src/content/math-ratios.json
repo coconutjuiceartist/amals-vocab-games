@@ -1,0 +1,630 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.ratios",
+      "skill": "math.ratios",
+      "title": "Ratios: Cracking the Recipe Code",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "You already know this trick",
+          "lines": [
+            "Remember speed? A train going 80 km per hour is really a RATIO: 80 km for every 1 hour.",
+            "Today we crack open that 'per' — it works for tuna, yarn, cookies… everything."
+          ],
+          "vocab": [
+            { "term": "ratio", "meaning": "a comparison of two amounts, like 3 spoonfuls for every 2 cats" },
+            { "term": "equivalent ratios", "meaning": "ratios that describe the same relationship, like 3:2 and 6:4" }
+          ],
+          "visual": "speed"
+        },
+        { "kind": "gambit", "itemId": "math.ratios.t01", "framing": "No grade, no pressure — just try something. Even a wild guess teaches your brain what to listen for." },
+        { "kind": "worked", "itemId": "math.ratios.t02" },
+        { "kind": "completion", "itemId": "math.ratios.t03" },
+        { "kind": "completion", "itemId": "math.ratios.t04" },
+        {
+          "kind": "bridge",
+          "title": "The tape diagram",
+          "lines": [
+            "When a ratio problem gives you a TOTAL, draw boxes: one box per ratio part.",
+            "Every box holds the same amount — find one box and you've found everything."
+          ],
+          "visual": "tape"
+        },
+        { "kind": "worked", "itemId": "math.ratios.t05" },
+        { "kind": "completion", "itemId": "math.ratios.t06" },
+        { "kind": "completion", "itemId": "math.ratios.t07" },
+        { "kind": "completion", "itemId": "math.ratios.t08" },
+        { "kind": "burst", "itemIds": ["math.ratios.001", "math.ratios.002", "math.ratios.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.ratios.t01",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.ratios",
+      "prompt": "Mrs. Norris's Famous Cat Treats: the recipe makes treats for 2 cats using 3 spoonfuls of tuna. Amal is baking for 8 cats. How many spoonfuls of tuna?",
+      "answer": ["12", "12 spoonfuls"],
+      "hint": "8 cats is how many groups of 2 cats?",
+      "explanation": "8 cats is 4 groups of 2 cats, so you need 4 groups of 3 spoonfuls: 12.",
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "math.ratios.t02",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.ratios",
+      "prompt": "Let's solve the cat-treat problem together: 3 spoonfuls for every 2 cats. How much for 8 cats?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "A ratio compares two amounts: 3 spoonfuls FOR EVERY 2 cats. We write it 3:2 (say '3 to 2')." },
+          {
+            "text": "Equivalent ratios: multiply BOTH parts by the same number and the relationship stays identical. 3:2 × 2 → 6:4. × 3 → 9:6.",
+            "check": {
+              "question": "Why must we multiply BOTH parts?",
+              "options": [
+                "So tuna and cats grow together — the relationship stays the same",
+                "To make both numbers bigger",
+                "Because tuna is more important than cats"
+              ],
+              "answer": 0
+            }
+          },
+          {
+            "text": "We want 8 cats. Since 8 ÷ 2 = 4, multiply both parts by 4: the ratio 3:2 becomes 12:8.",
+            "check": {
+              "question": "Which calculation told us to use ×4?",
+              "options": ["8 ÷ 2 = 4", "3 + 1 = 4", "8 − 4 = 4"],
+              "answer": 0
+            }
+          },
+          { "text": "Answer: 12 spoonfuls for 8 cats. Check: 12:8 simplifies back to 3:2. The recipe code is cracked. 🐱" }
+        ]
+      },
+      "tags": ["cats", "baking"]
+    },
+    {
+      "id": "math.ratios.t03",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.ratios",
+      "prompt": "Your turn to finish one. Yarn shop: 2 skeins of wool make 5 washcloths. Amal buys 6 skeins.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Ratio of skeins to washcloths → 2:5",
+          "6 skeins = 2 × 3, so multiply both parts by 3",
+          "Washcloths: 5 × 3 = [[15]]"
+        ]
+      },
+      "hint": "The skeins were multiplied by 3 — washcloths get the same treatment.",
+      "explanation": "Both parts scale by 3: the ratio 2:5 becomes 6:15.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.ratios.t04",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.ratios",
+      "prompt": "Ratios also shrink (divide both parts). A K-pop fan chant uses 4 claps for every 6 stomps. Simplify the ratio.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Claps to stomps → 4:6",
+          "Divide both parts by their GCF, which is 2",
+          "Simplest form: [[2]]:[[3]]"
+        ]
+      },
+      "hint": "You're a GCF pro: what's the greatest common factor of 4 and 6?",
+      "explanation": "4 ÷ 2 = 2 and 6 ÷ 2 = 3, so 4:6 = 2:3 — same chant, smaller numbers.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.ratios.t05",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.ratios",
+      "prompt": "Tape diagrams: the ratio of mystery to fantasy books on Amal's shelf is 5:3. There are 24 books in all. How many are fantasy?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Draw the tape: 5 boxes for mystery, 3 boxes for fantasy. ▢▢▢▢▢ | ▢▢▢. Every box holds the SAME number of books." },
+          {
+            "text": "Count the boxes: 5 + 3 = 8 boxes share all 24 books. One box = 24 ÷ 8 = 3 books.",
+            "check": {
+              "question": "What does ONE box stand for?",
+              "options": ["3 books", "8 books", "1 book"],
+              "answer": 0
+            }
+          },
+          { "text": "Fantasy owns 3 boxes: 3 × 3 = 9 fantasy books. (And mystery: 5 × 3 = 15. Check: 15 + 9 = 24 ✓)" },
+          {
+            "text": "That's the whole tape-diagram move: total ÷ total boxes = one box, then multiply.",
+            "check": {
+              "question": "If the total were 40 books instead, one box would be…",
+              "options": ["5 books", "8 books", "3 books"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.ratios.t06",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.ratios",
+      "prompt": "Finish this tape-diagram solve. A calico cat's patches show black to orange fur in the ratio 7:2. A patch chart counts 36 patches total.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Boxes: 7 + 2 = 9 boxes share 36 patches",
+          "One box: 36 ÷ 9 = [[4]] patches",
+          "Black patches: 7 × 4 = [[28]]"
+        ]
+      },
+      "hint": "Total ÷ total boxes first. Then black gets 7 of those boxes.",
+      "explanation": "One box is 4 patches, so black = 7 × 4 = 28 and orange = 2 × 4 = 8. Check: 28 + 8 = 36 ✓",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.ratios.t07",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.ratios",
+      "prompt": "Unit rates — your old friend speed, generalized. A baker uses 9 cups of flour for 4 loaves. How much flour for 10 loaves?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Cups PER loaf (the unit rate): 9 ÷ 4 = [[2.25]]",
+          "For 10 loaves: 2.25 × 10 = [[22.5]] cups"
+        ]
+      },
+      "hint": "'Per loaf' means divide by the number of loaves — exactly like km PER hour.",
+      "explanation": "A unit rate is the amount for ONE: 2.25 cups per loaf, then scale to any batch you like.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.ratios.t08",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.ratios",
+      "prompt": "Last one — you drive. Café Lumière sells 3 croissants for $5.10, or a box of 5 for $8.00. Which is the better deal?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Per croissant, pack of 3: 5.10 ÷ 3 = $[[1.70]]",
+          "Per croissant, box of 5: 8.00 ÷ 5 = $[[1.60]]",
+          "Better deal: the box of [[5]]"
+        ]
+      },
+      "hint": "Compare prices for ONE croissant — unit rates make unfair comparisons fair.",
+      "explanation": "Unit prices: $1.70 vs $1.60 per croissant, so the box of 5 wins by 10¢ each.",
+      "tags": ["baking", "french-crossover"]
+    },
+
+    {
+      "id": "math.ratios.001",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "In Amal's knitting basket, the ratio of blue to purple yarn balls is 4:3. What does that tell us?",
+      "answer": "For every 4 blue balls there are 3 purple balls",
+      "options": [
+        "For every 4 blue balls there are 3 purple balls",
+        "There are exactly 4 blue and 3 purple balls",
+        "Blue balls weigh more than purple ones",
+        "There are 43 yarn balls"
+      ],
+      "hint": "A ratio is a relationship, not necessarily an exact count.",
+      "explanation": "4:3 means the relationship — there could be 4 and 3, or 8 and 6, or 40 and 30.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.ratios.002",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Write the ratio with a colon: 2 cats for every 5 treats.",
+      "answer": ["2:5", "2 to 5"],
+      "hint": "Cats first, treats second.",
+      "explanation": "Order matters in a ratio: cats to treats is 2:5.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.ratios.003",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which ratio is equivalent to 3:5?",
+      "answer": "6:10",
+      "options": ["6:10", "5:3", "9:10", "3:10"],
+      "hint": "Multiply both parts by the same number.",
+      "explanation": "3 × 2 = 6 and 5 × 2 = 10, so 3:5 = 6:10."
+    },
+    {
+      "id": "math.ratios.004",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Simplify the ratio 6:10.",
+      "answer": "blanks",
+      "data": { "lines": ["6:10 in simplest form is [[3]]:[[5]]"] },
+      "hint": "Divide both parts by 2.",
+      "explanation": "Divide both parts by the GCF (2): 6:10 = 3:5."
+    },
+    {
+      "id": "math.ratios.005",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "tape_diagram",
+      "prompt": "A shelter has cats and kittens in the ratio 3:2. There are 15 animals in all. How many are cats?",
+      "answer": "9",
+      "data": { "model": { "parts": ["cats", "kittens"], "counts": [3, 2], "total": 15, "unitHint": true, "ask": "How many cats?" } },
+      "hint": "5 boxes share 15 animals — how much is one box?",
+      "explanation": "15 ÷ 5 boxes = 3 per box, so cats = 3 × 3 = 9.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.ratios.006",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "ratio_table",
+      "prompt": "Complete the cookie ratio table.",
+      "answer": "blanks",
+      "data": { "model": { "headers": ["cups of flour", "cookies"], "rows": [[2, 24], [3, null], [5, null]], "blanksAnswers": [["36"], ["60"]] } },
+      "hint": "First find cookies per ONE cup of flour.",
+      "explanation": "24 ÷ 2 = 12 cookies per cup, so 3 cups → 36 and 5 cups → 60.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.ratios.007",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "double_number_line",
+      "prompt": "Amal knits 4 rows every 20 minutes. Use the double number line: how many rows in 45 minutes?",
+      "answer": "9",
+      "data": { "model": { "topLabel": "rows", "bottomLabel": "minutes", "topMax": 12, "bottomMax": 60, "knownTop": 4, "knownBottom": 20, "askBottom": 45 } },
+      "hint": "How many rows per 5 minutes? Line up the two number lines.",
+      "explanation": "4 rows per 20 min = 1 row per 5 min, so 45 min → 9 rows.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.ratios.008",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A Swahili practice streak earns Amal 15 XP per lesson. Yesterday she earned 75 XP. How many lessons did she finish?",
+      "answer": ["5", "5 lessons"],
+      "hint": "XP ÷ XP-per-lesson.",
+      "explanation": "75 ÷ 15 = 5 lessons — unit rates work in reverse too.",
+      "tags": ["duolingo", "swahili"]
+    },
+    {
+      "id": "math.ratios.009",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Muffin math: $5.40 for 4 muffins. What is the price per muffin, in dollars?",
+      "answer": ["1.35", "$1.35"],
+      "hint": "Per muffin = total ÷ number of muffins.",
+      "explanation": "5.40 ÷ 4 = 1.35 — that's the unit price.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.ratios.010",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each ratio to its equivalent.",
+      "answer": "pairs",
+      "data": { "pairs": [["3:4", "12:16"], ["2:5", "6:15"], ["5:2", "25:10"], ["1:6", "4:24"]] },
+      "hint": "Multiply both parts of the left ratio by the same number.",
+      "explanation": "Equivalent ratios are scaled copies: ×4, ×3, ×5, ×4."
+    },
+    {
+      "id": "math.ratios.011",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A train covers 180 km in 2 hours. At that rate, how many hours for 270 km?",
+      "answer": ["3", "3 hours"],
+      "hint": "First find km per hour — you've done this in motion problems!",
+      "explanation": "180 ÷ 2 = 90 km/h, and 270 ÷ 90 = 3 hours.",
+      "tags": ["bridge-speed"]
+    },
+    {
+      "id": "math.ratios.012",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Put the tape-diagram steps in order for: 'juice to fizzy water 2:3, total 20 cups — how much juice?'",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Draw 2 boxes for juice and 3 boxes for fizzy water",
+          "Count boxes: 2 + 3 = 5 boxes in all",
+          "Share the total: 20 ÷ 5 = 4 cups per box",
+          "Juice gets 2 boxes: 2 × 4 = 8 cups"
+        ]
+      },
+      "hint": "Draw first, count boxes, share the total, then multiply.",
+      "explanation": "Tape diagrams always run draw → count → divide → multiply.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.ratios.013",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Solve the proportion: 5/8 = x/40.",
+      "answer": ["25", "x=25", "x = 25"],
+      "hint": "8 became 40 — what did it get multiplied by?",
+      "explanation": "8 × 5 = 40, so x = 5 × 5 = 25."
+    },
+    {
+      "id": "math.ratios.014",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin solved this ratio problem. Tap the step where it went wrong.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Problem: 2:3 = 8:x",
+          "Step A: 2 × 4 = 8, so the scale factor is 4",
+          "Step B: x = 3 + 4 = 7",
+          "Step C: check — 8:12 is equivalent to 2:3 ✓"
+        ]
+      },
+      "hint": "Scaling a ratio uses one operation on both parts. Which operation?",
+      "explanation": "Scale factors MULTIPLY: x = 3 × 4 = 12, not 3 + 4. The goblin's own check (8:12) gives it away!"
+    },
+    {
+      "id": "math.ratios.015",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "double_number_line",
+      "prompt": "A K-pop dance tutorial covers 6 moves every 15 minutes. How many moves in 40 minutes?",
+      "answer": "16",
+      "data": { "model": { "topLabel": "moves", "bottomLabel": "minutes", "topMax": 20, "bottomMax": 50, "knownTop": 6, "knownBottom": 15, "askBottom": 40 } },
+      "hint": "Find moves per 5 minutes first.",
+      "explanation": "6 moves per 15 min = 2 moves per 5 min, so 40 min → 16 moves.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.ratios.016",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Best buy at the yarn fair: 3 skeins for $7.50 or 5 skeins for $12.00?",
+      "answer": "5 skeins — $2.40 each beats $2.50 each",
+      "options": [
+        "5 skeins — $2.40 each beats $2.50 each",
+        "3 skeins — smaller total price",
+        "They cost the same per skein",
+        "3 skeins — $2.40 each beats $2.50 each"
+      ],
+      "hint": "Find each price PER SKEIN before comparing.",
+      "explanation": "7.50 ÷ 3 = $2.50/skein, 12.00 ÷ 5 = $2.40/skein — the 5-pack is the better unit price.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.ratios.017",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Recipe rescue: a recipe for 12 cupcakes uses 3 eggs. Amal needs 20 cupcakes. How many eggs?",
+      "answer": ["5", "5 eggs"],
+      "hint": "Eggs per cupcake first — or spot that 20 = 12 × 5/3.",
+      "explanation": "3 eggs ÷ 12 = 0.25 egg per cupcake; 20 × 0.25 = 5 eggs.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.ratios.018",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "tape_diagram",
+      "prompt": "A playlist has K-pop and classical songs in the ratio 9:2. It holds 33 songs. How many are K-pop?",
+      "answer": "27",
+      "data": { "model": { "parts": ["K-pop", "classical"], "counts": [9, 2], "total": 33, "unitHint": true, "ask": "How many K-pop songs?" } },
+      "hint": "11 boxes share 33 songs.",
+      "explanation": "33 ÷ 11 = 3 songs per box; K-pop = 9 × 3 = 27.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.ratios.019",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Cat-sitting rates: 3 cans of food feed 4 cats for a day. The shelter has 12 cats today. How many cans?",
+      "answer": ["9", "9 cans"],
+      "hint": "12 cats is how many groups of 4?",
+      "explanation": "12 ÷ 4 = 3 groups, so 3 × 3 = 9 cans.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.ratios.020",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Measurement conversion, ratio-style: a scarf pattern calls for 250 cm of ribbon. The shop sells ribbon by the meter.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Conversion ratio: 100 cm : 1 m",
+          "250 ÷ 100 = [[2.5]]",
+          "Amal needs [[2.5]] meters of ribbon"
+        ]
+      },
+      "hint": "How many groups of 100 cm fit in 250 cm?",
+      "explanation": "Converting units IS a ratio: 250 cm = 2.5 m.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.ratios.021",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "speed_round",
+      "prompt": "Ratio Lightning! Simplify each ratio or find the missing part.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["Simplify 4:8", "1:2"],
+          ["Simplify 9:12", "3:4"],
+          ["Simplify 10:15", "2:3"],
+          ["3:5 = 6:?", "10"],
+          ["2:7 = ?:21", "6"],
+          ["Simplify 12:18", "2:3"],
+          ["1:4 = 5:?", "20"],
+          ["Simplify 16:24", "2:3"],
+          ["5:6 = 25:?", "30"],
+          ["Simplify 14:21", "2:3"],
+          ["4:9 = 8:?", "18"],
+          ["Simplify 20:25", "4:5"]
+        ]
+      },
+      "hint": "GCF for simplifying; scale factor for missing parts.",
+      "explanation": "Fast equivalent-ratio facts make the big problems feel easy."
+    },
+    {
+      "id": "math.ratios.022",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: a bakery mixes flour and sugar in the ratio 5:2. Today it used 12 more cups of flour than sugar. How many cups of sugar?",
+      "answer": ["8", "8 cups"],
+      "hint": "The DIFFERENCE is 5 − 2 = 3 boxes of the tape diagram. Those 3 boxes hold 12 cups.",
+      "explanation": "Difference = 3 boxes = 12 cups, so one box = 4 cups and sugar = 2 × 4 = 8.",
+      "tags": ["baking", "legendary"]
+    },
+    {
+      "id": "math.ratios.023",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: at a wizard-school quidditch match, the ratio of red-team fans to yellow-team fans is 7:5. After 30 more yellow fans arrive, the ratio becomes 7:6. How many red-team fans are there?",
+      "answer": ["210", "210 fans"],
+      "hint": "Let red = 7x and yellow = 5x. The new yellow count 5x + 30 must equal 6x. (Equations with x — your home turf.)",
+      "explanation": "5x + 30 = 6x gives x = 30, so red = 7 × 30 = 210.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.ratios.024",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Amal cycles 12 km in 45 minutes. Her friend scooters 8 km in 30 minutes. Who is faster?",
+      "answer": "It's a tie — both go 16 km per hour",
+      "options": [
+        "It's a tie — both go 16 km per hour",
+        "Amal — she went farther",
+        "Her friend — less time means faster",
+        "Impossible to tell without the routes"
+      ],
+      "hint": "Convert both to km per hour before judging.",
+      "explanation": "12 km/45 min = 16 km/h and 8 km/30 min = 16 km/h — distance alone can't crown a winner.",
+      "tags": ["legendary", "bridge-speed"]
+    },
+    {
+      "id": "math.ratios.025",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Map quest: a treasure map's scale is 3 cm : 8 km. The dotted route measures 10.5 cm. How many km is the real journey?",
+      "answer": ["28", "28 km"],
+      "hint": "10.5 ÷ 3 tells you how many 'map units' the route is.",
+      "explanation": "10.5 ÷ 3 = 3.5 units, and 3.5 × 8 = 28 km.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.ratios.026",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: party punch uses cranberry to fizzy water in the ratio 3:5. Amal has 12 cups of cranberry and 15 cups of fizzy water. Keeping the ratio exact, what is the MAXIMUM total cups of punch she can mix?",
+      "answer": ["24", "24 cups"],
+      "hint": "How many full 'batches' (3 cran + 5 fizzy) does each ingredient allow? The smaller answer rules.",
+      "explanation": "Cranberry allows 12÷3 = 4 batches but fizzy only 15÷5 = 3, so 3 batches × 8 cups = 24 cups.",
+      "tags": ["baking", "legendary"]
+    },
+    {
+      "id": "math.ratios.027",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A potion recipe says 1 newt eye for every 3 moon-flowers. Which mix follows the recipe?",
+      "answer": "4 newt eyes and 12 moon-flowers",
+      "options": [
+        "4 newt eyes and 12 moon-flowers",
+        "3 newt eyes and 1 moon-flower",
+        "4 newt eyes and 7 moon-flowers",
+        "2 newt eyes and 9 moon-flowers"
+      ],
+      "hint": "Moon-flowers should be triple the newt eyes.",
+      "explanation": "1:3 scaled by 4 is 4:12 — flowers are always × 3.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.ratios.028",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Finish the unit-rate compare: which audiobook narrator is faster — Naya (84 pages in 2 hours) or Theo (135 pages in 3 hours)?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Naya: 84 ÷ 2 = [[42]] pages per hour",
+          "Theo: 135 ÷ 3 = [[45]] pages per hour",
+          "Faster narrator: [[Theo]]"
+        ]
+      },
+      "hint": "Pages PER HOUR makes the comparison fair.",
+      "explanation": "Unit rates: 42 vs 45 pages/hour — Theo reads faster.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.ratios.029",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "A choreography counts 8 beats every 2 seconds. Tap the number of beats in 5 seconds.",
+      "answer": "20",
+      "data": { "numberLine": { "min": 0, "max": 30, "step": 2 } },
+      "hint": "Beats per second first: 8 ÷ 2.",
+      "explanation": "4 beats per second × 5 seconds = 20 beats.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.ratios.030",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Scaling down: a recipe for 24 cookies uses 300 g of butter. Amal only wants 8 cookies.",
+      "answer": "blanks",
+      "data": { "lines": ["8 cookies is one-[[third|3rd|3]] of the recipe, so butter = 300 ÷ 3 = [[100]] g"] },
+      "hint": "8 out of 24 is what fraction?",
+      "explanation": "8/24 = 1/3, so she needs 300 ÷ 3 = 100 g of butter.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.ratios.031",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 4,
+      "type": "visual_model", "model": "ratio_table",
+      "prompt": "Hogwarts feast planning: complete the table for pumpkin pasties.",
+      "answer": "blanks",
+      "data": { "model": { "headers": ["pumpkins", "pasties"], "rows": [[4, 18], [6, null], [10, null]], "blanksAnswers": [["27"], ["45"]] } },
+      "hint": "Pasties per pumpkin = 18 ÷ 4 = 4.5.",
+      "explanation": "4.5 pasties per pumpkin: 6 × 4.5 = 27 and 10 × 4.5 = 45.",
+      "tags": ["harry-potter", "baking"]
+    },
+    {
+      "id": "math.ratios.032",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Two Duolingo friends compare streaks: Zuri earns 120 XP in 4 days, Amal earns 100 XP in 3 days (keeping pace daily). Whose DAILY rate is higher?",
+      "answer": "Amal — about 33.3 XP/day beats 30 XP/day",
+      "options": [
+        "Amal — about 33.3 XP/day beats 30 XP/day",
+        "Zuri — 120 XP is more than 100 XP",
+        "They tie at 30 XP/day",
+        "Zuri — more days means a higher rate"
+      ],
+      "hint": "Divide XP by days for each.",
+      "explanation": "Zuri: 120÷4 = 30 XP/day; Amal: 100÷3 ≈ 33.3 XP/day. Totals don't decide rates!",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "math.ratios.033",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort each ratio into its family.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Equivalent to 2:3": ["4:6", "10:15", "8:12"],
+          "Equivalent to 3:2": ["6:4", "9:6", "15:10"]
+        }
+      },
+      "hint": "Order matters — 2:3 and 3:2 are different families!",
+      "explanation": "Each ratio simplifies to either 2:3 or 3:2; flipping the order flips the meaning."
+    },
+    {
+      "id": "math.ratios.034",
+      "realm": "math", "skill": "math.ratios", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: a yarn shop sells friendship-bracelet kits. The ratio of beads to charms in one kit is 9:2. Amal's order contains 198 beads and charms altogether. How many CHARMS?",
+      "answer": ["36", "36 charms"],
+      "hint": "11 tape boxes share 198 pieces.",
+      "explanation": "198 ÷ 11 = 18 per box; charms = 2 × 18 = 36.",
+      "tags": ["knitting", "legendary"]
+    }
+  ]
+}

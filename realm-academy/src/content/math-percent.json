@@ -1,0 +1,490 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.percent",
+      "skill": "math.percent",
+      "title": "Percent: The Hundredth Tower's Secret",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "You already own this",
+          "lines": [
+            "A percent is a fraction in uniform: the denominator is ALWAYS 100. 'Per cent' literally means 'per hundred.'",
+            "You convert fractions like a champion — so 37% = 37/100 means you secretly know percents already."
+          ],
+          "vocab": [
+            { "term": "percent (%)", "meaning": "out of every 100 — 43% means 43 out of every 100" },
+            { "term": "benchmark percent", "meaning": "a friendly percent you build others from: 50%, 25%, 10%" }
+          ],
+          "visual": "percent"
+        },
+        { "kind": "gambit", "itemId": "math.percent.t01", "framing": "No grade, just explore: you own fractions, so take a swing at percents before any teaching happens." },
+        { "kind": "worked", "itemId": "math.percent.t02" },
+        { "kind": "completion", "itemId": "math.percent.t03" },
+        { "kind": "completion", "itemId": "math.percent.t04" },
+        {
+          "kind": "bridge",
+          "title": "The mighty word 'of'",
+          "lines": [
+            "'30% of 40' translates straight into math: 0.30 × 40. The word 'of' is a multiplication sign in disguise.",
+            "No calculator? 10% is just ÷10 — then stack tens and fives like bricks to build 15%, 35%, 90%."
+          ],
+          "visual": "percent"
+        },
+        { "kind": "worked", "itemId": "math.percent.t05" },
+        { "kind": "completion", "itemId": "math.percent.t06" },
+        { "kind": "completion", "itemId": "math.percent.t07" },
+        { "kind": "completion", "itemId": "math.percent.t08" },
+        { "kind": "burst", "itemIds": ["math.percent.001", "math.percent.002", "math.percent.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.percent.t01",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.percent",
+      "prompt": "Explorer's Gambit: Amal's scarf is 3/5 finished. What PERCENT of the scarf is done? Use anything you know about fractions.",
+      "answer": ["60%", "60"],
+      "hint": "Could you rewrite 3/5 with a denominator of 100?",
+      "explanation": "3/5 = 60/100, and 'out of 100' is exactly what percent means: 60%.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.percent.t02",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.percent",
+      "prompt": "The three costumes of one number — fraction, decimal, percent — starring 3/4.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "'Percent' means 'per hundred.' 43% is literally the fraction 43/100 — that is the entire secret." },
+          {
+            "text": "Fraction → percent: build a denominator of 100. 3/4 = 75/100 (top and bottom × 25), so 3/4 = 75%.",
+            "check": {
+              "question": "Why multiply top and bottom by 25?",
+              "options": [
+                "Because 4 × 25 = 100 — percents need a per-100 view",
+                "Because 3 × 25 = 75 looks nicer",
+                "Because 25 is always the multiplier"
+              ],
+              "answer": 0
+            }
+          },
+          {
+            "text": "Percent ↔ decimal: 75% = 75/100 = 0.75. Percent → decimal slides the point two places left; decimal → percent slides it two places right.",
+            "check": {
+              "question": "What is 0.4 wearing its percent costume?",
+              "options": ["4%", "40%", "0.04%"],
+              "answer": 1
+            }
+          },
+          { "text": "So 3/4 = 0.75 = 75% — one value, three costumes. You'll switch costumes constantly, and you already know every move." }
+        ]
+      }
+    },
+    {
+      "id": "math.percent.t03",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.percent",
+      "prompt": "Your turn to finish one. Amal's house earned 7/20 of all the house points this term. What percent is that?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "A percent wants a denominator of 100: 20 × 5 = 100, so multiply top AND bottom by 5",
+          "7 × 5 = 35, so 7/20 = 35/100",
+          "As a percent: [[35]]%"
+        ]
+      },
+      "hint": "35/100 — read it the per-hundred way.",
+      "explanation": "35 out of every 100 IS 35% — once the denominator hits 100, the percent just falls out.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.percent.t04",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.percent",
+      "prompt": "A K-pop fan poll: 0.62 of voters picked the dance track, and the ballad got 9% of the vote. Convert both.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Decimal → percent: slide the point two places RIGHT. 0.62 = [[62]]%",
+          "Percent → decimal: slide it two places LEFT. 9% = [[0.09|.09]]"
+        ]
+      },
+      "hint": "Two places, always — and 9% needs a zero to hold the tenths spot.",
+      "explanation": "0.62 = 62% and 9% = 0.09 — same numbers, different costumes.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.percent.t05",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.percent",
+      "prompt": "The bake sale set out 80 cupcakes, and 35% are lemon. How many lemon cupcakes?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "'Of' means multiply: 35% of 80 = 0.35 × 80. Compute it straight: 0.35 × 80 = 28.",
+            "check": {
+              "question": "Why did 35% turn into 0.35?",
+              "options": [
+                "Percent → decimal: divide by 100",
+                "We rounded 35 to be safe",
+                "Because 80 ends in a zero"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Mental-math route: 10% of 80 = 8, because 10% just means ÷10." },
+          {
+            "text": "Stack benchmarks like bricks: 30% = 3 × 8 = 24, and 5% is half of 10%, so 5% = 4. Then 35% = 24 + 4 = 28.",
+            "check": {
+              "question": "What is 5% of 80?",
+              "options": ["8", "2", "4"],
+              "answer": 2
+            }
+          },
+          { "text": "Both roads meet at 28 lemon cupcakes. When two different methods agree, you can trust the answer." }
+        ]
+      },
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.percent.t06",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.percent",
+      "prompt": "Finish the tip math: Amal's family leaves a 15% tip on a $40 bill at Café Lumière.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "10% of 40 = [[4]]",
+          "5% is half of that: [[2]]",
+          "15% tip = 4 + 2 = $[[6]]"
+        ]
+      },
+      "hint": "Build 15% from the benchmarks 10% and 5%.",
+      "explanation": "10% is $4 and 5% is $2, so 15% = $6 — benchmark stacking beats any calculator.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.percent.t07",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.percent",
+      "prompt": "Reverse gear — finding the WHOLE. At the shelter, 30% of the cats are kittens; that's 6 kittens. How many cats in all?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "30% ↔ 6 kittens, so 10% ↔ 6 ÷ 3 = [[2]] cats",
+          "The whole crew: 100% = 10 × 2 = [[20]] cats"
+        ]
+      },
+      "hint": "Shrink to 10% first — then 100% is just ten of those.",
+      "explanation": "If 30% is 6, then 10% is 2, so 100% is 20. Check: 30% of 20 = 6 ✓",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.percent.t08",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.percent",
+      "prompt": "Last one — you drive. A $35 yarn kit is 20% off. Find the sale price.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Discount: 35 × [[0.20|0.2|.2]] = $[[7]]",
+          "Sale price: 35 − 7 = $[[28]]"
+        ]
+      },
+      "hint": "First decision: what does 20% look like as a decimal multiplier?",
+      "explanation": "20% = 0.20, so the discount is $7 and the kit costs $28 — discount means subtract from the original.",
+      "tags": ["knitting"]
+    },
+
+    {
+      "id": "math.percent.001",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A potion label says it is 43% moonwater. What does 43% mean?",
+      "answer": "43 out of every 100 parts",
+      "options": [
+        "43 out of every 100 parts",
+        "43 out of every 1,000 parts",
+        "4.3 out of every 100 parts",
+        "100 out of every 43 parts"
+      ],
+      "hint": "'Per cent' is Latin — cent like century or centimeter.",
+      "explanation": "Percent always means per hundred: 43% = 43/100 of the potion."
+    },
+    {
+      "id": "math.percent.002",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Write 27/100 as a percent.",
+      "answer": ["27%", "27"],
+      "hint": "The denominator is already 100 — the hard part is done.",
+      "explanation": "A fraction over 100 IS a percent: 27/100 = 27%."
+    },
+    {
+      "id": "math.percent.003",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Half the cats at the shelter are napping. What percent of the cats are napping?",
+      "answer": "50%",
+      "options": ["50%", "5%", "12%", "200%"],
+      "hint": "One half as a fraction of 100.",
+      "explanation": "1/2 = 50/100 = 50% — half and 50% are the same idea in different costumes.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.percent.004",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 1,
+      "type": "matching_pairs",
+      "prompt": "Match each fraction to its percent costume.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["1/2", "50%"],
+          ["1/4", "25%"],
+          ["3/4", "75%"],
+          ["1/10", "10%"],
+          ["1/5", "20%"]
+        ]
+      },
+      "hint": "Stretch each fraction to a denominator of 100.",
+      "explanation": "These five benchmarks unlock almost every percent problem — knowing them cold is a superpower."
+    },
+    {
+      "id": "math.percent.005",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Amal's Duolingo Swahili unit shows 13 of 20 lessons complete. Tap the percent complete on the line.",
+      "answer": "65",
+      "data": { "numberLine": { "min": 0, "max": 100, "step": 5 } },
+      "hint": "13/20 — multiply top and bottom by 5.",
+      "explanation": "13/20 = 65/100 = 65% — fractions of 20 love becoming percents.",
+      "tags": ["duolingo", "swahili"]
+    },
+    {
+      "id": "math.percent.006",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Costume changes, both directions.",
+      "answer": "blanks",
+      "data": { "lines": ["As a percent: 0.07 = [[7]]%", "As a decimal: 35% = [[0.35|.35]]"] },
+      "hint": "Two decimal places either way — watch which direction the point slides.",
+      "explanation": "0.07 = 7% and 35% = 0.35; the point slides two places because percent means per HUNDRED."
+    },
+    {
+      "id": "math.percent.007",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "percent_bar",
+      "prompt": "The bar shows Amal's 80-row scarf with 25% knitted so far. How many rows are done?",
+      "answer": "20",
+      "data": { "model": { "total": 80, "percent": 25, "ask": "part" } },
+      "hint": "25% is a quarter — what is a quarter of 80?",
+      "explanation": "25% of 80 = 80 ÷ 4 = 20 rows — benchmark fractions do the heavy lifting.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.percent.008",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "percent_bar",
+      "prompt": "Amal baked 60 macarons and 24 are pistachio. Slide the bar: what PERCENT are pistachio?",
+      "answer": "40",
+      "data": { "model": { "total": 60, "percent": 40, "ask": "percent" } },
+      "hint": "What fraction of 60 is 24? Simplify it first.",
+      "explanation": "24/60 = 4/10 = 40% — fraction first, then stretch to hundredths.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.percent.009",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "percent_bar",
+      "prompt": "At the wizard-school concert, 30% of the audience are first-years — that's 45 students. Use the bar to find the WHOLE audience.",
+      "answer": "150",
+      "data": { "model": { "total": 150, "percent": 30, "ask": "whole" } },
+      "hint": "If 30% is 45, what is 10%? Then take ten of those.",
+      "explanation": "10% is 45 ÷ 3 = 15, so 100% = 150 students — shrinking to 10% cracked it.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.percent.010",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Benchmark training: find 30% of 250 without a calculator.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Start friendly: 10% of 250 = [[25]]",
+          "Stack it: 30% = 3 × 25 = [[75]]"
+        ]
+      },
+      "hint": "10% means divide by 10; 30% is three of those.",
+      "explanation": "10% of 250 is 25, so 30% is 75 — the 10% benchmark builds everything."
+    },
+    {
+      "id": "math.percent.011",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Percent Lightning! Convert or compute each one fast.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["1/2 as a percent", "50%"],
+          ["0.25 as a percent", "25%"],
+          ["10% of 90", "9"],
+          ["3/4 as a percent", "75%"],
+          ["50% of 18", "9"],
+          ["0.6 as a percent", "60%"],
+          ["1/5 as a percent", "20%"],
+          ["10% of 350", "35"],
+          ["100% of 47", "47"],
+          ["0.03 as a percent", "3%"],
+          ["25% of 40", "10"],
+          ["1/10 as a percent", "10%"]
+        ]
+      },
+      "hint": "Benchmarks and the two-place slide — nothing fancier.",
+      "explanation": "Fast benchmark facts make the legendary problems feel like warm-ups."
+    },
+    {
+      "id": "math.percent.012",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which is the LARGEST: 3/5, 55%, or 0.58?",
+      "answer": "3/5",
+      "options": ["3/5", "55%", "0.58", "They are all equal"],
+      "hint": "Put all three in the same costume before comparing.",
+      "explanation": "3/5 = 60%, which beats 58% and 55% — same-costume comparisons never lie."
+    },
+    {
+      "id": "math.percent.013",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "This week's Swahili list has 35 new words, and Amal has already mastered 20% of them. How many words has she mastered?",
+      "answer": ["7", "7 words"],
+      "hint": "20% is 1/5 — or use 10% of 35 twice.",
+      "explanation": "20% of 35 = 0.20 × 35 = 7 words — 'of' means multiply.",
+      "tags": ["swahili", "duolingo"]
+    },
+    {
+      "id": "math.percent.014",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Amal has read 120 pages, and her bookmark app says that's exactly 40% of the novel. How many pages does the whole novel have?",
+      "answer": ["300", "300 pages"],
+      "hint": "If 40% is 120, find 10% first — then scale up to 100%.",
+      "explanation": "10% is 120 ÷ 4 = 30 pages, so 100% = 300 pages. Check: 40% of 300 = 120 ✓",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.percent.015",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Receipt rescue: a $48 cat tree carries 5% sales tax. Finish the receipt.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Tax: 48 × 0.05 = $[[2.40|2.4]]",
+          "Total: 48 + 2.40 = $[[50.40|50.4]]"
+        ]
+      },
+      "hint": "Tax gets ADDED — find 5% of 48, then stack it on top.",
+      "explanation": "5% of $48 is $2.40, so the register reads $50.40 — tax always rides on top of the price.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.percent.016",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin clerk computed 5% of 80. Tap the step where the work first went wrong.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "Problem: find 5% of 80",
+          "Step A: convert — 5% = 0.5",
+          "Step B: multiply — 0.5 × 80 = 40",
+          "Step C: sanity check — 10% of 80 is 8, so 5% should be smaller than 8"
+        ]
+      },
+      "hint": "How many places should the decimal point slide for 5%?",
+      "explanation": "5% = 0.05, not 0.5, so 5% of 80 = 4. The goblin's own sanity check (less than 8!) exposes the slip."
+    },
+    {
+      "id": "math.percent.017",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A prize pumpkin weighed 2 kg in July and 3 kg in August. Its August weight is what percent of its July weight?",
+      "answer": "150%",
+      "options": ["150%", "50%", "67%", "200%"],
+      "hint": "Compute new ÷ old, then dress the result as a percent.",
+      "explanation": "3 ÷ 2 = 1.5 = 150% — percents happily climb past 100 when something grows.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.percent.018",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: the same $40 sweater kit, two shops. Woolly's: 25% off, plus $3 shipping. Purl's: 15% off, free shipping. Which costs less in the end?",
+      "answer": "Woolly's — $33 total beats $34",
+      "options": [
+        "Woolly's — $33 total beats $34",
+        "Purl's — $34 total beats $36",
+        "Purl's — free shipping always wins",
+        "They cost exactly the same"
+      ],
+      "hint": "Run each shop's FULL total — discount first, then shipping.",
+      "explanation": "Woolly's: 40 × 0.75 + 3 = $33; Purl's: 40 × 0.85 = $34. Running both totals before judging — that's the move.",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.percent.019",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Put the steps in order: 15% of a K-pop show's VIP tickets is 12 tickets. How many VIP tickets are there in all?",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Translate the words: 15% of t = 12",
+          "Rewrite the percent: 0.15 × t = 12",
+          "Undo the multiplication: t = 12 ÷ 0.15",
+          "Compute: t = 80 VIP tickets"
+        ]
+      },
+      "hint": "Words → equation → undo → compute.",
+      "explanation": "Finding the whole is equation-solving in disguise: 0.15t = 12 gives t = 80.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.percent.020",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: a $60 cauldron is 30% off this week, but 10% tax is added to the sale price. What is the final cost in dollars?",
+      "answer": ["46.20", "46.2", "$46.20"],
+      "hint": "Two moves in a row: sale price first (× 0.70), then tax on THAT (× 1.10).",
+      "explanation": "Sale: 60 × 0.70 = $42; with tax: 42 × 1.10 = $46.20. Chained percents multiply one after the other.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.percent.021",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: after a 20% discount, Amal paid $44 for a deluxe yarn bundle. What was the ORIGINAL price in dollars?",
+      "answer": ["55", "$55"],
+      "hint": "Let the original be x. Paying 'after 20% off' means 0.8x = 44 — equation country, your home turf.",
+      "explanation": "0.8x = 44 gives x = 44 ÷ 0.8 = $55. Working backward means dividing by 0.8, not adding 20% of $44.",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.percent.022",
+      "realm": "math", "skill": "math.percent", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: a bakery raises its croissant price by 25%, then runs a 20%-off sale on the NEW price. The sale price is $3.00. What was the price before both changes, in dollars?",
+      "answer": ["3", "3.00", "$3", "$3.00"],
+      "hint": "Write the whole journey as one chain: x × 1.25 × 0.80. Multiply those two factors first — and gasp.",
+      "explanation": "1.25 × 0.80 = 1.00 exactly, so the price boomeranged back to $3.00. Up 25% then down 20% is NOT a fair trade — it's a perfect circle here.",
+      "tags": ["baking", "legendary"]
+    }
+  ]
+}

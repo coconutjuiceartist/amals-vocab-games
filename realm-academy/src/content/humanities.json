@@ -1,0 +1,1625 @@
+{
+  "sequences": [
+    {
+      "id": "teach.hum.mali",
+      "skill": "hum.mali",
+      "title": "The Mali Empire: Gold, Salt & the City of Books",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "A kingdom built on… salt?",
+          "lines": [
+            "Salt seems boring — it sits on every table. But your body can't live without it, and in the blazing lands south of the Sahara it was desperately hard to get.",
+            "Medieval West Africa had something else in absurd supply: gold. Two treasures, two homelands, and a desert in between — that's a recipe for an empire."
+          ],
+          "vocab": [
+            { "term": "caravan", "meaning": "a group of merchants and camels crossing the desert together" },
+            { "term": "griot", "meaning": "a West African storyteller-musician who keeps history alive by memory" },
+            { "term": "mansa", "meaning": "the Mande word for emperor" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "hum.mali.t01" },
+        { "kind": "completion", "itemId": "hum.mali.t02" },
+        { "kind": "burst", "itemIds": ["hum.mali.001", "hum.mali.002", "hum.mali.003"] }
+      ]
+    },
+    {
+      "id": "teach.hum.india",
+      "skill": "hum.india",
+      "title": "India: The Power of Zero & the Winds of Trade",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "The most powerful number is nothing",
+          "lines": [
+            "Write 507. That zero looks like it's doing nothing — but delete it and the number collapses to 57.",
+            "The system you do ALL your math in — ten digits, place value, zero — was worked out by mathematicians in India during the Gupta 'golden age.' Today you meet them."
+          ],
+          "vocab": [
+            { "term": "numeral", "meaning": "a written symbol for a number, like 7 or VII" },
+            { "term": "golden age", "meaning": "a stretch of peace and wealth when art and science bloom" }
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "worked", "itemId": "hum.india.t01" },
+        {
+          "kind": "bridge",
+          "title": "Winds you can set a calendar by",
+          "lines": [
+            "Each summer, ocean winds sweep INTO India loaded with rain; each winter they reverse and blow dry air out to sea.",
+            "Sailors learned to ride this giant schedule like a free conveyor belt — out one season, home the next."
+          ],
+          "vocab": [
+            { "term": "monsoon", "meaning": "a seasonal wind that reverses direction twice a year" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "completion", "itemId": "hum.india.t02" },
+        { "kind": "burst", "itemIds": ["hum.india.001", "hum.india.002", "hum.india.003"] }
+      ]
+    },
+    {
+      "id": "teach.hum.china",
+      "skill": "hum.china",
+      "title": "China: Four Inventions & the Treasure Fleet",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Made in China (a thousand years early)",
+          "lines": [
+            "Paper. Printed books. The compass. Fireworks. One civilization invented all four — centuries before anyone else had them.",
+            "Tang and Song China was the tech giant of the medieval world. Let's open the workshop."
+          ],
+          "vocab": [
+            { "term": "dynasty", "meaning": "one family's line of rulers, like the Tang or the Song" },
+            { "term": "porcelain", "meaning": "super-hard, glass-smooth pottery fired blazing hot" },
+            { "term": "alchemist", "meaning": "an early chemist hunting for magical potions" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "hum.china.t01" },
+        {
+          "kind": "bridge",
+          "title": "The hardest test in the world",
+          "lines": [
+            "How do you pick the people who run an empire — by birth, or by brains?",
+            "Song China's answer was a famously brutal civil-service exam. Pass it, and a farmer's son could become a governor."
+          ],
+          "vocab": [
+            { "term": "civil service", "meaning": "the officials who run a government's daily work" },
+            { "term": "merit", "meaning": "earning a place by skill, not by birth" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "completion", "itemId": "hum.china.t02" },
+        { "kind": "burst", "itemIds": ["hum.china.001", "hum.china.002", "hum.china.003"] }
+      ]
+    },
+    {
+      "id": "teach.hum.medieval",
+      "skill": "hum.medieval",
+      "title": "Medieval Europe: Castles, Guilds & the Great Sickness",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "The land-for-loyalty deal",
+          "lines": [
+            "No police, no salaries, no big governments — so how did medieval Europe organize itself? With a giant chain of promises.",
+            "Kings granted land to lords, lords pledged knights to kings, and peasants worked the fields in exchange for protection. That chain is called feudalism."
+          ],
+          "vocab": [
+            { "term": "feudalism", "meaning": "the medieval system of trading land for loyalty and protection" },
+            { "term": "vassal", "meaning": "a noble who receives land from a lord in exchange for service" },
+            { "term": "serf", "meaning": "a peasant bound to a manor's land, not free to leave without permission" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "hum.medieval.t01" },
+        {
+          "kind": "bridge",
+          "title": "Reading a castle like a blueprint",
+          "lines": [
+            "A castle is a machine for defense — every odd detail has a job.",
+            "Ring of water, lifting bridge, crashing iron gate: learn the parts and you can 'read' any castle, even the ones in your favorite wizard books."
+          ],
+          "vocab": [
+            { "term": "moat", "meaning": "the water-filled ditch ringing a castle" },
+            { "term": "drawbridge", "meaning": "a bridge that lifts to seal the castle entrance" },
+            { "term": "portcullis", "meaning": "the heavy iron grate that drops to block the gate" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "completion", "itemId": "hum.medieval.t02" },
+        { "kind": "burst", "itemIds": ["hum.medieval.001", "hum.medieval.002", "hum.medieval.003"] }
+      ]
+    },
+    {
+      "id": "teach.hum.renaissance",
+      "skill": "hum.renaissance",
+      "title": "Renaissance: Ideas Go Viral",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "From one copy a year to hundreds a month",
+          "lines": [
+            "Remember the monks hand-copying books, one slow year per Bible? Around 1440 a German goldsmith named Gutenberg built a machine that shattered that bottleneck.",
+            "When copying gets cheap, ideas spread like wildfire — and Europe caught fire with new art and science. 'Renaissance' means rebirth."
+          ],
+          "vocab": [
+            { "term": "printing press", "meaning": "a machine that stamps inked type onto paper, hundreds of copies at a time" },
+            { "term": "movable type", "meaning": "reusable metal letters you rearrange to print any page" },
+            { "term": "patron", "meaning": "a wealthy supporter who pays artists or scientists to work" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "hum.renaissance.t01" },
+        {
+          "kind": "bridge",
+          "title": "Don't argue — look!",
+          "lines": [
+            "For centuries, hard questions about nature were settled by quoting ancient books. The Scientific Revolution flipped the habit: a claim needs EVIDENCE anyone can check.",
+            "You already do this in science class — claim, evidence, reasoning. Now meet the man who aimed a telescope at Jupiter and let the sky testify."
+          ],
+          "vocab": [
+            { "term": "evidence", "meaning": "observations that back up or sink a claim" },
+            { "term": "telescope", "meaning": "a tube of lenses that makes far things look near" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "completion", "itemId": "hum.renaissance.t02" },
+        { "kind": "burst", "itemIds": ["hum.renaissance.001", "hum.renaissance.002", "hum.renaissance.003"] }
+      ]
+    },
+    {
+      "id": "teach.hum.exploration",
+      "skill": "hum.exploration",
+      "title": "Exploration: New Routes, New Worlds",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Why risk the open ocean?",
+          "lines": [
+            "In 1450s Europe, pepper and nutmeg were worth fortunes — every sack passed through a dozen middlemen, and every middleman charged a markup.",
+            "Sailors who could reach the source by SEA would skip them all. New ships and borrowed tools made them dare to try."
+          ],
+          "vocab": [
+            { "term": "caravel", "meaning": "a small, nimble ship whose triangular sails could angle into the wind" },
+            { "term": "astrolabe", "meaning": "a tool that measures a star's height to find how far north or south you are" },
+            { "term": "navigation", "meaning": "the art of knowing where you are and steering where you mean to go" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "hum.exploration.t01" },
+        {
+          "kind": "bridge",
+          "title": "The great food swap",
+          "lines": [
+            "Until 1492, the two halves of the planet swapped almost nothing: no tomatoes in Italy, no potatoes in Ireland, no horses anywhere in the Americas.",
+            "Columbus's voyages reconnected the halves, and everything crossed: foods, animals — and, tragically, germs. Historians call it the Columbian Exchange."
+          ],
+          "vocab": [
+            { "term": "Columbian Exchange", "meaning": "the global swap of plants, animals, and diseases that followed 1492" },
+            { "term": "immunity", "meaning": "your body's trained defense against a disease it has met before" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "completion", "itemId": "hum.exploration.t02" },
+        { "kind": "burst", "itemIds": ["hum.exploration.001", "hum.exploration.002", "hum.exploration.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "hum.mali.t01",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.hum.mali",
+      "prompt": "Why would anyone trade gold for salt — sometimes weight for weight? Let's follow the caravans.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "In Mali's southern lands, gold was astonishingly common — the mansa could pile it up. But the region had almost no salt, and in fierce heat, bodies lose salt fast and food spoils without it." },
+          {
+            "text": "Deep in the Sahara sat Taghaza, a town that mined slabs of salt. The traveler Ibn Battuta visited and found even its houses built of salt blocks. So: the desert had salt, the south had gold — each side craved the other's treasure.",
+            "check": {
+              "question": "Why was salt worth a fortune in Mali's gold country?",
+              "options": [
+                "Salt was scarce there, but bodies and food storage demanded it",
+                "Salt was heavier than gold",
+                "The gold mines had run out"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Camel caravans shuttled between the two worlds: salt slabs south, gold north. Value comes from scarcity — in some markets, a pound of salt really could trade for a pound of gold." },
+          {
+            "text": "Mali grew rich by sitting in the middle: every load that crossed its territory paid a tax to the mansa. Control the crossroads, collect the wealth.",
+            "check": {
+              "question": "How did Mali profit without mining either treasure itself?",
+              "options": [
+                "By taxing every caravan that crossed its territory",
+                "By keeping all the salt for the royal kitchens",
+                "By selling camels to both sides"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hum.mali.t02",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.hum.mali",
+      "prompt": "A trade-caravan cat named Sahel rides the route. Complete her cargo log.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Salt slabs from the desert mines travel [[south]] to the Niger River markets",
+          "Gold from the southern lands travels [[north]] toward the Mediterranean coast",
+          "Either way, every camel-load pays a tax to the [[mansa|emperor]]"
+        ]
+      },
+      "hint": "Picture the map: desert (and its salt mines) to the north, gold country to the south, Mali between.",
+      "explanation": "Salt south, gold north — and Mali, ruling the crossroads, taxed both directions into a fortune.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "hum.mali.001",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Who founded the Mali Empire around 1235 — a hero still celebrated in an epic performed today?",
+      "answer": "Sundiata",
+      "options": ["Sundiata", "Mansa Musa", "Ibn Battuta", "Askia the Great"],
+      "hint": "Griots call him the Lion King of Mali.",
+      "explanation": "Sundiata united the region after the Battle of Kirina, and griots have performed the Epic of Sundiata for nearly 800 years."
+    },
+    {
+      "id": "hum.mali.002",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What made the camel the 'ship of the desert' for Sahara crossings?",
+      "answer": "It can march for days without drinking, then gulp around 100 liters at once",
+      "options": [
+        "It can march for days without drinking, then gulp around 100 liters at once",
+        "It can outrun a horse over any distance",
+        "It can smell water buried under the sand",
+        "It never needs to sleep"
+      ],
+      "hint": "Think water.",
+      "explanation": "Camels can go days between drinks, then swallow roughly a bathtub's worth in minutes — perfect for a crossing that took about two months."
+    },
+    {
+      "id": "hum.mali.003",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Mali's official historians carried no books — they performed centuries of history from memory, with music.",
+      "answer": "blanks",
+      "data": { "lines": ["These living libraries of West Africa are called [[griots|griot]]"] },
+      "hint": "The bridge introduced this word — it starts with g.",
+      "explanation": "Griots passed the Epic of Sundiata down by voice for centuries — and griot families still perform across West Africa today."
+    },
+    {
+      "id": "hum.mali.004",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Saharan caravans — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Large caravans could number in the thousands of camels",
+          "Crossing the Sahara took around two months"
+        ],
+        "lie": "Camels store water in their humps for the journey"
+      },
+      "hint": "One of these is a famous animal myth.",
+      "explanation": "Humps store FAT, not water — an energy pantry, not a canteen. That fat is why camels can skip meals for weeks."
+    },
+    {
+      "id": "hum.mali.005",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort the cargo by its direction across the Sahara.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Headed north, leaving Mali": ["gold dust", "ivory", "kola nuts"],
+          "Headed south, into Mali": ["salt slabs", "books", "horses"]
+        }
+      },
+      "hint": "Mali's lands held gold; the desert and the world beyond sent salt, scholarship, and steeds.",
+      "explanation": "Gold, ivory, and kola nuts flowed north (kola later lent its name to cola!); salt, books, and horses came south to the Niger markets."
+    },
+    {
+      "id": "hum.mali.006",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each name to its claim to fame.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Sundiata", "founder-hero of the Epic of Mali"],
+          ["Mansa Musa", "the golden pilgrimage to Mecca"],
+          ["Timbuktu", "city of scholars and manuscripts"],
+          ["Taghaza", "desert town with houses of salt"],
+          ["griot", "historian who performs the past from memory"]
+        ]
+      },
+      "hint": "Two are people, two are places, one is a job.",
+      "explanation": "Five names, one empire: its founder, its richest ruler, its city of books, its salt source, and the keepers of its story."
+    },
+    {
+      "id": "hum.mali.007",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Put Mali's story in order, earliest first.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Sundiata wins the Battle of Kirina and founds the Mali Empire",
+          "Mansa Musa takes the throne of Mali",
+          "Mansa Musa's golden hajj dazzles Cairo",
+          "New mosques and schools rise in Timbuktu after the pilgrimage"
+        ]
+      },
+      "hint": "An empire must exist before its most famous emperor can rule it.",
+      "explanation": "Founding, famous ruler, famous journey, famous city of learning — about a century of rise."
+    },
+    {
+      "id": "hum.mali.008",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "From Timbuktu, a caravan sets out for the salt mines of Taghaza. Which way does it head?",
+      "answer": "North, deep into the Sahara",
+      "options": [
+        "North, deep into the Sahara",
+        "South, toward the gold country",
+        "West, across the Atlantic",
+        "East, down the Niger to the sea"
+      ],
+      "hint": "Salt came from the desert.",
+      "explanation": "The salt mines lay weeks north into the desert, while the gold lands lay south — Timbuktu thrived in between, near the bend of the Niger River."
+    },
+    {
+      "id": "hum.mali.009",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Timbuktu — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "The Sankoré district drew scholars and thousands of students",
+          "A 1500s visitor reported that books were among the most profitable goods in Timbuktu's markets"
+        ],
+        "lie": "West Africa had no writing, so Mali's history was never written down"
+      },
+      "hint": "What are all those famous Timbuktu manuscripts made of?",
+      "explanation": "Hundreds of thousands of Timbuktu manuscripts — on law, astronomy, math, and poetry — survive today, many guarded by local families for centuries."
+    },
+    {
+      "id": "hum.mali.010",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "When Mansa Musa's caravan passed through Cairo in 1324, what happened?",
+      "answer": "He gave away so much gold that its value in Cairo sagged for years",
+      "options": [
+        "He gave away so much gold that its value in Cairo sagged for years",
+        "He bought every camel in Egypt for the journey home",
+        "Cairo's rulers refused to let him enter the city",
+        "He ran out of money and had to borrow camels"
+      ],
+      "hint": "Think supply: what happens to a treasure's value when a city is suddenly flooded with it?",
+      "explanation": "Chroniclers wrote that gold's value in Cairo stayed low for years afterward — one traveler bent a whole economy. Many call Mansa Musa the richest person in history."
+    },
+    {
+      "id": "hum.mali.011",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Mansa Musa was a devout Muslim, and his famous journey was a religious one.",
+      "answer": "blanks",
+      "data": { "lines": ["In 1324 he set out on the [[hajj]], the Muslim pilgrimage to the holy city of [[Mecca|Makkah]]"] },
+      "hint": "The journey's name starts with h; the city is Islam's holiest.",
+      "explanation": "His hajj crossed roughly 3,000 miles of desert — and put Mali on the map so firmly that European mapmakers later drew him holding a nugget of gold."
+    },
+    {
+      "id": "hum.mali.012",
+      "realm": "humanities", "skill": "hum.mali", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "A goblin merchant filed this caravan report. Tap the claim that's wrong.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Report: we left Taghaza, the mining town where walls are built from salt blocks",
+          "We marched south across the Sahara for about two months",
+          "At the Niger River markets we traded our salt for gold",
+          "The locals paid almost nothing, since salt was as common there as sand"
+        ]
+      },
+      "hint": "Remember WHY this trade existed at all.",
+      "explanation": "Backwards! Salt was scarce and precious in the gold lands — sometimes trading weight for weight with gold. Scarcity sets the price.",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "hum.india.t01",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.hum.india",
+      "prompt": "Why zero was a revolution — a tour of the math idea you use every single day.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Try writing 2,026 in Roman numerals: MMXXVI. Now imagine multiplying MMXXVI by XII. People wrestled with clunky systems like this for centuries." },
+          {
+            "text": "India's idea: just TEN digits, where POSITION carries the value. In 507, the 5 means five hundreds — and the 0 bravely holds the tens place so the 5 doesn't slide over and shrink.",
+            "check": {
+              "question": "What job is the 0 doing in 507?",
+              "options": [
+                "Holding the tens place so every digit keeps its true value",
+                "Showing that the number is even",
+                "Making the number look more impressive"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Gupta-era mathematicians went further: they treated zero as a real NUMBER you can calculate with, not just a gap. Around 628 CE, Brahmagupta wrote down its rules, like 5 − 5 = 0." },
+          {
+            "text": "The digits traveled to Baghdad's scholars and on to Europe — which is why we call them Hindu-Arabic numerals. Every math class you've ever taken runs on this Indian invention.",
+            "check": {
+              "question": "Why are our digits called Hindu-Arabic numerals?",
+              "options": [
+                "Born in India, they reached Europe through the Arab world",
+                "They were invented in Arabia and copied in India",
+                "European monks named them after two old books"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hum.india.t02",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.hum.india",
+      "prompt": "Finish the captain's sailing plan for an Indian Ocean trading run.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Summer: the monsoon blows from sea to land, carrying us TO India — and bringing farmers months of [[rain]]",
+          "We trade for spices, then wait for [[winter]], when the winds reverse",
+          "Riding the reversed monsoon, we sail [[home]] with full holds"
+        ]
+      },
+      "hint": "The monsoon is a schedule: in by summer, out by winter.",
+      "explanation": "Monsoon winds made round trips predictable enough to plan years ahead — they were the engine of the whole Indian Ocean trade.",
+      "tags": []
+    },
+    {
+      "id": "hum.india.001",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which world-changing math idea came from India?",
+      "answer": "Zero and the ten-digit place-value system",
+      "options": [
+        "Zero and the ten-digit place-value system",
+        "Roman numerals",
+        "The equals sign",
+        "The multiplication table"
+      ],
+      "hint": "You used it the last time you wrote any number at all.",
+      "explanation": "Indian mathematicians built the digits-plus-zero system the whole world now uses; it reached Europe through Arab scholars, so we call the digits Hindu-Arabic."
+    },
+    {
+      "id": "hum.india.002",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What is a monsoon?",
+      "answer": "A seasonal wind that reverses direction during the year",
+      "options": [
+        "A seasonal wind that reverses direction during the year",
+        "A sudden desert sandstorm",
+        "A giant ocean whirlpool",
+        "A week of summer thunderstorms"
+      ],
+      "hint": "It's a pattern, not a single storm.",
+      "explanation": "Summer monsoons blow wet ocean air INTO India; winter monsoons blow dry air out to sea — a rhythm farmers and sailors both lived by."
+    },
+    {
+      "id": "hum.india.003",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Emperor Ashoka had his messages — called edicts — carved across India for everyone to read.",
+      "answer": "blanks",
+      "data": { "lines": ["Ashoka's edicts were carved on rocks and on tall polished stone [[pillars|pillar]]"] },
+      "hint": "Some still stand today, almost 2,300 years later, topped with stone lions.",
+      "explanation": "Ashoka's pillars rose up to 15 meters, and the four-lion carving atop one is now the national emblem of India."
+    },
+    {
+      "id": "hum.india.004",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about the story of zero — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Indian mathematicians treated zero as a true number you could add and subtract",
+          "Our digits are called Hindu-Arabic numerals because they traveled from India through the Arab world"
+        ],
+        "lie": "The zero we use today was invented in ancient Rome"
+      },
+      "hint": "Try writing zero in Roman numerals… exactly.",
+      "explanation": "Roman numerals have no zero at all — partly why Roman arithmetic was so clumsy. Zero-as-a-number was an Indian breakthrough."
+    },
+    {
+      "id": "hum.india.005",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each name to its achievement.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Aryabhata", "calculated pi and said Earth spins on its axis"],
+          ["Ashoka", "carved kindness laws on stone pillars"],
+          ["Brahmagupta", "wrote the rules for calculating with zero"],
+          ["Nalanda", "university that drew students from as far as China"],
+          ["the Gupta Empire", "golden age of Indian art and science"]
+        ]
+      },
+      "hint": "Two mathematicians, one emperor, one school, one empire.",
+      "explanation": "India's golden age ran on all five: rulers, scholars, schools — and brand-new math."
+    },
+    {
+      "id": "hum.india.006",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Why did Indian Ocean merchants LOVE the monsoon winds?",
+      "answer": "The winds ran on a schedule — sail out one season, sail home the next",
+      "options": [
+        "The winds ran on a schedule — sail out one season, sail home the next",
+        "The winds blew only for licensed royal ships",
+        "The winds scared pirates out of the ocean",
+        "The winds kept the sea perfectly flat"
+      ],
+      "hint": "Think of a free conveyor belt with a timetable.",
+      "explanation": "Predictable winds meant predictable voyages: ride the summer monsoon to India, ride the winter reversal home, repeat for centuries."
+    },
+    {
+      "id": "hum.india.007",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Order the journey of India's numerals — and the empires around them — earliest first.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Emperor Ashoka raises his edict pillars across India",
+          "The Gupta golden age of art and science begins",
+          "Aryabhata, age 23, finishes his famous book of math and astronomy",
+          "Scholars in Baghdad adopt and spread the Indian numerals",
+          "Fibonacci's book introduces the digits to European merchants"
+        ]
+      },
+      "hint": "Ashoka came centuries before the Guptas; the numerals left India only after the Gupta age.",
+      "explanation": "Roughly 250 BCE → 320 CE → 499 CE → the 800s → 1202: a great idea can take a thousand years to conquer the world."
+    },
+    {
+      "id": "hum.india.008",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Ashoka's pillar edicts and the Gupta golden age — what is the time relationship?",
+      "answer": "Ashoka came first, more than 500 years before the Guptas",
+      "options": [
+        "Ashoka came first, more than 500 years before the Guptas",
+        "The Guptas came first; Ashoka followed them",
+        "They happened in the same century, at rival courts",
+        "Historians cannot tell which came first"
+      ],
+      "hint": "Ashoka's dates are BCE; the Gupta age is CE.",
+      "explanation": "Ashoka ruled the Maurya Empire around 250 BCE; the Gupta age began around 320 CE — a gap about as long as from knights' castles to today."
+    },
+    {
+      "id": "hum.india.009",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about the astronomer Aryabhata — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Aryabhata calculated pi to four decimal places: 3.1416",
+          "Aryabhata argued that the Earth spins, which is why the stars seem to wheel overhead"
+        ],
+        "lie": "Aryabhata made his discoveries using the newly invented telescope"
+      },
+      "hint": "When was the telescope invented? (More than a thousand years after him.)",
+      "explanation": "No telescopes existed until 1608! Aryabhata worked in 499 CE with geometry, careful sky records, and a brilliant head for numbers."
+    },
+    {
+      "id": "hum.india.010",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "After the bloody Kalinga war, Emperor Ashoka famously changed. What did he do?",
+      "answer": "Embraced Buddhist teachings and urged kindness in carved edicts",
+      "options": [
+        "Embraced Buddhist teachings and urged kindness in carved edicts",
+        "Conquered three more kingdoms to celebrate the victory",
+        "Banned all religions across India",
+        "Abandoned his throne and was never seen again"
+      ],
+      "hint": "His pillars don't brag about battles — they give advice.",
+      "explanation": "Ashoka's edicts urged mercy and respect, and he set up wells, shade trees, and medical care for people AND animals along the roads."
+    },
+    {
+      "id": "hum.india.011",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "One spice from India's coasts was nicknamed 'black gold' in the ancient world.",
+      "answer": "blanks",
+      "data": { "lines": ["Romans paid so much gold for Indian [[pepper|black pepper]] that one Roman writer grumbled the empire's wealth was draining east"] },
+      "hint": "It's still sitting next to the salt on your table.",
+      "explanation": "Pliny the Elder complained about the cost of the spice trade; pepper was precious enough to be counted out corn by corn."
+    },
+    {
+      "id": "hum.india.012",
+      "realm": "humanities", "skill": "hum.india", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "A rookie captain wrote this Indian Ocean trading plan. Tap the step that would sink the voyage.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Plan: sail from East Africa to India for pepper and cotton, then home",
+          "Step A: leave in summer, when the monsoon blows from sea toward land, pushing us to India",
+          "Step B: trade for pepper and fine cotton cloth in the port markets",
+          "Step C: turn around immediately — the same summer wind will shove us straight home"
+        ]
+      },
+      "hint": "Can the SAME wind push you in two opposite directions?",
+      "explanation": "You must wait for winter, when the monsoon reverses. Real captains parked in port for months — and traders built whole communities in faraway harbors while waiting.",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "hum.china.t01",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.hum.china",
+      "prompt": "Four inventions that built the modern world — let's open China's workshop.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "PAPER — perfected in Han China around 105 CE. A cheap, light writing surface meant ideas could finally travel in a sleeve instead of on heavy bamboo or costly silk." },
+          {
+            "text": "PRINTING — Tang workshops carved whole pages into woodblocks; the Diamond Sutra of 868 CE is the world's oldest dated printed book. Around 1045, Bi Sheng invented movable type from baked clay — four centuries before Europe's first press.",
+            "check": {
+              "question": "Why does movable type beat carving a whole page into one block?",
+              "options": [
+                "The letters can be rearranged to print ANY page",
+                "Clay blocks smell better than wood",
+                "Movable type needs no ink"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "COMPASS — Song sailors steered by a magnetized needle that always finds north-south, so fleets could sail beyond sight of land even under cloudy skies." },
+          {
+            "text": "GUNPOWDER — alchemists hunting for a life-extending elixir mixed saltpeter, sulfur, and charcoal… and invented roughly the opposite. Soon China had fireworks, signal rockets, and fire arrows.",
+            "check": {
+              "question": "What were gunpowder's inventors actually trying to make?",
+              "options": [
+                "A potion for eternal life",
+                "A louder firework",
+                "A faster kind of ink"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hum.china.t02",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.hum.china",
+      "prompt": "Complete the story of the empire's great exam.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "For most of history, government jobs went to nobles' sons — by [[birth]]",
+          "Tang and Song China instead chose many officials by a days-long [[exam|test]] on the classics",
+          "Choosing people by skill instead of family is called rule by [[merit]]"
+        ]
+      },
+      "hint": "Bridge words: the opposite of 'born into the job' is earning it by…",
+      "explanation": "Candidates sat for days in tiny exam cells, and only a small fraction passed. But the idea — jobs by merit — now runs governments around the world."
+    },
+    {
+      "id": "hum.china.001",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Three of these are among China's famous 'four great inventions.' Which one is NOT?",
+      "answer": "The telescope",
+      "options": ["The telescope", "Paper", "Gunpowder", "The compass"],
+      "hint": "One of these was invented in Europe in 1608.",
+      "explanation": "The four great inventions are paper, printing, the compass, and gunpowder — the telescope came from Dutch lens-makers centuries later."
+    },
+    {
+      "id": "hum.china.002",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What was the Grand Canal built to do?",
+      "answer": "Link northern and southern China so rice and grain could reach the capital",
+      "options": [
+        "Link northern and southern China so rice and grain could reach the capital",
+        "Keep invaders away from the emperor's palace",
+        "Drain a giant swamp for farmland",
+        "Connect China to India by water"
+      ],
+      "hint": "Think of it as an 1,100-mile grocery conveyor belt.",
+      "explanation": "The Grand Canal — still the world's longest — let southern rice feed the northern cities, and barges have used it for some 1,400 years."
+    },
+    {
+      "id": "hum.china.003",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Chinese potters fired clay so hot it turned glassy, strong, and thin.",
+      "answer": "blanks",
+      "data": { "lines": ["Porcelain became so famous that English speakers still call fine dishes [[china]]"] },
+      "hint": "It's the country's own name, lowercase.",
+      "explanation": "Europeans adored porcelain but couldn't reproduce it until 1708 — roughly a thousand years after Chinese kilns mastered it."
+    },
+    {
+      "id": "hum.china.004",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about gunpowder — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Gunpowder was discovered by alchemists searching for a life-extending elixir",
+          "Song China used gunpowder for fireworks as well as weapons"
+        ],
+        "lie": "Gunpowder was invented in medieval Europe and later copied by China"
+      },
+      "hint": "Follow the fireworks to their source.",
+      "explanation": "China had gunpowder by the 800s; the recipe traveled west along trade routes and reached Europe centuries later."
+    },
+    {
+      "id": "hum.china.005",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each name to its claim to fame.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Cai Lun", "credited with perfecting papermaking"],
+          ["Bi Sheng", "invented movable type from baked clay"],
+          ["Zheng He", "led the giant treasure-fleet voyages"],
+          ["the Grand Canal", "1,100-mile water highway for grain"],
+          ["the compass", "let sailors steer beyond sight of land"]
+        ]
+      },
+      "hint": "Two inventors, one admiral, two world-changing creations.",
+      "explanation": "Paper, print, canal, compass, fleet — the toolkit of a medieval superpower."
+    },
+    {
+      "id": "hum.china.006",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "What was revolutionary about China's civil-service exam?",
+      "answer": "Government jobs could be earned by test scores, not just noble birth",
+      "options": [
+        "Government jobs could be earned by test scores, not just noble birth",
+        "It was the world's first multiple-choice test",
+        "Only princes were allowed to take it",
+        "Whoever passed became the next emperor"
+      ],
+      "hint": "Who gets the job: the lord's son, or the best scorer?",
+      "explanation": "A farmer's son who mastered the classics could become a powerful official. Candidates spent days locked in tiny exam cells — and very few passed."
+    },
+    {
+      "id": "hum.china.007",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Set China's breakthroughs in order, earliest first.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Papermaking is perfected in Han China",
+          "The Diamond Sutra becomes the world's oldest dated printed book",
+          "Bi Sheng invents movable type",
+          "Zheng He's first treasure fleet sails",
+          "The emperor's court halts the great voyages"
+        ]
+      },
+      "hint": "You need paper before you can print on it — and wealth and tech before giant fleets.",
+      "explanation": "105 CE → 868 → about 1045 → 1405 → 1433: invention stacked on invention until fleets of giants put to sea."
+    },
+    {
+      "id": "hum.china.008",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Zheng He's treasure fleet — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Zheng He's largest ships dwarfed the ships Columbus would sail decades later",
+          "One voyage brought home a giraffe, paraded before the amazed Ming court"
+        ],
+        "lie": "The treasure voyages ended when the whole fleet was destroyed by a typhoon"
+      },
+      "hint": "The fleet's ending was a decision, not a disaster.",
+      "explanation": "After 1433 the court simply ORDERED the voyages stopped as too costly — the world's mightiest navy was given up by choice."
+    },
+    {
+      "id": "hum.china.009",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Why did silk and porcelain usually pass through MANY hands before reaching Europe?",
+      "answer": "Most Silk Road merchants traveled only their own stretch, trading at oasis towns",
+      "options": [
+        "Most Silk Road merchants traveled only their own stretch, trading at oasis towns",
+        "Chinese law required goods to change owners at the border",
+        "Camels could not survive more than one country's climate",
+        "Silk had to be rewoven in every city it passed"
+      ],
+      "hint": "Think relay race, not marathon.",
+      "explanation": "The Silk Road was a chain of middlemen, each adding a markup — one big reason Europeans later went hunting for a sea route to Asia."
+    },
+    {
+      "id": "hum.china.010",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "In 1900, a sealed cave near Dunhuang revealed a scroll dated 868 CE — a world record holder.",
+      "answer": "blanks",
+      "data": { "lines": ["The Diamond Sutra is the world's oldest dated [[printed]] book"] },
+      "hint": "Not written by hand — stamped from carved woodblocks.",
+      "explanation": "A whole scroll printed almost 600 years before Gutenberg — and its final line says it was made 'for universal free distribution.'"
+    },
+    {
+      "id": "hum.china.011",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 3,
+      "type": "drag_categorize",
+      "prompt": "Sort the Silk Road traffic: which direction did each mostly travel in this era?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Out of China": ["silk", "porcelain", "papermaking know-how"],
+          "Into China": ["swift horses", "glassware", "Buddhist teachings"]
+        }
+      },
+      "hint": "China exported its crafts; horses, glass, and new religions rode in.",
+      "explanation": "Silk, porcelain, and eventually the secret of papermaking flowed west; horses, glass, and Buddhism flowed east. Trade routes carry ideas, not just goods."
+    },
+    {
+      "id": "hum.china.012",
+      "realm": "humanities", "skill": "hum.china", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "A museum placard about the treasure fleet has one error. Tap it.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Placard: The Treasure Fleet, 1405–1433",
+          "Seven expeditions visited Southeast Asia, India, Arabia, and East Africa",
+          "The flagship made Columbus's Santa María look like a lifeboat",
+          "The voyages were so profitable that China never stopped exploring"
+        ]
+      },
+      "hint": "How did the treasure-fleet story actually end?",
+      "explanation": "The court ended the voyages by decree in 1433 and turned inward — one of history's great what-ifs, just 59 years before Columbus sailed.",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "hum.medieval.t01",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.hum.medieval",
+      "prompt": "Feudalism: the chain of promises that organized a continent without salaries.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Start at the top: the king claims all the land but cannot farm or guard it alone. So he grants huge chunks to lords — in exchange for loyalty and soldiers whenever war comes." },
+          {
+            "text": "Lords pass it on: they grant smaller pieces to knights, their vassals. The knight's side of the deal: fight for the lord, often for a set number of days each year.",
+            "check": {
+              "question": "What did a vassal owe in exchange for land?",
+              "options": [
+                "Loyalty and military service",
+                "A monthly payment in gold",
+                "Nothing — the land was a free gift"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "At the base: serfs. They farm the lord's fields and hand over part of every harvest; in return they get protection and land to live on. Bound to the manor, they need permission to leave — yet unlike enslaved people, they cannot be sold away from their land." },
+          {
+            "text": "So feudalism is a pyramid of deals: land flows down, loyalty and work flow up. Hardly any money changes hands — land IS the money.",
+            "check": {
+              "question": "In the feudal pyramid, what flows DOWN?",
+              "options": [
+                "Land and protection",
+                "Harvests and labor",
+                "Loyalty and service"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hum.medieval.t02",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.hum.medieval",
+      "prompt": "A siege approaches! Complete the castle's defense rundown.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "First obstacle: the ring of water called the [[moat]]",
+          "The gatehouse lifts the [[drawbridge]] so no one can cross",
+          "Down crashes the iron grate — the [[portcullis]]"
+        ]
+      },
+      "hint": "All three words were on the castle-blueprint screen.",
+      "explanation": "Moat, drawbridge, portcullis — three layers before anyone touches the walls. Defenders could even drop stones through 'murder holes' in the gate ceiling."
+    },
+    {
+      "id": "hum.medieval.001",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What did a serf give the lord of the manor in exchange for protection and land to farm?",
+      "answer": "Labor and a share of the harvest",
+      "options": [
+        "Labor and a share of the harvest",
+        "Gold coins every month",
+        "Nothing — serfs were paid wages",
+        "Knights for the lord's army"
+      ],
+      "hint": "Serfs had almost no money — so what could they pay with?",
+      "explanation": "Serfs paid in work and crops — they even paid fees to grind grain at the lord's mill. It wasn't slavery, but it was far from freedom."
+    },
+    {
+      "id": "hum.medieval.002",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Castle windows were often just narrow slits in the thick walls. Why?",
+      "answer": "Archers inside could shoot out while staying nearly impossible to hit",
+      "options": [
+        "Archers inside could shoot out while staying nearly impossible to hit",
+        "Glass was too expensive for any castle",
+        "Narrow windows were purely decorative",
+        "They kept the castle cooler in summer"
+      ],
+      "hint": "Imagine trying to aim INTO a slit from 100 meters away.",
+      "explanation": "Arrow slits gave every defender a wide view and a tiny silhouette — castle design is geometry with attitude."
+    },
+    {
+      "id": "hum.medieval.003",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Guilds gave us a word you still use for any great work of art.",
+      "answer": "blanks",
+      "data": { "lines": ["To rise from apprentice to master, a craftsman presented his finest work — literally his [[masterpiece]]"] },
+      "hint": "Master + piece.",
+      "explanation": "Your master-piece proved you could join the masters. Bonus etymology: 'journeyman' comes from the French journée, because he was paid by the DAY."
+    },
+    {
+      "id": "hum.medieval.004",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about serfs — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Serfs owed the lord labor and part of their harvest in exchange for protection",
+          "Unlike enslaved people, serfs could not be bought and sold away from their land"
+        ],
+        "lie": "Serfs were free to pack up and move to another village whenever they wished"
+      },
+      "hint": "The word 'bound' is the key to serfdom.",
+      "explanation": "Serfs were tied to the manor — leaving required the lord's permission. (After the plague, though, scarce workers found they could finally bargain.)"
+    },
+    {
+      "id": "hum.medieval.005",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each medieval feature to its job.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["moat", "water ring that stalls attackers"],
+          ["portcullis", "iron grate that seals the gate"],
+          ["keep", "the strongest tower — the last refuge"],
+          ["flying buttress", "outside prop that lets cathedral walls soar"],
+          ["gargoyle", "stone monster that is secretly a rain spout"]
+        ]
+      },
+      "hint": "Three guard a castle, two belong to cathedrals.",
+      "explanation": "Even the monsters had day jobs: gargoyles spit rainwater clear of the walls so it wouldn't gnaw the stone."
+    },
+    {
+      "id": "hum.medieval.006",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Whose duty is it? Sort each duty to its feudal role.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Lord": ["grants land in exchange for loyalty", "runs the manor's court"],
+          "Knight": ["fights on horseback for his lord", "trains for war from boyhood"],
+          "Serf": ["farms the fields and owes part of the harvest", "cannot leave the manor without permission"]
+        }
+      },
+      "hint": "Land-giver, land-defender, land-worker.",
+      "explanation": "Lord, knight, serf — the whole system ran on land and loyalty instead of salaries."
+    },
+    {
+      "id": "hum.medieval.007",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Order the steps of a guild career, from a young baker's first day to owning the shop.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Join a master's household as a young apprentice",
+          "Spend about seven years learning the craft for room and board",
+          "Work as a journeyman, earning pay by the day",
+          "Present a masterpiece for the guild's judgment",
+          "Be accepted as a master and open your own shop"
+        ]
+      },
+      "hint": "Learn free, then earn daily, then prove yourself.",
+      "explanation": "Apprentice → journeyman → master: the guild ladder controlled quality in every trade, from bread to goldwork.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "hum.medieval.008",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about the Black Death — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "The plague reached Europe on trading ships and spread along trade routes",
+          "So many workers died that survivors could demand better pay and freedoms"
+        ],
+        "lie": "Medieval doctors quickly identified the germ and cured the plague"
+      },
+      "hint": "Germs weren't discovered for another 500 years.",
+      "explanation": "No one knew bacteria existed — physicians blamed 'bad air.' The disease killed perhaps a third of Europe in about four years."
+    },
+    {
+      "id": "hum.medieval.009",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Why were books so rare and precious in medieval Europe?",
+      "answer": "Each copy was handwritten — one book could take a scribe a year",
+      "options": [
+        "Each copy was handwritten — one book could take a scribe a year",
+        "Paper had not been invented anywhere in the world yet",
+        "Reading was illegal outside the monasteries",
+        "Most books were burned every winter for heat"
+      ],
+      "hint": "Think about how a copy got made before machines.",
+      "explanation": "Monks copied texts letter by letter in the scriptorium, decorating pages with real gold — that's why it's called 'illumination.' (And paper DID exist — China had it for a thousand years.)",
+      "tags": ["reading"]
+    },
+    {
+      "id": "hum.medieval.010",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "After the Black Death, why could surviving peasants suddenly demand wages and freedoms?",
+      "answer": "Workers were scarce, so their labor was worth far more",
+      "options": [
+        "Workers were scarce, so their labor was worth far more",
+        "The king ordered every lord to pay equal wages",
+        "Peasants had inherited the lords' castles",
+        "Food had become free for everyone"
+      ],
+      "hint": "Supply and demand — but for workers.",
+      "explanation": "With perhaps a third of Europe gone, lords competed for field hands; many serfs bargained for pay or left for the towns. Catastrophe cracked feudalism."
+    },
+    {
+      "id": "hum.medieval.011",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about medieval minds — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Medieval university students studied astronomy as a core subject",
+          "Educated medieval Europeans knew the Earth was a sphere"
+        ],
+        "lie": "People in the Middle Ages believed the Earth was flat"
+      },
+      "hint": "This 'fact' about the past is itself the myth.",
+      "explanation": "Scholars had known Earth's shape since the ancient Greeks; the 'medieval flat-earthers' story was largely spread by a novelist's Columbus tale in the 1800s."
+    },
+    {
+      "id": "hum.medieval.012",
+      "realm": "humanities", "skill": "hum.medieval", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: It's 1351. Half the village fields stand empty, and a neighboring lord is offering real wages for harvest help. As the manor's lord, what should you EXPECT?",
+      "answer": "Serfs gain bargaining power — some will demand pay or slip away to better offers",
+      "options": [
+        "Serfs gain bargaining power — some will demand pay or slip away to better offers",
+        "Serfs will work double for free out of gratitude",
+        "Wages everywhere will fall because food is scarce",
+        "Nothing changes, since serfs may never leave a manor"
+      ],
+      "hint": "Scarce workers + competing employers = ?",
+      "explanation": "Exactly what happened: wages rose, old labor duties crumbled, and within a few generations serfdom faded across much of Western Europe.",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "hum.renaissance.t01",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.hum.renaissance",
+      "prompt": "The press that made ideas go viral — let's see how Gutenberg's machine worked its magic.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Before 1440: every European book was copied by hand. A Bible took a scribe about a year, so books cost a fortune and most people never owned a single one." },
+          {
+            "text": "Gutenberg's combo, around 1440: metal MOVABLE TYPE (cast letters you rearrange endlessly), a screw press borrowed from wine-making, and oily ink that stuck to metal. Set a page once — print hundreds of copies.",
+            "check": {
+              "question": "What made movable type such a time-saver?",
+              "options": [
+                "Letters could be reused and rearranged for any page",
+                "The letters were prettier than handwriting",
+                "Each page was carved fresh from one wood block"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "The math is wild: a press team could pull hundreds of pages a DAY. By 1500 — barely 50 years later — European presses had printed millions of books." },
+          {
+            "text": "Cheap books meant more people learned to read, scientists could compare notes across countries, and new ideas could not be hushed up. Printing didn't just copy the Renaissance — it spread it.",
+            "check": {
+              "question": "Why did printing speed up science?",
+              "options": [
+                "Discoveries could be shared widely and checked by others",
+                "Printers performed the experiments themselves",
+                "Printed books made telescopes cheaper"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hum.renaissance.t02",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.hum.renaissance",
+      "prompt": "Finish Galileo's evidence chain like a scientist.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Claim: not everything in the sky circles the Earth",
+          "Evidence: night after night in 1610, Galileo watched four moons circling [[Jupiter]]",
+          "Reasoning: if moons orbit another planet, Earth is not the center of every orbit",
+          "Backing claims with [[evidence]] became the habit we now call science"
+        ]
+      },
+      "hint": "Bridge flashback: which planet did he aim at, and what must back up a claim?",
+      "explanation": "He even named the moons the 'Medicean stars' after the Medici, his hoped-for patrons — flattery and data in a single discovery."
+    },
+    {
+      "id": "hum.renaissance.001",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "What changed about books after Gutenberg's press, around 1440?",
+      "answer": "From rare, costly, hand-copied treasures to printed and affordable",
+      "options": [
+        "From rare, costly, hand-copied treasures to printed and affordable",
+        "They became smaller but stayed just as rare",
+        "They could finally include pictures",
+        "Nothing — monks copied faster than the machines"
+      ],
+      "hint": "Think speed of copying.",
+      "explanation": "Within 50 years, presses had printed millions of volumes — more books than Europe's scribes had managed in centuries.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "hum.renaissance.002",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "The Medici of Florence were famous as patrons. A patron is…",
+      "answer": "A wealthy supporter who pays for artists' and scientists' work",
+      "options": [
+        "A wealthy supporter who pays for artists' and scientists' work",
+        "A guard who protects famous paintings",
+        "A judge in painting competitions",
+        "A merchant who sells brushes and paint"
+      ],
+      "hint": "Bridge vocab — think 'support.'",
+      "explanation": "Medici banking money backed Botticelli and a teenage Michelangelo; Galileo even named Jupiter's moons after the family to win their support."
+    },
+    {
+      "id": "hum.renaissance.003",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Leonardo da Vinci, a left-hander, filled thousands of notebook pages writing right to left.",
+      "answer": "blanks",
+      "data": { "lines": ["His reversed script is called [[mirror]] writing"] },
+      "hint": "You'd need a piece of bathroom equipment to read it easily.",
+      "explanation": "Hold a page up to a mirror and it reads normally. No one is sure why he did it — smudge-free lefty writing is one good guess."
+    },
+    {
+      "id": "hum.renaissance.004",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Gutenberg — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Gutenberg's press in Mainz was printing by around 1440",
+          "By 1500, European presses had printed millions of books"
+        ],
+        "lie": "Gutenberg was the first person in the world to print a book"
+      },
+      "hint": "Think back to a certain 868 CE scroll from China…",
+      "explanation": "China printed the Diamond Sutra six centuries earlier, and Bi Sheng made movable type around 1045. Gutenberg's breakthrough was a metal-type press system that fit alphabets perfectly."
+    },
+    {
+      "id": "hum.renaissance.005",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each Renaissance name to its claim to fame.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Gutenberg", "movable-type printing press"],
+          ["Leonardo da Vinci", "notebooks crammed with inventions and anatomy"],
+          ["the Medici", "Florence's art-funding banking family"],
+          ["Copernicus", "book putting the Sun at the center"],
+          ["Galileo", "telescope evidence for the new astronomy"]
+        ]
+      },
+      "hint": "One printer, one artist-engineer, one family of bankers, two sky-watchers.",
+      "explanation": "Press, patrons, paintings, planets — the Renaissance toolkit in five names."
+    },
+    {
+      "id": "hum.renaissance.006",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Around 1413, Brunelleschi showed painters a trick called linear perspective. What does it do?",
+      "answer": "Makes a flat painting look deep, with lines meeting at a vanishing point",
+      "options": [
+        "Makes a flat painting look deep, with lines meeting at a vanishing point",
+        "Makes paint dry faster in cold weather",
+        "Lets painters mix any color from three pigments",
+        "Shrinks a portrait down to coin size"
+      ],
+      "hint": "Picture train tracks: what do the rails seem to do far away?",
+      "explanation": "Parallel lines drawn toward one vanishing point trick the eye into seeing depth — suddenly paintings looked like windows you could step through."
+    },
+    {
+      "id": "hum.renaissance.007",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Order the road from hand-copied books to telescope-tested skies.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Monks copy each book by hand, one slow page at a time",
+          "Gutenberg's movable-type press starts printing in Mainz",
+          "Printed books spread across Europe by the millions",
+          "Copernicus publishes his Sun-centered model",
+          "Galileo publishes what his telescope revealed"
+        ]
+      },
+      "hint": "Copying → printing → spreading → big claim → telescope evidence.",
+      "explanation": "The 1440s → by 1500 → 1543 → 1610: each step armed the next. Print carried Copernicus and Galileo to every corner of Europe."
+    },
+    {
+      "id": "hum.renaissance.008",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Grand timeline! Order these five moments from your whole journey, earliest first.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Sundiata founds the Mali Empire",
+          "Mansa Musa's golden hajj dazzles Cairo",
+          "Gutenberg's press prints its first pages",
+          "Columbus crosses the Atlantic",
+          "Galileo aims his telescope at Jupiter"
+        ]
+      },
+      "hint": "Mali's story is the 1200s–1300s; print is the mid-1400s; the telescope is the newest of all.",
+      "explanation": "About 1235 → 1324 → the 1440s → 1492 → 1610: four centuries from the Lion King of Mali to moons around Jupiter."
+    },
+    {
+      "id": "hum.renaissance.009",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Galileo — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Galileo improved a Dutch spyglass design until it magnified about 20 times",
+          "Galileo discovered four moons orbiting Jupiter"
+        ],
+        "lie": "Galileo invented the telescope"
+      },
+      "hint": "Whose patent application reached the Dutch government in 1608?",
+      "explanation": "Dutch spectacle-makers built the first telescopes; Galileo's genius was supercharging one, aiming it at the SKY, and publishing the evidence."
+    },
+    {
+      "id": "hum.renaissance.010",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A friend insists: 'Heavy objects obviously fall faster — the ancient books say so.' What is the Scientific Revolution's reply?",
+      "answer": "Test it and watch — evidence outranks old books",
+      "options": [
+        "Test it and watch — evidence outranks old books",
+        "Older books are always right",
+        "Take a vote among the smartest people",
+        "Whoever argues loudest wins"
+      ],
+      "hint": "Claim, evidence, reasoning — what's missing from 'books say so'?",
+      "explanation": "Galileo reportedly tested falling weights and showed they land together. The new habit — observe, don't just trust authority — is the same CER you use in science class."
+    },
+    {
+      "id": "hum.renaissance.011",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Leonardo refused to pick just one job.",
+      "answer": "blanks",
+      "data": { "lines": ["He was equal parts artist and [[engineer]]: between portraits he sketched flying machines, gears, and anatomy"] },
+      "hint": "Someone who designs machines.",
+      "explanation": "About 7,000 notebook pages survive — studies of bird wings, water, war machines, even a robot knight. The ultimate 'why not both?'"
+    },
+    {
+      "id": "hum.renaissance.012",
+      "realm": "humanities", "skill": "hum.renaissance", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "A museum placard about the new astronomy has one error. Tap it.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Placard: The New Astronomy",
+          "In 1543, Copernicus published a model with the Sun, not Earth, at the center",
+          "In 1610, Galileo's telescope revealed moons circling Jupiter",
+          "Galileo's discoveries spread slowly, because each copy of his book had to be hand-copied by monks"
+        ]
+      },
+      "hint": "What machine had already existed for 170 years by 1610?",
+      "explanation": "Printing presses had been running since the 1440s — Galileo's 'Starry Messenger' sold out almost immediately. Print is HOW the new astronomy went viral.",
+      "tags": ["legendary"]
+    },
+
+    {
+      "id": "hum.exploration.t01",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 1,
+      "type": "worked_example", "teachSequenceId": "teach.hum.exploration",
+      "prompt": "The explorer's toolkit — mostly borrowed! Let's see what made ocean crossings possible.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "The motive: spices. A small sack of pepper or nutmeg could repay a whole voyage — IF you could buy it at the source instead of through a dozen middlemen, each one charging a markup." },
+          {
+            "text": "The ship: the caravel — small and quick, with triangular lateen sails that let it zigzag INTO the wind instead of waiting for a perfect breeze. Columbus's Niña and Pinta were caravels.",
+            "check": {
+              "question": "What superpower did lateen sails give a caravel?",
+              "options": [
+                "Sailing at an angle into the wind",
+                "Sailing twice as fast downwind",
+                "Sailing with half the crew asleep"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "The tools — imported: the compass came from China, and the astrolabe was perfected by astronomers of the Islamic world. Measure the noon sun's height and you know your latitude — how far north or south you've sailed." },
+          {
+            "text": "So the Age of Exploration was a global team effort before it even began: Chinese needles, Arab star-math, Portuguese hulls — and a planet about to be stitched together.",
+            "check": {
+              "question": "Which is TRUE about the explorers' toolkit?",
+              "options": [
+                "Key tools were invented elsewhere and adopted by Europeans",
+                "Europeans invented the compass and astrolabe from scratch",
+                "Explorers navigated by pure guesswork"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "hum.exploration.t02",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.hum.exploration",
+      "prompt": "Complete the Columbian Exchange ledger.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Sailing east to Europe: corn, tomatoes, and [[potatoes]]",
+          "Sailing west to the Americas: wheat, cattle, and [[horses]]",
+          "Crossing invisibly with the crews: deadly [[germs|diseases]], like smallpox"
+        ]
+      },
+      "hint": "The bridge named all three: Ireland's future crop, the Plains' future rides, and the invisible passengers.",
+      "explanation": "Foods enriched menus on both sides of the ocean, but the germs were catastrophic: Indigenous peoples had no immunity, and epidemics swept the Americas."
+    },
+    {
+      "id": "hum.exploration.001",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "An Italian chef in the year 1400 could NOT have cooked with which ingredient?",
+      "answer": "Tomatoes",
+      "options": ["Tomatoes", "Olive oil", "Wheat flour", "Garlic"],
+      "hint": "One of these is a New World native.",
+      "explanation": "Tomatoes are American plants — Italy only met them after the Columbian Exchange. Pizza as we know it is younger than the telescope!",
+      "tags": ["baking"]
+    },
+    {
+      "id": "hum.exploration.002",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Why did explorers prize the caravel?",
+      "answer": "Its triangular sails let it sail at an angle into the wind",
+      "options": [
+        "Its triangular sails let it sail at an angle into the wind",
+        "It was the biggest ship ever built",
+        "Its hull was plated with iron",
+        "It could sail itself while the crew slept"
+      ],
+      "hint": "Think about sailing TOWARD where the wind comes from.",
+      "explanation": "Lateen sails meant no more waiting for a perfect breeze. Bonus: ships usually carried cats to guard the food stores from rats.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "hum.exploration.003",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "The needle that pointed the explorers' way was not a European invention.",
+      "answer": "blanks",
+      "data": { "lines": ["The magnetic compass was invented in [[China]]"] },
+      "hint": "Zheng He's sailors steered by it decades before Columbus was born.",
+      "explanation": "The compass reached Europe through Indian Ocean and Mediterranean trade — the Age of Exploration ran on borrowed brilliance."
+    },
+    {
+      "id": "hum.exploration.004",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Columbus's 1492 voyage — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Educated Europeans in 1492 already knew the Earth was round — the debate was about its size",
+          "Columbus believed he had reached islands near Asia, so he called the people 'Indians'"
+        ],
+        "lie": "Columbus's crew feared they would sail off the edge of a flat Earth"
+      },
+      "hint": "You busted this same myth back in Medieval Europe.",
+      "explanation": "The real argument: scholars said the globe was far bigger than Columbus claimed — and they were RIGHT. An unexpected continent is what saved his fleet from starving mid-ocean."
+    },
+    {
+      "id": "hum.exploration.005",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each piece of the explorer's world to its description.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["compass", "China's gift: a needle that finds north"],
+          ["astrolabe", "measures a star's height to find latitude"],
+          ["caravel", "nimble ship with wind-angling sails"],
+          ["spices", "small cargo worth a fortune in Europe"],
+          ["the Victoria", "first ship to sail all the way around the world"]
+        ]
+      },
+      "hint": "Two tools, one ship type, one cargo, one record-setter.",
+      "explanation": "With borrowed tools and new hulls, a single returning spice ship could make its investors rich."
+    },
+    {
+      "id": "hum.exploration.006",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Historians sum up the explorers' motives as three G's.",
+      "answer": "blanks",
+      "data": { "lines": ["The three G's: [[gold]], glory, and God"] },
+      "hint": "The first G is a precious metal.",
+      "explanation": "Wealth, fame, and spreading their faith drove the voyages — and spices were the fastest wealth of all."
+    },
+    {
+      "id": "hum.exploration.007",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Order the age of ocean voyages, earliest first.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Zheng He's treasure fleets cross the Indian Ocean",
+          "Dias rounds Africa's southern tip",
+          "Columbus reaches the Caribbean",
+          "Da Gama sails all the way to India",
+          "Magellan's expedition finishes circling the globe"
+        ]
+      },
+      "hint": "China's fleets came first; the Spanish circle closed last, in 1522.",
+      "explanation": "1405–1433 → 1488 → 1492 → 1498 → 1522: within one long century, the oceans became highways."
+    },
+    {
+      "id": "hum.exploration.008",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 3,
+      "type": "drag_categorize",
+      "prompt": "Columbian Exchange sort: which side of the ocean did each come from FIRST?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "From the Americas (New World)": ["potatoes", "tomatoes", "corn", "chocolate"],
+          "From Europe, Asia & Africa (Old World)": ["horses", "wheat", "sugar cane", "oranges"]
+        }
+      },
+      "hint": "Ask: could a medieval European knight have eaten it? Then it's Old World.",
+      "explanation": "No chocolate in all of Europe, no horses in all the Americas — 1492 rewired every menu on Earth."
+    },
+    {
+      "id": "hum.exploration.009",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Magellan's expedition — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "The expedition left Spain with five ships and about 270 men",
+          "Only one ship, the Victoria, made it home, carrying 18 exhausted sailors"
+        ],
+        "lie": "Magellan himself completed the first voyage around the world"
+      },
+      "hint": "Check what happened in the Philippines in 1521.",
+      "explanation": "Magellan was killed mid-voyage in the Philippines; Elcano brought the Victoria home in 1522. The EXPEDITION circled the globe — its commander did not."
+    },
+    {
+      "id": "hum.exploration.010",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Why were European diseases like smallpox so catastrophic in the Americas?",
+      "answer": "Indigenous peoples had never met these germs, so they had no immunity",
+      "options": [
+        "Indigenous peoples had never met these germs, so they had no immunity",
+        "The American climate made every disease stronger",
+        "Cures existed in Europe but were left behind",
+        "The diseases spread through gold and silver"
+      ],
+      "hint": "Bridge vocab: immunity.",
+      "explanation": "Epidemics raced ahead of the explorers themselves, killing most of the population in many regions — the deadliest consequence of the Exchange."
+    },
+    {
+      "id": "hum.exploration.011",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Which statement about the American colonies' sugar plantations is historically accurate?",
+      "answer": "They ran on the forced labor of enslaved African people, shipped across the Atlantic",
+      "options": [
+        "They ran on the forced labor of enslaved African people, shipped across the Atlantic",
+        "They paid high wages to volunteer workers from Europe",
+        "They were worked mainly by Spanish nobles",
+        "Sugar grew wild there and needed almost no workers"
+      ],
+      "hint": "This is the era's hardest truth — face it squarely.",
+      "explanation": "The Atlantic slave trade forcibly transported more than 12 million Africans over its centuries. Honest history counts the era's costs as well as its discoveries."
+    },
+    {
+      "id": "hum.exploration.012",
+      "realm": "humanities", "skill": "hum.exploration", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: In 1504, a Venetian pepper merchant finds his prices undercut and his usual suppliers nearly empty-handed. What best explains his crisis?",
+      "answer": "Portuguese ships now sail directly to India, skipping the middlemen Venice relied on",
+      "options": [
+        "Portuguese ships now sail directly to India, skipping the middlemen Venice relied on",
+        "Europeans suddenly stopped eating pepper",
+        "Pepper had begun growing wild across northern Italy",
+        "Venice's ships had all been lost in a storm"
+      ],
+      "hint": "Follow da Gama's 1498 route — and think about markups.",
+      "explanation": "Da Gama's sea route let Portugal buy pepper at the source, bypassing the old relay of middlemen Venice depended on. One new route rocked whole economies.",
+      "tags": ["legendary"]
+    }
+  ]
+}

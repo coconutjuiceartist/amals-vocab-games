@@ -1,0 +1,496 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.stats",
+      "skill": "math.stats",
+      "title": "Statistics: Taming the Data Dragon",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Questions with a crowd of answers",
+          "lines": [
+            "'How many letters are in DATA?' has exactly one answer — but 'How many books did each classmate read this month?' has a whole CROWD of answers.",
+            "That's a statistical question, and statistics is the art of taming the crowd: one question, many answers, and you find the story."
+          ],
+          "vocab": [
+            { "term": "statistical question", "meaning": "a question that expects many different answers, like 'how tall are the students in class?'" },
+            { "term": "data", "meaning": "the collection of answers or measurements you gather" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "gambit", "itemId": "math.stats.t01", "framing": "No grade, no pressure — just try something. Whatever number you pick, your brain is already doing statistics." },
+        { "kind": "worked", "itemId": "math.stats.t02" },
+        { "kind": "completion", "itemId": "math.stats.t03" },
+        { "kind": "completion", "itemId": "math.stats.t04" },
+        {
+          "kind": "bridge",
+          "title": "Absolute value gets a new job",
+          "lines": [
+            "You're already fluent in absolute value: |−3| = 3, a distance with the direction stripped away.",
+            "MAD — mean absolute deviation — is simply the AVERAGE distance of the data from its mean: a single number for how spread out things are."
+          ],
+          "vocab": [
+            { "term": "mean absolute deviation (MAD)", "meaning": "the average distance between each data value and the mean" }
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "worked", "itemId": "math.stats.t05" },
+        { "kind": "completion", "itemId": "math.stats.t06" },
+        { "kind": "completion", "itemId": "math.stats.t07" },
+        { "kind": "completion", "itemId": "math.stats.t08" },
+        { "kind": "burst", "itemIds": ["math.stats.001", "math.stats.002", "math.stats.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.stats.t01",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.stats",
+      "prompt": "Amal's last five Duolingo lesson scores: 80, 90, 90, 100, 90. If you had to pick ONE number to describe her typical score, what would you pick?",
+      "answer": ["90"],
+      "hint": "There's no formula yet — which number sits in the middle, or shows up the most?",
+      "explanation": "All three classic 'centers' — the most common score, the middle score, and the fair-share average — land on 90 here. Today you'll learn to find each one on purpose.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "math.stats.t02",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.stats",
+      "prompt": "Five spelling-quiz scores (out of 10): 4, 7, 5, 9, 5. Let's squeeze the whole week into single numbers — mean, median, mode, and range.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "MEAN = the fair share: total ÷ how many. 4 + 7 + 5 + 9 + 5 = 30, and 30 ÷ 5 = 6 — as if every quiz had scored equally." },
+          {
+            "text": "MEDIAN = the middle of the ORDERED list. Sort first: 4, 5, 5, 7, 9 → the middle value is 5.",
+            "check": {
+              "question": "Why must we sort before finding the median?",
+              "options": [
+                "'Middle' only means something when the list is in order",
+                "Sorting makes the numbers smaller",
+                "The median is always the first number"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "MODE = the value that appears most often: 5 shows up twice, so the mode is 5. (Some data has no mode, some has two!)" },
+          {
+            "text": "RANGE = max − min = 9 − 4 = 5. Mean/median/mode describe the CENTER; range describes the SPREAD.",
+            "check": {
+              "question": "Which of these measures spread instead of center?",
+              "options": ["Range", "Mean", "Median"],
+              "answer": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.stats.t03",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.stats",
+      "prompt": "Your turn to finish one. Four shelter kittens weigh 2, 3, 3, and 4 pounds. Find the mean weight.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Total: 2 + 3 + 3 + 4 = 12",
+          "Share equally among 4 kittens: 12 ÷ 4 = [[3]] pounds"
+        ]
+      },
+      "hint": "Mean = total ÷ how many kittens.",
+      "explanation": "12 pounds shared fairly among 4 kittens is 3 pounds each — that's all a mean is.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.stats.t04",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.stats",
+      "prompt": "Points scored in six board-game rounds: 12, 8, 15, 10, 8, 20. An EVEN count has no single middle — finish finding the median.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Order: 8, 8, 10, [[12]], 15, 20",
+          "Average the middle two: (10 + 12) ÷ 2 = [[11]]"
+        ]
+      },
+      "hint": "Sort first, then the median sits halfway between the two middle values.",
+      "explanation": "With six values the middle two are 10 and 12, so the median is their average: 11."
+    },
+    {
+      "id": "math.stats.t05",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.stats",
+      "prompt": "Four cats napped 6, 8, 10, and 12 hours today. How spread out are the naps? Let's compute the MAD together.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "First the mean: (6 + 8 + 10 + 12) ÷ 4 = 36 ÷ 4 = 9 hours." },
+          {
+            "text": "Now each cat's DISTANCE from the mean, using absolute value: |6−9| = 3, |8−9| = 1, |10−9| = 1, |12−9| = 3.",
+            "check": {
+              "question": "Why absolute value?",
+              "options": [
+                "Distance has no direction — 3 below the mean counts the same as 3 above",
+                "To make every nap longer",
+                "Because the mean is always positive"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Average those distances: (3 + 1 + 1 + 3) ÷ 4 = 8 ÷ 4 = 2. MAD = 2 hours." },
+          {
+            "text": "Meaning: a typical nap sits about 2 hours from the mean. Small MAD = tightly clustered data; big MAD = wildly spread data.",
+            "check": {
+              "question": "Another litter's naps have MAD 5 hours. Compared to ours, their naps are…",
+              "options": ["More spread out", "More tightly clustered", "Longer on average"],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.stats.t06",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.stats",
+      "prompt": "Songs Amal ran through at K-pop dance practice over 5 days: 2, 4, 4, 5, 10. Finish finding the MAD.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Mean: (2 + 4 + 4 + 5 + 10) ÷ 5 = [[5]]",
+          "Distances from the mean: 3, 1, 1, 0, [[5]]",
+          "MAD: (3 + 1 + 1 + 0 + 5) ÷ 5 = [[2]]"
+        ]
+      },
+      "hint": "Mean first, then absolute distances, then average the distances.",
+      "explanation": "The mean is 5, the distances are 3, 1, 1, 0, 5, and their average is 2 — practice days vary by about 2 songs.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.stats.t07",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.stats",
+      "prompt": "Five bake-sale prices: $2, $3, $3, $4, and $18 (one deluxe cake). Which center describes a TYPICAL price? Finish the comparison.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Mean: (2 + 3 + 3 + 4 + 18) ÷ 5 = 30 ÷ 5 = [[6]]",
+          "Median of 2, 3, 3, 4, 18 → the middle value: [[3]]",
+          "The deluxe cake is an outlier, so the fairer 'typical price' is the [[median]]"
+        ]
+      },
+      "hint": "Notice how the $18 cake yanks one of the measures upward — which one barely moves?",
+      "explanation": "The outlier drags the mean up to $6, more than most items cost, while the median stays at $3. With outliers, the median usually tells the truer story.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.stats.t08",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.stats",
+      "prompt": "Last one — you drive. Seven Charms quiz scores (out of 15): 3, 5, 6, 8, 9, 11, 14. Build the five-number summary for a box plot.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Median (middle of the 7 ordered scores): [[8]]",
+          "Q1 = median of the lower half 3, 5, 6 → [[5]]; Q3 = median of the upper half 9, 11, 14 → [[11]]",
+          "Five-number summary: min 3, Q1, median, Q3, max 14 — box from Q1 to Q3, whiskers to min and max"
+        ]
+      },
+      "hint": "The median splits the data in half; then find the middle of EACH half.",
+      "explanation": "Min 3, Q1 5, median 8, Q3 11, max 14 — those five numbers are the entire skeleton of a box plot.",
+      "tags": ["harry-potter"]
+    },
+
+    {
+      "id": "math.stats.001",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which of these is a STATISTICAL question — one that expects many different answers?",
+      "answer": "How many minutes did each student in your class read last night?",
+      "options": [
+        "How many minutes did each student in your class read last night?",
+        "How many minutes are in one hour?",
+        "How many pages does this one exact book have?",
+        "What day of the week is it today?"
+      ],
+      "hint": "A statistical question collects answers that VARY from person to person.",
+      "explanation": "Every classmate gives a different number of minutes — that variety is exactly what makes it statistical. The other three each have one fixed answer."
+    },
+    {
+      "id": "math.stats.002",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Amal's yarn stash holds skeins of length 12, 25, 18, 30, and 15 meters. Find the range.",
+      "answer": ["18", "18 meters", "18 m"],
+      "hint": "Range = longest − shortest.",
+      "explanation": "30 − 12 = 18 meters — the range measures how far the data stretches.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.stats.003",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Fill in the mode facts.",
+      "answer": "blanks",
+      "data": { "lines": ["The mode is the value that appears [[most]] often. In the data 4, 6, 6, 9, 6, 2 the mode is [[6]]."] },
+      "hint": "Tally how many times each value shows up.",
+      "explanation": "6 appears three times, more than any other value — that makes it the mode."
+    },
+    {
+      "id": "math.stats.004",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A dot plot of 'goals scored per match' shows 2 dots above 1, 4 dots above 2, and 3 dots above 3. How many matches were recorded?",
+      "answer": "9",
+      "options": ["9", "6", "4", "3"],
+      "hint": "Every dot is one match — count ALL the dots.",
+      "explanation": "2 + 4 + 3 = 9 dots, so 9 matches. Each dot stands for one data value, never for the number it sits above."
+    },
+    {
+      "id": "math.stats.005",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 1,
+      "type": "drag_categorize",
+      "prompt": "Sort each question: statistical or not?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Statistical — answers will vary": [
+            "How many minutes did each 6th grader practice an instrument this week?",
+            "How tall are the sunflowers in the school garden?",
+            "How many pets do the students at your school have?"
+          ],
+          "Not statistical — one fixed answer": [
+            "How many days are in a week?",
+            "How many letters are in the word 'data'?",
+            "What is 7 × 8?"
+          ]
+        }
+      },
+      "hint": "Ask yourself: would different people (or plants!) give different answers?",
+      "explanation": "Statistical questions anticipate variety — that's why they need tools like mean and median to summarize the crowd of answers."
+    },
+    {
+      "id": "math.stats.006",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "plot_builder",
+      "prompt": "Five book-club friends read 6, 7, 7, 8, and 10 books this season. Build the dot plot, then find the MEDIAN.",
+      "answer": "7",
+      "data": { "model": { "kind": "dot", "values": [6, 7, 7, 8, 10], "min": 0, "max": 12, "ask": "median" } },
+      "hint": "Once the dots are stacked in order, count in from both ends to the middle dot.",
+      "explanation": "Ordered: 6, 7, 7, 8, 10 — the third of five values is 7, so the median is 7.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.stats.007",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "plot_builder",
+      "prompt": "Six teams scored 2, 3, 3, 5, 7, and 8 goals this season. Build the dot plot, then find the RANGE.",
+      "answer": "6",
+      "data": { "model": { "kind": "dot", "values": [2, 3, 3, 5, 7, 8], "min": 0, "max": 10, "ask": "range" } },
+      "hint": "On the finished plot, the range is the distance from the leftmost dot to the rightmost dot.",
+      "explanation": "8 − 2 = 6 — the dot plot makes spread visible as the stretch between the end dots."
+    },
+    {
+      "id": "math.stats.008",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Amal's four muffin batches yielded 18, 24, 21, and 25 muffins. What is the mean number of muffins per batch?",
+      "answer": ["22", "22 muffins"],
+      "hint": "Add all four batches, then share the total equally.",
+      "explanation": "18 + 24 + 21 + 25 = 88, and 88 ÷ 4 = 22 — the fair-share batch.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.stats.009",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Amal surveys 40 students on minutes read last night and wants to show how many fall in 0–14, 15–29, 30–44, and 45–59. Which display fits best?",
+      "answer": "A histogram — the minutes are grouped into equal numeric intervals",
+      "options": [
+        "A histogram — the minutes are grouped into equal numeric intervals",
+        "A bar graph — every minute total is its own separate category",
+        "A line graph — the data shows change over time",
+        "Either — histograms and bar graphs are the same thing"
+      ],
+      "hint": "Are the groups categories (like cat breeds) or ranges of numbers?",
+      "explanation": "Histograms bin NUMERIC data into equal intervals, so their bars touch; bar graphs compare separate categories, so their bars stand apart."
+    },
+    {
+      "id": "math.stats.010",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each measure to its meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["mean", "fair-share average: total ÷ how many"],
+          ["median", "middle value of the ordered list"],
+          ["mode", "the value that appears most often"],
+          ["range", "maximum minus minimum"],
+          ["MAD", "average distance from the mean"]
+        ]
+      },
+      "hint": "Three of these describe center; two describe spread.",
+      "explanation": "Mean, median, and mode are centers; range and MAD are spreads — knowing which is which is half of statistics."
+    },
+    {
+      "id": "math.stats.011",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Six K-pop dance-practice scores: 88, 92, 95, 99, 90, 94. Finish finding the median.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Order: 88, 90, [[92]], 94, 95, 99",
+          "Average the middle two: (92 + 94) ÷ 2 = [[93]]"
+        ]
+      },
+      "hint": "Sort first — then the median of an even count is the average of the two middle scores.",
+      "explanation": "The ordered middle pair is 92 and 94, so the median is 93 — right between them.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.stats.012",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "The data set 2, 4, 6, 8 sits on a seesaw. Tap the mean — the balance point.",
+      "answer": "5",
+      "data": { "numberLine": { "min": 0, "max": 10, "step": 1 } },
+      "hint": "Total ÷ count — or feel where the seesaw balances.",
+      "explanation": "(2 + 4 + 6 + 8) ÷ 4 = 20 ÷ 4 = 5. The mean is where the data would balance perfectly."
+    },
+    {
+      "id": "math.stats.013",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "visual_model", "model": "plot_builder",
+      "prompt": "Six board-game scores: 3, 5, 5, 6, 8, 9. Build the dot plot, then find the MEAN.",
+      "answer": "6",
+      "data": { "model": { "kind": "dot", "values": [3, 5, 5, 6, 8, 9], "min": 0, "max": 10, "ask": "mean" } },
+      "hint": "Add all six scores first — the plot helps you see whether your answer lands in the middle of the dots.",
+      "explanation": "3 + 5 + 5 + 6 + 8 + 9 = 36, and 36 ÷ 6 = 6 — notice the mean sits right in the heart of the dot cloud."
+    },
+    {
+      "id": "math.stats.014",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Four spelling-quiz scores: 78, 82, 85, 91. Find the MAD (mean absolute deviation).",
+      "answer": ["4"],
+      "hint": "Mean first, then the four absolute distances from it, then average those distances.",
+      "explanation": "The mean is 336 ÷ 4 = 84; distances are 6, 2, 1, 7, which total 16; and 16 ÷ 4 = 4."
+    },
+    {
+      "id": "math.stats.015",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Five used-bike prices: $40, $45, $50, $55, and $500 (one collector's bike). Which measure gives the fairest 'typical price'?",
+      "answer": "The median — the $500 outlier drags the mean up but barely moves the median",
+      "options": [
+        "The median — the $500 outlier drags the mean up but barely moves the median",
+        "The mean — it uses every value, so it must be the most accurate",
+        "The range — it shows the outlier best",
+        "The mode — the most common price wins"
+      ],
+      "hint": "Compute both centers in your head: which one lands near what MOST bikes cost?",
+      "explanation": "The mean is $138 — more than double any normal bike — while the median is $50. When an outlier crashes the party, trust the median."
+    },
+    {
+      "id": "math.stats.016",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A juice-stand poster shows a graph. Tap the part that makes a FLAWED claim.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Poster headline: 'FizzWizz is TWICE as popular as Plain Spring!'",
+          "The bars show: FizzWizz 30 votes, Plain Spring 28 votes",
+          "The vertical axis starts at 26 instead of 0, so one bar is drawn about twice as tall",
+          "Conclusion: the picture proves FizzWizz really is twice as popular"
+        ]
+      },
+      "hint": "Compare the actual VOTES, not the heights of the drawn bars.",
+      "explanation": "30 vs 28 is nearly a tie — the truncated axis just stretches a 2-vote gap to LOOK huge. Always check where a graph's axis starts."
+    },
+    {
+      "id": "math.stats.017",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Put the steps for building a box plot in order.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Order the data from least to greatest",
+          "Find the median — it splits the data in half",
+          "Find Q1 and Q3: the medians of the lower and upper halves",
+          "Draw the box from Q1 to Q3 with a line at the median",
+          "Stretch the whiskers out to the minimum and maximum"
+        ]
+      },
+      "hint": "You can't find a middle until the data is in order — and you can't draw until you have all five numbers.",
+      "explanation": "Order → median → quartiles → box → whiskers: five numbers, one picture of the whole data set."
+    },
+    {
+      "id": "math.stats.018",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two of these statements are true. Tap the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "The mean uses every single data value in its calculation",
+          "The range depends only on the largest and smallest values"
+        ],
+        "lie": "An outlier changes the median more than it changes the mean"
+      },
+      "hint": "Picture adding a $500 bike to a list of $50 bikes — which center jumps?",
+      "explanation": "It's the reverse: an outlier yanks the mean toward itself while the median barely budges. That stubbornness is exactly why we trust the median around outliers."
+    },
+    {
+      "id": "math.stats.019",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Five bean plants measure 5, 7, 8, 8, and 12 cm. Finish computing the MAD.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Mean: (5 + 7 + 8 + 8 + 12) ÷ 5 = 40 ÷ 5 = [[8]]",
+          "Distances from the mean: 3, 1, 0, 0, 4 — total 8",
+          "MAD: 8 ÷ 5 = [[1.6]]"
+        ]
+      },
+      "hint": "The last step averages the distances — divide by how many plants there are.",
+      "explanation": "MAD = 8 ÷ 5 = 1.6 cm: a typical plant sits about 1.6 cm from the mean height."
+    },
+    {
+      "id": "math.stats.020",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: the mean of 5 bake-sale prices is $4.00. Four of the prices are $3.00, $5.00, $2.00, and $4.50. Find the fifth price, in dollars.",
+      "answer": ["5.50", "$5.50", "5.5"],
+      "hint": "Mean × count = the total all five prices must add up to.",
+      "explanation": "All five prices must total 5 × 4 = $20; the known four add to $14.50, so the mystery price is $5.50. Working backward from the mean is a power move."
+    },
+    {
+      "id": "math.stats.021",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: six skeins of yarn have a mean price of $7. Amal buys a seventh skein and the mean jumps to $8. What did the seventh skein cost, in dollars?",
+      "answer": ["14", "$14"],
+      "hint": "Find the total before and the total after — the seventh skein is the difference.",
+      "explanation": "Before: 6 × 7 = $42; after: 7 × 8 = $56; so the new skein cost 56 − 42 = $14. Totals unlock every mean mystery.",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.stats.022",
+      "realm": "math", "skill": "math.stats", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: Amal's six Charms quiz scores have a mean of 85. One score was entered as 100 but was actually 70. What is the corrected mean?",
+      "answer": ["80"],
+      "hint": "Fix the TOTAL first: how much too big is it?",
+      "explanation": "The recorded total is 6 × 85 = 510, but it's 30 too high, so the true total is 480 — and 480 ÷ 6 = 80. Repairing the total repairs the mean.",
+      "tags": ["harry-potter", "legendary"]
+    }
+  ]
+}

@@ -1,0 +1,680 @@
+{
+  "sequences": [
+    {
+      "id": "teach.science.water",
+      "skill": "science.water",
+      "title": "Water & Earth: The Shape-Shifter's Secret",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "The steam above your baking",
+          "lines": [
+            "See that white wisp curling above your fresh-baked muffins? That's water pulling its favorite trick: shape-shifting.",
+            "Liquid to vapor to cloud to rain — water changes costume constantly, but it NEVER disappears. Earth has been recycling the same water for about 4 billion years."
+          ],
+          "vocab": [
+            { "term": "evaporation", "meaning": "liquid water gaining energy and escaping into the air as invisible vapor (a gas)" },
+            { "term": "condensation", "meaning": "water vapor cooling back into tiny liquid droplets — clouds are exactly this" },
+            { "term": "precipitation", "meaning": "water falling from clouds as rain, snow, sleet, or hail" },
+            { "term": "collection", "meaning": "water gathering in oceans, lakes, rivers, and underground, ready to cycle again" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "science.water.t01" },
+        { "kind": "completion", "itemId": "science.water.t02" },
+        { "kind": "completion", "itemId": "science.water.t03" },
+        { "kind": "burst", "itemIds": ["science.water.001", "science.water.002", "science.water.003"] }
+      ]
+    },
+    {
+      "id": "teach.science.shelf",
+      "skill": "science.shelf",
+      "title": "The Expedition Shelf: Side Quests for the Curious",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Side quests for the curious",
+          "lines": [
+            "Welcome to the Expedition Shelf — side quests for the curious. Collect them all!",
+            "Moon secrets, drifting continents, dancing particles, and the tiny rooms life is built from: every discovery here unlocks a weird-fact card."
+          ],
+          "vocab": [
+            { "term": "phase", "meaning": "the shape of the Moon's sunlit part as seen from Earth" },
+            { "term": "axis", "meaning": "the imaginary pole Earth spins around once a day — tilted about 23.5 degrees" },
+            { "term": "tectonic plate", "meaning": "a giant slab of Earth's outer shell that drifts a few centimeters per year" },
+            { "term": "cell", "meaning": "the smallest building block of every living thing" }
+          ],
+          "visual": "none"
+        },
+        { "kind": "worked", "itemId": "science.shelf.t01" },
+        { "kind": "completion", "itemId": "science.shelf.t02" },
+        { "kind": "burst", "itemIds": ["science.shelf.001", "science.shelf.002", "science.shelf.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "science.water.t01",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.science.water",
+      "prompt": "Follow one drop of water from the oven steam all the way around the planet and back.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "Oven heat gives water molecules in the cake enough energy to fly off as vapor — that's EVAPORATION. True vapor is an invisible gas; the white wisp you see is already the next step happening." },
+          {
+            "text": "When vapor meets cooler air, it slows down and clumps into tiny liquid droplets — CONDENSATION. That wisp of 'steam', a fogged mirror, and every cloud in the sky are all the same trick.",
+            "check": {
+              "question": "So what is a cloud actually made of?",
+              "options": [
+                "Billions of tiny liquid water droplets",
+                "Invisible water vapor",
+                "Smoke from faraway kitchens"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Inside a cloud, droplets bump and merge until they're too heavy to float — then they fall as PRECIPITATION: rain, snow, sleet, or hail, depending on the temperature." },
+          {
+            "text": "Fallen water gathers in oceans, lakes, and rivers, and soaks underground — COLLECTION — until the Sun lifts it again. Earth has run this loop for about 4 billion years, so your next sip may once have been dinosaur spit.",
+            "check": {
+              "question": "Why doesn't Earth run out of water?",
+              "options": [
+                "Clouds manufacture brand-new water",
+                "The same water keeps cycling around — nothing is lost",
+                "Volcanoes brew fresh water every day"
+              ],
+              "answer": 1
+            }
+          }
+        ]
+      },
+      "tags": ["baking"]
+    },
+    {
+      "id": "science.water.t02",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.science.water",
+      "prompt": "The Case of the Shrinking Water Bowl: Amal fills her cat's bowl, and three sunny days later it's nearly empty — but nobody saw the cat drink. Finish the detective's note.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Day by day, sunlight warmed the bowl until liquid water escaped into the air as invisible vapor.",
+          "This liquid-to-gas shape-shift is called [[evaporation]]."
+        ]
+      },
+      "hint": "It's the process that lifts water UP and out — the cycle's first move.",
+      "explanation": "Evaporation turned the liquid into vapor, molecule by molecule. The water didn't vanish — it just changed costume and joined the air.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.water.t03",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.science.water",
+      "prompt": "Now you run the weather tower. Finish the storm report from Rainshadow Isle.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Vapor rising off the sea cools into cloud droplets: [[condensation]]",
+          "The droplets grow heavy and fall as rain: [[precipitation]]",
+          "Rainwater drains into rivers and the lake below: [[collection]]"
+        ]
+      },
+      "hint": "Cloud-forming, then falling, then gathering — in that order.",
+      "explanation": "Condensation builds the cloud, precipitation drops the water, and collection gathers it for the next round trip. The cycle never clocks out!"
+    },
+    {
+      "id": "science.water.001",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "After Amal washes the baking sheets, the puddles on the counter vanish by morning. Which process turned that liquid water into invisible vapor?",
+      "answer": "Evaporation",
+      "options": ["Evaporation", "Condensation", "Precipitation", "Collection"],
+      "hint": "The water went UP and out, as a gas.",
+      "explanation": "Evaporation is liquid water gaining enough energy to float off as vapor. The puddle didn't vanish — it joined the air.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "science.water.002",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 1,
+      "type": "diagram_label",
+      "prompt": "Label the four stages of the water cycle on the diagram.",
+      "answer": "labels",
+      "data": {
+        "diagram": "water_cycle",
+        "slots": {
+          "evaporation": "Evaporation",
+          "condensation": "Condensation",
+          "precipitation": "Precipitation",
+          "collection": "Collection"
+        },
+        "labels": ["Evaporation", "Condensation", "Precipitation", "Collection", "Melting", "Freezing"]
+      },
+      "hint": "Up as vapor, cloud up high, fall back down, gather below.",
+      "explanation": "Evaporation lifts water up, condensation builds the cloud, precipitation brings it down, and collection gathers it to start again. Melting and freezing aren't pictured here."
+    },
+    {
+      "id": "science.water.003",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Amal's cat claims the window seat on a cold morning, where the glass is fogged with tiny droplets. Which process fogged the glass?",
+      "answer": "Condensation",
+      "options": ["Condensation", "Evaporation", "Precipitation", "Transpiration"],
+      "hint": "Warm indoor air touched cold glass — did water go gas-to-liquid, or liquid-to-gas?",
+      "explanation": "Water vapor in the warm room air cooled against the cold glass and condensed into droplets. It's the same trick that builds clouds!",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.water.004",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Complete the explorer's definition.",
+      "answer": "blanks",
+      "data": {
+        "lines": ["A watershed is all the [[land|ground]] that drains its rainwater into one river or lake."]
+      },
+      "hint": "Not the water itself — the stuff the rain falls ON.",
+      "explanation": "A watershed is an area of land: every drop that falls inside it eventually drains to the same river or lake. You're standing in one right now!"
+    },
+    {
+      "id": "science.water.005",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Where is MOST of Earth's water found?",
+      "answer": "In the salty oceans",
+      "options": ["In the salty oceans", "Frozen in glaciers and ice sheets", "In rivers and lakes", "Underground in aquifers"],
+      "hint": "Spin a globe — which color takes over?",
+      "explanation": "About 97% of Earth's water is salty ocean water. All the freshwater together is just a few drops out of every hundred."
+    },
+    {
+      "id": "science.water.006",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about Earth's water supply — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "About 97 out of every 100 liters of Earth's water are salty ocean water",
+          "Most of Earth's FRESHWATER is frozen solid in glaciers and ice sheets"
+        ],
+        "lie": "Most of Earth's freshwater flows conveniently in rivers and lakes"
+      },
+      "hint": "Think about where the fresh 3% actually hides.",
+      "explanation": "Rivers and lakes hold under 1% of the freshwater — most of it is locked away as ice. The thin liquid slice we can actually reach is precious."
+    },
+    {
+      "id": "science.water.007",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Ride along with one raindrop! Put its round trip in order, starting at the sunny sea.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "The Sun warms the sea, and the drop evaporates into invisible vapor",
+          "Rising high, the vapor cools and condenses onto a speck of dust in a cloud",
+          "The droplet merges with others until it's heavy enough to fall as rain",
+          "On a hillside, the drop trickles downhill into a stream",
+          "The stream returns it to the sea, ready for the next lap"
+        ]
+      },
+      "hint": "Up as gas, cloud up, fall down, flow downhill, home to the sea.",
+      "explanation": "Evaporation → condensation → precipitation → collection. The same drop has been making this trip for billions of years."
+    },
+    {
+      "id": "science.water.008",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Mystery: Amal's icy lemonade glass is 'sweating' droplets on a hot day, but the glass doesn't leak. Finish the detective's notes.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Summer air secretly carries lots of invisible water [[vapor|vapour]].",
+          "Touching the cold glass, that vapor cools and turns back into liquid — a process called [[condensation]]."
+        ]
+      },
+      "hint": "The droplets came from the AIR, not from inside the glass.",
+      "explanation": "Air always carries invisible vapor; chill it and it condenses. The glass 'sweat' is the sky's cloud trick in miniature."
+    },
+    {
+      "id": "science.water.009",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 3,
+      "type": "diagram_label",
+      "prompt": "The potions classroom at wizard school runs its own tiny water cycle above the cauldrons. Label the diagram — and beware the two trick labels.",
+      "answer": "labels",
+      "data": {
+        "diagram": "water_cycle",
+        "slots": {
+          "evaporation": "Evaporation",
+          "condensation": "Condensation",
+          "precipitation": "Precipitation",
+          "collection": "Collection"
+        },
+        "labels": ["Evaporation", "Condensation", "Precipitation", "Collection", "Transpiration", "Runoff"]
+      },
+      "hint": "Two of these processes are real but not pictured: one happens in plant leaves, one flows over land.",
+      "explanation": "Transpiration (plants breathing out vapor) and runoff (water flowing over land) are real water-cycle extras, but the four core stages are evaporate, condense, fall, collect.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "science.water.010",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "Match each water word to its meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Evaporation", "liquid water escaping into the air as vapor"],
+          ["Condensation", "vapor cooling back into liquid droplets"],
+          ["Precipitation", "rain, snow, sleet, or hail falling from clouds"],
+          ["Transpiration", "plants releasing water vapor through their leaves"],
+          ["Aquifer", "an underground layer of rock and gravel that stores water"]
+        ]
+      },
+      "hint": "Two are sneaky newcomers: one involves leaves, one involves underground rock.",
+      "explanation": "Transpiration is the plants' secret entrance to the water cycle — one big oak can breathe out hundreds of liters a day. Aquifers are nature's underground water tanks."
+    },
+    {
+      "id": "science.water.011",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Water-saving showdown: which typically uses MORE water — a 10-minute shower, or running one full dishwasher load?",
+      "answer": "The shower — about 80 liters, several times what a dishwasher load uses",
+      "options": [
+        "The shower — about 80 liters, several times what a dishwasher load uses",
+        "The dishwasher — big machines use far more than showerheads",
+        "They use almost exactly the same amount",
+        "It's impossible to compare water use between them"
+      ],
+      "hint": "A showerhead pours about 8 liters every MINUTE. Multiply!",
+      "explanation": "Ten minutes at roughly 8 L per minute is about 80 liters, while a full modern dishwasher load uses around 15. Shorter showers are one of the easiest water-saving moves there is."
+    },
+    {
+      "id": "science.water.012",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A cloud-studies goblin wrote this weather report. Tap the sentence with the error.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "The Sun heats the lagoon, and liquid water evaporates into invisible vapor.",
+          "The vapor rises and cools high above the island.",
+          "A cloud forms — a floating puff of water vapor, which is why you can see it.",
+          "Inside the cloud, droplets grow heavy and fall as precipitation."
+        ]
+      },
+      "hint": "One sentence forgets that true water vapor is invisible.",
+      "explanation": "Clouds aren't vapor — they're billions of tiny liquid droplets (or ice crystals) made by condensation. If you can see it, it isn't vapor anymore!"
+    },
+    {
+      "id": "science.water.013",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about water's superpowers — find the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "The water in your glass has been recycling for billions of years — a dinosaur may have sipped it first",
+          "Water dissolves more substances than any other liquid, earning the nickname 'universal solvent'"
+        ],
+        "lie": "Clouds manufacture brand-new water that has never existed on Earth before"
+      },
+      "hint": "Earth's water supply is a closed loop.",
+      "explanation": "Clouds only carry recycled vapor lifted by evaporation — Earth has been reusing the same water since before the dinosaurs. No new water is being brewed up there."
+    },
+    {
+      "id": "science.water.014",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Rain falls on the ridge behind a wizard school: drops on the east slope drain to the River Wyrm, drops on the west slope drain to Lake Lumen. The ridge is the boundary between two…",
+      "answer": "Watersheds",
+      "options": ["Watersheds", "Aquifers", "Deltas", "Estuaries"],
+      "hint": "Each side of the ridge sends ALL of its land's rain to a different home.",
+      "explanation": "Each slope is its own watershed — all the land draining to one river or lake. The ridge line between them is called a divide.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "science.water.015",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: Amal's showerhead pours 9 liters per minute, and she trims her daily shower from 10 minutes to 6 (about two K-pop songs). How many liters does she save in a 7-day week?",
+      "answer": ["252", "252 liters", "252 L"],
+      "hint": "Find the liters saved per shower first, then scale up to the week.",
+      "explanation": "She saves 4 minutes × 9 L = 36 liters a day, and 36 × 7 = 252 liters a week. That's about a bathtub and a half of water!",
+      "tags": ["kpop", "legendary"]
+    },
+    {
+      "id": "science.water.016",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: a desert town pumps water from its aquifer faster than rain can soak down to refill it. If nothing changes, what happens over the years?",
+      "answer": "The water table drops, and wells must be drilled deeper and deeper",
+      "options": [
+        "The water table drops, and wells must be drilled deeper and deeper",
+        "Nothing — underground water can never run low",
+        "The aquifer instantly refills after every rainstorm",
+        "Ocean water seeps across the desert to replace it"
+      ],
+      "hint": "An aquifer works like a bank account: pumping is a withdrawal, rain soaking in is a deposit.",
+      "explanation": "Aquifers refill slowly — sometimes over centuries — so heavy pumping lowers the water table and can dry up wells. Conservation keeps the underground bank balanced.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.water.017",
+      "realm": "science", "skill": "science.water", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: picture ALL of Earth's water as exactly 1,000 bottles, with 970 of them salty ocean water. Of the freshwater bottles that remain, two-thirds are frozen in glaciers and ice sheets — so how many bottles of UNFROZEN freshwater are left?",
+      "answer": ["10", "10 bottles"],
+      "hint": "Count the freshwater bottles first, then remove the frozen two-thirds.",
+      "explanation": "1,000 − 970 = 30 fresh bottles; two-thirds of those (20) are ice, leaving just 10. And most of THOSE hide underground — the whole world runs on a tiny liquid sliver.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.shelf.t01",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.science.shelf",
+      "prompt": "Why does the Moon change shape every night? (Spoiler: it doesn't.)",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "The Moon makes no light of its own — it's a giant rock mirror reflecting sunlight. At every moment, the half facing the Sun is lit and the other half is dark." },
+          {
+            "text": "As the Moon orbits Earth (a full lap of phases takes about 29.5 days), we view its lit half from changing angles — sometimes the whole lit face, sometimes a sliver, sometimes none.",
+            "check": {
+              "question": "So a 'phase' is really…",
+              "options": [
+                "How much of the Moon's lit half WE can see from Earth",
+                "How much of the Moon Earth's shadow covers",
+                "How much of the Moon is actually glowing"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "New moon: the Moon sits roughly between Earth and the Sun, so its lit side faces away from us. Full moon: the Moon is on the far side of Earth from the Sun, so we see the entire lit face." },
+          {
+            "text": "Earth's shadow is NOT the cause — it only touches the Moon during a rare lunar eclipse. Whoa bonus: the same side of the Moon always faces Earth, so no human saw the far side until a spacecraft flew around it in 1959.",
+            "check": {
+              "question": "When DOES Earth's shadow touch the Moon?",
+              "options": [
+                "Every single night",
+                "Only during a lunar eclipse",
+                "Whenever the Moon is full"
+              ],
+              "answer": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "science.shelf.t02",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.science.shelf",
+      "prompt": "Why is June warm in New Jersey but chilly in Australia? Complete the expedition log.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Earth's axis is tilted about [[23.5|23]] degrees, and the tilt points the same way all year.",
+          "In June the NORTHERN half leans toward the Sun — sunlight strikes it more directly and days last longer, so it's [[summer]] there.",
+          "Meanwhile the southern half leans away, so Australians are wearing [[winter]] coats in June."
+        ]
+      },
+      "hint": "The tilt decides which half gets the direct, high-noon-style sunlight — and that half gets the warm season.",
+      "explanation": "Seasons come from the 23.5° tilt, which controls how directly sunlight lands and how long days last. Fun twist: Earth is actually CLOSEST to the Sun in January!"
+    },
+    {
+      "id": "science.shelf.001",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "The Moon shines bright on a clear night. Where does that light actually come from?",
+      "answer": "It's reflected sunlight — the Moon makes no light of its own",
+      "options": [
+        "It's reflected sunlight — the Moon makes no light of its own",
+        "The Moon glows from hot lava under its surface",
+        "The Moon burns like a small star",
+        "City lights from Earth bounce off it"
+      ],
+      "hint": "The Moon is basically a giant gray mirror.",
+      "explanation": "Moonlight is recycled sunlight bouncing off gray rock. Whoa fact: that rock is about as dark as an asphalt road — it only looks brilliant against the black sky."
+    },
+    {
+      "id": "science.shelf.002",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 1,
+      "type": "drag_categorize",
+      "prompt": "Amal's baking bench holds solid butter, liquid milk, and oven steam. Sort each particle report into the right state of matter.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Solid": [
+            "particles locked in a tidy pattern, vibrating in place",
+            "keeps its own shape no matter the container"
+          ],
+          "Liquid": [
+            "particles touching but sliding past each other",
+            "takes the container's shape but keeps the same volume"
+          ],
+          "Gas": [
+            "particles far apart, zooming in every direction",
+            "spreads out to fill the entire container"
+          ]
+        }
+      },
+      "hint": "Ask two questions: do the particles hold a fixed shape, and do they stay together at all?",
+      "explanation": "States of matter are all about particle grip: locked in place, sliding past, or flying free. Heating just turns up the particle dance music!",
+      "tags": ["baking"]
+    },
+    {
+      "id": "science.shelf.003",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Earth's rocky outer shell is cracked into more than a dozen giant slabs that creep along a few centimeters per year. What are these slabs called?",
+      "answer": "Tectonic plates",
+      "options": ["Tectonic plates", "Continents", "Lava shelves", "Core fragments"],
+      "hint": "The continents RIDE on these — they aren't the slabs themselves.",
+      "explanation": "Tectonic plates carry both continents AND ocean floor on their backs. They drift about as fast as your fingernails grow."
+    },
+    {
+      "id": "science.shelf.004",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Complete the field note from the Tiny Worlds expedition.",
+      "answer": "blanks",
+      "data": {
+        "lines": ["Amal, her cat, and a sunflower are all built from trillions of tiny [[cells]] — the basic building blocks of every living thing."]
+      },
+      "hint": "Same word as a honeycomb's little rooms — that's where the name came from.",
+      "explanation": "Robert Hooke coined 'cells' in 1665 because cork under his microscope looked like tiny rooms. Whoa fact: your body holds roughly 37 trillion of them.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.shelf.005",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "An ice cube's diary, from freezer to steam. Fill in the particle story.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Ice: my particles sit locked in a tidy pattern, only vibrating in place — I'm a [[solid]].",
+          "Melted in the warm kitchen: my particles still touch but slide past each other — now I'm a [[liquid]].",
+          "Boiled away: my particles zoom far apart and spread through the whole room — I've become a [[gas|vapor|vapour]]."
+        ]
+      },
+      "hint": "Track the particle grip: locked, sliding, flying free.",
+      "explanation": "Same particles, three costumes — heat just speeds them up until they break formation. That's all melting and boiling really are!"
+    },
+    {
+      "id": "science.shelf.006",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Amal logs the Moon every night, Duolingo-streak style. Put the first half of the cycle in order.",
+      "answer": "sequence",
+      "data": {
+        "sequence": ["New moon", "Waxing crescent", "First quarter", "Waxing gibbous", "Full moon"]
+      },
+      "hint": "Start invisible, then grow the lit sliver night by night.",
+      "explanation": "The lit part waxes (grows) from new to full over about two weeks. Whoa fact: in Swahili, 'mwezi' means both moon AND month — the Moon's cycle is where months come from!",
+      "tags": ["duolingo", "swahili"]
+    },
+    {
+      "id": "science.shelf.007",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about the Moon — tap the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "At every moment, half of the Moon is lit by the Sun",
+          "The same side of the Moon always faces Earth"
+        ],
+        "lie": "The Moon's phases are caused by Earth's shadow falling on it"
+      },
+      "hint": "Earth's shadow only reaches the Moon on special, rare nights.",
+      "explanation": "Phases happen because we see different amounts of the Moon's sunlit half as it orbits us. Earth's shadow touches the Moon only during a lunar eclipse — a few times a year at most."
+    },
+    {
+      "id": "science.shelf.008",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 2,
+      "type": "diagram_label",
+      "prompt": "Herbology homework at wizard school: label the parts of this plant cell.",
+      "answer": "labels",
+      "data": {
+        "diagram": "plant_cell",
+        "slots": {
+          "nucleus": "Nucleus",
+          "chloroplast": "Chloroplast",
+          "cell_wall": "Cell wall",
+          "vacuole": "Vacuole"
+        },
+        "labels": ["Nucleus", "Chloroplast", "Cell wall", "Vacuole", "Chlorophyll", "Mitochondrion"]
+      },
+      "hint": "Two bank words don't belong on this diagram: one is a green chemical, not a structure, and one isn't pictured.",
+      "explanation": "Nucleus = control center, chloroplasts = sunlight kitchens, the wall = armor, the vacuole = water tank. Chlorophyll is the green pigment INSIDE chloroplasts, not a separate part.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "science.shelf.009",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 3,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about why seasons happen — find the lie.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "Earth's axis is tilted about 23.5 degrees as it orbits the Sun",
+          "When New Jersey has summer, Australia has winter"
+        ],
+        "lie": "Summer comes when Earth swings closest to the Sun"
+      },
+      "hint": "Surprise: look up WHEN Earth is actually closest to the Sun.",
+      "explanation": "Earth is closest to the Sun in early January — the middle of northern WINTER! Seasons come from the tilt, which controls how directly sunlight strikes and how long days last."
+    },
+    {
+      "id": "science.shelf.010",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "Match each cell part to its job.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["Nucleus", "the control center holding the cell's instructions (DNA)"],
+          ["Chloroplast", "captures sunlight and makes food for the plant"],
+          ["Cell wall", "the stiff outer layer that gives a plant cell its support"],
+          ["Vacuole", "the storage tank that holds water and keeps the cell plump"],
+          ["Mitochondrion", "the power station that releases energy from food"]
+        ]
+      },
+      "hint": "Think castle: a command room, a kitchen, walls, a cistern, and a furnace.",
+      "explanation": "Every part is a tiny machine with a job. Mitochondria are powering YOUR cells right now — billions of microscopic furnaces burning your breakfast."
+    },
+    {
+      "id": "science.shelf.011",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "It's July in New Jersey, and the Northern Hemisphere is tilted toward the Sun. What actually makes the days hotter?",
+      "answer": "Sunlight strikes more directly AND daylight lasts longer",
+      "options": [
+        "Sunlight strikes more directly AND daylight lasts longer",
+        "Earth is at its closest point to the Sun in July",
+        "The Sun itself burns hotter during the summer months",
+        "The Moon reflects extra heat onto Earth in summer"
+      ],
+      "hint": "Think of a flashlight: shining straight down versus at a slant.",
+      "explanation": "The tilt aims the hemisphere so rays land head-on (concentrated) and the Sun stays up longer. Distance is innocent — Earth is actually closest to the Sun in January."
+    },
+    {
+      "id": "science.shelf.012",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "During a NEW moon we see no moon at all. Where is the Moon during this phase?",
+      "answer": "Roughly between Earth and the Sun, with its lit side facing away from us",
+      "options": [
+        "Roughly between Earth and the Sun, with its lit side facing away from us",
+        "On the opposite side of Earth from the Sun",
+        "Hidden inside Earth's shadow",
+        "Below Earth, near the South Pole"
+      ],
+      "hint": "The lit half always faces the Sun — where must the Moon be for us to face only the dark half?",
+      "explanation": "At new moon the Moon sits sunward of us, showing Earth its unlit back. Whoa fact: that means the new moon is up in the DAYTIME sky, rising and setting with the Sun."
+    },
+    {
+      "id": "science.shelf.013",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 3,
+      "type": "drag_categorize",
+      "prompt": "Amal compares cells from her cat and from the catnip plant under a microscope. Sort each part.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Plant cells only": ["cell wall", "chloroplasts", "one big central vacuole"],
+          "Both plant AND animal cells": ["nucleus", "mitochondria", "cell membrane"]
+        }
+      },
+      "hint": "The plant-only parts are all about standing tall and cooking with sunlight.",
+      "explanation": "Cat cells skip the wall and chloroplasts — animals eat food instead of making it, and skeletons handle the support. Both kinds still need a nucleus, a membrane, and mitochondria.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "science.shelf.014",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 4,
+      "type": "spot_error",
+      "prompt": "A mole-geologist's report on drifting continents contains one error. Tap it.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Earth's outer shell is broken into tectonic plates that ride on hot, soft rock below.",
+          "The plates creep along at about the speed your fingernails grow.",
+          "Most earthquakes and volcanoes happen near the quiet CENTERS of plates.",
+          "Around 250 million years ago, the continents were joined in one supercontinent called Pangaea."
+        ]
+      },
+      "hint": "Where do two plates grind, crash, and dive past each other — in the middle, or at the edges?",
+      "explanation": "The action is at the EDGES: plates collide, slide, and split at their boundaries, which is where most quakes and volcanoes strike. Plate centers are comparatively calm.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.shelf.015",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: the Atlantic Ocean grows about 2.5 centimeters wider every year. At that rate, how many KILOMETERS wider will it be in one million years? (100 cm = 1 m, 1000 m = 1 km)",
+      "answer": ["25", "25 km", "25 kilometers"],
+      "hint": "Multiply first, then climb the unit ladder: cm to m to km.",
+      "explanation": "2.5 cm × 1,000,000 = 2,500,000 cm = 25,000 m = 25 km. That's how Pangaea fell apart — fingernail speed, given a few hundred million years.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "science.shelf.016",
+      "realm": "science", "skill": "science.shelf", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: tonight is a FULL moon, and Amal's favorite K-pop group drops their album at the next NEW moon. About how long is the wait?",
+      "answer": "About 2 weeks — new moon is halfway through the 29.5-day cycle",
+      "options": [
+        "About 2 weeks — new moon is halfway through the 29.5-day cycle",
+        "About a month — phases repeat every 29.5 days",
+        "About 2 days — phases change quickly",
+        "About 6 months — the Moon moves slowly"
+      ],
+      "hint": "Full and new sit at OPPOSITE points of the cycle — what fraction of the lap is that?",
+      "explanation": "Full to new is half the 29.5-day cycle, so roughly 15 days. A full month is only the wait from new moon back to new moon.",
+      "tags": ["kpop", "legendary"]
+    }
+  ]
+}

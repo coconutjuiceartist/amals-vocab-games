@@ -1,0 +1,433 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.twovar",
+      "skill": "math.twovar",
+      "title": "Two-Variable Thinking: Rules That Travel in Pairs",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Variables come in pairs now",
+          "lines": [
+            "You can evaluate 3x + 2 in your sleep, and the coordinate plane is home turf — all four quadrants.",
+            "New power: variables now arrive in PAIRS that change together. Minutes pass, rows of knitting grow — one moves, the other answers."
+          ],
+          "vocab": [
+            { "term": "independent variable", "meaning": "the input you choose or that ticks on its own, like minutes passing" },
+            { "term": "dependent variable", "meaning": "the output that responds — its value depends on the input, like rows knitted" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "gambit", "itemId": "math.twovar.t01", "framing": "No grade, just explore: what would YOU try? Even a wild guess teaches your brain what to listen for." },
+        { "kind": "worked", "itemId": "math.twovar.t02" },
+        { "kind": "completion", "itemId": "math.twovar.t03" },
+        { "kind": "completion", "itemId": "math.twovar.t04" },
+        {
+          "kind": "bridge",
+          "title": "Tables are graphs in disguise",
+          "lines": [
+            "Every row of a table is secretly a point (x, y) — and you already know exactly where points live.",
+            "Plot a rule's pairs and they snap into a straight line: y = kx lines launch from (0, 0), while y = x + a lines start a steps higher."
+          ],
+          "visual": "grid"
+        },
+        { "kind": "worked", "itemId": "math.twovar.t05" },
+        { "kind": "completion", "itemId": "math.twovar.t06" },
+        { "kind": "completion", "itemId": "math.twovar.t07" },
+        { "kind": "completion", "itemId": "math.twovar.t08" },
+        { "kind": "burst", "itemIds": ["math.twovar.001", "math.twovar.002", "math.twovar.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.twovar.t01",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.twovar",
+      "prompt": "Amal posts a cat video. It collects 3 new views every minute, steady as a metronome. How many views after 7 minutes — and can you feel the RULE connecting minutes and views?",
+      "answer": ["21", "21 views"],
+      "hint": "Try tiny cases: 1 minute → 3 views, 2 minutes → 6 views… what's happening each minute?",
+      "explanation": "views = 3 × minutes, so 7 minutes → 21 views. You just uncovered a two-variable rule — the whole skill in one move.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.twovar.t02",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.twovar",
+      "prompt": "Cookies vs trays: each tray holds 12 cookies. Let's build the rule machine together.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "Meet the pair: t = trays Amal bakes, c = cookies that exist. She CHOOSES t; c just obeys. So t is independent and c is dependent.",
+            "check": {
+              "question": "Which variable responds instead of being chosen?",
+              "options": [
+                "c — the cookie count reacts to the trays",
+                "t — the trays react to the cookies",
+                "Both are chosen freely"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Build a table: t: 1, 2, 3 → c: 12, 24, 36. Every row obeys the same secret." },
+          {
+            "text": "Name the secret: each c is exactly 12 × its t. In symbols: c = 12t — a multiply rule (the y = kx family).",
+            "check": {
+              "question": "What does the 12 in c = 12t describe?",
+              "options": [
+                "Cookies per ONE tray",
+                "The number of trays",
+                "The biggest batch allowed"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Now the rule predicts ANYTHING: t = 9 → c = 12 × 9 = 108. One small equation outruns an infinite table. 🍪" }
+        ]
+      },
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.twovar.t03",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.twovar",
+      "prompt": "Your turn to finish one. On Duolingo, every lesson Amal completes awards 10 XP.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Variables: L = lessons (independent), x = XP (dependent)",
+          "Rule: XP = 10 × lessons, so x = 10L",
+          "After 6 lessons: x = 10 × 6 = [[60]]"
+        ]
+      },
+      "hint": "Feed L = 6 into the rule x = 10L.",
+      "explanation": "x = 10L turns any lesson count into XP: 10 × 6 = 60. Rules answer questions tables haven't even asked yet.",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "math.twovar.t04",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.twovar",
+      "prompt": "Not every rule multiplies. Lily the cat is exactly 3 years older than Milo — always was, always will be.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Variables: m = Milo's age, l = Lily's age",
+          "Rule: l = m + [[3]]",
+          "When Milo turns 9: l = 9 + 3 = [[12]]"
+        ]
+      },
+      "hint": "Lily's age is always Milo's age plus the same number.",
+      "explanation": "Add rules (the y = x + a family) keep a constant GAP: the cats age together, forever 3 apart.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.twovar.t05",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.twovar",
+      "prompt": "Two mystery tables walk into the Signal Spire. Let's find each one's rule — and its graph fingerprint.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "Table 1: x: 1, 2, 3, 4 → y: 4, 8, 12, 16. Test the multiply idea: 4 = 4×1, 8 = 4×2, 12 = 4×3, 16 = 4×4 ✓. Rule: y = 4x.",
+            "check": {
+              "question": "Which check actually proves y = 4x?",
+              "options": [
+                "Every y ÷ x equals 4, in every row",
+                "y goes up by 4 each row, so it must be ×4",
+                "The first row works, and that's enough"
+              ],
+              "answer": 0
+            }
+          },
+          {
+            "text": "Table 2: x: 1, 2, 3, 4 → y: 5, 6, 7, 8. Multiply fails (5 = 5×1 but 6 ≠ 5×2). Test the gap instead: 5−1 = 4, 6−2 = 4, 7−3 = 4 ✓. Rule: y = x + 4.",
+            "check": {
+              "question": "Why test EVERY row, not just the first?",
+              "options": [
+                "One row fits many rules — all the rows pin down the real one",
+                "The first row is usually a misprint",
+                "Rules only work for big numbers"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Graph time: Table 1's rows are the points (1, 4), (2, 8), (3, 12), (4, 16) — they line up and aim straight through (0, 0)." },
+          { "text": "Table 2's points (1, 5), (2, 6), (3, 7), (4, 8) also make a line, but it crosses the y-axis at (0, 4). Same straight style, different launch pad — that's how you tell the families apart at a glance." }
+        ]
+      }
+    },
+    {
+      "id": "math.twovar.t06",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.twovar",
+      "prompt": "Crack the rule hiding in this table — no story attached, pure signal.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Table: x: 2, 5, 9 → y: 10, 25, 45",
+          "Test multiply: 10 ÷ 2 = 5, 25 ÷ 5 = [[5]], 45 ÷ 9 = 5 — same every time",
+          "Rule: y = [[5]]x"
+        ]
+      },
+      "hint": "Divide each y by its partner x. A constant answer means a multiply rule.",
+      "explanation": "Every y is 5 times its x, so y = 5x. Constant quotient = the y = kx family."
+    },
+    {
+      "id": "math.twovar.t07",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.twovar",
+      "prompt": "Another mystery table — but this one refuses to multiply. Find its rule.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Table: x: 1, 4, 7 → y: 8, 11, 14",
+          "Test multiply: 8 ÷ 1 = 8, but 11 ÷ 4 is not 8 — not y = kx",
+          "Test the gap: 8 − 1 = 7, 11 − 4 = [[7]], 14 − 7 = 7 — locked!",
+          "Rule: y = x + [[7]]"
+        ]
+      },
+      "hint": "When multiply fails, check the gap y − x in every row.",
+      "explanation": "The gap holds at 7 in every row, so y = x + 7 — add rules keep a constant difference."
+    },
+    {
+      "id": "math.twovar.t08",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.twovar",
+      "prompt": "Last one — you drive. A wizard bookshop sells spell-books for 9 galleons each. Write the rule, then put it to work.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Rule for the cost c of b spell-books: c = [[9]]b",
+          "For 6 books: c = 9 × 6 = [[54]] galleons",
+          "Its graph launches from the origin (0, [[0]]) — the mark of a multiply rule"
+        ]
+      },
+      "hint": "9 galleons EACH is a per-one price — which rule family has a 'per one'?",
+      "explanation": "c = 9b prices any stack of books, and like every y = kx rule its line passes through (0, 0).",
+      "tags": ["harry-potter"]
+    },
+
+    {
+      "id": "math.twovar.001",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Amal scoops kibble into Biscuit's bowl: the more scoops s she pours, the heavier the bowl w gets. Which variable is DEPENDENT?",
+      "answer": "w — the weight responds to the scoops",
+      "options": [
+        "w — the weight responds to the scoops",
+        "s — the scoops respond to the weight",
+        "Both are independent",
+        "Neither — weight and scoops are unrelated"
+      ],
+      "hint": "Which one reacts, and which one does Amal choose?",
+      "explanation": "Amal chooses the scoops; the weight has no say — it just responds. Responding is what 'dependent' means.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.twovar.002",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 1,
+      "type": "number_line_tap",
+      "prompt": "The rule y = 2x makes pairs. Tap its point where x = 2.",
+      "answer": "2,4",
+      "data": { "coordinatePlane": { "size": 6 } },
+      "hint": "When x = 2, y = 2 × 2.",
+      "explanation": "x = 2 gives y = 4, landing at (2, 4) — every pair a rule makes is a point on its line."
+    },
+    {
+      "id": "math.twovar.003",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "A table reads x: 1, 2, 3 → y: 5, 10, 15. Which rule fits EVERY row?",
+      "answer": "y = 5x",
+      "options": ["y = 5x", "y = x + 4", "y = x + 5", "y = 10x"],
+      "hint": "Check all three rows, not just the first.",
+      "explanation": "y = x + 4 fits row one only (1 + 4 = 5); y = 5x delivers 5, 10, 15 — every row agrees."
+    },
+    {
+      "id": "math.twovar.004",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Amal's scarf already has 12 rows before snack break. After it, she adds exactly 1 row per minute — rule: r = m + 12.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "After 3 minutes: r = [[15]] rows",
+          "After 7 minutes: r = [[19]] rows",
+          "After 10 minutes: r = [[22]] rows"
+        ]
+      },
+      "hint": "Each minute count just gains 12.",
+      "explanation": "r = m + 12 turns minutes into rows with one hop: +12 every time.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.twovar.005",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Amal reads at a steady pace, so pages finished depend on minutes spent reading. Which is the INDEPENDENT variable?",
+      "answer": "Minutes spent reading — Amal decides how long",
+      "options": [
+        "Minutes spent reading — Amal decides how long",
+        "Pages finished — the pages control the clock",
+        "The number of chapters in the book",
+        "Neither — they change separately"
+      ],
+      "hint": "Independent = the one being chosen, not the one reacting.",
+      "explanation": "Time is what Amal controls; the page count rides along. Independent drives, dependent rides.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.twovar.006",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "visual_model", "model": "ratio_table",
+      "prompt": "Every muffin tin holds the same number of muffins. Complete the relationship table.",
+      "answer": "blanks",
+      "data": { "model": { "headers": ["tins", "muffins"], "rows": [[3, 18], [7, null], [10, null]], "blanksAnswers": [["42"], ["60"]] } },
+      "hint": "First find muffins per ONE tin: 18 ÷ 3.",
+      "explanation": "The rule m = 6t hides in the table: 6 muffins per tin gives 42 and 60.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.twovar.007",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Amal's Swahili word count: she started knowing 5 words and locks in 1 new word each day — w = d + 5. Tap the point for day 4.",
+      "answer": "4,9",
+      "data": { "coordinatePlane": { "size": 10 } },
+      "hint": "Day 4 means w = 4 + 5; days go on the x-axis.",
+      "explanation": "(4, 9): the rule turns every day into a point, and the points march in a perfect line.",
+      "tags": ["duolingo", "swahili"]
+    },
+    {
+      "id": "math.twovar.008",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Support station: turn Amal's knitting table into a rule, then make it predict.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Table: minutes m: 1, 2, 3 → rows r: 2, 4, 6",
+          "Each r is its m times [[2]]",
+          "Rule: r = 2m, so 15 minutes gives r = [[30]]"
+        ]
+      },
+      "hint": "Divide any r by its m to find the multiplier.",
+      "explanation": "r = 2m fits every row, then predicts row 30 at minute 15 — tables end, rules don't.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.twovar.009",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "A graph line starts at (0, 8) and rises 2 units for every 1 week across. Which story matches it?",
+      "answer": "A savings jar starts with $8 and grows by $2 each week",
+      "options": [
+        "A savings jar starts with $8 and grows by $2 each week",
+        "A savings jar starts empty and grows by $8 each week",
+        "A savings jar starts with $2 and grows by $8 each week",
+        "A savings jar starts with $8 and shrinks by $2 each week"
+      ],
+      "hint": "The y-axis crossing is the starting amount; the climb is the per-week change.",
+      "explanation": "(0, 8) means $8 before any weeks pass, and rising 2 per week means +$2 weekly — the rule y = 2x + 8."
+    },
+    {
+      "id": "math.twovar.010",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "drag_categorize",
+      "prompt": "Sort each rule into its family: multiply rules SCALE x, add rules give x a head start.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Multiply rules (y = kx)": ["y = 7x", "cookies = 12 × trays", "y = 0.5x"],
+          "Add rules (y = x + a)": ["y = x + 7", "Lily's age = Milo's age + 3", "y = x + 0.5"]
+        }
+      },
+      "hint": "Ask of each rule: is x being scaled, or shifted?",
+      "explanation": "kx rules scale x (even by 0.5); x + a rules shift it. The size of the number doesn't matter — the operation does."
+    },
+    {
+      "id": "math.twovar.011",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "matching_pairs",
+      "prompt": "Match each table to the rule that fits EVERY row.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["x: 1, 2, 3 → y: 7, 14, 21", "y = 7x"],
+          ["x: 1, 2, 3 → y: 8, 9, 10", "y = x + 7"],
+          ["x: 1, 2, 3 → y: 3, 6, 9", "y = 3x"],
+          ["x: 2, 4, 6 → y: 5, 7, 9", "y = x + 3"]
+        ]
+      },
+      "hint": "Test multiply first (is y ÷ x constant?), then the gap (is y − x constant?).",
+      "explanation": "Constant quotient → multiply rule; constant gap → add rule. Every row must agree before a rule wins."
+    },
+    {
+      "id": "math.twovar.012",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin read a table and announced a rule. Tap the step where its logic broke.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Table: x: 1, 2, 3 → y: 6, 7, 8",
+          "Step A: the first row shows x = 1 and y = 6",
+          "Step B: 6 × 1 = 6 ✓, so the rule is y = 6x",
+          "Step C: prediction — when x = 5, y will be 30"
+        ]
+      },
+      "hint": "A rule has to survive EVERY row of the table.",
+      "explanation": "Row two breaks it: 6 × 2 = 12, not 7. Testing all rows reveals the real rule, y = x + 5."
+    },
+    {
+      "id": "math.twovar.013",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Read points straight off the rule y = x + 4 — its graph is a perfectly straight line.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "At x = 3 the line passes through the point (3, [[7]])",
+          "It crosses the y-axis, where x = 0, at (0, [[4]])"
+        ]
+      },
+      "hint": "Plug each x into the rule; the y-axis means x = 0.",
+      "explanation": "(3, 7) and (0, 4) both obey y = x + 4 — add rules cross the y-axis at their head-start number."
+    },
+    {
+      "id": "math.twovar.014",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: two savings plans. Plan A: y = 5x (save $5 a week from zero). Plan B: y = 3x + 8 (an $8 head start, then $3 a week). After how many weeks do the plans hold equal money?",
+      "answer": ["4", "4 weeks", "x = 4", "x=4"],
+      "hint": "Equal money means 5x = 3x + 8 — an equation with x on both sides, your specialty.",
+      "explanation": "5x = 3x + 8 gives 2x = 8, so x = 4 — both plans hold $20 in week 4.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.twovar.015",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Legendary: Amal owns 14 K-pop photocards and adds 3 per week (y = 3x + 14). Zuri owns 2 and adds 5 per week (y = 5x + 2). When the collections become equal, how many photocards does EACH collector own?",
+      "answer": ["32", "32 cards", "32 photocards"],
+      "hint": "First find the week: 3x + 14 = 5x + 2. Then feed that week back into either rule.",
+      "explanation": "3x + 14 = 5x + 2 gives x = 6, and 3(6) + 14 = 5(6) + 2 = 32 cards each.",
+      "tags": ["kpop", "legendary"]
+    },
+    {
+      "id": "math.twovar.016",
+      "realm": "math", "skill": "math.twovar", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: the Graph Gryphon guards the single point where the lines y = 4x and y = x + 9 cross. Which point is it?",
+      "answer": "(3, 12)",
+      "options": ["(3, 12)", "(2, 8)", "(4, 13)", "(9, 4)"],
+      "hint": "At the crossing point, 4x and x + 9 are the SAME number.",
+      "explanation": "4x = x + 9 gives 3x = 9, so x = 3 and y = 12 — only (3, 12) satisfies both rules at once.",
+      "tags": ["legendary"]
+    }
+  ]
+}

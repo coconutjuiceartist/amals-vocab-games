@@ -1,0 +1,404 @@
+{
+  "sequences": [
+    {
+      "id": "teach.math.decimals",
+      "skill": "math.decimals",
+      "title": "Decimals: Taming the Hopping Point",
+      "screens": [
+        {
+          "kind": "bridge",
+          "title": "Fractions you already speak",
+          "lines": [
+            "A decimal is a fraction with a secret denominator: 0.7 = 7/10, 0.37 = 37/100, 0.123 = 123/1000.",
+            "Each place right of the point is 10× smaller — tenths, hundredths, thousandths. The point is just the landmark."
+          ],
+          "vocab": [
+            { "term": "thousandth", "meaning": "one of 1000 equal parts — written 0.001" },
+            { "term": "place value", "meaning": "what a digit is worth because of WHERE it sits" }
+          ],
+          "visual": "grid"
+        },
+        { "kind": "gambit", "itemId": "math.decimals.t01", "framing": "No grade, no pressure — just try it. Your money sense and your fraction sense both want to help." },
+        { "kind": "worked", "itemId": "math.decimals.t02" },
+        { "kind": "completion", "itemId": "math.decimals.t03" },
+        { "kind": "completion", "itemId": "math.decimals.t04" },
+        {
+          "kind": "bridge",
+          "title": "The point that hops",
+          "lines": [
+            "Multiply by 10, 100, 1000 and every digit slides left — the point seems to hop right: 3.7 × 100 = 370.",
+            "To divide BY a decimal, slide BOTH points until the divisor is whole: 6 ÷ 0.2 becomes 60 ÷ 2. Same answer, friendlier numbers."
+          ],
+          "visual": "number_line"
+        },
+        { "kind": "worked", "itemId": "math.decimals.t05" },
+        { "kind": "completion", "itemId": "math.decimals.t06" },
+        { "kind": "completion", "itemId": "math.decimals.t07" },
+        { "kind": "completion", "itemId": "math.decimals.t08" },
+        { "kind": "burst", "itemIds": ["math.decimals.001", "math.decimals.002", "math.decimals.003"] }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "math.decimals.t01",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "type_answer", "teachSequenceId": "teach.math.decimals",
+      "prompt": "Explorer's Gambit: what is 0.3 + 0.07? Trust your place-value instincts.",
+      "answer": ["0.37", ".37"],
+      "hint": "0.3 is 3 tenths — which is 30 hundredths. Now both numbers speak hundredths.",
+      "explanation": "0.30 + 0.07 = 0.37 — line up the decimal points and every place finds its partner."
+    },
+    {
+      "id": "math.decimals.t02",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.math.decimals",
+      "prompt": "Let's map the decimal kingdom: places, padding, and the lining-up rule.",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          {
+            "text": "Right of the decimal point, each place is 10× smaller: tenths, hundredths, thousandths. In 4.275 that's 2 tenths, 7 hundredths, 5 thousandths.",
+            "check": {
+              "question": "In 3.146, what is the 4 worth?",
+              "options": ["4 tenths", "4 hundredths", "4 ones"],
+              "answer": 1
+            }
+          },
+          {
+            "text": "Padding trick: 0.3 = 0.30 = 0.300. Trailing zeros AFTER the point change nothing — that's how 0.3 and 0.07 can finally line up.",
+            "check": {
+              "question": "Which of these equals 0.5?",
+              "options": ["0.05", "0.500", "0.005"],
+              "answer": 1
+            }
+          },
+          { "text": "Add with the points aligned: 0.30 + 0.07 = 0.37. Subtract the same way: 1.50 − 0.32 = 1.18." },
+          { "text": "And every decimal is a fraction in disguise: 0.37 = 37/100. Your fraction powers transfer completely." }
+        ]
+      }
+    },
+    {
+      "id": "math.decimals.t03",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.math.decimals",
+      "prompt": "Your turn at the bake-sale till: a brownie costs $2.45 and a lemon bar costs $0.80. Total?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Line up the decimal points, then add: 2.45 + 0.80",
+          "Total: $[[3.25]]"
+        ]
+      },
+      "hint": "45 hundredths + 80 hundredths regroups into a fresh dollar.",
+      "explanation": "2.45 + 0.80 = 3.25 — the aligned points kept dollars with dollars and cents with cents.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.decimals.t04",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.decimals",
+      "prompt": "A new skein holds 5.2 m of yarn, and Amal's mitten pattern uses 3.75 m. How much yarn is left?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Pad to hundredths so the columns match: 5.2 → [[5.20|5.2]]",
+          "Left over: 5.20 − 3.75 = [[1.45]] m"
+        ]
+      },
+      "hint": "Give 5.2 a trailing zero first — then subtract column by column.",
+      "explanation": "5.20 − 3.75 = 1.45 m — padding with a zero made the regrouping honest.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.decimals.t05",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "worked_example", "teachSequenceId": "teach.math.decimals",
+      "prompt": "Dividing BY a decimal: how many 0.25 m tassel cords can Amal cut from 3 m of yarn?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "The question 'how many 0.25s fit in 3?' is the division 3 ÷ 0.25." },
+          {
+            "text": "Make the divisor whole: slide BOTH decimal points two places right. 3 ÷ 0.25 becomes 300 ÷ 25.",
+            "check": {
+              "question": "Why is sliding both points fair?",
+              "options": [
+                "Both numbers were multiplied by 100, so the quotient stays the same",
+                "Because 300 is easier to say",
+                "Only the divisor changed, and that's allowed"
+              ],
+              "answer": 0
+            }
+          },
+          {
+            "text": "Now it's friendly: 300 ÷ 25 = 12. Twelve cords.",
+            "check": {
+              "question": "Why is the answer BIGGER than 3?",
+              "options": [
+                "Division always gives bigger answers",
+                "We multiplied by 100 and forgot to undo it",
+                "Each cord is shorter than 1 m, so more pieces fit"
+              ],
+              "answer": 2
+            }
+          },
+          { "text": "Sanity check: 12 × 0.25 = 3 ✓. Dividing by a number smaller than 1 gives you MORE pieces — let that feel normal." }
+        ]
+      },
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.decimals.t06",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.decimals",
+      "prompt": "Multiplying decimals: a K-pop photocard sticker sheet measures 0.4 m by 0.6 m. Find its area.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Multiply as wholes: 4 × 6 = [[24]]",
+          "Count decimal places: 0.4 has 1 and 0.6 has 1, so the product needs [[2]]",
+          "Area: 0.4 × 0.6 = [[0.24|.24]] square meters"
+        ]
+      },
+      "hint": "Multiply the digits first; place the point last.",
+      "explanation": "Tenths × tenths make hundredths: 0.4 × 0.6 = 0.24 — counting places put the point exactly where it belongs.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.decimals.t07",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.math.decimals",
+      "prompt": "Potions class: a 7 L cauldron is poured into 0.5 L bottles. Finish the solve.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Slide both points one place: 7 ÷ 0.5 = [[70]] ÷ 5",
+          "Bottles filled: [[14]]"
+        ]
+      },
+      "hint": "Make the divisor whole first — both numbers ride the same slide.",
+      "explanation": "70 ÷ 5 = 14 bottles, and 14 × 0.5 = 7 ✓ — half-liter bottles mean twice as many as liters.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.decimals.t08",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 0, "teachSequenceId": "teach.math.decimals",
+      "prompt": "Last one — you drive. Three friends split a $7.74 cookie-ingredient bill equally. How much does each pay?",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Each share: 7.74 ÷ 3 = $[[2.58]]",
+          "Check by multiplying back: 2.58 × 3 = $[[7.74]]"
+        ]
+      },
+      "hint": "Divide place by place: 7 ones, then 7 tenths, then 14 hundredths.",
+      "explanation": "7.74 ÷ 3 = 2.58, and the multiply-back check proves every cent landed safely.",
+      "tags": ["baking"]
+    },
+
+    {
+      "id": "math.decimals.001",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "In the number 3.247, which digit sits in the thousandths place?",
+      "answer": "7",
+      "options": ["7", "4", "2", "3"],
+      "hint": "March right of the point: tenths, hundredths, thousandths.",
+      "explanation": "After the point comes 2 (tenths), 4 (hundredths), 7 (thousandths) — position is everything."
+    },
+    {
+      "id": "math.decimals.002",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 1,
+      "type": "type_answer",
+      "prompt": "Write 'six tenths' as a decimal.",
+      "answer": ["0.6", ".6", "0.60"],
+      "hint": "Tenths live in the first spot after the point.",
+      "explanation": "Six tenths = 6/10 = 0.6 — one place after the point, exactly where tenths belong."
+    },
+    {
+      "id": "math.decimals.003",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Vet day! Biscuit weighs 4.09 kg and Mochi weighs 4.1 kg. Which cat is heavier?",
+      "answer": "Mochi — 4.1 kg",
+      "options": ["Mochi — 4.1 kg", "Biscuit — 4.09 kg", "They weigh exactly the same"],
+      "hint": "Pad to the same length: compare 4.10 with 4.09.",
+      "explanation": "4.10 > 4.09, so Mochi wins by a hundredth — longer decimals are NOT automatically bigger.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.decimals.004",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 1,
+      "type": "number_line_tap",
+      "prompt": "A potion in Charms club is 0.7 brewed. Tap 0.7 on the progress line.",
+      "answer": "0.7",
+      "data": { "numberLine": { "min": 0, "max": 1, "step": 0.1 } },
+      "hint": "0.7 is 7 tenths — count seven ticks past 0.",
+      "explanation": "The line from 0 to 1 is cut into tenths, and 0.7 is the seventh tick.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.decimals.005",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Amal's lace knitting needle is 2.35 mm across. Tap 2.35 on the zoomed-in line.",
+      "answer": "2.35",
+      "data": { "numberLine": { "min": 2, "max": 3, "step": 0.05 } },
+      "hint": "2.35 sits exactly halfway between 2.3 and 2.4.",
+      "explanation": "On a line marked in 0.05s, 2.35 is seven ticks past 2 — zooming in just reveals more tenths-of-tenths.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.decimals.006",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which number is the LARGEST?",
+      "answer": "0.54",
+      "options": ["0.54", "0.5", "0.45", "0.405"],
+      "hint": "Pad them all to thousandths, then compare like whole numbers.",
+      "explanation": "Padded: 0.540 > 0.500 > 0.450 > 0.405 — comparing place by place settles it.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.decimals.007",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Compute: 4.8 ÷ 0.6",
+      "answer": ["8"],
+      "hint": "Slide both decimal points one place right first.",
+      "explanation": "4.8 ÷ 0.6 = 48 ÷ 6 = 8 — making the divisor whole makes the problem friendly.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.decimals.008",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Write 3/8 as a decimal.",
+      "answer": ["0.375", ".375"],
+      "hint": "A fraction bar is a division sign: compute 3 ÷ 8.",
+      "explanation": "3 ÷ 8 = 0.375 — every fraction converts by dividing top by bottom.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.decimals.009",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort each decimal: less than one half, or more than one half?",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Less than 0.5": ["0.45", "0.099", "0.42"],
+          "More than 0.5": ["0.505", "0.51", "0.6"]
+        }
+      },
+      "hint": "Compare the tenths digit to 5 first — only ties need a deeper look.",
+      "explanation": "0.505 sneaks past 0.5 by five thousandths, while 0.099 never even reaches one tenth."
+    },
+    {
+      "id": "math.decimals.010",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "order_sequence",
+      "prompt": "Order these decimals from smallest to largest.",
+      "answer": "sequence",
+      "data": { "sequence": ["0.093", "0.309", "0.39", "0.9"] },
+      "hint": "Give every number three decimal places first — then it's a fair race.",
+      "explanation": "Padded to 0.093, 0.309, 0.390, 0.900, the order jumps right out — digits only count from their places."
+    },
+    {
+      "id": "math.decimals.011",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Power-of-Ten Lightning! Slide those decimal points.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["3.7 × 10", "37"],
+          ["3.7 × 100", "370"],
+          ["520 ÷ 100", "5.2"],
+          ["0.06 × 10", "0.6"],
+          ["45 ÷ 10", "4.5"],
+          ["0.8 × 100", "80"],
+          ["9 ÷ 100", "0.09"],
+          ["2.45 × 1000", "2450"],
+          ["67 ÷ 1000", "0.067"],
+          ["0.5 × 10", "5"],
+          ["12.3 ÷ 10", "1.23"],
+          ["0.004 × 100", "0.4"]
+        ]
+      },
+      "hint": "Count the zeros — that's how many places the point hops.",
+      "explanation": "×10 hops the point right, ÷10 hops it left — one hop per zero, every time."
+    },
+    {
+      "id": "math.decimals.012",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Switch costumes both ways.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "As a decimal: 9/20 = [[0.45|.45]]",
+          "As a fraction in simplest form: 0.8 = [[4/5]]"
+        ]
+      },
+      "hint": "9/20 stretches to hundredths; 0.8 starts as 8/10 and then simplifies.",
+      "explanation": "9/20 = 45/100 = 0.45, and 0.8 = 8/10 = 4/5 — decimals and fractions are the same numbers in different outfits."
+    },
+    {
+      "id": "math.decimals.013",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 2,
+      "prompt": "Café receipt: Amal buys a $3.65 croissant and a $1.85 hot cocoa, paying with a $10 bill. Finish the receipt.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Total: 3.65 + 1.85 = $[[5.50|5.5]]",
+          "Change: 10.00 − 5.50 = $[[4.50|4.5]]"
+        ]
+      },
+      "hint": "Add the treats first; the change is what's left of the 10.",
+      "explanation": "3.65 + 1.85 = 5.50 and 10.00 − 5.50 = 4.50 — lined-up points kept every cent accounted for.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.decimals.014",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin accountant multiplied 0.5 × 0.3. Tap the step where the work went wrong.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Problem: 0.5 × 0.3",
+          "Step A: multiply as wholes — 5 × 3 = 15",
+          "Step B: count decimal places — one in each factor, two in all",
+          "Step C: place the point — 0.5 × 0.3 = 1.5"
+        ]
+      },
+      "hint": "Step B counted TWO places. Did Step C use both?",
+      "explanation": "Two decimal places turn 15 into 0.15, not 1.5. Estimate check: half of 0.3 can't possibly be 1.5!"
+    },
+    {
+      "id": "math.decimals.015",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: a spool holds 6 m of cord. Amal cuts as many 0.35 m friendship-bracelet cords as possible. How many METERS of cord are left over?",
+      "answer": ["0.05", ".05", "0.05 m"],
+      "hint": "Slide both points: 6 ÷ 0.35 → 600 ÷ 35. The whole-number part says how many cords; then find what they used.",
+      "explanation": "600 ÷ 35 = 17 remainder 5, so 17 cords use 17 × 0.35 = 5.95 m, leaving 0.05 m. Tracking the remainder back to meters is the legendary move.",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.decimals.016",
+      "realm": "math", "skill": "math.decimals", "tier": "diagnose", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Legendary: butterbeer-style cream soda costs $2.35 a bottle. Amal buys 4 bottles for movie night and pays with a $10 bill. How much change does she get, in dollars?",
+      "answer": ["0.60", "0.6", ".60", "$0.60"],
+      "hint": "Total first (2.35 × 4), then subtract from 10.00.",
+      "explanation": "2.35 × 4 = $9.40 and 10.00 − 9.40 = $0.60. Lining up those decimal points kept every cent honest.",
+      "tags": ["harry-potter", "legendary"]
+    }
+  ]
+}

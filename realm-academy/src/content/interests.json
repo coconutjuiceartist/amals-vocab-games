@@ -1,0 +1,17 @@
+{
+  "_comment": "Parent-editable personalization. Names and interests feed greetings, word problems, and flavor text. Edit freely, keep the structure.",
+  "playerName": "Amal",
+  "school": "Pingry",
+  "grade": 6,
+  "interests": [
+    { "id": "duolingo", "label": "Duolingo", "emoji": "🦉" },
+    { "id": "swahili", "label": "Swahili", "emoji": "🌍" },
+    { "id": "harry-potter", "label": "Wizarding stories", "emoji": "🪄" },
+    { "id": "knitting", "label": "Knitting", "emoji": "🧶" },
+    { "id": "cats", "label": "Cats", "emoji": "🐱" },
+    { "id": "baking", "label": "Baking", "emoji": "🧁" },
+    { "id": "kpop", "label": "K-pop", "emoji": "🎤" },
+    { "id": "reading", "label": "Reading", "emoji": "📚" }
+  ],
+  "mascotSuggestions": ["Biscuit", "Nimbus", "Purrl", "Croissant", "Theorem", "Mochi", "Wandsworth", "Stitch"]
+}
