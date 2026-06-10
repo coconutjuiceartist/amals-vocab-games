@@ -598,6 +598,590 @@
       "explanation": "2³ × 3 × 5 × 7 = 840 — the 8 demands 2³, and 6 rides along free. The gate grinds open.",
       "tags": ["harry-potter", "legendary"]
     },
-    "___CHUNK_3___"
+    {
+      "id": "math.m.signed.001",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Compute: (−6) × (−7)",
+      "answer": ["42"],
+      "hint": "Two negatives in a product — what do the sign rules decree?",
+      "explanation": "Negative × negative = positive: 42. Same signs multiply to a positive.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.signed.002",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Which list is ordered from least to greatest?",
+      "answer": "−9, −4, 2, |−6|",
+      "options": ["−9, −4, 2, |−6|", "−4, −9, 2, |−6|", "|−6|, −9, −4, 2", "−9, −4, |−6|, 2"],
+      "hint": "Unmask |−6| first — absolute value is a distance, never negative.",
+      "explanation": "|−6| = 6, so the order is −9 < −4 < 2 < 6. Deeper negatives are smaller numbers.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.signed.003",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Compute: −15 + 9",
+      "answer": ["-6"],
+      "hint": "Different signs: find the gap between 15 and 9, then keep the heavyweight's sign.",
+      "explanation": "The negative side outweighs by 6, so −15 + 9 = −6."
+    },
+    {
+      "id": "math.m.signed.004",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Tap the number that is 4 units to the LEFT of 1.",
+      "answer": "-3",
+      "data": { "numberLine": { "min": -6, "max": 6, "step": 1 } },
+      "hint": "Left means subtract — and you'll cross zero on the way.",
+      "explanation": "1 − 4 = −3. Crossing zero is allowed and encouraged."
+    },
+    {
+      "id": "math.m.signed.005",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Two alley cats perch on the frost-marked fence at positions −14 and −6. How many units apart are they?",
+      "answer": ["8", "8 units"],
+      "hint": "Distance is a positive idea: subtract, then take the absolute value.",
+      "explanation": "|−14 − (−6)| = |−8| = 8. Distance never carries a minus sign.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.m.signed.006",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Sign rules, rapid-fire:",
+      "answer": "blanks",
+      "data": { "lines": ["(−4) × 9 = [[-36]]", "(−4) × (−9) = [[36]]"] },
+      "hint": "Count the negative signs in each product: odd or even?",
+      "explanation": "One negative gives −36; two negatives give +36. Odd count = negative, even count = positive."
+    },
+    {
+      "id": "math.m.signed.007",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin computed −3 − (−8). Tap the flawed step.",
+      "answer": "2",
+      "options": [],
+      "data": {
+        "segments": [
+          "Compute: −3 − (−8)",
+          "Step A: subtracting a negative means adding: −3 + 8",
+          "Step B: −3 + 8 = −5",
+          "Step C: number-line check: starting at −3 and walking 8 to the right lands on 5"
+        ]
+      },
+      "hint": "Step C's number-line walk is honest — does Step B agree with it?",
+      "explanation": "−3 + 8 = 5, not −5: the positive 8 outweighs the 3. The goblin kept the wrong sign."
+    },
+    {
+      "id": "math.m.signed.008",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Compute the pair: −56 ÷ (−8) and 56 ÷ (−8)",
+      "answer": "7 and −7",
+      "options": ["7 and −7", "−7 and 7", "7 and 7", "−7 and −7"],
+      "hint": "Division obeys the same sign rules as multiplication.",
+      "explanation": "Same signs give +7; mixed signs give −7."
+    },
+    {
+      "id": "math.m.signed.009",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which expression has the GREATEST value: |−12|, |−9|, |5|, or |0|?",
+      "answer": "|−12|",
+      "options": ["|−12|", "|−9|", "|5|", "|0|"],
+      "hint": "Absolute value asks how far from zero — direction is irrelevant.",
+      "explanation": "|−12| = 12 beats 9, 5, and 0. Distance from zero is the whole game."
+    },
+    {
+      "id": "math.m.signed.010",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 3,
+      "type": "speed_round",
+      "prompt": "Signed-Number Lightning! Answer before the minus signs can blink.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["−3 + 7", "4"],
+          ["−5 − 4", "-9"],
+          ["6 × (−2)", "-12"],
+          ["(−4) × (−5)", "20"],
+          ["−18 ÷ 3", "-6"],
+          ["−20 ÷ (−4)", "5"],
+          ["|−11|", "11"],
+          ["−7 + 7", "0"],
+          ["8 − 15", "-7"],
+          ["(−3)²", "9"],
+          ["−2 − (−6)", "4"],
+          ["−1 × 45", "-45"]
+        ]
+      },
+      "hint": "Same signs: positive. Different signs: negative. Go.",
+      "explanation": "Instant sign-rule recall keeps every bigger problem honest."
+    },
+    {
+      "id": "math.m.signed.011",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Compute: (−2)³ × (−3) + (−10)",
+      "answer": ["14"],
+      "hint": "Cube first — (−2)³ keeps its minus — then multiply, then add.",
+      "explanation": "(−8) × (−3) = 24, and 24 + (−10) = 14. Odd powers preserve the negative; the product flips it back."
+    },
+    {
+      "id": "math.m.signed.012",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "The owlery thermometer read −3°C at midnight. It fell 9 degrees by dawn, then rose 5 degrees by noon. What did it read at noon?",
+      "answer": "−7°C",
+      "options": ["−7°C", "−17°C", "1°C", "−12°C"],
+      "hint": "March it in order: the fall first, then the rise.",
+      "explanation": "−3 − 9 = −12, then −12 + 5 = −7°C. The owls remain unbothered.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.m.signed.013",
+      "realm": "math", "skill": "math.m.signed", "tier": "maintenance", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "A research submarine hovers at −48 m. It rises 7 m per minute for 5 minutes, then dives 12 m per minute for 3 minutes. What is its final position, in meters?",
+      "answer": ["-49", "-49 m"],
+      "hint": "Two legs of travel: +7 × 5 and −12 × 3, stacked onto −48.",
+      "explanation": "−48 + 35 = −13, then −13 − 36 = −49 m. Multiplication bundles each leg; addition stacks them.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.m.coordinate.001",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "The point (−4, 3) lives in which quadrant?",
+      "answer": "Quadrant II",
+      "options": ["Quadrant II", "Quadrant I", "Quadrant III", "Quadrant IV"],
+      "hint": "Negative x pushes left; positive y lifts up.",
+      "explanation": "Left-and-up is Quadrant II — the quadrants march counterclockwise from the upper right.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.coordinate.002",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Reflect the point (3, −2) over the x-axis. Give the new coordinates as x,y.",
+      "answer": ["3,2", "3, 2", "(3,2)", "(3, 2)"],
+      "hint": "An x-axis reflection flips a point's height but not its left-right position.",
+      "explanation": "Only the y-coordinate flips sign: (3, −2) → (3, 2). The x-axis is the mirror.",
+      "tags": ["probe"]
+    },
+    {
+      "id": "math.m.coordinate.003",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Tap the point (3, −2) on the grid.",
+      "answer": "3,-2",
+      "data": { "coordinatePlane": { "size": 6 } },
+      "hint": "Right 3, then down 2 — x always travels first.",
+      "explanation": "Across to 3, down to −2: Quadrant IV territory."
+    },
+    {
+      "id": "math.m.coordinate.004",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 2,
+      "type": "number_line_tap",
+      "prompt": "Whiskers buried a treat at (−5, −1). Tap the spot.",
+      "answer": "-5,-1",
+      "data": { "coordinatePlane": { "size": 6 } },
+      "hint": "Both coordinates negative means Quadrant III — left, then barely down.",
+      "explanation": "Left 5, down 1. Whiskers' treasure: recovered.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.m.coordinate.005",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 3,
+      "type": "number_line_tap",
+      "prompt": "Tap the reflection of (−4, 2) over the y-axis.",
+      "answer": "4,2",
+      "data": { "coordinatePlane": { "size": 6 } },
+      "hint": "The y-axis mirror swaps left for right and changes nothing else.",
+      "explanation": "Only x flips sign: (−4, 2) → (4, 2). Heights survive a y-axis reflection."
+    },
+    {
+      "id": "math.m.coordinate.006",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 3,
+      "type": "number_line_tap",
+      "prompt": "Start at (2, 3). Travel 5 units left and 6 units down, and tap where you land.",
+      "answer": "-3,-3",
+      "data": { "coordinatePlane": { "size": 6 } },
+      "hint": "Left subtracts from x; down subtracts from y.",
+      "explanation": "2 − 5 = −3 and 3 − 6 = −3: you land at (−3, −3), deep in Quadrant III."
+    },
+    {
+      "id": "math.m.coordinate.007",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Points A(−4, 3) and B(5, 3) sit on the same horizontal line. How many units apart are they?",
+      "answer": ["9", "9 units"],
+      "hint": "Same y means the distance lives entirely in the x-coordinates.",
+      "explanation": "From −4 to 5 is |5 − (−4)| = 9 units. Crossing the y-axis costs nothing extra."
+    },
+    {
+      "id": "math.m.coordinate.008",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which point lies exactly ON the y-axis?",
+      "answer": "(0, −4)",
+      "options": ["(0, −4)", "(−4, 0)", "(4, 4)", "(−4, −4)"],
+      "hint": "On the y-axis there is no left-right wandering at all.",
+      "explanation": "x = 0 pins a point to the y-axis; (−4, 0) sits on the x-axis instead."
+    },
+    {
+      "id": "math.m.coordinate.009",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Reflect the point (−3, 5) two different ways.",
+      "answer": "blanks",
+      "data": { "lines": ["Over the x-axis: (−3, [[-5]])", "Over the y-axis: ([[3]], 5)"] },
+      "hint": "Each axis flips exactly ONE coordinate — the other it leaves alone.",
+      "explanation": "The x-axis flips y, giving (−3, −5); the y-axis flips x, giving (3, 5). One mirror, one sign change."
+    },
+    {
+      "id": "math.m.coordinate.010",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin plotted (−2, 5). Tap the flawed step.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Plot the point (−2, 5)",
+          "Step A: start at the origin (0, 0)",
+          "Step B: first coordinate −2 → move 2 units left",
+          "Step C: second coordinate 5 → move 5 units right"
+        ]
+      },
+      "hint": "The second coordinate controls a different direction entirely.",
+      "explanation": "The y-coordinate moves you UP 5, not right. (−2, 5) lives up in Quadrant II."
+    },
+    {
+      "id": "math.m.coordinate.011",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Three corners of a rectangle sit at (−3, 1), (4, 1), and (4, −2). Find the fourth corner, then give the rectangle's AREA in square units.",
+      "answer": ["21", "21 square units"],
+      "hint": "Match the missing corner's x with one given corner and its y with another, then read the side lengths from coordinate differences.",
+      "explanation": "The fourth corner is (−3, −2); width 4 − (−3) = 7 and height 1 − (−2) = 3 give area 21.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.m.coordinate.012",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "A dancer's mark is at (−2, −3) on the stage grid. The choreographer reflects the whole formation over the y-axis, then over the x-axis. Where is the mark now?",
+      "answer": "(2, 3)",
+      "options": ["(2, 3)", "(−2, 3)", "(2, −3)", "(−3, 2)"],
+      "hint": "Apply one mirror at a time — y-axis first, then x-axis.",
+      "explanation": "(−2, −3) → (2, −3) → (2, 3). Two mirrors flip both signs — a 180° spin in disguise.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.m.coordinate.013",
+      "realm": "math", "skill": "math.m.coordinate", "tier": "maintenance", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "A wizard-chess rook starts at (−5, −4). It slides 8 right and 7 up, then the enchanted board reflects it over the y-axis. Final coordinates, as x,y?",
+      "answer": ["-3,3", "-3, 3", "(-3,3)", "(-3, 3)"],
+      "hint": "Do the slide first (adjust x, then y), and save the mirror for the very end.",
+      "explanation": "(−5 + 8, −4 + 7) = (3, 3), and the y-axis mirror sends it to (−3, 3). Checkmate pending.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.m.wordmotion.001",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Two cats sprint toward each other from 30 m apart — Biscuit at 2 m/s, Mochi at 3 m/s. How many seconds until they meet?",
+      "answer": ["6", "6 seconds"],
+      "hint": "Running toward each other means their speeds team up.",
+      "explanation": "The gap shrinks at 2 + 3 = 5 m/s, so 30 ÷ 5 = 6 seconds to collision (the friendly kind).",
+      "tags": ["probe", "cats"]
+    },
+    {
+      "id": "math.m.wordmotion.002",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Mittens owns 3 fewer than twice as many toy mice as Biscuit. If Biscuit owns b mice, which expression counts Mittens' mice?",
+      "answer": "2b − 3",
+      "options": ["2b − 3", "3 − 2b", "2(b − 3)", "3b − 2"],
+      "hint": "Build it in order: twice as many FIRST, then 3 fewer than that.",
+      "explanation": "Twice b is 2b; three fewer than that is 2b − 3. Order of phrases beats order of words.",
+      "tags": ["probe", "cats"]
+    },
+    {
+      "id": "math.m.wordmotion.003",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A post owl flies at a steady 18 km/h for 2.5 hours. How far does it carry the letter, in km?",
+      "answer": ["45", "45 km"],
+      "hint": "Distance = rate × time. The owl handles the rest.",
+      "explanation": "18 × 2.5 = 45 km. D = R·T, delivered.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.m.wordmotion.004",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A train must cover 312 km at a steady 78 km/h. How many hours does the trip take?",
+      "answer": ["4", "4 hours"],
+      "hint": "Time = distance ÷ rate.",
+      "explanation": "312 ÷ 78 = 4 hours. Rearranging D = R·T is half the battle."
+    },
+    {
+      "id": "math.m.wordmotion.005",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 3,
+      "type": "number_line_tap",
+      "prompt": "Two trains leave the same station at the same moment in OPPOSITE directions, at 60 km/h and 80 km/h. Tap the number of hours until they are 420 km apart.",
+      "answer": "3",
+      "data": { "numberLine": { "min": 0, "max": 6, "step": 0.5 } },
+      "hint": "Opposite directions: the gap GROWS at the sum of the speeds.",
+      "explanation": "The distance grows at 140 km/h, and 420 ÷ 140 = 3 hours. Separating speeds add just like closing speeds."
+    },
+    {
+      "id": "math.m.wordmotion.006",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Two broom riders fly toward each other from 60 km apart, at 7 km/h and 8 km/h.",
+      "answer": "blanks",
+      "data": { "lines": ["Closing speed: 7 + 8 = [[15]] km/h", "They meet after 60 ÷ 15 = [[4]] hours"] },
+      "hint": "Head-on flyers close the gap with their combined speed.",
+      "explanation": "The 60 km gap shrinks 15 km every hour — four hours to a mid-air high-five.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "math.m.wordmotion.007",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Order the steps: a cat strolls away at 2 m/s; 10 seconds later, a kitten gives chase at 4 m/s. When does the kitten catch up?",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Head start: the cat is 2 × 10 = 20 m ahead when the kitten launches",
+          "Catch-up speed: 4 − 2 = 2 m/s",
+          "Time to close the gap: 20 ÷ 2 = 10 seconds",
+          "Check: kitten runs 4 × 10 = 40 m; cat reaches 20 + 2 × 10 = 40 m ✓"
+        ]
+      },
+      "hint": "Catch-up problems: find the head start, then divide by the speed DIFFERENCE.",
+      "explanation": "Gap first, difference second, divide third — and the check seals it at 40 m.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.m.wordmotion.008",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Amal's kitten is 3 years old; the neighbor's cat is 11. In how many years will the neighbor's cat be exactly TWICE the kitten's age?",
+      "answer": "5",
+      "options": ["5", "8", "3", "2"],
+      "hint": "Both cats age together: set 11 + t equal to twice (3 + t).",
+      "explanation": "11 + t = 2(3 + t) gives t = 5: ages 16 and 8. Both pets age at the stubborn rate of 1 year per year.",
+      "tags": ["cats", "legendary"]
+    },
+    {
+      "id": "math.m.wordmotion.009",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A shawl pattern casts on 5 more than triple the sleeve's stitch count. The sleeve uses 24 stitches. How many stitches does the shawl cast on?",
+      "answer": ["77", "77 stitches"],
+      "hint": "Triple first, then add the 5.",
+      "explanation": "3 × 24 + 5 = 77 stitches. Translating the phrases in the right order is the whole trick.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.m.wordmotion.010",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Amal walks to the library at 4 km/h. Fifteen minutes later, her brother pedals after her along the same path at 12 km/h. How many MINUTES of pedaling does he need to catch her?",
+      "answer": ["7.5", "7.5 minutes", "7 1/2"],
+      "hint": "Find her head start in km (careful — 15 minutes is a quarter hour), then divide by the speed gap.",
+      "explanation": "Head start: 4 × 1/4 = 1 km; the gap closes at 12 − 4 = 8 km/h, so 1/8 h = 7.5 minutes. Books await.",
+      "tags": ["reading", "legendary"]
+    },
+    {
+      "id": "math.m.wordmotion.011",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "A delivery owl flies the 36 km to Hogsmeade at 12 km/h, drops the parcel, and flies straight back at 18 km/h. What is its average speed for the WHOLE round trip?",
+      "answer": "14.4 km/h",
+      "options": ["14.4 km/h", "15 km/h", "14 km/h", "16 km/h"],
+      "hint": "Average speed = total distance ÷ total time — never the average of the two speeds.",
+      "explanation": "Out: 3 h; back: 2 h; so 72 km ÷ 5 h = 14.4 km/h. The 15 trap forgets the slow leg eats more time.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.m.wordmotion.012",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Amal is 11 and her mother is 39. How many years AGO was her mother exactly 5 times Amal's age?",
+      "answer": ["4", "4 years", "4 years ago"],
+      "hint": "Subtract the same t from BOTH ages, then demand the mother's expression equal 5 times Amal's.",
+      "explanation": "39 − t = 5(11 − t) gives 4t = 16, so t = 4: ages 7 and 35 check out perfectly.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.m.wordmotion.013",
+      "realm": "math", "skill": "math.m.wordmotion", "tier": "maintenance", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "Two trains 450 km apart speed toward each other, one at 60 km/h and one at 90 km/h. How many km does the FASTER train travel before they meet?",
+      "answer": ["270", "270 km"],
+      "hint": "First find the meeting time from the closing speed — then give the fast train its share.",
+      "explanation": "They close at 150 km/h and meet in 3 hours; the fast train logs 90 × 3 = 270 km. Asking for distance, not time, is the twist.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "math.m.logic.001",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "Of 28 students, 17 knit, 14 bake, and 6 do both. How many do neither?",
+      "answer": ["3", "3 students"],
+      "hint": "Adding 17 + 14 counts the both-crafters twice — evict the double count.",
+      "explanation": "At least one craft: 17 + 14 − 6 = 25, so 28 − 25 = 3 do neither. The overlap only counts once.",
+      "tags": ["probe", "knitting", "baking"]
+    },
+    {
+      "id": "math.m.logic.002",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "All 30 students in Amal's class study French or Swahili on Duolingo: 21 study French and 16 study Swahili. How many study BOTH?",
+      "answer": "7",
+      "options": ["7", "37", "5", "14"],
+      "hint": "21 + 16 overshoots the class size — the overshoot IS the overlap.",
+      "explanation": "21 + 16 = 37 counts the both-group twice, so both = 37 − 30 = 7.",
+      "tags": ["probe", "duolingo", "swahili"]
+    },
+    {
+      "id": "math.m.logic.003",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "At the cat café, 9 cats chase laser dots, 7 chase yarn, and 4 chase both. How many chase ONLY yarn?",
+      "answer": "3",
+      "options": ["3", "7", "4", "11"],
+      "hint": "Start inside the overlap and work outward.",
+      "explanation": "Yarn chasers minus the double-dippers: 7 − 4 = 3 purely-yarn cats.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "math.m.logic.004",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 2,
+      "type": "type_answer",
+      "prompt": "A book-club survey: 12 members read only fantasy, 9 read only mystery, 5 read both, and 4 read neither. How many members were surveyed?",
+      "answer": ["30", "30 members"],
+      "hint": "These four groups don't overlap — just stack them.",
+      "explanation": "12 + 9 + 5 + 4 = 30. When the regions are already separate, addition finishes the job.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "math.m.logic.005",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 3,
+      "type": "type_answer",
+      "prompt": "Of 40 wizards, 21 keep owls, 17 keep cats, and 6 keep both. How many keep neither?",
+      "answer": ["8", "8 wizards"],
+      "hint": "Union first: owls plus cats minus both.",
+      "explanation": "21 + 17 − 6 = 32 keep a pet, so 40 − 32 = 8 keep none. (Toads don't count.)",
+      "tags": ["harry-potter", "cats"]
+    },
+    {
+      "id": "math.m.logic.006",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "All 50 bake-off entrants baked at least one entry: 28 baked bread and 31 baked tarts.",
+      "answer": "blanks",
+      "data": { "lines": ["Both bread AND tarts: 28 + 31 − 50 = [[9]]", "Bread only: 28 − 9 = [[19]]"] },
+      "hint": "The overshoot past 50 is exactly the double-counted bakers.",
+      "explanation": "9 ambitious bakers made both, leaving 19 bread-only and 22 tart-only: 19 + 9 + 22 = 50 ✓.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "math.m.logic.007",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "A goblin tallied the K-pop academy. Tap the flawed step.",
+      "answer": "1",
+      "options": [],
+      "data": {
+        "segments": [
+          "25 trainees: 14 dance, 12 rap, 5 do both. How many do neither?",
+          "Step A: dance or rap = 14 + 12 = 26 trainees",
+          "Step B: neither = 25 − 26 = −1 trainees",
+          "Step C: Venn check: 9 dance-only + 5 both + 7 rap-only = 21"
+        ]
+      },
+      "hint": "Negative ONE trainees?! Find the step that counted somebody twice.",
+      "explanation": "The 5 do-both trainees were counted twice: the union is 14 + 12 − 5 = 21, so 4 do neither.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "math.m.logic.008",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Order the moves to solve: 35 campers, 20 swim, 18 hike, 9 do both — how many do neither?",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Draw two overlapping circles: swimmers and hikers",
+          "Fill the overlap first: 9 campers do both",
+          "Work outward: swim-only = 20 − 9 = 11, hike-only = 18 − 9 = 9",
+          "Total the regions: 11 + 9 + 9 = 29, so neither = 35 − 29 = 6"
+        ]
+      },
+      "hint": "Venn strategy: overlap first, edges second, leftovers last.",
+      "explanation": "Overlap-first prevents every double count; 6 campers did neither."
+    },
+    {
+      "id": "math.m.logic.009",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Amal packs 4 hand-knit sweaters and 3 scarves for a trip. How many different sweater-and-scarf outfits can she wear?",
+      "answer": "12",
+      "options": ["12", "7", "4", "24"],
+      "hint": "Each sweater pairs with each scarf — multiply, don't add.",
+      "explanation": "4 × 3 = 12 outfits. Choices that combine multiply.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "math.m.logic.010",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Six wizards meet for dueling practice, and each pair bows exactly once before starting. How many bows happen?",
+      "answer": ["15", "15 bows"],
+      "hint": "Each of the 6 bows to 5 others — but a bow between two wizards is ONE bow, not two.",
+      "explanation": "6 × 5 = 30 counts every bow twice, so 30 ÷ 2 = 15. Classic handshake logic, with more dramatic robes.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.m.logic.011",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 4,
+      "type": "type_answer",
+      "prompt": "Every one of the yarn club's 24 members crochets or knits: 15 crochet and 13 knit. How many members ONLY knit?",
+      "answer": ["9", "9 members"],
+      "hint": "Find the both-crafters first: 15 + 13 overshoots 24.",
+      "explanation": "Both = 15 + 13 − 24 = 4, so only-knit = 13 − 4 = 9. (Check: 11 + 4 + 9 = 24 ✓.)",
+      "tags": ["knitting", "legendary"]
+    },
+    {
+      "id": "math.m.logic.012",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Of 45 first-years, 4 joined neither club, 28 joined Charms Club, and 25 joined Potions Club. How many joined BOTH clubs?",
+      "answer": "12",
+      "options": ["12", "8", "53", "16"],
+      "hint": "First shrink the pool: how many joined at least one club?",
+      "explanation": "At least one: 45 − 4 = 41, so both = 28 + 25 − 41 = 12. Handle the neither-crowd before any Venn math.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "math.m.logic.013",
+      "realm": "math", "skill": "math.m.logic", "tier": "maintenance", "difficulty": 5,
+      "type": "type_answer",
+      "prompt": "A vault's code is a 3-digit number whose digits are ALL odd (digits may repeat). How many codes are possible?",
+      "answer": ["125", "125 codes"],
+      "hint": "How many odd digits exist? Each of the three slots chooses independently.",
+      "explanation": "Five odd digits (1, 3, 5, 7, 9) for each of 3 slots: 5 × 5 × 5 = 125. Independent choices multiply.",
+      "tags": ["legendary"]
+    }
   ]
 }

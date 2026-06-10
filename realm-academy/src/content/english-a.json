@@ -658,3 +658,765 @@
       "explanation": "The clue 'every cage, basket, and lap' shows overflow — abundant means plentiful.",
       "tags": ["cats"]
     },
+    {
+      "id": "english.vocab.004",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 1,
+      "type": "fill_blank",
+      "prompt": "Build the word: port (carry) + -able (able to be).",
+      "answer": "blanks",
+      "data": { "lines": ["A speaker you can carry to dance practice is [[portable]]."] },
+      "hint": "Just snap the two word-parts together.",
+      "explanation": "port + able = portable, 'able to be carried' — roots are word-building bricks.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "english.vocab.005",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 1,
+      "type": "drag_categorize",
+      "prompt": "Sort the words by their root: vis/vid (see) or aud (hear).",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "vis/vid — to see": ["visible", "video", "vision"],
+          "aud — to hear": ["audio", "audible", "audience"]
+        }
+      },
+      "hint": "Say each word — does it belong to eyes or ears?",
+      "explanation": "vis/vid words are eye-words; aud words are ear-words. An audience was originally a group of listeners!"
+    },
+    {
+      "id": "english.vocab.006",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Halfway through a lesson, the app flashed 'MALFUNCTION' and froze. The root mal- tells you the app is…",
+      "answer": "working badly",
+      "options": ["working badly", "working fast", "finished updating", "brand new"],
+      "hint": "Mal- is the evil twin of bene-.",
+      "explanation": "mal = bad, so malfunction = working badly. The same root lurks in malevolent and malodorous (bad-smelling).",
+      "tags": ["duolingo"]
+    },
+    {
+      "id": "english.vocab.007",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each Greek root to its meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["chron", "time"],
+          ["hydr", "water"],
+          ["geo", "earth"],
+          ["tele", "far away"],
+          ["phon", "sound"]
+        ]
+      },
+      "hint": "Telephone = sound from far away. That's two of them cracked already.",
+      "explanation": "Greek roots power the science shelf: chronology, hydrate, geology, telescope, phonics."
+    },
+    {
+      "id": "english.vocab.008",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Context clue: 'Though she usually loved starting new patterns, Amal was reluctant to unravel three days of careful knitting.' Reluctant means…",
+      "answer": "unwilling and hesitant",
+      "options": ["unwilling and hesitant", "excited and eager", "skilled and quick", "careless and rushed"],
+      "hint": "The word 'though' signals a contrast with 'usually loved.'",
+      "explanation": "'Though' flips the direction: she usually loves starting, but here she hesitates — reluctant means unwilling.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.vocab.009",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "drag_categorize",
+      "prompt": "Sort by root: scrib/script (write) or dict (say).",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "scrib/script — to write": ["scribble", "manuscript", "inscription"],
+          "dict — to say": ["dictate", "prediction", "contradict"]
+        }
+      },
+      "hint": "Is the action done with a pen or with a voice?",
+      "explanation": "scrib/script words live on paper; dict words come out of mouths. A prediction is something 'said before' it happens."
+    },
+    {
+      "id": "english.vocab.010",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Spectator, inspect, spectacles — the root spect means…",
+      "answer": "to look or watch",
+      "options": ["to look or watch", "to walk", "to build", "to cheer"],
+      "hint": "What does a spectator DO at a quidditch match?",
+      "explanation": "spect = look/watch: a spectator watches, you inspect by looking closely, and spectacles help you see.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.vocab.011",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Type the power word: the opposite of abundant, meaning 'in short supply.'",
+      "answer": "blanks",
+      "data": { "lines": ["By August, the shop's softest wool was [[scarce]] — only two skeins left on the shelf."] },
+      "hint": "Six letters, starts with 's' — the clue is 'only two skeins left.'",
+      "explanation": "Scarce means hard to find, in short supply — the empty shelf is the giveaway clue.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.vocab.012",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about word roots — tap the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "'Telephone' is built from roots meaning 'far away' + 'sound.'",
+          "'Geography' contains geo, the Greek root for earth."
+        ],
+        "lie": "'Audience' comes from a root meaning 'to see.'"
+      },
+      "hint": "Which sense does an audience originally use?",
+      "explanation": "Audience comes from aud, 'to hear' — literally a group of listeners. The seeing root is vis/vid, as in 'video.'"
+    },
+    {
+      "id": "english.vocab.013",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 2,
+      "type": "speed_round",
+      "prompt": "Root Lightning! Type the meaning of each root.",
+      "answer": "cards",
+      "data": {
+        "cards": [
+          ["bene", "good"],
+          ["mal", "bad"],
+          ["aud", "hear"],
+          ["vis", "see"],
+          ["port", "carry"],
+          ["dict", "say"],
+          ["chron", "time"],
+          ["hydr", "water"],
+          ["geo", "earth"],
+          ["bio", "life"],
+          ["micro", "small"],
+          ["mega", "big"]
+        ]
+      },
+      "hint": "One familiar word per root: benefit, audio, video, transport…",
+      "explanation": "Twelve roots, hundreds of words unlocked — that's an excellent exchange rate."
+    },
+    {
+      "id": "english.vocab.014",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Context: 'The label promised the potion would grant perfect recall, but Priya was skeptical — no brew had ever helped her remember where she left her wand.' Skeptical means…",
+      "answer": "doubtful that something is true",
+      "options": ["doubtful that something is true", "completely convinced", "terrified", "forgetful"],
+      "hint": "The word 'but' plus her past experience tells you how much she believes the label.",
+      "explanation": "Her experience contradicts the promise, so she doubts it — skeptical means questioning whether something is really true.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.vocab.015",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Using the root chron (time), what is a 'chronicle'?",
+      "answer": "a record of events in the order they happened",
+      "options": [
+        "a record of events in the order they happened",
+        "a clock that runs backward",
+        "a list sorted alphabetically",
+        "a brand-new invention"
+      ],
+      "hint": "chron = time; a chronicle organizes events by it.",
+      "explanation": "A chronicle records events in time order — same root family as chronological and synchronize.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.vocab.016",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "fill_blank",
+      "prompt": "Crack the science words: type each root's meaning.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Biology studies living things because bio means [[life]].",
+          "Geology digs into rocks because geo means [[earth]]."
+        ]
+      },
+      "hint": "A BIOgraphy is the story of someone's ___.",
+      "explanation": "bio = life and geo = earth — every '-ology' is just 'the study of' plus a root."
+    },
+    {
+      "id": "english.vocab.017",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Context: 'The cardamom in the cake was so subtle that only Grandma, with her baker's tongue, noticed it under the vanilla.' Subtle means…",
+      "answer": "faint and not obvious",
+      "options": ["faint and not obvious", "overpowering", "bitter", "missing entirely"],
+      "hint": "Only ONE expert taster caught it — was the flavor loud or quiet?",
+      "explanation": "If only the sharpest taster detects it, the flavor is delicate and easy to miss — that's subtle.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.vocab.018",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "drag_categorize",
+      "prompt": "Sort by root: micro (small), mega (huge), or tele (far).",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "micro — small": ["microscope", "microbe"],
+          "mega — huge": ["megaphone", "megastar"],
+          "tele — far": ["telescope", "television"]
+        }
+      },
+      "hint": "A megastar's voice through a megaphone is anything but small.",
+      "explanation": "micro shrinks, mega supersizes, tele stretches across distance — a telescope is literally a 'far-seer.'",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "english.vocab.019",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Context: 'The dream was so vivid that at breakfast she could still smell the dragon smoke and count the castle's torches.' Vivid means…",
+      "answer": "intensely clear and lifelike",
+      "options": ["intensely clear and lifelike", "quickly forgotten", "in black and white", "frightening"],
+      "hint": "She remembers smells AND exact details — how sharp is that dream?",
+      "explanation": "Smelling smoke and counting torches after waking means the dream felt real — vivid means strikingly clear and lifelike, not necessarily scary.",
+      "tags": ["harry-potter", "reading"]
+    },
+    {
+      "id": "english.vocab.020",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Crack a wizard word: 'The scroll bore a malediction — whoever opened it would itch for a week.'",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Break it apart: mal = [[bad]] and dict = [[say]].",
+          "So a malediction is words spoken to wish harm — a curse."
+        ]
+      },
+      "hint": "You already own both bricks: malfunction and dictate.",
+      "explanation": "mal (bad) + dict (say) = 'bad-saying,' a curse. Its opposite, benediction, is a blessing.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.vocab.021",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: the museum card reads, 'The champions' cup was inscribed with the names of every winner since 1894.' Using scrib/script, 'inscribed' means…",
+      "answer": "had words written or carved onto it",
+      "options": [
+        "had words written or carved onto it",
+        "was polished until it shone",
+        "was hidden away for safekeeping",
+        "was sold at auction"
+      ],
+      "hint": "scrib/script always involves writing — where is the writing here?",
+      "explanation": "in (onto) + scrib (write): the winners' names were written onto the cup. Manuscript and inscription share the same brick.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "english.vocab.022",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: 'With three curious cats and one dangling ball of mohair left on the table, the great yarn tangle was inevitable.' Inevitable means…",
+      "answer": "certain to happen, impossible to avoid",
+      "options": [
+        "certain to happen, impossible to avoid",
+        "easy to clean up",
+        "extremely surprising",
+        "somebody's fault"
+      ],
+      "hint": "Three cats + dangling yarn — what are the odds of escape?",
+      "explanation": "The setup allows only one outcome — inevitable means unavoidable, certain to happen.",
+      "tags": ["cats", "knitting", "legendary"]
+    },
+    {
+      "id": "english.vocab.023",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 4,
+      "type": "matching_pairs",
+      "prompt": "Legendary match: pair each power word with its meaning.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["diligent", "hardworking and careful"],
+          ["persistent", "refusing to give up"],
+          ["elaborate", "rich in detail; intricate"],
+          ["reluctant", "unwilling; hesitant"],
+          ["skeptical", "doubting; not easily convinced"]
+        ]
+      },
+      "hint": "Lock in the pairs you're sure of first — strategy beats luck.",
+      "explanation": "These five show up all over grade-6 reading — collect them like rare cards.",
+      "tags": ["legendary"]
+    },
+    {
+      "id": "english.vocab.024",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "Legendary invention: a wizard catalog sells a 'chronophone.' Using its roots, what would this gadget do?",
+      "answer": "let you hear sounds from another time",
+      "options": [
+        "let you hear sounds from another time",
+        "measure how much water you drink",
+        "project giant images of the earth",
+        "write letters automatically"
+      ],
+      "hint": "chron + phon — you've already unlocked both bricks.",
+      "explanation": "chron (time) + phon (sound) = a time-sound machine. Root-stacking decodes even words that don't exist yet — that's real word power.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "english.vocab.025",
+      "realm": "english", "skill": "english.vocab", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "Legendary: 'Her brother's streak died in a week, but Amal was diligent: 412 days of Swahili, every lesson reviewed twice, even on her birthday.' Diligent means…",
+      "answer": "showing steady, careful effort",
+      "options": [
+        "showing steady, careful effort",
+        "naturally talented",
+        "competitive with family",
+        "obsessed with birthdays"
+      ],
+      "hint": "The colon introduces the evidence — what do 412 days and double reviews prove?",
+      "explanation": "The evidence shows steady, careful, day-after-day work — diligence is about effort, not talent.",
+      "tags": ["duolingo", "swahili", "legendary"]
+    },
+    {
+      "id": "english.writing.t01",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "worked_example", "teachSequenceId": "teach.english.writing",
+      "prompt": "Let's judge thesis statements like architects — which spine can hold up a whole essay?",
+      "answer": "steps",
+      "data": {
+        "steps": [
+          { "text": "A thesis must be ARGUABLE (someone could disagree) and SPECIFIC (it names its reasons). 'Cats are animals' fails instantly — nobody can argue with a fact." },
+          {
+            "text": "Candidate: 'Cats are the ideal pet for book lovers because they are quiet, independent, and happy to sit still for whole chapters.' Arguable? Yes — a dog person would object. Specific? Yes — three named reasons.",
+            "check": {
+              "question": "Why does 'Cats are animals' fail as a thesis?",
+              "options": [
+                "It's a fact nobody can argue against",
+                "It's too short to be a sentence",
+                "It shouldn't mention animals"
+              ],
+              "answer": 0
+            }
+          },
+          { "text": "Each reason becomes a pillar: body paragraph 1 = quiet, 2 = independent, 3 = chapter-length lap naps. The spine decides the whole skeleton." },
+          {
+            "text": "So the test is two questions: could someone disagree? And do I know exactly what each body paragraph will prove?",
+            "check": {
+              "question": "'Some people have pets' — what's the main problem with this thesis?",
+              "options": [
+                "It isn't arguable or specific, so it can't organize an essay",
+                "It's about people instead of animals",
+                "It uses the word 'some'"
+              ],
+              "answer": 0
+            }
+          }
+        ]
+      },
+      "tags": ["cats", "reading"]
+    },
+    {
+      "id": "english.writing.t02",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 2, "teachSequenceId": "teach.english.writing",
+      "prompt": "Label the cathedral: complete the essay blueprint.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "The doorway that pulls readers in: the [[hook]]",
+          "The spine that states your arguable claim: the [[thesis]]",
+          "Each pillar (body paragraph) opens with a topic sentence proving one reason."
+        ]
+      },
+      "hint": "Both answers were just pre-taught — the doorway and the spine.",
+      "explanation": "Hook invites, thesis holds the building up, and topic sentences run the pillars — that's the whole blueprint."
+    },
+    {
+      "id": "english.writing.t03",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "worked_completion", "scaffoldLevel": 1, "teachSequenceId": "teach.english.writing",
+      "prompt": "Wire the signposts: connect claim to evidence to conclusion in this mini-paragraph.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Claim: Baking is secretly math homework.",
+          "Introduce evidence: '[[For example|For instance]], doubling a recipe means multiplying every fraction in it.'",
+          "Show the result: '[[Therefore|So|Thus]], every batch of cookies is a worksheet you can eat.'"
+        ]
+      },
+      "hint": "The first signpost introduces an example; the second announces a conclusion.",
+      "explanation": "'For example' introduces evidence and 'therefore' signals a result — transitions tell readers which way the road bends.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.writing.001",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 1,
+      "type": "order_sequence",
+      "prompt": "Stack the cathedral: put the parts of a five-paragraph essay in order.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Hook — an opening line that grabs the reader",
+          "Thesis — the arguable claim the essay will defend",
+          "Body paragraph 1 — first reason, with evidence",
+          "Body paragraphs 2 and 3 — remaining reasons, with evidence",
+          "Conclusion — restate the thesis and close the doors"
+        ]
+      },
+      "hint": "Doorway first, spine right behind it, then pillars, then the bell.",
+      "explanation": "Hook → thesis → body pillars → conclusion: the blueprint never changes, even when the topic does."
+    },
+    {
+      "id": "english.writing.002",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Pick the STRONGER thesis for an essay about cats.",
+      "answer": "Cats make better apartment pets than dogs because they are quiet, tidy, and content alone.",
+      "options": [
+        "Cats make better apartment pets than dogs because they are quiet, tidy, and content alone.",
+        "Cats are a kind of animal.",
+        "I like cats a lot.",
+        "This essay will be about cats."
+      ],
+      "hint": "Strong = someone could disagree AND it names its reasons.",
+      "explanation": "It's arguable (dog fans, assemble!) and specific — three reasons means three ready-made body paragraphs. The others are a fact, a feeling, and an announcement.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.writing.003",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Choose the best transition: 'First, she preheated the oven. ____, she measured the flour and sugar.'",
+      "answer": "Next",
+      "options": ["Next", "However", "Therefore", "Meanwhile"],
+      "hint": "The two steps simply happen in order — no contrast, no cause-and-effect.",
+      "explanation": "It's a sequence of steps, so 'Next' fits; 'however' would promise a contrast and 'therefore' a result.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.writing.004",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 1,
+      "type": "drag_categorize",
+      "prompt": "Sort the phrases: formal essay voice vs. group-chat voice.",
+      "answer": "categories",
+      "data": {
+        "categories": {
+          "Formal essay": ["In addition,", "This evidence suggests", "Many researchers argue"],
+          "Group chat": ["lol no way", "it was sooo good", "u gotta read this"]
+        }
+      },
+      "hint": "Which ones could open a sentence for your English teacher?",
+      "explanation": "Formal writing keeps full words and measured claims; chat voice saves its sparkle for friends. Both are real skills — the trick is matching voice to audience."
+    },
+    {
+      "id": "english.writing.005",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "Which opening line is the strongest HOOK for an essay about libraries?",
+      "answer": "At midnight, the library's book-return slot swallowed my homework — and that's how the best week of my life began.",
+      "options": [
+        "At midnight, the library's book-return slot swallowed my homework — and that's how the best week of my life began.",
+        "This essay is about libraries.",
+        "Libraries are buildings that hold books.",
+        "I will now tell you three facts about libraries."
+      ],
+      "hint": "A hook makes you NEED the next sentence.",
+      "explanation": "A midnight mystery demands a next sentence; the others are announcements or flat facts. Curiosity is the doorway.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.writing.006",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Which thesis could power a whole five-paragraph essay?",
+      "answer": "K-pop groups succeed worldwide because of disciplined training, multilingual fan outreach, and cinematic music videos.",
+      "options": [
+        "K-pop groups succeed worldwide because of disciplined training, multilingual fan outreach, and cinematic music videos.",
+        "K-pop is music from South Korea.",
+        "Lots of people stream music nowadays.",
+        "BTS debuted in 2013."
+      ],
+      "hint": "Two of these are pure facts and one is fog — find the arguable blueprint.",
+      "explanation": "It takes a debatable position and pre-names its three pillars. Facts like a debut year make good EVIDENCE, but they can't be the spine.",
+      "tags": ["kpop"]
+    },
+    {
+      "id": "english.writing.007",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "A body paragraph will give evidence that cats meow, chirp, and slow-blink to communicate. Which TOPIC SENTENCE should open it?",
+      "answer": "Cats use a surprising range of signals to talk to their humans.",
+      "options": [
+        "Cats use a surprising range of signals to talk to their humans.",
+        "Cats are mammals with excellent balance.",
+        "My cat is named Mochi.",
+        "In conclusion, cats are great."
+      ],
+      "hint": "The topic sentence must cover ALL the evidence coming after it.",
+      "explanation": "Meows, chirps, and slow-blinks are all communication signals — the topic sentence announces exactly that one job. The others change the subject or close the essay early.",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.writing.008",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Claim: 'Baking teaches real math skills.' Which evidence SUPPORTS it best?",
+      "answer": "Halving a recipe means dividing fractions like 3/4 cup by 2.",
+      "options": [
+        "Halving a recipe means dividing fractions like 3/4 cup by 2.",
+        "Fresh cookies smell wonderful.",
+        "Some famous bakers have TV shows.",
+        "Ovens can reach 230 degrees Celsius."
+      ],
+      "hint": "Which option shows math actually happening in the kitchen?",
+      "explanation": "Dividing 3/4 by 2 IS math in action — the others are pleasant facts that never touch the claim.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.writing.009",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "fill_blank",
+      "prompt": "Type the transition that signals CONTRAST.",
+      "answer": "blanks",
+      "data": { "lines": ["Knitting looks slow and old-fashioned. [[However|Yet|Nevertheless]], a practiced knitter can finish a sock in a single movie night."] },
+      "hint": "You need a U-turn signal, not a green light.",
+      "explanation": "The second sentence pushes against the first, so a contrast signpost like 'however' marks the turn.",
+      "tags": ["knitting"]
+    },
+    {
+      "id": "english.writing.010",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "Your draft says: 'Hermione revised her essay twice, Ron wrote his during breakfast.' What's the BEST repair?",
+      "answer": "Hermione revised her essay twice, but Ron wrote his during breakfast.",
+      "options": [
+        "Hermione revised her essay twice, but Ron wrote his during breakfast.",
+        "Hermione revised her essay twice Ron wrote his during breakfast.",
+        "Hermione revised, her essay twice, Ron wrote his during breakfast.",
+        "Hermione revised her essay twice but, Ron wrote his during breakfast."
+      ],
+      "hint": "Two complete thoughts that clash = comma + a contrast conjunction.",
+      "explanation": "Comma + 'but' both joins the clauses AND highlights the contrast in their study habits. The original comma alone was a splice.",
+      "tags": ["harry-potter"]
+    },
+    {
+      "id": "english.writing.011",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "two_truths",
+      "prompt": "Two truths and a lie about thesis statements — tap the LIE.",
+      "answer": "lie",
+      "data": {
+        "truths": [
+          "A strong thesis takes a position someone could disagree with.",
+          "A thesis usually previews the reasons the body paragraphs will prove."
+        ],
+        "lie": "A thesis should state a fact that everyone already accepts."
+      },
+      "hint": "Could you write five paragraphs defending 'water is wet'?",
+      "explanation": "If everyone already agrees, there is nothing to defend and the essay has no job. Arguable claims are what give essays a purpose."
+    },
+    {
+      "id": "english.writing.012",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 2,
+      "type": "matching_pairs",
+      "prompt": "Match each transition to the job it does.",
+      "answer": "pairs",
+      "data": {
+        "pairs": [
+          ["however", "signals a contrast or U-turn"],
+          ["therefore", "signals a result or conclusion"],
+          ["for example", "introduces evidence"],
+          ["meanwhile", "shows two things happening at once"]
+        ]
+      },
+      "hint": "Imagine each word as a road sign — what does it warn is coming?",
+      "explanation": "Transitions are signposts: contrast, result, evidence, simultaneous action. Readers steer by them."
+    },
+    {
+      "id": "english.writing.013",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Which hook is strongest for an essay arguing that sixth graders should get free reading time?",
+      "answer": "The week our class got twenty minutes of free reading, the room went so silent you could hear pages turn.",
+      "options": [
+        "The week our class got twenty minutes of free reading, the room went so silent you could hear pages turn.",
+        "Reading is when you look at words and understand them.",
+        "In this essay I will discuss free reading time.",
+        "Books have existed for many centuries."
+      ],
+      "hint": "Which one drops you inside a scene?",
+      "explanation": "The image of a silent, page-turning classroom pulls the reader in AND quietly previews the argument. Announcements and dictionary facts leave the doorway empty.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.writing.014",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Claim: 'Rereading favorite books is valuable, not lazy.' Which evidence supports it BEST?",
+      "answer": "On a second read, you catch foreshadowing and clues you missed the first time.",
+      "options": [
+        "On a second read, you catch foreshadowing and clues you missed the first time.",
+        "Some books have beautiful covers.",
+        "Many people buy books they never finish.",
+        "Libraries let you borrow the same book twice."
+      ],
+      "hint": "Find the option that shows a real BENEFIT of the second read.",
+      "explanation": "Catching foreshadowing shows that rereading adds understanding — exactly what 'valuable' claims. The others orbit books without ever proving value.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.writing.015",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Trim the fat: 'In my personal opinion, I believe that the bake sale was a successful success.' Which revision fixes the redundancy?",
+      "answer": "I believe the bake sale was a success.",
+      "options": [
+        "I believe the bake sale was a success.",
+        "In my personal opinion, I believe that the bake sale was a truly successful success.",
+        "The bake sale, in my opinion, I believe, succeeded successfully.",
+        "In my opinion I believe the bake sale was successful and a success."
+      ],
+      "hint": "Each idea should appear exactly once.",
+      "explanation": "'In my personal opinion' and 'I believe' say the same thing, and 'successful success' doubles again. One clean claim beats three echoes.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.writing.016",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "spot_error",
+      "prompt": "This formal paragraph has one sentence in the wrong VOICE. Tap it.",
+      "answer": "3",
+      "options": [],
+      "data": {
+        "segments": [
+          "Shelter cats deserve adoption for three reasons.",
+          "First, most arrive already litter trained.",
+          "Second, each adoption frees a cage for another rescue.",
+          "Also they're like literally the cutest, no cap."
+        ]
+      },
+      "hint": "Which sentence belongs in a group chat?",
+      "explanation": "Slang like 'no cap' breaks the formal register — try 'Finally, their charm wins over even reluctant visitors.'",
+      "tags": ["cats"]
+    },
+    {
+      "id": "english.writing.017",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "order_sequence",
+      "prompt": "Build the body paragraph in order: claim → evidence → explanation → closer.",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Baking strengthens patience like few hobbies can.",
+          "For example, real sourdough cannot be rushed — the starter alone takes a week of daily feeding.",
+          "That week of waiting trains a baker to trust slow progress instead of quitting.",
+          "Patience, it turns out, is the secret ingredient."
+        ]
+      },
+      "hint": "Topic sentence first; the example needs a claim to support.",
+      "explanation": "Claim, then evidence, then the WHY that ties evidence back to the claim, then a closing beat — pillars are built top-down.",
+      "tags": ["baking"]
+    },
+    {
+      "id": "english.writing.018",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "Pick the right signpost: 'The owl reminds me to practice my Swahili every single day. ____, my streak just hit 400.'",
+      "answer": "As a result",
+      "options": ["As a result", "On the other hand", "For instance", "Meanwhile"],
+      "hint": "Daily reminders CAUSED the streak — which sign marks cause and effect?",
+      "explanation": "The streak is the RESULT of daily practice, so 'as a result' (a cousin of 'therefore') is the honest signpost. 'On the other hand' would promise a contrast that never comes.",
+      "tags": ["duolingo", "swahili"]
+    },
+    {
+      "id": "english.writing.019",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 3,
+      "type": "worked_completion", "scaffoldLevel": 1,
+      "prompt": "Finish editing this draft so the logic clicks.",
+      "answer": "blanks",
+      "data": {
+        "lines": [
+          "Draft: 'I love fantasy novels. Mysteries are my favorite genre.' — these two clash, so join them with a contrast signpost:",
+          "'I love fantasy novels; [[however|yet]], mysteries are my favorite genre.'",
+          "A result signpost like 'therefore' would be [[wrong|incorrect]] here, because the second sentence pushes against the first."
+        ]
+      },
+      "hint": "The two sentences disagree — choose the U-turn sign, then say why the green light fails.",
+      "explanation": "'However' honestly marks the contrast; 'therefore' would promise a cause-and-effect that is not there.",
+      "tags": ["reading"]
+    },
+    {
+      "id": "english.writing.020",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: four students drafted theses for 'Should wizard schools teach regular math?' Which is STRONGEST?",
+      "answer": "Wizard schools should require math because potion ratios, spell geometry, and quidditch statistics all depend on it.",
+      "options": [
+        "Wizard schools should require math because potion ratios, spell geometry, and quidditch statistics all depend on it.",
+        "Math is taught in many schools around the world.",
+        "Wizard schools are interesting places with many subjects.",
+        "Wizard schools should probably think about possibly adding some subjects."
+      ],
+      "hint": "Test each one: arguable? Specific? Could it organize three body paragraphs?",
+      "explanation": "It stakes an arguable claim and pre-names three pillars (ratios, geometry, statistics). The rivals are a fact, a fog bank, and a hedge that never commits.",
+      "tags": ["harry-potter", "legendary"]
+    },
+    {
+      "id": "english.writing.021",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 4,
+      "type": "multiple_choice",
+      "prompt": "Legendary: claim — 'Adopting a cat lowers stress.' Three options merely ORBIT the claim; only one SUPPORTS it. Which?",
+      "answer": "A 2019 study found that ten minutes of cat-petting measurably lowered students' cortisol, a stress hormone.",
+      "options": [
+        "A 2019 study found that ten minutes of cat-petting measurably lowered students' cortisol, a stress hormone.",
+        "Cats have lived alongside humans for thousands of years.",
+        "My neighbor's cat is unusually fluffy and calm.",
+        "Cat adoption fees are often cheaper than dog adoption fees."
+      ],
+      "hint": "Find the evidence that connects cats to STRESS, not just to cats.",
+      "explanation": "Only the cortisol study links cats to stress reduction with measurable proof. History, one fluffy neighbor-cat, and bargain fees never touch the claim.",
+      "tags": ["cats", "legendary"]
+    },
+    {
+      "id": "english.writing.022",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 5,
+      "type": "multiple_choice",
+      "prompt": "Legendary edit: 'The fan project was a big huge success, we collected 200 birthday messages for the singer's birthday.' Choose the BEST revision.",
+      "answer": "The fan project was a huge success: we collected 200 birthday messages for the singer.",
+      "options": [
+        "The fan project was a huge success: we collected 200 birthday messages for the singer.",
+        "The fan project was a big huge success; we collected 200 birthday messages for the singer's birthday.",
+        "The fan project was a success, we collected 200 messages for the singer's birthday celebration of her birthday.",
+        "The fan project, was a big success, we collected 200 birthday messages."
+      ],
+      "hint": "Hunt TWO bugs at once: a doubled idea and a comma splice.",
+      "explanation": "'Big huge' and 'birthday messages… for the birthday' were redundant, and the comma splice needed a real joint — the colon fixes the splice while the trims cut the echoes.",
+      "tags": ["kpop", "legendary"]
+    },
+    {
+      "id": "english.writing.023",
+      "realm": "english", "skill": "english.writing", "tier": "frontier", "difficulty": 5,
+      "type": "order_sequence",
+      "prompt": "Legendary: arrange the full outline for 'School bake sales should fund the library.'",
+      "answer": "sequence",
+      "data": {
+        "sequence": [
+          "Hook: Last year's brownie table earned enough to buy forty new novels.",
+          "Thesis: Bake sales should fund the library because demand is high, costs are low, and books outlast cupcakes.",
+          "Body 1: Demand — the waitlist for popular series stretches past thirty names.",
+          "Body 2: Costs — donated ingredients mean almost every dollar is profit.",
+          "Body 3: Lasting value — a twelve-dollar book circulates for years after the frosting is gone.",
+          "Conclusion: Restate the case and invite readers to preheat their ovens."
+        ]
+      },
+      "hint": "Spine right after the doorway; the pillars march in the thesis's order.",
+      "explanation": "The thesis pre-named its pillars — demand, costs, lasting value — so the body paragraphs must march in exactly that order.",
+      "tags": ["baking", "reading", "legendary"]
+    }
+  ]
+}
