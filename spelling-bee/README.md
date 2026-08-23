@@ -58,13 +58,25 @@ Type or click. <kbd>Enter</kbd> submits, <kbd>Backspace</kbd> deletes,
 
 ## The word lists
 
-14 hand-picked puzzles, each with a complete answer list baked into the file.
+14 hand-picked puzzles. Each ships **two** lists, and the difference matters:
 
-They were generated from [SCOWL](http://wordlist.aspell.net/) tiers 10–55 — roughly
-"words an educated adult could reasonably be expected to know". Tier 60 and above
-(`ambuscade`, `acciaccatura`) was cut as unfairly obscure. Slurs, explicit
-vulgarities, and informal non-words are excluded; ordinary words with ordinary
-meanings are not.
+- **Required** — what the counter and the top rank are about. Common words only.
+- **Bonus** — accepted and scored, but never needed for 100%. Rarer real words like
+  `crouton`, `beignet` or `percipient`, shown in teal.
+
+Why two: no single cutoff works. Draw the line high and the game rejects words
+everyone knows (`appall`, `attune`, `adduce` all fall below the obvious thresholds).
+Draw it low and lists hit 120 words and Hive Mind becomes unreachable. Rejecting a
+word you know feels broken; an obscure word sitting in the list just makes 100%
+harder. So accepting is generous and requiring is strict.
+
+Validity comes from a 274k-word dictionary; commonness from
+[wordfreq](https://pypi.org/project/wordfreq/)'s Zipf frequencies over a real corpus
+— the only signal that separates rare-but-real (`percipient`, 1.17) from dictionary
+padding (`alaap`, `apoop`, `eevn`, all 0.00). Required is Zipf ≥ 2.5, bonus ≥ 1.0.
+
+Slurs, explicit vulgarities and informal non-words are excluded from both lists;
+ordinary words with ordinary meanings are not.
 
 Every puzzle is filtered to be worth playing: 25–60 answers, at least two pangrams,
 at least 25% of answers 7+ letters, at least one 9+ letter word, and a cap on how
@@ -74,8 +86,14 @@ containing I, N and G produce lists padded with easy `-ing` gerunds.
 `tools/generate-puzzles.mjs` is the generator, kept so the set can be extended:
 
 ```sh
-npm install wordlist-english     # the only dependency, and only for this script
-node tools/generate-puzzles.mjs  # prints candidates and writes puzzles.json
+pip install wordfreq && npm install word-list
+python3 tools/generate-puzzles.py
+```
+
+To prove no common word is refused — the check that catches a missing `donut`:
+
+```sh
+python3 tools/check-coverage.py
 ```
 
 To check the shipped puzzles against every rule above:

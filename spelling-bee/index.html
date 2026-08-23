@@ -75,6 +75,7 @@ select{background:var(--surface-2);color:var(--text-primary);border:1px solid va
   border:1px solid transparent;text-transform:lowercase}
 .chip.pan{background:rgba(236,72,153,.18);border-color:rgba(236,72,153,.5);font-weight:700}
 .chip.missed{background:transparent;border:1px dashed rgba(255,255,255,.22);color:var(--text-dim)}
+.chip.bonus{background:rgba(20,184,166,.14);border-color:rgba(20,184,166,.45);color:#7ee7d4}
 .empty{color:var(--text-dim);font-size:.82rem;font-style:italic;margin-top:.6rem}
 
 /* ---------- input line ---------- */
@@ -226,146 +227,263 @@ kbd{background:rgba(255,255,255,.09);border:1px solid var(--line);border-radius:
 
 <script>
 /* ==========================================================================
-   Puzzle data. Each entry: seven letters (one center, six outer, never "s"),
-   the complete list of accepted answers, and which of those are pangrams.
-   Generated from SCOWL tiers 10-55 -- see README.md to add more.
+   Puzzle data. Each entry has seven letters (one center, six outer, never "s")
+   and TWO word lists:
+     words -- required. Sets the max score, the ranks, the "N to find" count and
+              the top rank. Common vocabulary only.
+     bonus -- accepted and scored, but never required for 100%. Real but rarer
+              words, so typing one is never met with "not in word list".
+   See README.md to regenerate or extend.
    ========================================================================== */
 const PUZZLES = [
-  { id: "hc-001", center: "p", outer: ["a", "c", "i", "l", "o", "t"],
-    pangrams: ["apolitical", "capitol", "optical", "political", "topical"],
+  { id: "hc-001", center: "i", outer: ["a", "c", "l", "o", "p", "t"],
+    pangrams: ["apolitical", "capitol", "occipital", "optical", "political", "topical"],
     words: [
-    "alpaca", "apolitical", "appall", "atop", "capital", "capitol", "catalpa", "clap", "clip",
-    "clop", "coop", "copilot", "laptop", "lollipop", "lollop", "loop", "opal", "optic",
-    "optical", "pact", "pail", "palatal", "palatial", "pall", "papa", "papal", "papilla",
-    "patio", "pica", "piccalilli", "piccolo", "pill", "pilot", "pipit", "pita", "pitta",
-    "plait", "plop", "plot", "polio", "politic", "political", "politico", "poll", "polo",
-    "pool", "poop", "poppa", "potato", "tapioca", "tiptop", "topcoat", "topi", "topic",
-    "topical"
+      "acacia", "apical", "apolitical", "attic", "cacti", "calico", "capita", "capital",
+      "capitol", "ciao", "cilia", "clip", "coil", "colic", "illicit", "iota", "italic",
+      "lactic", "lilac", "lilo", "lipa", "loci", "lollipop", "occipital", "optic", "optical",
+      "pail", "palatial", "patio", "pica", "piccolo", "pill", "pilot", "pita", "polio",
+      "politic", "political", "politico", "tacit", "tactic", "tactical", "tail", "tait",
+      "tali", "tapioca", "tilapia", "till", "tilt", "toil", "topic", "topical"
+    ],
+    bonus: [
+      "acai", "aioli", "alit", "apoptotic", "atactic", "atopic", "calcic", "calcitic", "capi",
+      "cattail", "cicala", "cill", "cito", "clitic", "coati", "coattail", "cocci", "coit",
+      "coital", "copilot", "ictal", "ilia", "iliac", "laic", "lapilli", "lati", "licit",
+      "lill", "lilt", "lipo", "lipoic", "loti", "lotic", "ocotillo", "octopi", "oiticica",
+      "olio", "oolitic", "otic", "pallial", "palpi", "paoli", "papilio", "papilla", "pappi",
+      "pial", "piccalilli", "piccata", "picot", "pila", "pili", "pipa", "pipal", "pipi",
+      "pipit", "pitta", "placita", "plait", "plica", "tailcoat", "tallit", "tical", "tictac",
+      "tipi", "tiptop", "titi", "toit", "topi", "topoi"
     ] },
   { id: "hc-002", center: "c", outer: ["e", "i", "n", "p", "r", "t"],
-    pangrams: ["centerpiece", "epicenter", "intercept", "percipient", "pertinence", "precinct", "recipient"],
+    pangrams: ["centerpiece", "centrepiece", "epicenter", "intercept", "precinct", "prentice", "recipient"],
     words: [
-    "cent", "center", "centerpiece", "cine", "cite", "citric", "creep", "creeper", "creepier",
-    "crepe", "crept", "crier", "critic", "critter", "eccentric", "entice", "epic", "epicenter",
-    "erect", "icier", "incipient", "incite", "intercept", "internecine", "nice", "nicer",
-    "niece", "pectin", "pence", "penitence", "peptic", "percent", "percipient", "pertinence",
-    "picnic", "piece", "pierce", "pincer", "precept", "precinct", "precipice", "price",
-    "pricier", "prince", "recce", "receipt", "recent", "recenter", "recipe", "recipient",
-    "recite", "reticence", "reticent", "rice", "trice"
+      "cent", "center", "centerpiece", "centre", "centrepiece", "centric", "cert", "cine",
+      "cite", "citric", "cree", "creep", "creeper", "crepe", "crept", "crit", "critic",
+      "critter", "eccentric", "entice", "epic", "epicenter", "erect", "eric", "incipient",
+      "incite", "intercept", "nice", "nicer", "niece", "nitric", "pence", "percent", "picnic",
+      "piece", "pierce", "precept", "precinct", "precipice", "prentice", "pretence", "price",
+      "prince", "principe", "receipt", "recent", "recipe", "recipient", "recite", "reticence",
+      "reticent", "rice"
+    ],
+    bonus: [
+      "cerci", "cere", "ceric", "cerne", "cire", "cirri", "citrin", "citrine", "citrinin",
+      "cittern", "creepier", "creperie", "crier", "crine", "cripe", "ecce", "eccrine",
+      "enceinte", "enteric", "epicene", "epicentre", "etic", "icer", "icier", "incent",
+      "incept", "incipit", "inciter", "internecine", "irenic", "neritic", "ninepence",
+      "pecten", "pectic", "pectin", "penitence", "peptic", "perce", "percen", "percept",
+      "percipient", "pericentric", "pertinence", "pice", "picric", "piercer", "pincer",
+      "precent", "pricer", "pricier", "principi", "recce", "recenter", "recept", "recit",
+      "reciter", "recti", "reprice", "ricer", "ricin", "terce", "tercet", "tice", "tierce",
+      "tinct", "trice", "tricep"
     ] },
-  { id: "hc-003", center: "v", outer: ["c", "e", "i", "l", "n", "o"],
-    pangrams: ["nonviolence", "violence", "violincello", "violoncello"],
+  { id: "hc-003", center: "c", outer: ["a", "e", "g", "i", "l", "n"],
+    pangrams: ["allegiance", "angelic", "angelica", "canceling", "cancelling", "cleaning"],
     words: [
-    "civic", "civil", "clove", "cloven", "conceive", "connive", "convene", "convenience",
-    "convince", "cove", "coven", "eleven", "enliven", "even", "evil", "evince", "evolve",
-    "inconvenience", "invoice", "involve", "levee", "level", "live", "liven", "love",
-    "nonviolence", "novel", "novice", "olive", "oven", "veil", "vein", "vice", "vile",
-    "villein", "vine", "vino", "viol", "violence", "violin", "violincello", "violoncello",
-    "voice", "voile", "vole"
+      "acacia", "acne", "alec", "allegiance", "alliance", "angelic", "angelica", "cage",
+      "cain", "call", "callan", "calling", "canal", "cancel", "canceling", "cancelling",
+      "cane", "canine", "canning", "ceiling", "celiac", "cell", "ciel", "cilia", "cine",
+      "clan", "clang", "clean", "cleaning", "cline", "cling", "clinging", "clinic", "clinical",
+      "clinician", "elegance", "gallic", "glacial", "glance", "glancing", "icing", "incline",
+      "lace", "lacing", "lance", "lice", "licence", "lilac", "nance", "negligence", "niacin",
+      "nice", "niece"
+    ],
+    bonus: [
+      "acai", "acca", "acing", "acini", "allelic", "allicin", "ance", "ancilla", "angelical",
+      "anicca", "caca", "caeca", "caecal", "caecilian", "caging", "caille", "calcaneal",
+      "calcic", "calcine", "calcining", "calla", "callee", "canaille", "cancan", "canella",
+      "cang", "caning", "cann", "canna", "cannae", "cannel", "cannellini", "cannie", "ceca",
+      "cecal", "ceil", "ceili", "cella", "celli", "celling", "cenacle", "cicala", "cieling",
+      "ciggie", "cill", "clag", "clanging", "cleg", "clinal", "ecce", "elance", "elegiac",
+      "ellagic", "encina", "encinal", "eniac", "enlace", "galenic", "gallica", "gallican",
+      "genic", "glace", "icicle", "iliac", "inclining", "inelegance", "lacinia", "laic",
+      "lancing", "lenience", "licencing", "linac", "nacelle"
     ] },
-  { id: "hc-004", center: "u", outer: ["a", "c", "e", "l", "n", "r"],
-    pangrams: ["cerulean", "nuclear", "uncleaner", "unclear", "unclearer"],
+  { id: "hc-004", center: "i", outer: ["c", "d", "e", "f", "n", "o"],
+    pangrams: ["confide", "confided", "confidence", "confined"],
     words: [
-    "accrual", "accrue", "allure", "annual", "annul", "annular", "aura", "aural", "cellular",
-    "cerulean", "clue", "cruel", "crueler", "cruller", "cull", "cure", "curer", "curl",
-    "curler", "ecru", "lacuna", "lacunae", "laurel", "luau", "lucre", "lull", "lulu", "lunar",
-    "lure", "neural", "nuance", "nuclear", "null", "recur", "recurrence", "rerun", "rule",
-    "ruler", "rune", "runnel", "runner", "rural", "ulcer", "ulna", "ulnae", "uncle", "unclean",
-    "uncleaner", "unclear", "unclearer", "uncurl", "unlace", "unlearn", "unreal", "urea"
+      "cine", "codeine", "codified", "coffin", "coin", "coincide", "coincided", "coincidence",
+      "coined", "confide", "confided", "confidence", "confine", "confined", "connie", "decide",
+      "decided", "defied", "define", "defined", "denied", "dice", "diced", "dido", "died",
+      "diff", "dine", "dined", "dino", "diode", "edifice", "eine", "fico", "fido", "fiend",
+      "fife", "find", "fine", "fined", "foodie", "iced", "icon", "iconic", "incidence",
+      "indeed", "indie", "info", "innocence", "iodide", "iodine", "ionic", "nice", "niece",
+      "nine", "office", "onion"
+    ],
+    bonus: [
+      "cedi", "cide", "cion", "cocci", "coccoid", "coif", "coifed", "coiffed", "condie",
+      "coni", "conic", "coniine", "conine", "conoid", "defi", "deicide", "deid", "deif",
+      "deific", "deified", "deni", "diene", "diffidence", "ecocide", "edenic", "edified",
+      "effendi", "eide", "feni", "fice", "fief", "fini", "finned", "fino", "foci", "foid",
+      "foin", "idee", "inion", "nied", "nife", "niff", "ninon", "nodi", "noni", "nonionic",
+      "offie", "ondine", "onie"
     ] },
-  { id: "hc-005", center: "f", outer: ["e", "g", "h", "i", "r", "t"],
-    pangrams: ["fighter", "firefight", "firefighter", "freight", "freighter"],
-    words: [
-    "effete", "feet", "ferret", "fetter", "fief", "fierier", "fife", "fifth", "fiftieth",
-    "fight", "fighter", "fire", "firefight", "firefighter", "firth", "fitter", "free", "freer",
-    "freight", "freighter", "fret", "frig", "fright", "fritter", "gift", "grief", "heft",
-    "heftier", "heifer", "iffier", "reef", "reefer", "refer", "referee", "refit", "rife",
-    "rifer", "riff", "rift", "theft", "thief", "thrift", "thriftier", "tiff"
-    ] },
-  { id: "hc-006", center: "i", outer: ["a", "m", "n", "o", "t", "u"],
+  { id: "hc-005", center: "u", outer: ["a", "i", "m", "n", "o", "t"],
     pangrams: ["ammunition", "automation", "mountain", "mutation"],
     words: [
-    "amino", "ammonia", "ammunition", "animation", "anion", "annotation", "anoint", "anti",
-    "attain", "automation", "imam", "imitation", "initiation", "innit", "intimation", "into",
-    "intonation", "intuit", "intuition", "iota", "maim", "main", "maintain", "mania",
-    "manumit", "mini", "minim", "minima", "minimum", "minion", "mint", "minutia", "mitt",
-    "monomania", "motion", "mountain", "munition", "mutation", "nation", "nomination",
-    "nonunion", "notation", "notion", "omit", "onion", "taint", "tannin", "tint", "titan",
-    "titanium", "titian", "tuition", "union", "unit"
+      "ammonium", "ammunition", "amount", "aunt", "auto", "automata", "automation",
+      "automaton", "autumn", "intuition", "mantua", "minimum", "mount", "mountain", "mouton",
+      "muni", "mutant", "mutation", "mutt", "mutton", "noun", "omnium", "tantamount", "taunt",
+      "taut", "titanium", "tout", "tuan", "tuition", "tuna", "tutti", "tutu", "union", "unit",
+      "unto"
+    ],
+    bonus: [
+      "aitu", "annuitant", "atua", "automan", "automat", "intuit", "manitou", "manumit",
+      "matatu", "maun", "maut", "miaou", "minium", "minutia", "motu", "mumm", "mumu",
+      "munition", "munt", "muntu", "muon", "muti", "muumuu", "namu", "nonunion", "notum",
+      "nout", "numina", "nutation", "onium", "ouma", "outman", "tamanu", "tatou", "tatu",
+      "tinamou", "toun", "umami", "umma", "unai", "unman", "unmount"
     ] },
-  { id: "hc-007", center: "h", outer: ["a", "c", "e", "m", "n", "t"],
+  { id: "hc-006", center: "m", outer: ["a", "c", "e", "h", "n", "t"],
     pangrams: ["attachment", "catchment", "enchantment", "enhancement"],
     words: [
-    "ache", "ahem", "anathema", "anthem", "attach", "attachment", "cache", "cachet", "catch",
-    "catchment", "chance", "chant", "chat", "cheat", "cheetah", "each", "enchant",
-    "enchantment", "enhance", "enhancement", "etch", "hatch", "hatchet", "hate", "hath",
-    "heat", "heath", "heathen", "hence", "henchman", "henchmen", "henna", "machete", "mahatma",
-    "match", "math", "methane", "natch", "neath", "teach", "teeth", "teethe", "tench", "tenth",
-    "than", "that", "thatch", "thee", "them", "theme", "then", "thence", "theta"
+      "acme", "ahem", "amen", "amman", "anathema", "anthem", "attachment", "came", "catchment",
+      "cement", "cham", "emanate", "emcee", "emma", "emmet", "enactment", "enchantment",
+      "enema", "enhancement", "hammam", "henchman", "henchmen", "mace", "mach", "machete",
+      "maha", "mahatma", "mama", "mamma", "mana", "manatee", "mane", "manet", "manhattan",
+      "manna", "manta", "match", "mate", "math", "matt", "matte", "mean", "meant", "meat",
+      "meath", "mecca", "meet", "meme", "menace", "ment", "meta", "meth", "methane", "name",
+      "tame", "team", "teammate", "tenement", "them", "theme"
+    ],
+    bonus: [
+      "amah", "amate", "ament", "amenta", "anatman", "ataman", "athame", "atma", "atman",
+      "cama", "chacma", "haem", "hamate", "hame", "hatchment", "heme", "hetman", "machan",
+      "mache", "mammae", "manana", "manat", "manche", "maneh", "manent", "mannan", "matamata",
+      "matata", "mene", "menta", "mentee", "metate", "mete", "naam", "namma", "neem", "nema",
+      "teem", "teme", "thema"
     ] },
-  { id: "hc-008", center: "b", outer: ["e", "g", "i", "l", "n", "t"],
-    pangrams: ["beetling", "belittling", "belting", "billeting", "intelligible"],
+  { id: "hc-007", center: "t", outer: ["a", "c", "d", "e", "i", "v"],
+    pangrams: ["activated", "addictive", "deactivate", "deactivated"],
     words: [
-    "beeline", "been", "beet", "beetle", "beetling", "beget", "begetting", "begging", "begin",
-    "beginning", "beige", "being", "belie", "belittle", "belittling", "bell", "belle",
-    "belling", "belt", "belting", "benign", "bent", "betel", "betting", "bible", "biggie",
-    "bile", "bilge", "bill", "billet", "billeting", "billing", "binge", "binning", "bite",
-    "biting", "bitten", "bling", "ebbing", "eligible", "gibbet", "gibbeting", "gibe", "gibing",
-    "giblet", "glib", "illegible", "ineligible", "intelligible", "legible", "libel",
-    "libeling", "negligible", "nibble", "nibbling"
+      "acetate", "acetic", "acta", "acted", "activate", "activated", "active", "addict",
+      "addicted", "addictive", "additive", "attic", "cacti", "cadet", "cate", "caveat", "cite",
+      "cited", "data", "date", "dated", "deactivate", "deactivated", "deceit", "dedicate",
+      "dedicated", "detect", "detected", "detective", "deviate", "deviated", "dictate",
+      "dictated", "didactic", "diet", "edict", "edit", "edited", "etat", "evict", "evicted",
+      "tacit", "tact", "tactic", "tait", "tate", "teat", "tete", "tide", "tied", "vacate",
+      "vacated", "vetted", "vita", "vitae"
+    ],
+    bonus: [
+      "adit", "advected", "advective", "atactic", "aviate", "catted", "citied", "civet",
+      "dacite", "dative", "davit", "dedicatee", "deet", "deictic", "dict", "dicta", "didact",
+      "dieted", "dietetic", "dita", "dite", "ditt", "eidetic", "etic", "evet", "evictee",
+      "evite", "ideate", "tace", "tacet", "tatt", "tatted", "tattie", "tava", "tead", "tecta",
+      "teddie", "teed", "tice", "tictac", "tided", "tidied", "tite", "titi", "titted", "vatic",
+      "vedette", "vidette", "vite", "vitiate", "vitiated", "vitta", "vivat"
     ] },
-  { id: "hc-009", center: "n", outer: ["a", "b", "e", "q", "t", "u"],
-    pangrams: ["banquet", "banquette"],
+  { id: "hc-008", center: "u", outer: ["a", "b", "d", "e", "n", "t"],
+    pangrams: ["debutant", "debutante", "unabated"],
     words: [
-    "ante", "antenna", "antennae", "aquanaut", "attenuate", "attune", "aunt", "banana", "bane",
-    "banquet", "banquette", "batten", "bean", "beaten", "been", "bent", "bunt", "butane",
-    "eaten", "entente", "naan", "neat", "neaten", "quanta", "queen", "taunt", "tauten", "teen",
-    "tenant", "tenet", "tent", "tuna", "tune", "unbeaten", "unbent", "uneaten"
+      "abundant", "abut", "attenuated", "attuned", "aunt", "babu", "bantu", "beau", "beaut",
+      "bubba", "bund", "bunt", "butane", "bute", "butte", "butted", "debut", "debutant",
+      "debutante", "debuted", "dubbed", "dude", "duet", "dune", "etude", "taunt", "taunted",
+      "taut", "tuan", "tuba", "tube", "tuna", "tune", "tuned", "tutu", "ubuntu", "unabated",
+      "unattended", "unbeaten", "undated", "undaunted", "undead", "undue", "unneeded"
+    ],
+    bonus: [
+      "abuna", "abune", "abutted", "attenuate", "attune", "atua", "aubade", "aune", "bandeau",
+      "bateau", "battuta", "baud", "bedu", "buat", "buba", "bubu", "buda", "budded", "buna",
+      "bunde", "bundt", "bundu", "bunn", "bunted", "butene", "daub", "daube", "daubed", "daud",
+      "daunt", "daunted", "daut", "denude", "denuded", "detune", "detuned", "duan", "duende",
+      "duenna", "duett", "duetted", "dunt", "endue", "endued", "nandu", "nutted", "tabu",
+      "tabun", "tatu", "taube", "tendu", "tenue", "tubed", "tutee", "tutted", "unban",
+      "unbanned", "unbe", "unbend", "unbent", "unde", "uneaten", "untanned", "untenanted",
+      "untended", "untuned"
     ] },
-  { id: "hc-010", center: "l", outer: ["a", "c", "i", "m", "n", "y"],
-    pangrams: ["inimically", "maniacally", "manically"],
+  { id: "hc-009", center: "v", outer: ["d", "e", "i", "o", "p", "r"],
+    pangrams: ["provide", "provided", "provider"],
     words: [
-    "acclaim", "allay", "ally", "almanac", "anal", "anally", "animal", "call", "calm",
-    "calmly", "canal", "cannily", "cilia", "claim", "clam", "clammy", "clan", "clay", "clinic",
-    "clinical", "clinically", "clinician", "cyclic", "cyclical", "cyclically", "cynical",
-    "cynically", "icily", "inimical", "inimically", "inlay", "lacy", "lain", "lama", "layman",
-    "lilac", "lily", "limn", "limy", "llama", "mail", "mailman", "mainly", "mall", "mammal",
-    "mammalian", "maniacal", "maniacally", "manically", "manila", "manly", "mill", "minimal",
-    "minimally", "nail"
+      "deprive", "deprived", "derive", "derived", "devoid", "dive", "dived", "diver", "divi",
+      "divide", "divided", "divider", "dove", "dover", "drive", "driver", "drove", "ever",
+      "over", "overdo", "overdrive", "override", "peeve", "perv", "prove", "proved", "provide",
+      "provided", "provider", "reeve", "reprieve", "revere", "revered", "reverie", "revive",
+      "revived", "river", "rove", "rover", "veep", "veer", "veered", "verve", "vide", "video",
+      "viper", "vive", "vivid", "vivo", "void", "voided", "voip", "voodoo"
+    ],
+    bonus: [
+      "devoir", "devore", "divo", "divvied", "dovie", "drover", "erev", "overdid", "overripe",
+      "overrode", "ovoid", "peeved", "peever", "perve", "popover", "preve", "prover",
+      "redivided", "reiver", "reprieved", "reprove", "reproved", "revie", "reviver", "revved",
+      "rive", "rived", "riviere", "rivo", "roved", "verd", "videoed", "vied", "vier", "vire",
+      "vireo", "viroid", "viver", "voivode"
     ] },
-  { id: "hc-011", center: "t", outer: ["c", "d", "n", "o", "r", "u"],
-    pangrams: ["conductor", "nonconductor"],
+  { id: "hc-010", center: "h", outer: ["a", "d", "e", "i", "r", "w"],
+    pangrams: ["hardwired", "rawhide"],
     words: [
-    "coconut", "concoct", "conduct", "conductor", "contort", "contour", "coot", "cotton",
-    "count", "court", "curt", "cutout", "doctor", "duct", "nonconductor", "onto", "orotund",
-    "outdo", "outdoor", "outrun", "root", "rotor", "rotund", "rout", "runt", "toot", "torn",
-    "tort", "tour", "tout", "trod", "trot", "trout", "turn", "turnout", "tutor", "tutu",
-    "uncut", "unto"
+      "adhere", "adhered", "ahead", "diarrhea", "diehard", "haha", "hair", "haired", "hard",
+      "harder", "hardware", "hardwired", "hare", "harrier", "head", "headed", "header", "hear",
+      "heard", "heed", "heeded", "heir", "herd", "herded", "herder", "here", "hide", "hire",
+      "hired", "rawhide", "redhead", "rhea", "warhead", "where", "whew"
+    ],
+    bonus: [
+      "ahed", "airhead", "airheaded", "arrah", "dawah", "deadhead", "haar", "haddie", "hade",
+      "hairier", "hardhead", "hardheaded", "hardier", "hardwire", "hared", "harried", "hawed",
+      "headier", "heare", "hearer", "heder", "hedera", "heid", "hewed", "hewer", "hided",
+      "hider", "hied", "hirer", "redheaded", "rehear", "reheard", "rehire", "rehired", "whare",
+      "whee", "whir", "whirr", "whirred", "wirehaired"
     ] },
-  { id: "hc-012", center: "a", outer: ["b", "c", "d", "e", "h", "u"],
-    pangrams: ["debauch", "debauched", "debauchee"],
+  { id: "hc-011", center: "n", outer: ["c", "e", "g", "o", "r", "v"],
+    pangrams: ["converge", "convergence"],
     words: [
-    "abed", "accede", "acceded", "aced", "ache", "ached", "added", "adduce", "adduced",
-    "ahead", "baaed", "babe", "bade", "baud", "beach", "beached", "beachhead", "bead",
-    "beaded", "beau", "bedaub", "bedaubed", "bedhead", "behead", "beheaded", "cabbed", "cache",
-    "cached", "dabbed", "dacha", "daub", "daubed", "dead", "deadhead", "deadheaded", "debauch",
-    "debauched", "debauchee", "decade", "each", "head", "headache", "headed"
+      "cocoon", "concern", "cone", "conger", "congo", "conn", "conner", "convene", "convener",
+      "converge", "convergence", "convo", "corn", "corner", "coroner", "coven", "crone",
+      "encore", "eocene", "even", "evergreen", "gene", "genre", "gone", "gong", "goon",
+      "gorgon", "govern", "governor", "green", "greener", "nene", "neocon", "neon", "nerve",
+      "neve", "never", "none", "noon", "once", "oven", "recon", "reconvene", "revenge",
+      "reverence", "rong", "veneer"
+    ],
+    bonus: [
+      "cerne", "cogon", "congee", "congener", "conne", "convenor", "corno", "croon", "crooner",
+      "eggnog", "engorge", "ergon", "erne", "erven", "genro", "gerne", "goner", "greengrocer",
+      "gren", "neogene", "nonce", "noncore", "nong", "nooner", "oncogene", "oner", "orgone",
+      "orogen", "reen", "regence", "renege", "renne", "revenger", "rone", "roneo", "ronne",
+      "roon", "roven", "venge", "vergence"
     ] },
-  { id: "hc-013", center: "w", outer: ["a", "e", "o", "r", "t", "u"],
-    pangrams: ["outerwear", "outwear"],
+  { id: "hc-012", center: "f", outer: ["e", "g", "i", "n", "r", "u"],
+    pangrams: ["figurine", "gunfire"],
     words: [
-    "arrow", "arrowroot", "aware", "ewer", "outerwear", "outwear", "outwore", "rawer",
-    "retweet", "rewrote", "rower", "tower", "twee", "tweet", "tweeter", "ware", "wart",
-    "water", "watt", "wear", "wearer", "weer", "were", "wetter", "wooer", "wore", "wrote"
+      "effing", "feign", "feigning", "fern", "fife", "figure", "figurine", "figuring", "fine",
+      "finer", "finger", "fining", "fire", "firing", "free", "freeing", "freer", "frigging",
+      "fringe", "fugue", "fung", "fungi", "funnier", "grief", "griff", "griffin", "gruff",
+      "gunfire", "infer", "inferring", "infringe", "infringing", "nuff", "reef", "reefer",
+      "refer", "referee", "refereeing", "referring", "refine", "refining", "refuge", "refugee",
+      "rife", "riff", "ruff"
+    ],
+    bonus: [
+      "enuf", "feeing", "feen", "feer", "feni", "fere", "fief", "fier", "fiere", "fifer",
+      "fini", "finner", "finning", "firer", "firn", "frere", "frier", "frig", "fringing",
+      "frug", "fugging", "fugu", "funner", "funning", "furfur", "furr", "furrier", "furring",
+      "griefer", "griffe", "guff", "infringer", "nife", "niff", "nuffin", "reefing",
+      "referrer", "reffing", "refigure", "refiguring", "refiner", "refire", "reif", "riffing",
+      "ruffe", "ruffin", "ruffing", "unfree", "unifier"
     ] },
-  { id: "hc-014", center: "k", outer: ["a", "b", "c", "e", "p", "r"],
-    pangrams: ["backpacker", "paperback"],
+  { id: "hc-013", center: "b", outer: ["a", "g", "h", "i", "n", "t"],
+    pangrams: ["bathing", "inhabiting"],
     words: [
-    "aback", "back", "backer", "backpack", "backpacker", "bake", "baker", "bareback", "bark",
-    "barkeeper", "barker", "barrack", "beak", "beaker", "beck", "beekeeper", "berk", "brake",
-    "break", "breaker", "cake", "crack", "cracker", "creak", "creek", "kebab", "keep",
-    "keeper", "pack", "packer", "paperback", "paperbark", "park", "parka", "peacekeeper",
-    "peak", "peck", "pecker", "peek", "peke", "perk", "rack", "rake", "reek"
+      "abba", "baba", "babbitt", "bagging", "baht", "bait", "baiting", "banana", "bang",
+      "banging", "bani", "banning", "bath", "bathing", "batt", "batting", "bhai", "bigg",
+      "bight", "bing", "biting", "gigabit", "habit", "habitat", "inhabit", "inhabitant",
+      "inhabiting", "inhibit", "inhibiting", "tibia"
+    ],
+    bonus: [
+      "abating", "baaing", "bagh", "baith", "bania", "banian", "bant", "banting", "batata",
+      "bating", "batta", "bhang", "bhat", "bibb", "biga", "biggin", "bigging", "bigha",
+      "binging", "binning", "bint", "bitt", "bitting", "gabba", "gabbing", "habitant",
+      "habiting", "inhibin", "nabbing", "tabbing", "tabi", "titbit"
+    ] },
+  { id: "hc-014", center: "w", outer: ["e", "h", "o", "r", "t", "v"],
+    pangrams: ["overthrew", "overthrow"],
+    words: [
+      "howe", "however", "overthrew", "overthrow", "rewrote", "rower", "threw", "throw",
+      "thrower", "tower", "twee", "tweet", "tweeter", "were", "wether", "wetter", "where",
+      "wherever", "whet", "whether", "whew", "whoever", "woohoo", "woot", "wore", "wort",
+      "worth", "wove", "wrote"
+    ],
+    bonus: [
+      "everwhere", "ewer", "hewer", "otherwhere", "overwrote", "ower", "thew", "towhee",
+      "trew", "trow", "weer", "weet", "weever", "weewee", "wero", "wert", "whee", "whereto",
+      "whoot", "whot", "whow", "wooer", "wowee", "wroth"
     ] },
 ];
 
@@ -380,6 +498,9 @@ const RANKS = [
 ];
 
 const letterSet = p => new Set([p.center, ...p.outer]);
+const isAccepted = (p, w) => p.words.includes(w) || (p.bonus || []).includes(w);
+const isBonus = (p, w) => !p.words.includes(w) && (p.bonus || []).includes(w);
+const requiredFound = () => [...found].filter(w => puzzle.words.includes(w)).length;
 const isPangram = (p, w) => {
   const seen = new Set(w);
   return letterSet(p).size === seen.size && [...letterSet(p)].every(c => seen.has(c));
@@ -424,7 +545,7 @@ function save() {
 function load(id) {
   puzzle = PUZZLES.find(p => p.id === id) || PUZZLES[0];
   const prog = store.get(KEY_PROGRESS(puzzle.id), null);
-  const valid = prog && Array.isArray(prog.found) ? prog.found.filter(w => puzzle.words.includes(w)) : [];
+  const valid = prog && Array.isArray(prog.found) ? prog.found.filter(w => isAccepted(puzzle, w)) : [];
   found = new Set(valid);
   revealed = !!(prog && prog.revealed);
   order = [...puzzle.outer];
@@ -483,7 +604,7 @@ function renderEntry() {
 function renderScore() {
   const max = maxScore(puzzle);
   const score = [...found].reduce((a, w) => a + scoreWord(puzzle, w), 0);
-  const complete = found.size === puzzle.words.length;
+  const complete = requiredFound() === puzzle.words.length;
   const [name] = rankFor(score, max, complete);
 
   el.score.textContent = score;
@@ -498,7 +619,7 @@ function renderScore() {
   const idx = RANKS.findIndex(r => r[0] === name);
   const nxt = RANKS[idx + 1];
   if (complete) {
-    el.next.textContent = 'Hive Mind — every single word. Nothing left to find.';
+    el.next.textContent = 'Hive Mind — every required word found.';
   } else if (nxt) {
     const need = Math.max(1, Math.ceil((nxt[1] / 100) * max) - score);
     el.next.textContent = need + (need === 1 ? ' point' : ' points') + ' to ' + nxt[0] +
@@ -510,13 +631,18 @@ function renderScore() {
 function renderFound() {
   const words = [...found].sort();
   const pans = words.filter(w => isPangram(puzzle, w)).length;
+  const req = requiredFound();
+  const bon = found.size - req;
   el.foundCount.textContent = found.size === 0
     ? 'No words yet — ' + puzzle.words.length + ' to find'
-    : found.size + (found.size === 1 ? ' word' : ' words') + ' of ' + puzzle.words.length +
+    : req + ' of ' + puzzle.words.length + (req === 1 ? ' word' : ' words') +
+      (bon ? ' · +' + bon + ' bonus' : '') +
       (pans ? ' · ' + pans + ' pangram' + (pans === 1 ? '' : 's') : '');
 
   el.chips.innerHTML = '';
-  const list = revealed ? [...puzzle.words].sort() : words;
+  const list = revealed
+    ? [...new Set([...puzzle.words, ...words])].sort()
+    : words;
   if (!list.length) {
     el.chips.innerHTML = '<p class="empty">Words you find will collect here.</p>';
     return;
@@ -524,9 +650,11 @@ function renderFound() {
   for (const w of list) {
     const c = document.createElement('span');
     const missed = revealed && !found.has(w);
-    c.className = 'chip' + (isPangram(puzzle, w) ? ' pan' : '') + (missed ? ' missed' : '');
+    const bonus = isBonus(puzzle, w);
+    c.className = 'chip' + (isPangram(puzzle, w) ? ' pan' : '') +
+      (missed ? ' missed' : '') + (bonus ? ' bonus' : '');
     c.textContent = w;
-    if (missed) c.title = 'Not found';
+    c.title = missed ? 'Not found' : bonus ? 'Bonus word — scores, but not needed for 100%' : '';
     el.chips.appendChild(c);
   }
 }
@@ -599,12 +727,13 @@ function submit() {
   if (!w.includes(puzzle.center))                return reject('Missing center letter');
   if ([...w].some(c => !letterSet(puzzle).has(c))) return reject('Letter not in this puzzle');
   if (found.has(w))                              return reject('Already found');
-  if (!puzzle.words.includes(w))                 return reject('Not in word list');
+  if (!isAccepted(puzzle, w))                    return reject('Not in word list');
 
   const before = renderScore();
   found.add(w);
   const pts = scoreWord(puzzle, w);
   const pan = isPangram(puzzle, w);
+  const bon = isBonus(puzzle, w);
 
   input = '';
   renderEntry();
@@ -620,11 +749,11 @@ function submit() {
     el.hive.appendChild(b);
     setTimeout(() => b.remove(), 750);
   } else {
-    toast(w + '  +' + pts, 'ok');
+    toast(w + '  +' + pts + (bon ? '  bonus' : ''), 'ok');
   }
 
   let msg = (pan ? 'Pangram! ' : '') + w + ', ' + pts + (pts === 1 ? ' point' : ' points') +
-    '. ' + after.score + ' total.';
+    (bon ? ', bonus word' : '') + '. ' + after.score + ' total.';
   if (after.name !== before.name) msg += ' New rank: ' + after.name + '.';
   announce(msg);
 }

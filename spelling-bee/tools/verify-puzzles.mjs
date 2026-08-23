@@ -1,5 +1,5 @@
 /* Checks every puzzle embedded in index.html against the nine invariants in
-   docs/spelling-bee-requirements.md section 6.4, plus the scoring worked
+   docs/spelling-bee-requirements.md section 6.4 (including the bonus list), plus the scoring worked
    examples in section 4. No dependencies -- run: node tools/verify-puzzles.mjs */
 import fs from 'fs';
 import path from 'path';
@@ -13,13 +13,10 @@ const end = html.indexOf('\n];', start);
 if (start < 0 || end < 0) { console.error('could not find the PUZZLES array'); process.exit(1); }
 const PUZZLES = eval(html.slice(start + 'const PUZZLES = '.length, end + 3));
 
-const BLOCKED = new Set([
-  'kike', 'coon', 'chink', 'dago', 'gook', 'honky', 'mick', 'wetback',
-  'negro', 'negroid', 'faggot', 'dyke', 'poofter',
-  'retard', 'retarded', 'cretin', 'midget', 'harelip', 'halfwit',
-  'fuck', 'cunt', 'twat', 'wank', 'nookie', 'whore', 'turd',
-  'outta', 'gonna', 'wanna', 'gotta', 'kinda', 'lotta', 'oughta',
-]);
+const genSrc = fs.readFileSync(path.join(here, 'generate-puzzles.py'), 'utf8');
+const BLOCKED = new Set(
+  genSrc.match(/BLOCKED = set\(\"\"\"([\s\S]*?)\"\"\"/)[1].trim().split(/\s+/)
+);
 
 const maskOf = w => [...w].reduce((m, c) => m | (1 << (c.charCodeAt(0) - 97)), 0);
 const scoreWord = (w, setMask) => {
@@ -73,12 +70,24 @@ for (const p of PUZZLES) {
   if (ids.has(p.id)) errs.push(`duplicate id ${p.id}`);
   ids.add(p.id);
 
-  // 9  nothing from the blocklist
-  for (const w of p.words) if (BLOCKED.has(w)) errs.push(`blocked word "${w}"`);
+  // 9  nothing from the blocklist, in either list
+  for (const w of [...p.words, ...(p.bonus || [])]) {
+    if (BLOCKED.has(w)) errs.push(`blocked word "${w}"`);
+  }
+
+  // 10  bonus words are well formed and disjoint from the required list
+  const reqSet = new Set(p.words);
+  for (const w of p.bonus || []) {
+    if (!/^[a-z]{4,}$/.test(w)) errs.push(`bonus "${w}" is malformed`);
+    if (!w.includes(p.center)) errs.push(`bonus "${w}" lacks the center letter`);
+    for (const c of w) if (!set.has(c)) errs.push(`bonus "${w}" uses "${c}", outside the set`);
+    if (reqSet.has(w)) errs.push(`"${w}" is in both words and bonus`);
+  }
 
   const max = p.words.reduce((a, w) => a + scoreWord(w, setMask), 0);
   const head = `${p.id}  ${p.center.toUpperCase()} | ${p.outer.join('').toUpperCase()}  ` +
-    `${String(p.words.length).padStart(2)} answers, ${p.pangrams.length} pangram(s), ` +
+    `${String(p.words.length).padStart(2)} req + ${String((p.bonus||[]).length).padStart(3)} bonus, ` +
+    `${p.pangrams.length} pangram(s), ` +
     `${String(Math.round(pct * 100)).padStart(2)}% long, ${String(max).padStart(3)} pts`;
   console.log(errs.length ? `FAIL ${head}\n     ${errs.join('\n     ')}` : `ok   ${head}`);
   if (errs.length) failures++;
@@ -97,5 +106,5 @@ console.log(scoreFails ? '' : `\nscoring matches all ${Object.keys(expected).len
 
 console.log(failures || scoreFails
   ? `\n${failures} puzzle(s) and ${scoreFails} score(s) FAILED`
-  : `\nall ${PUZZLES.length} puzzles pass all nine invariants`);
+  : `\nall ${PUZZLES.length} puzzles pass all ten invariants`);
 process.exit(failures || scoreFails ? 1 : 0);

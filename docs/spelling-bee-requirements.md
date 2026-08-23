@@ -63,7 +63,8 @@ A submitted word is accepted only if **all** of the following hold:
 2. It contains the **center letter** at least once.
 3. Every letter in it comes from the seven-letter set. Letters may repeat any number of
    times.
-4. It appears in the current puzzle's bundled answer list (§6).
+4. It appears in one of the puzzle's two bundled word lists (§6) — the required
+   list or the bonus list. Both are accepted and both score.
 5. It has not already been found this session.
 
 Answer lists themselves exclude proper nouns, hyphenated and multi-word entries,
@@ -162,18 +163,48 @@ Requirements:
 
 ## 6. Puzzle content
 
+### 6.0 Two lists, and why
+
+Each puzzle ships **two** lists, because no single "is this word common enough"
+threshold works. Set it high and the game rejects words everybody knows (`appall`,
+`attune`, `adduce` all sit below the obvious cutoffs). Set it low and answer lists
+reach 120 words, most of them obscure, and the top rank becomes unreachable.
+
+- **`words` — required.** Sets the maximum score, the rank thresholds, the "N to
+  find" count, and the top rank. Common vocabulary only.
+- **`bonus` — accepted, never required.** Real but rarer words (`crouton`,
+  `beignet`, `percipient`). They are accepted and they score by the same rules, but
+  they are not counted in the maximum and are not needed for 100%.
+
+The asymmetry that drives this: **rejecting a word the player knows is far worse
+than including one they don't.** A rejection reads as the game being broken; an
+obscure entry in the answer list just makes the top rank harder. So the bar for
+*accepting* a word is set low, and the bar for *requiring* one is set high.
+
+Requirement: a bonus word is visually distinct from a required one, and the found
+count reports required and bonus separately, so the player always knows what still
+stands between them and 100%.
+
 ### 6.1 Shape of the set
 
 - A fixed, curated, bundled set of puzzles. **At least 12** ship with the first build
   (14 shipped).
 - Puzzles are a `PUZZLES` array at the top of the game's `<script>` block, extended by
   appending entries; nothing else in the app needs editing to add a puzzle.
-- **Provenance.** Answer lists are generated from [SCOWL](http://wordlist.aspell.net/)
-  tiers 10–55, which is about "words an educated adult could reasonably be expected to
-  know". Tier 60+ (`ambuscade`, `acciaccatura`) is excluded as unfairly obscure: a
-  Spelling Bee is only fun if the answer list is roughly the list the player would guess.
-  `spelling-bee/tools/generate-puzzles.mjs` is the generator, kept in the repo so the set
-  can be extended; it is a development tool and the game does not depend on it.
+- **Provenance.** Validity comes from a ~274k-word English dictionary; commonness comes
+  from [wordfreq](https://pypi.org/project/wordfreq/)'s Zipf scale over a real corpus.
+  Zipf is the only signal that reliably separates rare-but-real (`percipient`, 1.17)
+  from dictionary padding (`alaap`, `apoop`, `eevn` — all exactly 0.00). A word is
+  **required** at Zipf ≥ 2.5 and **accepted as bonus** at Zipf ≥ 1.0.
+
+  A curated tier list was tried first and rejected: it silently lacked `donut`
+  entirely, had `centre` only under dialects that were not loaded, and put `crouton`,
+  `beignet` and `attache` outside the cut. Those gaps are invisible until a player hits
+  one, which is exactly the failure this design has to prevent.
+
+  `spelling-bee/tools/generate-puzzles.py` is the generator and
+  `tools/check-coverage.py` is the regression test for the above; both are development
+  tools and the game does not depend on either.
 - The player can pick any puzzle from a list. The default selection on first visit is
   derived deterministically from the current date, so there is a natural "today's puzzle"
   without a server: `puzzles[daysSinceEpoch % puzzles.length]`.
@@ -254,7 +285,17 @@ mechanical checks so they can be verified by a script rather than by reading:
 7. `words` has between 25 and 60 entries, at least 25% of them 7+ letters, and at least one
    9+ letters.
 8. `id` is unique across the file.
-9. No word on the blocklist appears in any answer list.
+9. No word on the blocklist appears in either list. The blocklist is screened against
+   the actual pool rather than guessed, and re-screened whenever the pool changes — a
+   wider dictionary brought in slurs (`golliwog`, `pickaninny`, `jewed`, `kaffir`) that
+   a narrower one had never surfaced.
+10. Every bonus word is well formed, contains the center letter, uses only the seven
+    letters, and does not also appear in the required list.
+
+**Coverage (the rule that matters most).** For every puzzle, every word in the
+dictionary that fits the letters must be handled: at Zipf ≥ 2.5 it is in `words`, and at
+Zipf ≥ 1.0 it is in `words` or `bonus`. Nothing common may be rejected. This is
+mechanically checked by `tools/check-coverage.py`.
 
 ## 7. UI and interaction
 
@@ -386,7 +427,8 @@ Each item is independently checkable by playing the built app.
 11. The rank shown matches §5 for the current score as a percentage of that puzzle's
     maximum, and the "points to next rank" figure is correct.
 12. Hive Mind is reachable only after every word in the puzzle's list has been found.
-13. Reloading the page restores the found words, the score, and the selected puzzle.
+13. Reloading the page restores the found words (required and bonus), the score, and the
+    selected puzzle.
 14. Switching to a second puzzle and back preserves progress in both independently.
 15. Reset clears only the current puzzle's progress, after a confirmation.
 16. Reveal shows all answers with unfound words marked, awards no points, and survives a
@@ -396,6 +438,10 @@ Each item is independently checkable by playing the built app.
 19. With `prefers-reduced-motion: reduce` set, no shake, flight, or celebration animation
     plays.
 20. The page is playable and unclipped at 320px wide.
-21. Every puzzle satisfies all nine invariants in §6.4, verified by a script rather than
+21. Every puzzle satisfies all ten invariants in §6.4, verified by a script rather than
     by eye.
+21b. No word a player would plausibly know is refused: `tools/check-coverage.py` passes,
+    proving every common dictionary word that fits each puzzle is accepted.
+21c. Bonus words are accepted and scored, are shown distinctly from required words, and
+    do not change the maximum score or the requirement for the top rank.
 22. `git grep -i` finds no New York Times branding or rank names anywhere in the app.

@@ -58,23 +58,84 @@ await page.evaluate(() => { localStorage.clear(); });
 await page.reload(); await page.waitForTimeout(250);
 await page.selectOption('#puzzle', 'hc-002'); await page.waitForTimeout(200);
 
-await type('nice');           ok('4-letter word = 1 pt', await score() === 1, 'got ' + await score());
-await type('recipe');         ok('6-letter word = +6 (total 7)', await score() === 7, 'got ' + await score());
-const sA = await score();
-await type('receipt');        ok('7-letter non-pangram = +7+3 = 10', await score() === sA + 10, 'got +' + (await score() - sA));
-const s0 = await score();
-await type('precinct');       ok('8-letter pangram = +8+3+7 = 18', await score() === s0 + 18, 'got +' + (await score() - s0));
+// pick specimens out of the live data rather than hardcoding words, so these
+// checks keep testing what they claim after the puzzles are regenerated
+const spec = await page.evaluate(() => {
+  const p = PUZZLES.find(x => x.id === 'hc-002');
+  const pan = w => new Set(w).size === 7;
+  const pick = (list, f) => list.find(f) || null;
+  return {
+    four:    pick(p.words, w => w.length === 4 && !pan(w)),
+    six:     pick(p.words, w => w.length === 6 && !pan(w)),
+    seven:   pick(p.words, w => w.length === 7 && !pan(w)),
+    eightP:  pick(p.words, w => w.length === 8 && pan(w)),
+    nineP:   pick(p.words, w => w.length === 9 && pan(w)),
+    bonus:   pick(p.bonus, w => w.length >= 5 && !pan(w)),
+    bonusLen: (pick(p.bonus, w => w.length >= 5 && !pan(w)) || '').length,
+  };
+});
+console.log('  specimens:', JSON.stringify(spec));
+
+const step = async (word, want, label) => {
+  if (!word) { console.log('  – skipped (no specimen): ' + label); return; }
+  const before = await score();
+  await type(word);
+  ok(label + ' (' + word + ')', await score() === before + want,
+     'got +' + (await score() - before) + ', expected +' + want);
+};
+await step(spec.four, 1, '4-letter word = 1 pt');
+await step(spec.six, 6, '6-letter word = +6');
+await step(spec.seven, 10, '7-letter non-pangram = +7+3');
+await step(spec.eightP, 18, '8-letter pangram = +8+3+7');
 ok('pangram toast fired', (await toast()).includes('Pangram'), await toast());
-const s1 = await score();
-await type('intercept');      ok('9-letter pangram = +9+3+7 = 19', await score() === s1 + 19, 'got +' + (await score() - s1));
-const s2 = await score();
-await type('intercept');      ok('duplicate rejected, no points', await score() === s2 && (await toast()).includes('Already found'));
+await step(spec.nineP, 19, '9-letter pangram = +9+3+7');
+
+const sDup = await score();
+await type(spec.four);
+ok('duplicate rejected, no points', await score() === sDup && (await toast()).includes('Already found'));
+
+console.log('\n— bonus words (accepted, never required) —');
+{
+  const beforeReq = await page.textContent('#foundCount');
+  const beforeMax = await page.textContent('#max');
+  await step(spec.bonus, spec.bonusLen >= 7 ? spec.bonusLen + 3 : spec.bonusLen,
+             'bonus word scores by the same rules');
+  ok('bonus word does not change the maximum', await page.textContent('#max') === beforeMax,
+     beforeMax + ' → ' + await page.textContent('#max'));
+  ok('bonus word is counted separately, not as a required word',
+     (await page.textContent('#foundCount')).includes('bonus'), await page.textContent('#foundCount'));
+  ok('bonus word is styled distinctly', await page.locator('.chip.bonus').count() === 1);
+  const reqNow = await page.evaluate(() => requiredFound());
+  ok('required-word tally excludes bonus words',
+     reqNow === (await page.evaluate(() => [...found].filter(w => puzzle.words.includes(w)).length)));
+}
+
+console.log('\n— a real but uncommon word is never refused —');
+{
+  // the donut case: a word a player would plausibly type must be accepted
+  const probe = await page.evaluate(() => {
+    const p = PUZZLES.find(x => x.id === 'hc-002');
+    return p.bonus.filter(w => w.length >= 5).slice(0, 5);
+  });
+  let refused = [];
+  for (const w of probe) {
+    await type(w);
+    if ((await toast()).includes('Not in word list')) refused.push(w);
+  }
+  ok('none of ' + probe.length + ' sampled real words was refused', refused.length === 0, refused.join(', '));
+}
 
 console.log('\n— perfect pangram —');
 await page.evaluate(() => localStorage.clear());
 await page.reload(); await page.waitForTimeout(250);
-await page.selectOption('#puzzle', 'hc-001'); await page.waitForTimeout(200);   // P | ACILOT, capitol = perfect
-await type('capitol');        ok('7-letter perfect pangram = 7+3+14 = 24 pts', await score() === 24, 'got ' + await score());
+await page.selectOption('#puzzle', 'hc-001'); await page.waitForTimeout(200);
+const perfect = await page.evaluate(() => {
+  const p = PUZZLES.find(x => x.id === 'hc-001');
+  return p.words.find(w => w.length === 7 && new Set(w).size === 7);
+});
+await type(perfect);
+ok('7-letter perfect pangram = 7+3+14 = 24 pts (' + perfect + ')',
+   await score() === 24, 'got ' + await score());
 
 console.log('\n— rank ladder (§5) —');
 ok('starts at Dabbler or better', ['Dabbler','Speller','Wordsmith'].includes(await page.textContent('#rank')));
@@ -82,17 +143,18 @@ const maxPts = Number(await page.textContent('#max'));
 ok('max score shown and > 0', maxPts > 0, String(maxPts));
 await page.evaluate(() => {
   const p = PUZZLES.find(x => x.id === 'hc-001');
-  found = new Set(p.words); save(); renderAll();
+  found = new Set(p.words); save(); renderAll();   // every REQUIRED word
 });
 await page.waitForTimeout(150);
-ok('finding every word = Hive Mind', (await page.textContent('#rank')) === 'Hive Mind', await page.textContent('#rank'));
+ok('finding every required word = Hive Mind', (await page.textContent('#rank')) === 'Hive Mind', await page.textContent('#rank'));
 ok('full score equals stated max', await score() === maxPts);
 
 console.log('\n— persistence (§8) —');
 await page.evaluate(() => localStorage.clear());
 await page.reload(); await page.waitForTimeout(250);
 await page.selectOption('#puzzle', 'hc-001'); await page.waitForTimeout(200);
-await type('capitol'); await type('optic');
+const persistWords = await page.evaluate(() => PUZZLES.find(x => x.id === 'hc-001').words.slice(0, 2));
+for (const w of persistWords) await type(w);
 const before = await score();
 const beforeCount = await page.locator('.chip').count();
 await page.reload(); await page.waitForTimeout(300);
@@ -121,15 +183,21 @@ ok('shuffle preserves the same six letters',
    (await page.locator('.hex:not(.center)').allTextContents()).sort().join('') === ringBefore.sort().join(''));
 
 await page.keyboard.press('Escape');
-await page.keyboard.press('a'); await page.keyboard.press('t');
+const twoLetters = await page.evaluate(() => [puzzle.center, puzzle.outer[0]]);
+for (const c of twoLetters) await page.keyboard.press(c);
 await page.keyboard.press('Backspace'); await page.waitForTimeout(60);
-ok('Backspace deletes one letter', (await page.textContent('#entry')).toLowerCase().replace(/[^a-z]/g,'') === 'a', await page.textContent('#entry'));
+ok('Backspace deletes one letter',
+   (await page.textContent('#entry')).toLowerCase().replace(/[^a-z]/g,'') === twoLetters[0],
+   await page.textContent('#entry'));
 await page.keyboard.press('Escape'); await page.waitForTimeout(60);
 ok('Escape clears the input', (await page.textContent('#entry')).includes('Type or tap'));
 
 console.log('\n— clicking hexes —');
+const centreLetter = await page.textContent('.hex.center');
 await page.click('.hex.center'); await page.waitForTimeout(60);
-ok('clicking a hex appends its letter', (await page.textContent('#entry')).trim().toLowerCase().startsWith('p'));
+ok('clicking a hex appends its letter',
+   (await page.textContent('#entry')).toLowerCase().replace(/[^a-z]/g, '') === centreLetter,
+   await page.textContent('#entry'));
 await page.keyboard.press('Escape');
 
 console.log('\n— reveal (§8) —');
