@@ -526,7 +526,12 @@ function rankFor(score, max, complete) {
    State + persistence
    ========================================================================== */
 const KEY_PUZZLE = 'honeycomb:puzzle';
-const KEY_PROGRESS = id => 'honeycomb:progress:' + id;
+
+/* Progress is keyed by the LETTERS, never by the puzzle's position in the list.
+   Positional keys (hc-001…) silently reassign themselves to a different letter
+   set whenever the puzzle set is regenerated, which destroys saved games. */
+const puzzleKey = p => p.center + '-' + [...p.outer].sort().join('');
+const KEY_PROGRESS = p => 'honeycomb:progress:' + puzzleKey(p);
 
 let puzzle, order = [], input = '', found = new Set(), revealed = false, loaded = false;
 
@@ -538,20 +543,47 @@ const store = {
 
 function save() {
   if (!loaded) return;
-  store.set(KEY_PROGRESS(puzzle.id), { found: [...found], revealed });
-  store.set(KEY_PUZZLE, puzzle.id);
+  store.set(KEY_PROGRESS(puzzle), {
+    letters: puzzleKey(puzzle),          // so a stale record can never be misread
+    found: [...found],
+    revealed,
+  });
+  store.set(KEY_PUZZLE, puzzleKey(puzzle));
+}
+
+/* One-time move of progress saved under the old positional keys. */
+function migrate() {
+  for (const p of PUZZLES) {
+    const to = KEY_PROGRESS(p);
+    if (store.get(to, null)) continue;
+    const from = 'honeycomb:progress:' + p.id;
+    const old = store.get(from, null);
+    if (old && Array.isArray(old.found) && old.found.length) {
+      const kept = old.found.filter(w => isAccepted(p, w));
+      if (kept.length) {
+        store.set(to, { letters: puzzleKey(p), found: kept, revealed: !!old.revealed });
+      }
+    }
+  }
 }
 
 function load(id) {
-  puzzle = PUZZLES.find(p => p.id === id) || PUZZLES[0];
-  const prog = store.get(KEY_PROGRESS(puzzle.id), null);
-  const valid = prog && Array.isArray(prog.found) ? prog.found.filter(w => isAccepted(puzzle, w)) : [];
-  found = new Set(valid);
-  revealed = !!(prog && prog.revealed);
+  puzzle = PUZZLES.find(p => p.id === id) || PUZZLES.find(p => puzzleKey(p) === id) || PUZZLES[0];
+  const prog = store.get(KEY_PROGRESS(puzzle), null);
+
+  // Ignore a record that was written for different letters rather than
+  // filtering it down -- filtering is how a mismatch turns into data loss.
+  const usable = prog && Array.isArray(prog.found) &&
+    (prog.letters === undefined || prog.letters === puzzleKey(puzzle));
+
+  found = new Set(usable ? prog.found.filter(w => isAccepted(puzzle, w)) : []);
+  revealed = !!(usable && prog.revealed);
   order = [...puzzle.outer];
   input = '';
   loaded = true;
-  save();
+  // Deliberately no save() here: opening a puzzle must never write over what
+  // is already stored for it. Only playing, resetting or revealing writes.
+  store.set(KEY_PUZZLE, puzzleKey(puzzle));
   renderAll();
 }
 
@@ -760,7 +792,7 @@ function submit() {
 
 function reset() {
   if (!confirm('Clear your progress on this puzzle? Other puzzles are not affected.')) return;
-  store.del(KEY_PROGRESS(puzzle.id));
+  store.del(KEY_PROGRESS(puzzle));
   found = new Set();
   revealed = false;
   input = '';
@@ -821,8 +853,11 @@ document.addEventListener('keydown', e => {
 
 /* Default puzzle: whatever was last played, else one derived from today's date
    so the game has a natural "today's puzzle" with no server involved. */
-const startId = store.get(KEY_PUZZLE, null) ||
-  PUZZLES[Math.floor(Date.now() / 86400000) % PUZZLES.length].id;
+migrate();
+const remembered = store.get(KEY_PUZZLE, null);
+const startId = (remembered && PUZZLES.some(p => puzzleKey(p) === remembered))
+  ? remembered
+  : PUZZLES[Math.floor(Date.now() / 86400000) % PUZZLES.length].id;
 load(startId);
 </script>
 </body>

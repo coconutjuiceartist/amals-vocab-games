@@ -351,9 +351,28 @@ found-word list collapses on narrow screens; touch targets are at least 44×44px
 State is saved to `localStorage`, keyed per puzzle so that switching puzzles and coming
 back preserves progress in each:
 
-- `honeycomb:puzzle` — the id of the currently selected puzzle.
-- `honeycomb:progress:<puzzleId>` — `{ found: [...], revealed: boolean }`. Score and rank
-  are recomputed from `found`, never stored.
+- `honeycomb:puzzle` — the letter key of the currently selected puzzle.
+- `honeycomb:progress:<letterKey>` — `{ letters, found: [...], revealed: boolean }`.
+  Score and rank are recomputed from `found`, never stored.
+
+**Progress is keyed by the letters, never by the puzzle's position.** The key is
+`center + '-' + outer.sort().join('')` — e.g. `c-einprt`. This is a hard requirement,
+learned from a real failure: with positional ids (`hc-001`…), regenerating the puzzle
+set silently reassigns each id to a different letter set, and a player's saved game is
+matched against letters that were never theirs.
+
+Two rules follow, and both are non-negotiable:
+
+1. **Opening a puzzle must never write to storage.** Only playing a word, resetting, or
+   revealing may save. The original bug filtered a mismatched record down to nothing and
+   then saved that empty result back over the real one — the read path destroyed the
+   data.
+2. **A record whose `letters` do not match the puzzle being opened is ignored outright,
+   never filtered and re-saved.** Filtering a mismatch is exactly how a mismatch becomes
+   data loss.
+
+A one-time migration moves progress from any older positional key onto the letter key,
+and skips rather than overwrites whenever the destination already holds a game.
 
 Follow the pattern already used in `components/games/ResourceQuests.jsx`: read from storage
 once on mount behind an `isLoaded` flag, then write on every subsequent state change, with
@@ -429,7 +448,12 @@ Each item is independently checkable by playing the built app.
 12. Hive Mind is reachable only after every word in the puzzle's list has been found.
 13. Reloading the page restores the found words (required and bonus), the score, and the
     selected puzzle.
-14. Switching to a second puzzle and back preserves progress in both independently.
+14. Switching to a second puzzle and back preserves progress in both independently, and
+    still does after cycling through every puzzle in the set.
+14b. Regenerating or replacing the puzzle set does not destroy a saved game: progress
+    keys follow the letters, so a puzzle that is no longer in the set simply keeps its
+    record instead of having it reassigned and cleared.
+14c. Merely opening a puzzle never modifies what is stored for it.
 15. Reset clears only the current puzzle's progress, after a confirmation.
 16. Reveal shows all answers with unfound words marked, awards no points, and survives a
     reload.

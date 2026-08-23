@@ -32,6 +32,11 @@ Progress is saved in the browser's `localStorage`, per puzzle, so you can close 
 tab and pick up where you left off. Progress lives on that one device and in that one
 browser — sending the file to someone else sends the game, not your score.
 
+Progress is keyed by a puzzle's **letters**, not its position in the list, so updating
+or regenerating the puzzle set never reassigns your saved game to the wrong board.
+Opening a puzzle never writes to storage; only playing, resetting or revealing does.
+`tools/storage-tests.mjs` guards both properties.
+
 ## The rules
 
 - Words must be **4+ letters** and must contain the **center letter**.
@@ -108,8 +113,11 @@ And to replay the acceptance criteria in a real browser:
 
 ```sh
 npm install playwright
-node tools/browser-tests.mjs      # 49 checks: scoring, ranks, rejection messages,
-                                  # persistence, reveal, keyboard, a11y, 320px layout
+node tools/browser-tests.mjs      # 55 checks: scoring, ranks, rejection messages,
+                                  # bonus words, persistence, reveal, keyboard,
+                                  # a11y, 320px layout
+node tools/storage-tests.mjs      #  6 checks: saved games survive a puzzle-set
+                                  # change, and opening never overwrites
 ```
 
 These are development tools. The game itself needs none of them.
