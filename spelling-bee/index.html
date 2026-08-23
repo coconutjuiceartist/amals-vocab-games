@@ -150,6 +150,10 @@ footer{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top
 .link:hover{color:var(--text-secondary)}
 .link:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 .hint{text-align:center;font-size:.75rem;color:var(--text-dim);line-height:1.7}
+.hint .touch{display:none}
+@media (hover:none) and (pointer:coarse){
+  .hint .kb{display:none} .hint .touch{display:inline}
+}
 kbd{background:rgba(255,255,255,.09);border:1px solid var(--line);border-radius:4px;
   padding:.05rem .3rem;font-size:.72rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 
@@ -207,8 +211,9 @@ kbd{background:rgba(255,255,255,.09);border:1px solid var(--line);border-radius:
   </div>
 
   <p class="hint">
-    Type or click. <kbd>Enter</kbd> submits · <kbd>Backspace</kbd> deletes ·
-    <kbd>Space</kbd> shuffles · <kbd>Esc</kbd> clears
+    <span class="kb">Type or click. <kbd>Enter</kbd> submits · <kbd>Backspace</kbd> deletes ·
+    <kbd>Space</kbd> shuffles · <kbd>Esc</kbd> clears</span>
+    <span class="touch">Tap the letters to spell a word, then Enter. Tap ⟳ to shuffle.</span>
   </p>
 
   <footer>

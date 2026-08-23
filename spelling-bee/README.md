@@ -5,7 +5,7 @@ center one, four letters minimum. Longer words and pangrams are worth far more.
 
 **The whole game is one file: [`index.html`](index.html).**
 
-## Playing it
+## Playing it on a computer
 
 Double-click `index.html`. That's it — it opens in any browser and runs offline.
 
@@ -13,9 +13,24 @@ There is no install, no build step, no server, no npm, no network access at any
 point. To give it to someone, send them that single file: email it, AirDrop it,
 drop it in a shared folder. It works from wherever they save it.
 
+## Playing it on a phone
+
+Phones are bad at opening local HTML files — iOS in particular previews them instead
+of running them properly, and saved progress may not stick. On a phone, open it from
+a URL instead. Either:
+
+- **GitHub Pages.** In the repo's Settings → Pages, publish from the `main` branch,
+  and the game is then at
+  `https://coconutjuiceartist.github.io/amals-vocab-games/spelling-bee/`.
+- **Your own machine, same Wi-Fi.** `cd spelling-bee && python3 -m http.server 8000`,
+  then browse to `http://<your-computer's-IP>:8000` on the phone.
+
+Once it's open, use the browser's **Add to Home Screen** — it then launches
+full-screen from an icon, like an app, and keeps its saved progress.
+
 Progress is saved in the browser's `localStorage`, per puzzle, so you can close the
-tab and pick up where you left off. Progress lives on that one device — sending the
-file to someone else sends the game, not your score.
+tab and pick up where you left off. Progress lives on that one device and in that one
+browser — sending the file to someone else sends the game, not your score.
 
 ## The rules
 
