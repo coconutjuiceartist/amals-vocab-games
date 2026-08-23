@@ -2,8 +2,9 @@
 
 A standalone Spelling Bee–style word game for adults.
 
-*Status: requirements draft. No code has been written yet — this document is the
-specification the app will be built from.*
+*Status: implemented. The game lives in [`../spelling-bee/index.html`](../spelling-bee/index.html);
+see [`../spelling-bee/README.md`](../spelling-bee/README.md) for how to play and share it.
+This document remains the specification it is built against.*
 
 ---
 
@@ -163,9 +164,16 @@ Requirements:
 
 ### 6.1 Shape of the set
 
-- A fixed, curated, bundled set of puzzles. **At least 12** ship with the first build.
-- Puzzles live in `spelling-bee/puzzles.js` and are extended by appending entries; nothing
-  else in the app should need editing to add a puzzle.
+- A fixed, curated, bundled set of puzzles. **At least 12** ship with the first build
+  (14 shipped).
+- Puzzles are a `PUZZLES` array at the top of the game's `<script>` block, extended by
+  appending entries; nothing else in the app needs editing to add a puzzle.
+- **Provenance.** Answer lists are generated from [SCOWL](http://wordlist.aspell.net/)
+  tiers 10–55, which is about "words an educated adult could reasonably be expected to
+  know". Tier 60+ (`ambuscade`, `acciaccatura`) is excluded as unfairly obscure: a
+  Spelling Bee is only fun if the answer list is roughly the list the player would guess.
+  `spelling-bee/tools/generate-puzzles.mjs` is the generator, kept in the repo so the set
+  can be extended; it is a development tool and the game does not depend on it.
 - The player can pick any puzzle from a list. The default selection on first visit is
   derived deterministically from the current date, so there is a natural "today's puzzle"
   without a server: `puzzles[daysSinceEpoch % puzzles.length]`.
@@ -213,7 +221,21 @@ This is where adult difficulty is actually enforced. Every puzzle must satisfy:
 - Prefer centers and letter combinations that produce uncommon words — sets built around
   letters like `c`, `g`, `v`, `p`, `h` with one or two vowels tend to yield richer, less
   obvious answer lists than vowel-heavy sets built around `r`, `n`, `t`.
-- Avoid sets whose answer list is dominated by conjugations of one verb stem.
+- Avoid sets whose answer list is dominated by conjugations of one verb stem. Enforced
+  mechanically: **no more than 42% of a puzzle's answers may be derived forms** — a word
+  is "derived" if stripping a routine ending (`-ing`, `-ed`, `-er`, `-est`, `-ly`, `-y`,
+  `-ment`, `-ness`, `-able`, `-ion`, …) leaves another real word. Without this, the
+  highest-scoring letter sets are all built around I, N and G, and their long-word depth
+  is just `-ing` padding that takes no vocabulary to find.
+- Every puzzle needs at least **6 long words that are not derived forms**, so the 7+ letter
+  requirement is met by real vocabulary rather than by gerunds.
+
+**Excluded words.** A blocklist is applied to the word pool before puzzles are built, so
+answer counts and maximum scores already account for it. It covers ethnic, religious,
+disability and sexual-orientation slurs; explicit vulgarities; and informal contractions
+that are not really words (`outta`, `gonna`). It deliberately does **not** cover ordinary
+words with ordinary meanings — `tart`, `cock`, `cripple`, `queer` stay in, because
+excluding them would just tell an honest player "not in word list".
 
 ### 6.4 Answer-list invariants
 
@@ -232,6 +254,7 @@ mechanical checks so they can be verified by a script rather than by reading:
 7. `words` has between 25 and 60 entries, at least 25% of them 7+ letters, and at least one
    9+ letters.
 8. `id` is unique across the file.
+9. No word on the blocklist appears in any answer list.
 
 ## 7. UI and interaction
 
@@ -261,8 +284,8 @@ dark slate background, the glass panels, and the accent colors. The relevant tok
 `app/globals.css` — `--primary` (#6366f1), `--secondary` (#ec4899), `--accent` (#14b8a6),
 `--background` (#0f172a), `--surface`, `--text-primary`, `--text-secondary`, and the
 `.glass-panel` treatment (translucent surface, 16px backdrop blur, 1px light border, 1.5rem
-radius). Because the standalone app shares no build with the Next.js app, these are
-**copied** into `spelling-bee/styles.css`, not imported.
+radius). Because the standalone app shares no build with the Next.js app, these are **copied**
+into the file's inline `<style>` block, not imported.
 
 Hexes are drawn with CSS `clip-path: polygon(...)`. No images, no SVG sprite sheets, no
 icon fonts.
@@ -305,19 +328,24 @@ Two explicit actions:
 
 ## 9. Technical constraints
 
-- Location: a new top-level **`spelling-bee/`** directory containing `index.html`,
-  `styles.css`, `game.js`, and `puzzles.js`.
-- **Classic `<script>` tags, not ES modules.** `puzzles.js` assigns a global
-  (`window.PUZZLES`) and `game.js` reads it. This is a deliberate constraint: ES module
-  imports fail under the `file://` protocol, and `index.html` must work when opened by
-  double-clicking it, with no server and no install step.
-- Zero runtime network requests. Zero npm dependencies. Nothing added to `package.json`.
-- Plain DOM APIs — no React, no framework. The existing app's React dependency is not
-  available to this page.
-- Target current versions of Chrome, Firefox, Safari, and Edge.
-- Optional convenience, worth noting but not required: copying `spelling-bee/` into a
-  `public/` directory would let the existing `npm run dev` server serve it at
-  `/spelling-bee/index.html`. The app must not depend on this.
+The app must be trivially shareable: something you can send to a person who will then
+double-click it and play. That rules out anything with a setup step.
+
+- **The entire game is one file: `spelling-bee/index.html`.** HTML, CSS, JavaScript and
+  puzzle data are all inlined. There are no sibling assets to keep together, nothing to
+  unzip, and nothing that breaks when the file is moved or renamed.
+- **No `file://` hazards.** No ES modules, no `fetch`, no external stylesheets or scripts,
+  no web fonts — all of which fail or silently degrade when a page is opened directly from
+  disk. Fonts come from the system stack. The page makes **zero network requests**, so it
+  works fully offline and on a plane.
+- No build step, bundler, transpiler, or npm dependency. Nothing is added to the repo's
+  `package.json`, and the Next.js app is untouched.
+- Plain DOM APIs — no React. The existing app's React dependency is not available here.
+- Hexes are drawn with CSS `clip-path` polygons. No images, SVG sprite sheets, or icon
+  fonts.
+- Target current versions of Chrome, Firefox, Safari and Edge.
+- Optional and not required: copying the file into a `public/` directory would let the
+  existing `npm run dev` server serve it. The game must never depend on this.
 
 ## 10. Accessibility
 
@@ -340,6 +368,8 @@ Each item is independently checkable by playing the built app.
 
 1. Opening `spelling-bee/index.html` directly from the filesystem loads a playable puzzle,
    with no server running and no install step.
+1b. The file still works after being copied on its own to an unrelated directory, and the
+   browser's network panel records zero requests.
 2. The honeycomb shows seven letters with the center letter visually distinct, and no
    puzzle in `puzzles.js` contains the letter `s`.
 3. Clicking hexes and typing on the keyboard both append letters to the input line.
@@ -366,6 +396,6 @@ Each item is independently checkable by playing the built app.
 19. With `prefers-reduced-motion: reduce` set, no shake, flight, or celebration animation
     plays.
 20. The page is playable and unclipped at 320px wide.
-21. Every puzzle in `puzzles.js` satisfies all eight invariants in §6.4, verified by a
-    script rather than by eye.
+21. Every puzzle satisfies all nine invariants in §6.4, verified by a script rather than
+    by eye.
 22. `git grep -i` finds no New York Times branding or rank names anywhere in the app.

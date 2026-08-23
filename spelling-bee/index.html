@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Honeycomb — a spelling bee for grown-ups</title>
+<meta name="description" content="A Spelling Bee-style word game. Seven letters, every word must use the center one. Offline, self-contained, no install.">
+<style>
+:root{
+  --primary:#6366f1; --secondary:#ec4899; --accent:#14b8a6;
+  --background:#0f172a; --surface:rgba(30,41,59,.7); --surface-2:rgba(30,41,59,.95);
+  --text-primary:#f8fafc; --text-secondary:#cbd5e1; --text-dim:#94a3b8;
+  --hex:#1e293b; --hex-hover:#334155; --line:rgba(255,255,255,.1);
+  --good:#34d399; --bad:#fb7185;
+  --hw:clamp(66px,20vw,88px); --gap:8px;
+  --hh:calc(var(--hw) * 1.1547);
+  --sx:calc((var(--hw) + var(--gap)) / 2);
+  --sy:calc(var(--hh) * .75 + var(--gap) * .866);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background-color:var(--background);
+  background-image:
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  background-attachment:fixed;
+  color:var(--text-primary);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5; -webkit-font-smoothing:antialiased;
+  min-height:100vh; padding:1rem 1rem 3rem;
+}
+.wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+.glass{background:var(--surface);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);border-radius:1.25rem;box-shadow:0 4px 30px rgba(0,0,0,.15)}
+h1{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;
+  background:linear-gradient(135deg,var(--secondary),var(--primary));
+  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2}
+.sub{color:var(--text-dim);font-size:.8rem;margin-top:.1rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- header ---------- */
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.picker{display:flex;flex-direction:column;gap:.25rem;align-items:flex-end}
+.picker label{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-dim)}
+select{background:var(--surface-2);color:var(--text-primary);border:1px solid var(--line);
+  border-radius:.6rem;padding:.45rem .6rem;font:inherit;font-size:.85rem;max-width:15rem}
+
+/* ---------- score / rank ---------- */
+.status{padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:.55rem}
+.status-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.rank-name{font-weight:700;font-size:1.05rem}
+.score{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.35rem}
+.score small{font-weight:500;font-size:.75rem;color:var(--text-dim);margin-left:.25rem}
+.track{position:relative;height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));transition:width .45s cubic-bezier(.4,0,.2,1)}
+.ticks{position:absolute;inset:0;display:flex;pointer-events:none}
+.ticks i{flex:1;border-right:1px solid rgba(15,23,42,.55)}
+.ticks i:last-child{border-right:0}
+.next{font-size:.75rem;color:var(--text-dim)}
+
+/* ---------- found words ---------- */
+.found{padding:.85rem 1.1rem}
+.found-head{display:flex;justify-content:space-between;align-items:center;gap:.75rem;
+  width:100%;background:none;border:0;color:inherit;font:inherit;cursor:pointer;text-align:left}
+.found-head b{font-weight:700;font-size:.9rem}
+.found-head .chev{color:var(--text-dim);font-size:.8rem;transition:transform .2s}
+.found[data-open="false"] .chev{transform:rotate(-90deg)}
+.found[data-open="false"] .chips{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem;max-height:11rem;overflow-y:auto}
+.chip{font-size:.82rem;padding:.2rem .5rem;border-radius:.45rem;background:rgba(255,255,255,.07);
+  border:1px solid transparent;text-transform:lowercase}
+.chip.pan{background:rgba(236,72,153,.18);border-color:rgba(236,72,153,.5);font-weight:700}
+.chip.missed{background:transparent;border:1px dashed rgba(255,255,255,.22);color:var(--text-dim)}
+.empty{color:var(--text-dim);font-size:.82rem;font-style:italic;margin-top:.6rem}
+
+/* ---------- input line ---------- */
+.stage{display:flex;flex-direction:column;align-items:center;gap:.35rem;
+  position:relative;padding-top:2.7rem}
+.toast{position:absolute;top:.25rem;left:50%;transform:translate(-50%,0);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:99px;
+  padding:.3rem .85rem;font-size:.85rem;font-weight:600;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .18s;z-index:5}
+.toast.show{opacity:1}
+.toast.ok{color:var(--good);border-color:rgba(52,211,153,.45)}
+.toast.no{color:var(--bad);border-color:rgba(251,113,133,.45)}
+.entry{min-height:2.6rem;display:flex;align-items:center;justify-content:center;
+  font-size:1.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  padding:.2rem .4rem;max-width:100%;overflow:hidden}
+.entry .c{color:var(--accent)}
+.entry .caret{display:inline-block;width:2px;height:1.5rem;background:var(--primary);
+  margin-left:2px;animation:blink 1.05s step-end infinite;vertical-align:middle}
+.entry .ph{color:var(--text-dim);font-size:.95rem;font-weight:500;letter-spacing:0;text-transform:none}
+@keyframes blink{50%{opacity:0}}
+.shake{animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}
+  40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+.fly{position:absolute;left:50%;top:2.7rem;transform:translateX(-50%);font-weight:800;
+  font-size:1.05rem;color:var(--good);pointer-events:none;animation:fly .85s ease-out forwards;z-index:4}
+.fly.pan{color:var(--secondary)}
+@keyframes fly{0%{opacity:1;transform:translate(-50%,0) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-52px) scale(1.18)}}
+
+/* ---------- hive ---------- */
+.hive{position:relative;margin:.4rem auto .2rem;
+  width:calc(3 * var(--hw) + 2 * var(--gap));
+  height:calc(2 * var(--sy) + var(--hh))}
+.hex{position:absolute;z-index:1;top:50%;left:50%;width:var(--hw);height:var(--hh);
+  transform:translate(calc(-50% + var(--x,0px)),calc(-50% + var(--y,0px)));
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  background:var(--hex);color:var(--text-primary);border:0;cursor:pointer;
+  font:inherit;font-size:1.5rem;font-weight:800;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,transform .08s;-webkit-tap-highlight-color:transparent}
+.hex:hover{background:var(--hex-hover)}
+.hex:active,.hex.press{transform:translate(calc(-50% + var(--x,0px)),calc(-50% + var(--y,0px))) scale(.9)}
+.hex.center{background:var(--primary);box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)}
+.hex.center:hover{background:#7c7ff5}
+.hex:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.p0{--x:0px;--y:0px}
+.p1{--x:calc(-1 * var(--sx));--y:calc(-1 * var(--sy))}
+.p2{--x:var(--sx);--y:calc(-1 * var(--sy))}
+.p3{--x:calc(-1 * (var(--hw) + var(--gap)));--y:0px}
+.p4{--x:calc(var(--hw) + var(--gap));--y:0px}
+.p5{--x:calc(-1 * var(--sx));--y:var(--sy)}
+.p6{--x:var(--sx);--y:var(--sy)}
+.burst{position:absolute;z-index:0;top:50%;left:50%;width:300px;height:300px;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(236,72,153,.5) 0%,rgba(236,72,153,.18) 45%,rgba(236,72,153,0) 70%);
+  transform:translate(-50%,-50%) scale(.25);
+  animation:burst .75s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes burst{to{transform:translate(-50%,-50%) scale(1.5);opacity:0}}
+
+/* ---------- controls ---------- */
+.controls{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap}
+button.btn{background:var(--surface-2);color:var(--text-primary);border:1px solid var(--line);
+  border-radius:99px;padding:.6rem 1.15rem;font:inherit;font-weight:600;font-size:.9rem;
+  cursor:pointer;min-height:44px;transition:background .15s,border-color .15s}
+button.btn:hover{background:var(--hex-hover);border-color:rgba(255,255,255,.22)}
+button.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.btn.go{background:var(--primary);border-color:transparent}
+button.btn.go:hover{background:#7c7ff5}
+.shuffle{font-size:1.35rem;line-height:1;padding:.5rem 1rem}
+footer{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:.25rem}
+.link{background:none;border:0;color:var(--text-dim);font:inherit;font-size:.8rem;
+  cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:.35rem}
+.link:hover{color:var(--text-secondary)}
+.link:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.hint{text-align:center;font-size:.75rem;color:var(--text-dim);line-height:1.7}
+kbd{background:rgba(255,255,255,.09);border:1px solid var(--line);border-radius:4px;
+  padding:.05rem .3rem;font-size:.72rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important}
+  .entry .caret{animation:none}
+}
+@media (max-width:380px){ :root{--gap:6px} .wrap{gap:.75rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>Honeycomb</h1>
+      <p class="sub">Every word uses the center letter. Four letters minimum.</p>
+    </div>
+    <div class="picker">
+      <label for="puzzle">Puzzle</label>
+      <select id="puzzle"></select>
+    </div>
+  </header>
+
+  <section class="status glass" aria-label="Score and rank">
+    <div class="status-top">
+      <span class="rank-name" id="rank">Dabbler</span>
+      <span class="score"><span id="score">0</span><small>/ <span id="max">0</span> pts</small></span>
+    </div>
+    <div class="track" role="progressbar" id="bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progress through the rank ladder">
+      <div class="fill" id="fill"></div>
+      <div class="ticks" id="ticks"></div>
+    </div>
+    <div class="next" id="next">Find your first word to get started.</div>
+  </section>
+
+  <section class="found glass" id="found" data-open="true">
+    <button class="found-head" id="foundToggle" aria-expanded="true" aria-controls="chips">
+      <b id="foundCount">No words yet</b><span class="chev">▾</span>
+    </button>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <div class="stage">
+    <div class="toast" id="toast" aria-hidden="true"></div>
+    <div class="entry" id="entry"></div>
+    <div class="hive" id="hive"></div>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="del" type="button">Delete</button>
+    <button class="btn shuffle" id="shuffle" type="button" aria-label="Shuffle the outer letters" title="Shuffle (Space)">⟳</button>
+    <button class="btn go" id="enter" type="button">Enter</button>
+  </div>
+
+  <p class="hint">
+    Type or click. <kbd>Enter</kbd> submits · <kbd>Backspace</kbd> deletes ·
+    <kbd>Space</kbd> shuffles · <kbd>Esc</kbd> clears
+  </p>
+
+  <footer>
+    <button class="link" id="reset" type="button">Reset this puzzle</button>
+    <button class="link" id="reveal" type="button">Reveal remaining answers</button>
+  </footer>
+</div>
+
+<div class="sr-only" role="status" aria-live="polite" id="live"></div>
+
+<script>
+/* ==========================================================================
+   Puzzle data. Each entry: seven letters (one center, six outer, never "s"),
+   the complete list of accepted answers, and which of those are pangrams.
+   Generated from SCOWL tiers 10-55 -- see README.md to add more.
+   ========================================================================== */
+const PUZZLES = [
+  { id: "hc-001", center: "p", outer: ["a", "c", "i", "l", "o", "t"],
+    pangrams: ["apolitical", "capitol", "optical", "political", "topical"],
+    words: [
+    "alpaca", "apolitical", "appall", "atop", "capital", "capitol", "catalpa", "clap", "clip",
+    "clop", "coop", "copilot", "laptop", "lollipop", "lollop", "loop", "opal", "optic",
+    "optical", "pact", "pail", "palatal", "palatial", "pall", "papa", "papal", "papilla",
+    "patio", "pica", "piccalilli", "piccolo", "pill", "pilot", "pipit", "pita", "pitta",
+    "plait", "plop", "plot", "polio", "politic", "political", "politico", "poll", "polo",
+    "pool", "poop", "poppa", "potato", "tapioca", "tiptop", "topcoat", "topi", "topic",
+    "topical"
+    ] },
+  { id: "hc-002", center: "c", outer: ["e", "i", "n", "p", "r", "t"],
+    pangrams: ["centerpiece", "epicenter", "intercept", "percipient", "pertinence", "precinct", "recipient"],
+    words: [
+    "cent", "center", "centerpiece", "cine", "cite", "citric", "creep", "creeper", "creepier",
+    "crepe", "crept", "crier", "critic", "critter", "eccentric", "entice", "epic", "epicenter",
+    "erect", "icier", "incipient", "incite", "intercept", "internecine", "nice", "nicer",
+    "niece", "pectin", "pence", "penitence", "peptic", "percent", "percipient", "pertinence",
+    "picnic", "piece", "pierce", "pincer", "precept", "precinct", "precipice", "price",
+    "pricier", "prince", "recce", "receipt", "recent", "recenter", "recipe", "recipient",
+    "recite", "reticence", "reticent", "rice", "trice"
+    ] },
+  { id: "hc-003", center: "v", outer: ["c", "e", "i", "l", "n", "o"],
+    pangrams: ["nonviolence", "violence", "violincello", "violoncello"],
+    words: [
+    "civic", "civil", "clove", "cloven", "conceive", "connive", "convene", "convenience",
+    "convince", "cove", "coven", "eleven", "enliven", "even", "evil", "evince", "evolve",
+    "inconvenience", "invoice", "involve", "levee", "level", "live", "liven", "love",
+    "nonviolence", "novel", "novice", "olive", "oven", "veil", "vein", "vice", "vile",
+    "villein", "vine", "vino", "viol", "violence", "violin", "violincello", "violoncello",
+    "voice", "voile", "vole"
+    ] },
+  { id: "hc-004", center: "u", outer: ["a", "c", "e", "l", "n", "r"],
+    pangrams: ["cerulean", "nuclear", "uncleaner", "unclear", "unclearer"],
+    words: [
+    "accrual", "accrue", "allure", "annual", "annul", "annular", "aura", "aural", "cellular",
+    "cerulean", "clue", "cruel", "crueler", "cruller", "cull", "cure", "curer", "curl",
+    "curler", "ecru", "lacuna", "lacunae", "laurel", "luau", "lucre", "lull", "lulu", "lunar",
+    "lure", "neural", "nuance", "nuclear", "null", "recur", "recurrence", "rerun", "rule",
+    "ruler", "rune", "runnel", "runner", "rural", "ulcer", "ulna", "ulnae", "uncle", "unclean",
+    "uncleaner", "unclear", "unclearer", "uncurl", "unlace", "unlearn", "unreal", "urea"
+    ] },
+  { id: "hc-005", center: "f", outer: ["e", "g", "h", "i", "r", "t"],
+    pangrams: ["fighter", "firefight", "firefighter", "freight", "freighter"],
+    words: [
+    "effete", "feet", "ferret", "fetter", "fief", "fierier", "fife", "fifth", "fiftieth",
+    "fight", "fighter", "fire", "firefight", "firefighter", "firth", "fitter", "free", "freer",
+    "freight", "freighter", "fret", "frig", "fright", "fritter", "gift", "grief", "heft",
+    "heftier", "heifer", "iffier", "reef", "reefer", "refer", "referee", "refit", "rife",
+    "rifer", "riff", "rift", "theft", "thief", "thrift", "thriftier", "tiff"
+    ] },
+  { id: "hc-006", center: "i", outer: ["a", "m", "n", "o", "t", "u"],
+    pangrams: ["ammunition", "automation", "mountain", "mutation"],
+    words: [
+    "amino", "ammonia", "ammunition", "animation", "anion", "annotation", "anoint", "anti",
+    "attain", "automation", "imam", "imitation", "initiation", "innit", "intimation", "into",
+    "intonation", "intuit", "intuition", "iota", "maim", "main", "maintain", "mania",
+    "manumit", "mini", "minim", "minima", "minimum", "minion", "mint", "minutia", "mitt",
+    "monomania", "motion", "mountain", "munition", "mutation", "nation", "nomination",
+    "nonunion", "notation", "notion", "omit", "onion", "taint", "tannin", "tint", "titan",
+    "titanium", "titian", "tuition", "union", "unit"
+    ] },
+  { id: "hc-007", center: "h", outer: ["a", "c", "e", "m", "n", "t"],
+    pangrams: ["attachment", "catchment", "enchantment", "enhancement"],
+    words: [
+    "ache", "ahem", "anathema", "anthem", "attach", "attachment", "cache", "cachet", "catch",
+    "catchment", "chance", "chant", "chat", "cheat", "cheetah", "each", "enchant",
+    "enchantment", "enhance", "enhancement", "etch", "hatch", "hatchet", "hate", "hath",
+    "heat", "heath", "heathen", "hence", "henchman", "henchmen", "henna", "machete", "mahatma",
+    "match", "math", "methane", "natch", "neath", "teach", "teeth", "teethe", "tench", "tenth",
+    "than", "that", "thatch", "thee", "them", "theme", "then", "thence", "theta"
+    ] },
+  { id: "hc-008", center: "b", outer: ["e", "g", "i", "l", "n", "t"],
+    pangrams: ["beetling", "belittling", "belting", "billeting", "intelligible"],
+    words: [
+    "beeline", "been", "beet", "beetle", "beetling", "beget", "begetting", "begging", "begin",
+    "beginning", "beige", "being", "belie", "belittle", "belittling", "bell", "belle",
+    "belling", "belt", "belting", "benign", "bent", "betel", "betting", "bible", "biggie",
+    "bile", "bilge", "bill", "billet", "billeting", "billing", "binge", "binning", "bite",
+    "biting", "bitten", "bling", "ebbing", "eligible", "gibbet", "gibbeting", "gibe", "gibing",
+    "giblet", "glib", "illegible", "ineligible", "intelligible", "legible", "libel",
+    "libeling", "negligible", "nibble", "nibbling"
+    ] },
+  { id: "hc-009", center: "n", outer: ["a", "b", "e", "q", "t", "u"],
+    pangrams: ["banquet", "banquette"],
+    words: [
+    "ante", "antenna", "antennae", "aquanaut", "attenuate", "attune", "aunt", "banana", "bane",
+    "banquet", "banquette", "batten", "bean", "beaten", "been", "bent", "bunt", "butane",
+    "eaten", "entente", "naan", "neat", "neaten", "quanta", "queen", "taunt", "tauten", "teen",
+    "tenant", "tenet", "tent", "tuna", "tune", "unbeaten", "unbent", "uneaten"
+    ] },
+  { id: "hc-010", center: "l", outer: ["a", "c", "i", "m", "n", "y"],
+    pangrams: ["inimically", "maniacally", "manically"],
+    words: [
+    "acclaim", "allay", "ally", "almanac", "anal", "anally", "animal", "call", "calm",
+    "calmly", "canal", "cannily", "cilia", "claim", "clam", "clammy", "clan", "clay", "clinic",
+    "clinical", "clinically", "clinician", "cyclic", "cyclical", "cyclically", "cynical",
+    "cynically", "icily", "inimical", "inimically", "inlay", "lacy", "lain", "lama", "layman",
+    "lilac", "lily", "limn", "limy", "llama", "mail", "mailman", "mainly", "mall", "mammal",
+    "mammalian", "maniacal", "maniacally", "manically", "manila", "manly", "mill", "minimal",
+    "minimally", "nail"
+    ] },
+  { id: "hc-011", center: "t", outer: ["c", "d", "n", "o", "r", "u"],
+    pangrams: ["conductor", "nonconductor"],
+    words: [
+    "coconut", "concoct", "conduct", "conductor", "contort", "contour", "coot", "cotton",
+    "count", "court", "curt", "cutout", "doctor", "duct", "nonconductor", "onto", "orotund",
+    "outdo", "outdoor", "outrun", "root", "rotor", "rotund", "rout", "runt", "toot", "torn",
+    "tort", "tour", "tout", "trod", "trot", "trout", "turn", "turnout", "tutor", "tutu",
+    "uncut", "unto"
+    ] },
+  { id: "hc-012", center: "a", outer: ["b", "c", "d", "e", "h", "u"],
+    pangrams: ["debauch", "debauched", "debauchee"],
+    words: [
+    "abed", "accede", "acceded", "aced", "ache", "ached", "added", "adduce", "adduced",
+    "ahead", "baaed", "babe", "bade", "baud", "beach", "beached", "beachhead", "bead",
+    "beaded", "beau", "bedaub", "bedaubed", "bedhead", "behead", "beheaded", "cabbed", "cache",
+    "cached", "dabbed", "dacha", "daub", "daubed", "dead", "deadhead", "deadheaded", "debauch",
+    "debauched", "debauchee", "decade", "each", "head", "headache", "headed"
+    ] },
+  { id: "hc-013", center: "w", outer: ["a", "e", "o", "r", "t", "u"],
+    pangrams: ["outerwear", "outwear"],
+    words: [
+    "arrow", "arrowroot", "aware", "ewer", "outerwear", "outwear", "outwore", "rawer",
+    "retweet", "rewrote", "rower", "tower", "twee", "tweet", "tweeter", "ware", "wart",
+    "water", "watt", "wear", "wearer", "weer", "were", "wetter", "wooer", "wore", "wrote"
+    ] },
+  { id: "hc-014", center: "k", outer: ["a", "b", "c", "e", "p", "r"],
+    pangrams: ["backpacker", "paperback"],
+    words: [
+    "aback", "back", "backer", "backpack", "backpacker", "bake", "baker", "bareback", "bark",
+    "barkeeper", "barker", "barrack", "beak", "beaker", "beck", "beekeeper", "berk", "brake",
+    "break", "breaker", "cake", "crack", "cracker", "creak", "creek", "kebab", "keep",
+    "keeper", "pack", "packer", "paperback", "paperbark", "park", "parka", "peacekeeper",
+    "peak", "peck", "pecker", "peek", "peke", "perk", "rack", "rake", "reek"
+    ] },
+];
+
+/* ==========================================================================
+   Rules and scoring
+   ========================================================================== */
+const MIN_LEN = 4;
+
+const RANKS = [
+  ['Dabbler', 0], ['Speller', 3], ['Wordsmith', 10], ['Cruciverbalist', 20],
+  ['Lexicographer', 32], ['Etymologist', 48], ['Polymath', 70], ['Hive Mind', 100],
+];
+
+const letterSet = p => new Set([p.center, ...p.outer]);
+const isPangram = (p, w) => {
+  const seen = new Set(w);
+  return letterSet(p).size === seen.size && [...letterSet(p)].every(c => seen.has(c));
+};
+
+function scoreWord(p, w) {
+  let s = w.length === MIN_LEN ? 1 : w.length;
+  if (w.length >= 7) s += 3;
+  if (isPangram(p, w)) s += (w.length === 7 ? 14 : 7);
+  return s;
+}
+const maxScore = p => p.words.reduce((a, w) => a + scoreWord(p, w), 0);
+
+function rankFor(score, max, complete) {
+  if (complete) return RANKS[RANKS.length - 1];
+  const pct = max ? (score / max) * 100 : 0;
+  let r = RANKS[0];
+  for (const t of RANKS) if (pct >= t[1] && t[0] !== 'Hive Mind') r = t;
+  return r;
+}
+
+/* ==========================================================================
+   State + persistence
+   ========================================================================== */
+const KEY_PUZZLE = 'honeycomb:puzzle';
+const KEY_PROGRESS = id => 'honeycomb:progress:' + id;
+
+let puzzle, order = [], input = '', found = new Set(), revealed = false, loaded = false;
+
+const store = {
+  get(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch { return fb; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+  del(k) { try { localStorage.removeItem(k); } catch {} },
+};
+
+function save() {
+  if (!loaded) return;
+  store.set(KEY_PROGRESS(puzzle.id), { found: [...found], revealed });
+  store.set(KEY_PUZZLE, puzzle.id);
+}
+
+function load(id) {
+  puzzle = PUZZLES.find(p => p.id === id) || PUZZLES[0];
+  const prog = store.get(KEY_PROGRESS(puzzle.id), null);
+  const valid = prog && Array.isArray(prog.found) ? prog.found.filter(w => puzzle.words.includes(w)) : [];
+  found = new Set(valid);
+  revealed = !!(prog && prog.revealed);
+  order = [...puzzle.outer];
+  input = '';
+  loaded = true;
+  save();
+  renderAll();
+}
+
+/* ==========================================================================
+   DOM
+   ========================================================================== */
+const $ = id => document.getElementById(id);
+const el = { hive: $('hive'), entry: $('entry'), toast: $('toast'), live: $('live'),
+  score: $('score'), max: $('max'), rank: $('rank'), fill: $('fill'), bar: $('bar'),
+  next: $('next'), chips: $('chips'), foundCount: $('foundCount'), found: $('found'),
+  select: $('puzzle') };
+
+function announce(msg) { el.live.textContent = ''; setTimeout(() => { el.live.textContent = msg; }, 30); }
+
+let toastTimer;
+function toast(msg, kind) {
+  el.toast.textContent = msg;
+  el.toast.className = 'toast show ' + (kind || '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.toast.className = 'toast ' + (kind || ''); }, 1400);
+}
+
+function renderHive() {
+  el.hive.innerHTML = '';
+  const letters = [puzzle.center, ...order];
+  letters.forEach((ch, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'hex p' + i + (i === 0 ? ' center' : '');
+    b.textContent = ch;
+    b.dataset.letter = ch;
+    b.setAttribute('aria-label', i === 0
+      ? ch.toUpperCase() + ', center letter, required in every word'
+      : ch.toUpperCase());
+    b.addEventListener('click', () => { press(ch); });
+    el.hive.appendChild(b);
+  });
+}
+
+function renderEntry() {
+  if (!input) {
+    el.entry.innerHTML = '<span class="ph">Type or tap the letters</span>';
+    return;
+  }
+  el.entry.innerHTML = [...input]
+    .map(c => c === puzzle.center ? '<span class="c">' + c + '</span>' : c).join('')
+    + '<span class="caret"></span>';
+}
+
+function renderScore() {
+  const max = maxScore(puzzle);
+  const score = [...found].reduce((a, w) => a + scoreWord(puzzle, w), 0);
+  const complete = found.size === puzzle.words.length;
+  const [name] = rankFor(score, max, complete);
+
+  el.score.textContent = score;
+  el.max.textContent = max;
+  el.rank.textContent = name;
+
+  const pct = max ? Math.min(100, (score / max) * 100) : 0;
+  el.fill.style.width = pct + '%';
+  el.bar.setAttribute('aria-valuenow', Math.round(pct));
+  el.bar.setAttribute('aria-valuetext', name + ', ' + score + ' of ' + max + ' points');
+
+  const idx = RANKS.findIndex(r => r[0] === name);
+  const nxt = RANKS[idx + 1];
+  if (complete) {
+    el.next.textContent = 'Hive Mind — every single word. Nothing left to find.';
+  } else if (nxt) {
+    const need = Math.max(1, Math.ceil((nxt[1] / 100) * max) - score);
+    el.next.textContent = need + (need === 1 ? ' point' : ' points') + ' to ' + nxt[0] +
+      (nxt[0] === 'Hive Mind' ? ' (every word)' : '');
+  }
+  return { score, complete, name };
+}
+
+function renderFound() {
+  const words = [...found].sort();
+  const pans = words.filter(w => isPangram(puzzle, w)).length;
+  el.foundCount.textContent = found.size === 0
+    ? 'No words yet — ' + puzzle.words.length + ' to find'
+    : found.size + (found.size === 1 ? ' word' : ' words') + ' of ' + puzzle.words.length +
+      (pans ? ' · ' + pans + ' pangram' + (pans === 1 ? '' : 's') : '');
+
+  el.chips.innerHTML = '';
+  const list = revealed ? [...puzzle.words].sort() : words;
+  if (!list.length) {
+    el.chips.innerHTML = '<p class="empty">Words you find will collect here.</p>';
+    return;
+  }
+  for (const w of list) {
+    const c = document.createElement('span');
+    const missed = revealed && !found.has(w);
+    c.className = 'chip' + (isPangram(puzzle, w) ? ' pan' : '') + (missed ? ' missed' : '');
+    c.textContent = w;
+    if (missed) c.title = 'Not found';
+    el.chips.appendChild(c);
+  }
+}
+
+function renderPicker() {
+  el.select.innerHTML = '';
+  PUZZLES.forEach((p, i) => {
+    const o = document.createElement('option');
+    o.value = p.id;
+    o.textContent = (i + 1) + ' of ' + PUZZLES.length + ' — ' +
+      p.center.toUpperCase() + ' · ' + p.outer.join('').toUpperCase();
+    el.select.appendChild(o);
+  });
+  el.select.value = puzzle.id;
+}
+
+function renderAll() { renderPicker(); renderHive(); renderEntry(); renderScore(); renderFound(); }
+
+/* ==========================================================================
+   Actions
+   ========================================================================== */
+function flashHex(ch) {
+  const b = el.hive.querySelector('[data-letter="' + ch + '"]');
+  if (!b) return;
+  b.classList.add('press');
+  setTimeout(() => b.classList.remove('press'), 100);
+}
+
+function press(ch) {
+  if (revealed) return;
+  if (!letterSet(puzzle).has(ch)) { toast('Letter not in this puzzle', 'no'); return; }
+  input += ch;
+  flashHex(ch);
+  renderEntry();
+}
+
+function del() { if (input) { input = input.slice(0, -1); renderEntry(); } }
+function clear() { input = ''; renderEntry(); }
+
+function shuffle() {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  renderHive();
+}
+
+function reject(msg) {
+  toast(msg, 'no');
+  announce(msg);
+  el.entry.classList.remove('shake');
+  void el.entry.offsetWidth;
+  el.entry.classList.add('shake');
+}
+
+function fly(text, pan) {
+  const s = document.createElement('span');
+  s.className = 'fly' + (pan ? ' pan' : '');
+  s.textContent = text;
+  el.entry.parentElement.appendChild(s);
+  setTimeout(() => s.remove(), 900);
+}
+
+function submit() {
+  if (revealed) return;
+  const w = input;
+  if (!w) return;
+
+  if (w.length < MIN_LEN)                        return reject('Too short — four letters minimum');
+  if (!w.includes(puzzle.center))                return reject('Missing center letter');
+  if ([...w].some(c => !letterSet(puzzle).has(c))) return reject('Letter not in this puzzle');
+  if (found.has(w))                              return reject('Already found');
+  if (!puzzle.words.includes(w))                 return reject('Not in word list');
+
+  const before = renderScore();
+  found.add(w);
+  const pts = scoreWord(puzzle, w);
+  const pan = isPangram(puzzle, w);
+
+  input = '';
+  renderEntry();
+  renderFound();
+  const after = renderScore();
+  save();
+
+  fly('+' + pts, pan);
+  if (pan) {
+    toast('Pangram! +' + pts, 'ok');
+    const b = document.createElement('div');
+    b.className = 'burst';
+    el.hive.appendChild(b);
+    setTimeout(() => b.remove(), 750);
+  } else {
+    toast(w + '  +' + pts, 'ok');
+  }
+
+  let msg = (pan ? 'Pangram! ' : '') + w + ', ' + pts + (pts === 1 ? ' point' : ' points') +
+    '. ' + after.score + ' total.';
+  if (after.name !== before.name) msg += ' New rank: ' + after.name + '.';
+  announce(msg);
+}
+
+function reset() {
+  if (!confirm('Clear your progress on this puzzle? Other puzzles are not affected.')) return;
+  store.del(KEY_PROGRESS(puzzle.id));
+  found = new Set();
+  revealed = false;
+  input = '';
+  save();
+  renderAll();
+  announce('Puzzle reset.');
+}
+
+function reveal() {
+  if (revealed) return;
+  const left = puzzle.words.length - found.size;
+  if (!confirm('Show all ' + puzzle.words.length + ' answers? This ends the puzzle — the ' +
+      left + ' you have not found score nothing.')) return;
+  revealed = true;
+  input = '';
+  el.found.dataset.open = 'true';
+  $('foundToggle').setAttribute('aria-expanded', 'true');
+  save();
+  renderAll();
+  announce('Revealed. ' + left + ' words were left unfound.');
+}
+
+/* ==========================================================================
+   Wiring
+   ========================================================================== */
+$('del').addEventListener('click', del);
+$('enter').addEventListener('click', submit);
+$('shuffle').addEventListener('click', shuffle);
+$('reset').addEventListener('click', reset);
+$('reveal').addEventListener('click', reveal);
+
+$('foundToggle').addEventListener('click', () => {
+  const open = el.found.dataset.open === 'true';
+  el.found.dataset.open = String(!open);
+  $('foundToggle').setAttribute('aria-expanded', String(!open));
+});
+
+el.select.addEventListener('change', e => load(e.target.value));
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (tag === 'SELECT') return;
+
+  if (e.key === 'Enter') {
+    // let the keyboard activate a focused button instead of double-firing
+    if (tag === 'BUTTON') return;
+    e.preventDefault(); submit(); return;
+  }
+  if (e.key === 'Backspace' || e.key === 'Delete') { e.preventDefault(); del(); return; }
+  if (e.key === 'Escape') { e.preventDefault(); clear(); return; }
+  if (e.key === ' ') {
+    if (tag === 'BUTTON') return;
+    e.preventDefault(); shuffle(); return;
+  }
+  if (/^[a-zA-Z]$/.test(e.key)) { e.preventDefault(); press(e.key.toLowerCase()); }
+});
+
+/* Default puzzle: whatever was last played, else one derived from today's date
+   so the game has a natural "today's puzzle" with no server involved. */
+const startId = store.get(KEY_PUZZLE, null) ||
+  PUZZLES[Math.floor(Date.now() / 86400000) % PUZZLES.length].id;
+load(startId);
+</script>
+</body>
+</html>
