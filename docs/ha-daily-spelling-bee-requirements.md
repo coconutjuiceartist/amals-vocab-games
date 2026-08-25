@@ -141,18 +141,59 @@ wiped a game in the browser version.
 
 ## 5. The dashboard card
 
-Primary: a **Markdown card** driven by a template, which gives the smallest
-footprint and no custom dependencies.
+### How the space budget is met
 
-The ticker needs a CSS marquee, and Home Assistant's Markdown card sanitizes most
-inline styling — so verify this on the actual HA version before committing to it.
-If it is stripped, fall back in this order:
+Three separate decisions, not one:
 
-1. `custom:button-card` — allows arbitrary CSS via its `styles` block
-2. A small custom card / `custom:html-card` from HACS
-3. Server-side rotation: a template sensor that exposes a moving window of the
-   answer list. Templates using `now()` re-render about once a minute, so this
-   steps rather than scrolls. It is the ugly fallback; use it only if 1 and 2 fail.
+1. **The two phases share one card slot.** They never coexist, so the morning line
+   and the evening ticker cost one row between them, not two.
+2. **The answers scroll on a single line** instead of wrapping. 51 words wrapped is
+   a paragraph; 51 words on one scrolling line is a row.
+3. **The card height is fixed and identical in both phases**, so the dashboard
+   below it never moves when the content switches at 17:00.
+
+### What Home Assistant gives you, and what it does not
+
+**Built-in, use these:**
+
+- **Conditional card** — shows a card only while an entity matches a state. This is
+  the phase swap: one conditional on `sensor.spelling_bee` state `puzzle`, another
+  on `answers`, both wrapping the same kind of card. No custom dependency.
+- **Markdown card** — renders Jinja templates, so the content itself is a one-liner:
+  `{{ state_attr('sensor.spelling_bee','words') | join(' · ') }}`.
+
+**Not built-in:** there is **no native ticker, marquee, or horizontal-scroll option
+in Home Assistant.** The Markdown card wraps long text down the page, which is
+exactly the behaviour we are trying to avoid, and it sanitizes styling so a
+`<style>` block or a `<marquee>` will not survive.
+
+So the scrolling itself needs one of these, in preference order:
+
+1. **card-mod** (HACS) — the standard way to inject CSS into a *built-in* card.
+   Keeps the Markdown card and its templating, and adds the marquee with a
+   `card_mod:` block (`white-space: nowrap`, a `@keyframes` translation on the
+   inner element). This is the smallest, most idiomatic route and should be tried
+   first.
+2. **`custom:button-card`** (HACS) — arbitrary CSS via its `styles` block, if
+   card-mod is unavailable or fights the Markdown card's shadow DOM.
+3. **Server-side rotation** — a template sensor exposing a moving window of the
+   list. Templates using `now()` re-render roughly once a minute, so this steps
+   rather than scrolls. Genuinely worse; use only if 1 and 2 both fail.
+
+### Consider not scrolling at all
+
+A marquee takes about a minute to cycle 51 words, and a glanceable wall tablet is
+not a good place to wait for information to come around. Two zero-motion
+alternatives cost the same space and may suit the room better:
+
+- **Tap to expand** — show `51 words · tap to reveal`, with the list behind an
+  entity's more-info dialog or a HACS expander card. One row, no motion, full list
+  on demand.
+- **Show the interesting subset** — the pangrams and the longest few words fit on
+  one static line and are most of the value.
+
+Pick deliberately. The ticker is specified because it was asked for, not because it
+is obviously the best answer.
 
 **On ApexCharts:** allowed, but it is a charting library and this is a line of
 text. Do not force the ticker into it. The one place it earns space is if you
@@ -184,7 +225,8 @@ Card requirements:
 7. Crossing a DST boundary keeps 06:00 and 17:00 at local wall-clock time.
 8. No answer list contains a blocked word; the blocklist check runs over the
    generated file, not a sample.
-9. The card occupies one dashboard row in both phases.
+9. The card occupies one dashboard row in both phases, and is the same height in
+   each, so nothing below it moves at 17:00.
 10. Nothing longer than 255 characters is ever written to an entity's state.
 11. Regenerating the puzzle file leaves today's and all past puzzles byte-identical.
 12. The card is legible on the real target device, verified by looking at it.
