@@ -1,87 +1,97 @@
-"""The regression test for the "donut" bug.
+"""Proves no word a player would know is rejected.
 
-A player typing a real, common word and being told "not in word list" is the
-worst thing this game can do. This checks the shipped puzzles in index.html
-against the full dictionary and asserts:
+This is the check that catches the original "donut" bug: a real, common word
+typed into the game and refused. For every puzzle in data/bank.json it asserts
 
-  1. every COMMON word (zipf >= 2.5) that fits a puzzle is in its required list
-  2. every REAL word (zipf >= 1.0) that fits is accepted -- required or bonus
-  3. no blocked term appears in either list
+  1. every COMMON word (Zipf >= manifest required_min_zipf) that fits the seven
+     letters is in that puzzle's required list
+  2. every REAL word (Zipf >= bonus_min_zipf) that fits is accepted at all --
+     required or bonus
+  3. nothing on the blocklist appears in either list
 
-Run it after any change to the puzzle data:
+Thresholds and the blocklist are read from the bank's own manifest, so this
+checks against the standard the bank claims to meet rather than a copy that can
+drift.
+
     pip install wordfreq && npm install word-list
     python3 tools/check-coverage.py
 """
-import json, os, re, sys
+import json, os, re, sys, time
+from collections import defaultdict
+
 try:
     from wordfreq import zipf_frequency
 except ImportError:
     sys.exit("pip install wordfreq")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-for cand in (os.path.join(HERE, 'node_modules', 'word-list', 'words.txt'),
-             os.path.join(HERE, '..', '..', 'node_modules', 'word-list', 'words.txt')):
-    if os.path.exists(cand):
-        DICT = cand; break
+ROOT = os.path.join(HERE, '..')
+for c in (os.path.join(HERE, 'node_modules', 'word-list', 'words.txt'),
+          os.path.join(ROOT, '..', 'node_modules', 'word-list', 'words.txt')):
+    if os.path.exists(c):
+        DICT = c
+        break
 else:
     sys.exit("npm install word-list")
 
-REQUIRED_MIN, BONUS_MIN = 2.5, 1.0
-sys.path.insert(0, HERE)
-from importlib import import_module
-BLOCKED = import_module('generate-puzzles'.replace('-', '_')) if False else None
+bank = json.load(open(os.path.join(ROOT, 'data', 'bank.json')))
+S = bank['manifest']['standard']
+REQ, BON = S['required_min_zipf'], S['bonus_min_zipf']
+MINLEN, EXCL = S['min_word_length'], S['excluded_letter']
+BLOCKED = set(S['blocked_terms'])
+puzzles = bank['puzzles']
 
-# read the blocklist straight out of the generator so the two cannot drift
-gen = open(os.path.join(HERE, 'generate-puzzles.py'), encoding='utf-8').read()
-BLOCKED = set(re.search(r'BLOCKED = set\("""(.*?)"""', gen, re.S).group(1).split())
+t0 = time.time()
+pool, freq = [], {}
+for w in (x.strip() for x in open(DICT, encoding='utf-8')):
+    if not re.fullmatch(r'[a-z]{%d,}' % MINLEN, w) or EXCL in w or w in BLOCKED:
+        continue
+    f = zipf_frequency(w, 'en')
+    if f >= BON:
+        pool.append(w); freq[w] = f
 
-html = open(os.path.join(HERE, '..', 'index.html'), encoding='utf-8').read()
-start = html.index('const PUZZLES = ') + len('const PUZZLES = ')
-end = html.index('\n];', start) + 2
-raw = html[start:end]
-raw = re.sub(r'(\w+):', r'"\1":', raw)          # bare keys -> JSON
-raw = re.sub(r',(\s*[\]}])', r'\1', raw)         # trailing commas
-PUZZLES = json.loads(raw)
+mask = lambda w: sum(1 << (ord(c) - 97) for c in set(w))
+by = defaultdict(list)
+for w in pool:
+    by[mask(w)].append(w)
+print(f"pool {len(pool)} words, built in {time.time()-t0:.1f}s")
+print(f"standard: required Zipf >= {REQ}, accepted >= {BON}, no '{EXCL}', {MINLEN}+ letters\n")
 
-words = [w.strip() for w in open(DICT, encoding='utf-8')]
-pool = [w for w in words if re.fullmatch(r'[a-z]{4,}', w) and 's' not in w and w not in BLOCKED]
-freq = {w: zipf_frequency(w, 'en') for w in pool}
+missing_common = missing_any = blocked_hits = 0
+worst = []
+for p in puzzles:
+    sm = mask(p['center'] + ''.join(p['outer']))
+    fits, sub = [], sm
+    while True:
+        fits += by.get(sub, [])
+        if sub == 0:
+            break
+        sub = (sub - 1) & sm
+    fits = [w for w in fits if p['center'] in w]
 
-fails = 0
-for p in PUZZLES:
-    letters = set([p['center']] + p['outer'])
     req, bon = set(p['words']), set(p.get('bonus', []))
-    fits = [w for w in pool if p['center'] in w and set(w) <= letters]
+    mc = [w for w in fits if freq[w] >= REQ and w not in req]
+    ma = [w for w in fits if w not in req and w not in bon]
+    bh = (req | bon) & BLOCKED
 
-    missing_common = sorted(w for w in fits if freq[w] >= REQUIRED_MIN and w not in req)
-    missing_any = sorted(w for w in fits
-                         if freq[w] >= BONUS_MIN and w not in req and w not in bon)
-    blocked_hit = sorted((req | bon) & BLOCKED)
+    missing_common += len(mc); missing_any += len(ma); blocked_hits += len(bh)
+    if mc or ma or bh:
+        worst.append((p['id'], mc[:6], ma[:6], sorted(bh)[:6]))
 
-    errs = []
-    if missing_common:
-        errs.append(f"{len(missing_common)} COMMON words not required: "
-                    + ' '.join(f'{w}({freq[w]:.1f})' for w in missing_common[:8]))
-    if missing_any:
-        errs.append(f"{len(missing_any)} real words rejected outright: "
-                    + ' '.join(f'{w}({freq[w]:.1f})' for w in missing_any[:8]))
-    if blocked_hit:
-        errs.append("blocked terms present: " + ' '.join(blocked_hit))
+for pid, mc, ma, bh in worst[:12]:
+    bits = []
+    if mc: bits.append('COMMON words not required: ' + ' '.join(f'{w}({freq[w]:.1f})' for w in mc))
+    if ma: bits.append('real words rejected: ' + ' '.join(f'{w}({freq[w]:.1f})' for w in ma))
+    if bh: bits.append('blocked: ' + ' '.join(bh))
+    print(f"FAIL {pid}: " + ' | '.join(bits))
+if len(worst) > 12:
+    print(f"… and {len(worst)-12} more puzzles with problems")
 
-    head = (f"{p['id']}  {p['center'].upper()} | {''.join(p['outer']).upper()}  "
-            f"{len(req):2} required + {len(bon):3} bonus")
-    if errs:
-        fails += 1
-        print("FAIL " + head)
-        for e in errs: print("      " + e)
-    else:
-        print("ok   " + head)
-
-# the word that started this
-rarest = min(PUZZLES[0]['words'], key=lambda w: freq.get(w, 9))
-print(f"\ndonut: zipf {zipf_frequency('donut','en'):.2f} -> "
-      f"{'required' if zipf_frequency('donut','en') >= REQUIRED_MIN else 'bonus'} "
-      f"wherever its letters fit")
-print(f"rarest required word in hc-001: {rarest} (zipf {freq.get(rarest,0):.2f})")
-print(f"\n{'FAILED: ' + str(fails) + ' puzzle(s)' if fails else 'all ' + str(len(PUZZLES)) + ' puzzles: no common word is rejected'}")
-sys.exit(1 if fails else 0)
+total = sum(len(p['words']) for p in puzzles)
+print(f"checked {len(puzzles)} puzzles / {total} required words in {time.time()-t0:.1f}s")
+print(f"  common words wrongly excluded: {missing_common}")
+print(f"  real words rejected outright:  {missing_any}")
+print(f"  blocked terms present:         {blocked_hits}")
+ok = not (missing_common or missing_any or blocked_hits)
+print('\n' + ('✅ no word a player would know is rejected' if ok else '❌ COVERAGE FAILURES'))
+sys.exit(0 if ok else 1)

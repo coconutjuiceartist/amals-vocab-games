@@ -76,11 +76,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   overflow:hidden;text-overflow:ellipsis}
 .rank .pts{font-variant-numeric:tabular-nums;font-size:12px;color:var(--muted);white-space:nowrap}
 .rank .pts b{font-size:13px;color:var(--text);font-weight:700}
-select{
-  font:inherit;font-size:11px;color:var(--muted);
-  background:var(--surface);border:1px solid var(--line);border-radius:6px;
-  padding:2px 4px;max-width:46%;
-}
+.today{font-size:11px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
 .track{height:3px;background:var(--surface-2);border-radius:3px;overflow:hidden;flex:0 0 auto}
 .track i{display:block;height:100%;width:0;background:var(--accent);border-radius:3px;
   transition:width .35s ease}
@@ -182,7 +178,7 @@ footer .next{text-align:right;overflow:hidden;text-overflow:ellipsis;white-space
       <b id="rank">Dabbler</b>
       <span class="pts"><b id="score">0</b>/<span id="max">0</span></span>
     </div>
-    <select id="puzzle" aria-label="Choose puzzle"></select>
+    <span class="today" id="today"></span>
   </div>
 
   <div class="track" role="progressbar" id="bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
@@ -231,6 +227,26 @@ function applyTheme() { document.documentElement.dataset.theme = resolveTheme();
 applyTheme();
 // A wall tablet is never reloaded, so the theme has to flip on its own.
 setInterval(applyTheme, 60000);
+
+/* ---------------- which puzzle is today's ----------------
+   The day rolls over at 05:00 local. Shifting the clock back by that many hours
+   and then reading the LOCAL calendar fields keeps this correct across daylight
+   saving, because no arithmetic is done on raw timestamps. */
+const ROLLOVER_HOUR = 5;
+function dayNumber(now) {
+  const t = new Date((now || new Date()).getTime());
+  t.setHours(t.getHours() - ROLLOVER_HOUR);
+  return Math.floor(Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()) / 86400000);
+}
+function puzzleForDay(n) {
+  const i = ((n % PUZZLES.length) + PUZZLES.length) % PUZZLES.length;
+  return PUZZLES[i];
+}
+function todayLabel(now) {
+  const t = new Date((now || new Date()).getTime());
+  t.setHours(t.getHours() - ROLLOVER_HOUR);
+  return t.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
+}
 
 /* ---------------- rules ---------------- */
 const MIN_LEN = 4;
@@ -307,7 +323,7 @@ function load(id) {
 const $ = i => document.getElementById(i);
 const el = { hive:$('hive'), entry:$('entry'), toast:$('toast'), live:$('live'), score:$('score'),
   max:$('max'), rank:$('rank'), fill:$('fill'), bar:$('bar'), next:$('next'), chips:$('chips'),
-  count:$('foundToggle'), found:$('found'), select:$('puzzle') };
+  count:$('foundToggle'), found:$('found'), today:$('today') };
 
 const requiredFound = () => [...found].filter(w => puzzle.words.includes(w)).length;
 function announce(m) { el.live.textContent = ''; setTimeout(() => { el.live.textContent = m; }, 30); }
@@ -375,17 +391,8 @@ function renderFound() {
     el.chips.appendChild(c);
   }
 }
-function renderPicker() {
-  el.select.innerHTML = '';
-  PUZZLES.forEach((p, i) => {
-    const o = document.createElement('option');
-    o.value = p.id;
-    o.textContent = p.center.toUpperCase() + '·' + p.outer.join('').toUpperCase();
-    el.select.appendChild(o);
-  });
-  el.select.value = puzzle.id;
-}
-function renderAll() { renderPicker(); renderHive(); renderEntry(); renderScore(); renderFound(); }
+function renderToday() { el.today.textContent = todayLabel(); }
+function renderAll() { renderToday(); renderHive(); renderEntry(); renderScore(); renderFound(); }
 
 /* ---------------- actions ---------------- */
 function press(ch) {
@@ -467,7 +474,6 @@ el.count.addEventListener('click', () => {
   el.count.setAttribute('aria-expanded', String(open));
   renderFound();
 });
-el.select.addEventListener('change', e => load(e.target.value));
 
 document.addEventListener('keydown', e => {
   if (e.ctrlKey || e.metaKey || e.altKey) return;
@@ -482,13 +488,25 @@ document.addEventListener('keydown', e => {
 
 migrate();
 const params = new URLSearchParams(location.search);
-const wanted = params.get('puzzle');                    // ?puzzle=3 pins one board
-const remembered = store.get(KEY_PUZZLE, null);
-const start =
-  (wanted && PUZZLES[Number(wanted) - 1] && PUZZLES[Number(wanted) - 1].id) ||
-  (remembered && PUZZLES.some(p => puzzleKey(p) === remembered) ? remembered : null) ||
-  PUZZLES[Math.floor(Date.now() / 86400000) % PUZZLES.length].id;
-load(start);
+const pinned = params.get('puzzle');          // ?puzzle=7 pins one board, for testing
+const pinnedDay = params.get('day');          // ?day=1234 jumps to a given day number
+
+function currentPuzzle() {
+  if (pinned && PUZZLES[Number(pinned) - 1]) return PUZZLES[Number(pinned) - 1];
+  if (pinnedDay !== null && !Number.isNaN(Number(pinnedDay))) return puzzleForDay(Number(pinnedDay));
+  return puzzleForDay(dayNumber());
+}
+load(currentPuzzle().id);
+
+// A wall tablet is never reloaded, so roll the puzzle over on its own at 05:00.
+// load() does not write to storage, so yesterday's progress is left intact.
+let shownDay = dayNumber();
+setInterval(() => {
+  if (pinned || pinnedDay !== null) return;
+  const d = dayNumber();
+  if (d !== shownDay) { shownDay = d; load(currentPuzzle().id); }
+  else renderToday();
+}, 60000);
 </script>
 </body>
 </html>

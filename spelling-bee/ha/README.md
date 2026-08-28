@@ -56,6 +56,18 @@ The page never scrolls — it scales the honeycomb to whatever frame it is given
 down to 300×320. Below about 330px tall it drops the found-words strip and footer
 rather than shrinking the letters to something untappable.
 
+## A new puzzle every morning at 5am
+
+The file carries a bank of **496 puzzles** — a new one each day, rotating for
+**1.36 years** before it repeats, then repeating forever. No maintenance, ever.
+
+The day rolls over at **05:00 local time**, so a late night still finishes
+yesterday's puzzle. The rollover is daylight-saving safe, and the card switches
+itself over without a reload, so a wall tablet can stay open indefinitely.
+
+Which puzzle you get is a pure function of the date — every device shows the same
+one on the same day, and it can never disagree with itself.
+
 ## Options
 
 Append to the URL:
@@ -66,15 +78,18 @@ Append to the URL:
 | `?theme=dark` | force dark |
 | `?theme=system` | follow the device's dark-mode setting |
 | *(default)* | light from 07:00, dark from 19:00, local time |
-| `?puzzle=3` | pin a specific puzzle (1–14) instead of rotating daily |
+| `?day=1234` | jump to a given day number (testing) |
+| `?puzzle=7` | pin one puzzle and stop rotating (testing) |
 
-Combine with `&`, e.g. `/local/honeycomb.html?theme=system&puzzle=3`.
+Combine with `&`, e.g. `/local/honeycomb.html?theme=system&day=42`.
 
 The theme re-checks every minute, so a wall tablet left running will switch itself
 at 19:00 without a reload.
 
 ## Notes
 
+- **A new puzzle appears each morning at 05:00 local**; the one you were on stays
+  saved, so an unfinished puzzle is still there if you go back to it.
 - **Progress is saved per puzzle** in the browser's local storage, keyed by the
   letters. It is per-device and per-browser — the tablet and your phone keep
   separate games.
@@ -88,12 +103,28 @@ at 19:00 without a reload.
 `honeycomb.html` is generated — edit `_template.html`, not the built file:
 
 ```sh
-node ../tools/build-ha.mjs
+node ../tools/build-ha.mjs          # embeds data/bank.json, verifies the hash
 ```
 
-The puzzle data is copied from `../index.html` so the two builds can never
-disagree about the word lists. `node ../tools/verify-puzzles.mjs` fails if they
-drift.
+To rebuild the puzzle bank itself (you should not need to):
+
+```sh
+pip install wordfreq && npm install word-list
+python3 ../tools/build-bank.py
+```
+
+## Checking it
+
+```sh
+node ../tools/verify-bank.mjs       # 517 checks: structure, content, quality,
+                                    # scoring, rotation, hashes
+python3 ../tools/check-coverage.py  # no common word is rejected
+node ../tools/rotation-tests.mjs    # 05:00 rollover, DST, determinism, cycle
+node ../tools/ha-tests.mjs          # fit, theme, touch play, persistence
+```
+
+The standard every word is held to is written up in
+[`../../docs/word-standard.md`](../../docs/word-standard.md).
 
 ## What's different from the full build
 
