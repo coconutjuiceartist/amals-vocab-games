@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Honeycomb</title>
+<style>
+/* ==========================================================================
+   Compact build for a Home Assistant iframe card.
+   One accent colour, flat surfaces, no gradients. Light by default; dark
+   between 19:00 and 07:00 to cut glare on a wall tablet at night.
+   ========================================================================== */
+:root{
+  color-scheme:light;
+  --bg:#ffffff;
+  --surface:#f6f4f0;
+  --surface-2:#eeebe4;
+  --line:#e3ded4;
+  --text:#1b1917;
+  --muted:#7a736a;
+  --accent:#b45309;          /* honey — the one colour in the design */
+  --accent-ink:#ffffff;
+  --accent-soft:#fdf3e3;
+  --good:#3f6212;
+  --bad:#9f1239;
+  --hw:clamp(34px, min(17vw, 15vh), 72px);
+  --gap:5px;
+  --hh:calc(var(--hw) * 1.1547);
+  --sx:calc((var(--hw) + var(--gap)) / 2);
+  --sy:calc(var(--hh) * .75 + var(--gap) * .866);
+  --r:8px;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#121211;
+  --surface:#1c1b19;
+  --surface-2:#26241f;
+  --line:#332f29;
+  --text:#f0ede8;
+  --muted:#968f85;
+  --accent:#e0a04a;          /* softened so it does not glare at night */
+  --accent-ink:#1b1710;
+  --accent-soft:#241f16;
+  --good:#a3c76d;
+  --bad:#f2919f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font:500 14px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior:contain;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.sr-only{position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap}
+
+.app{
+  height:100%;
+  display:flex;flex-direction:column;
+  gap:6px;
+  padding:8px 10px 10px;
+  max-width:460px;margin:0 auto;
+}
+
+/* ---------- top bar: rank, score, puzzle ---------- */
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.rank{display:flex;align-items:baseline;gap:6px;min-width:0}
+.rank b{font-size:13px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.rank .pts{font-variant-numeric:tabular-nums;font-size:12px;color:var(--muted);white-space:nowrap}
+.rank .pts b{font-size:13px;color:var(--text);font-weight:700}
+select{
+  font:inherit;font-size:11px;color:var(--muted);
+  background:var(--surface);border:1px solid var(--line);border-radius:6px;
+  padding:2px 4px;max-width:46%;
+}
+.track{height:3px;background:var(--surface-2);border-radius:3px;overflow:hidden;flex:0 0 auto}
+.track i{display:block;height:100%;width:0;background:var(--accent);border-radius:3px;
+  transition:width .35s ease}
+
+/* ---------- found words: one scrolling line, tap the count to expand ---------- */
+.found{display:flex;align-items:center;gap:6px;min-height:24px;flex:0 0 auto}
+.count{font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap;
+  padding:2px 6px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.count[aria-expanded="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.strip{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.strip::-webkit-scrollbar{display:none}
+.found.open{align-items:flex-start}
+.found.open .strip{flex-wrap:wrap;overflow-y:auto;overflow-x:hidden;max-height:5.2em;row-gap:4px}
+.chip{font-size:11px;line-height:1.5;padding:1px 6px;border-radius:5px;white-space:nowrap;
+  background:var(--surface);border:1px solid transparent;color:var(--text)}
+.chip.pan{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.chip.bonus{background:transparent;border-color:var(--line);color:var(--muted)}
+.chip.missed{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+.hint-empty{font-size:11px;color:var(--muted)}
+
+/* ---------- stage: message, input, hive ---------- */
+.stage{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px;position:relative;min-height:0}
+.toast{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  font-size:11px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .15s;
+  padding:2px 8px;border-radius:999px;background:var(--surface);border:1px solid var(--line);z-index:3}
+.toast.show{opacity:1}
+.toast.ok{color:var(--good)} .toast.no{color:var(--bad)}
+.entry{height:1.9em;display:flex;align-items:center;justify-content:center;
+  font-size:clamp(17px,5.2vw,23px);font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;max-width:100%;overflow:hidden;flex:0 0 auto}
+.entry .c{color:var(--accent)}
+.entry .ph{font-size:11px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted)}
+.entry .caret{width:2px;height:1em;background:var(--accent);margin-left:2px;
+  animation:blink 1.05s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.shake{animation:shake .28s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}
+  50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+.fly{position:absolute;left:50%;top:1.6em;transform:translateX(-50%);font-size:12px;font-weight:800;
+  color:var(--good);pointer-events:none;animation:fly .8s ease-out forwards;z-index:2}
+.fly.pan{color:var(--accent)}
+@keyframes fly{to{opacity:0;transform:translate(-50%,-34px)}}
+
+.hive{position:relative;flex:0 0 auto;
+  width:calc(3 * var(--hw) + 2 * var(--gap));
+  height:calc(2 * var(--sy) + var(--hh))}
+.hex{position:absolute;z-index:1;top:50%;left:50%;width:var(--hw);height:var(--hh);
+  transform:translate(calc(-50% + var(--x,0px)),calc(-50% + var(--y,0px)));
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  background:var(--surface-2);
+  font-size:calc(var(--hw) * .42);font-weight:800;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .12s,transform .07s}
+.hex:hover{background:var(--line)}
+.hex:active,.hex.press{transform:translate(calc(-50% + var(--x,0px)),calc(-50% + var(--y,0px))) scale(.9)}
+.hex.center{background:var(--accent);color:var(--accent-ink)}
+.hex:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.p0{--x:0px;--y:0px}
+.p1{--x:calc(-1 * var(--sx));--y:calc(-1 * var(--sy))}
+.p2{--x:var(--sx);--y:calc(-1 * var(--sy))}
+.p3{--x:calc(-1 * (var(--hw) + var(--gap)));--y:0px}
+.p4{--x:calc(var(--hw) + var(--gap));--y:0px}
+.p5{--x:calc(-1 * var(--sx));--y:var(--sy)}
+.p6{--x:var(--sx);--y:var(--sy)}
+.glow{position:absolute;z-index:0;top:50%;left:50%;width:230px;height:230px;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.3);pointer-events:none;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 38%,transparent) 0%,transparent 68%);
+  animation:glow .7s ease-out forwards}
+@keyframes glow{to{transform:translate(-50%,-50%) scale(1.35);opacity:0}}
+
+/* ---------- controls ---------- */
+.controls{display:flex;gap:6px;justify-content:center;flex:0 0 auto}
+.controls button{
+  min-height:34px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:600;
+  background:var(--surface);border:1px solid var(--line)}
+.controls button:hover{background:var(--surface-2)}
+.controls .icon{padding:0 11px;font-size:15px;line-height:1}
+.controls .go{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.controls .go:hover{filter:brightness(1.06)}
+footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-size:10px;color:var(--muted);flex:0 0 auto;min-height:14px}
+footer button{font-size:10px;color:var(--muted);text-decoration:underline;
+  text-underline-offset:2px;padding:2px 0}
+footer .next{text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .entry .caret{animation:none}
+}
+/* very short frames: drop the found strip rather than squeezing the hive */
+@media (max-height:330px){ .found{display:none} footer{display:none} }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="bar">
+    <div class="rank">
+      <b id="rank">Dabbler</b>
+      <span class="pts"><b id="score">0</b>/<span id="max">0</span></span>
+    </div>
+    <select id="puzzle" aria-label="Choose puzzle"></select>
+  </div>
+
+  <div class="track" role="progressbar" id="bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+       aria-label="Progress through the ranks"><i id="fill"></i></div>
+
+  <div class="found" id="found">
+    <button class="count" id="foundToggle" aria-expanded="false" aria-controls="chips">0/0</button>
+    <div class="strip" id="chips"></div>
+  </div>
+
+  <div class="stage">
+    <div class="toast" id="toast" aria-hidden="true"></div>
+    <div class="entry" id="entry"></div>
+    <div class="hive" id="hive"></div>
+  </div>
+
+  <div class="controls">
+    <button class="icon" id="del" aria-label="Delete last letter" title="Delete">⌫</button>
+    <button class="icon" id="shuffle" aria-label="Shuffle letters" title="Shuffle">⟳</button>
+    <button class="go" id="enter">Enter</button>
+  </div>
+
+  <footer>
+    <span><button id="reset">Reset</button> · <button id="reveal">Reveal</button></span>
+    <span class="next" id="next"></span>
+  </footer>
+</div>
+<div class="sr-only" role="status" aria-live="polite" id="live"></div>
+
+<script>
+/* Puzzle data — identical to the full build; see tools/build-ha.mjs. */
+const PUZZLES = /*__PUZZLES__*/[];
+
+/* ---------------- theme: light by day, dark in the evening ---------------- */
+const DARK_FROM = 19, DARK_UNTIL = 7;      // 19:00 → 06:59 local
+function resolveTheme() {
+  const q = new URLSearchParams(location.search).get('theme');
+  if (q === 'light' || q === 'dark') return q;
+  if (q === 'system') {
+    return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  const h = new Date().getHours();
+  return (h >= DARK_FROM || h < DARK_UNTIL) ? 'dark' : 'light';
+}
+function applyTheme() { document.documentElement.dataset.theme = resolveTheme(); }
+applyTheme();
+// A wall tablet is never reloaded, so the theme has to flip on its own.
+setInterval(applyTheme, 60000);
+
+/* ---------------- rules ---------------- */
+const MIN_LEN = 4;
+const RANKS = [['Dabbler',0],['Speller',3],['Wordsmith',10],['Cruciverbalist',20],
+  ['Lexicographer',32],['Etymologist',48],['Polymath',70],['Hive Mind',100]];
+
+const letterSet = p => new Set([p.center, ...p.outer]);
+const isPangram = (p, w) => { const s = new Set(w); const L = letterSet(p);
+  return s.size === L.size && [...L].every(c => s.has(c)); };
+const isAccepted = (p, w) => p.words.includes(w) || (p.bonus || []).includes(w);
+const isBonus = (p, w) => !p.words.includes(w) && (p.bonus || []).includes(w);
+
+function scoreWord(p, w) {
+  let s = w.length === MIN_LEN ? 1 : w.length;
+  if (w.length >= 7) s += 3;
+  if (isPangram(p, w)) s += (w.length === 7 ? 14 : 7);
+  return s;
+}
+const maxScore = p => p.words.reduce((a, w) => a + scoreWord(p, w), 0);
+function rankFor(score, max, complete) {
+  if (complete) return RANKS[RANKS.length - 1];
+  const pct = max ? (score / max) * 100 : 0;
+  let r = RANKS[0];
+  for (const t of RANKS) if (pct >= t[1] && t[0] !== 'Hive Mind') r = t;
+  return r;
+}
+
+/* ---------------- state & storage ----------------
+   Progress is keyed by the LETTERS, never by list position: positional keys
+   silently reattach to a different puzzle when the set is regenerated. And
+   opening a puzzle never writes — only playing, resetting or revealing does. */
+const KEY_PUZZLE = 'honeycomb:puzzle';
+const puzzleKey = p => p.center + '-' + [...p.outer].sort().join('');
+const KEY_PROGRESS = p => 'honeycomb:progress:' + puzzleKey(p);
+
+let puzzle, order = [], input = '', found = new Set(), revealed = false, loaded = false;
+
+const store = {
+  get(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch { return fb; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+  del(k) { try { localStorage.removeItem(k); } catch {} },
+};
+function save() {
+  if (!loaded) return;
+  store.set(KEY_PROGRESS(puzzle), { letters: puzzleKey(puzzle), found: [...found], revealed });
+  store.set(KEY_PUZZLE, puzzleKey(puzzle));
+}
+function migrate() {
+  for (const p of PUZZLES) {
+    const to = KEY_PROGRESS(p);
+    if (store.get(to, null)) continue;
+    const old = store.get('honeycomb:progress:' + p.id, null);
+    if (old && Array.isArray(old.found) && old.found.length) {
+      const kept = old.found.filter(w => isAccepted(p, w));
+      if (kept.length) store.set(to, { letters: puzzleKey(p), found: kept, revealed: !!old.revealed });
+    }
+  }
+}
+function load(id) {
+  puzzle = PUZZLES.find(p => p.id === id) || PUZZLES.find(p => puzzleKey(p) === id) || PUZZLES[0];
+  const prog = store.get(KEY_PROGRESS(puzzle), null);
+  const usable = prog && Array.isArray(prog.found) &&
+    (prog.letters === undefined || prog.letters === puzzleKey(puzzle));
+  found = new Set(usable ? prog.found.filter(w => isAccepted(puzzle, w)) : []);
+  revealed = !!(usable && prog.revealed);
+  order = [...puzzle.outer];
+  input = '';
+  loaded = true;
+  store.set(KEY_PUZZLE, puzzleKey(puzzle));   // selection only, never progress
+  renderAll();
+}
+
+/* ---------------- dom ---------------- */
+const $ = i => document.getElementById(i);
+const el = { hive:$('hive'), entry:$('entry'), toast:$('toast'), live:$('live'), score:$('score'),
+  max:$('max'), rank:$('rank'), fill:$('fill'), bar:$('bar'), next:$('next'), chips:$('chips'),
+  count:$('foundToggle'), found:$('found'), select:$('puzzle') };
+
+const requiredFound = () => [...found].filter(w => puzzle.words.includes(w)).length;
+function announce(m) { el.live.textContent = ''; setTimeout(() => { el.live.textContent = m; }, 30); }
+let tt;
+function toast(m, k) {
+  el.toast.textContent = m; el.toast.className = 'toast show ' + (k || '');
+  clearTimeout(tt); tt = setTimeout(() => { el.toast.className = 'toast ' + (k || ''); }, 1300);
+}
+
+function renderHive() {
+  el.hive.innerHTML = '';
+  [puzzle.center, ...order].forEach((ch, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'hex p' + i + (i === 0 ? ' center' : '');
+    b.textContent = ch;
+    b.dataset.letter = ch;
+    b.setAttribute('aria-label', i === 0 ? ch.toUpperCase() + ', center letter, required' : ch.toUpperCase());
+    b.addEventListener('click', () => press(ch));
+    el.hive.appendChild(b);
+  });
+}
+function renderEntry() {
+  el.entry.innerHTML = input
+    ? [...input].map(c => c === puzzle.center ? '<span class="c">' + c + '</span>' : c).join('') +
+      '<span class="caret"></span>'
+    : '<span class="ph">Tap or type the letters</span>';
+}
+function renderScore() {
+  const max = maxScore(puzzle);
+  const score = [...found].reduce((a, w) => a + scoreWord(puzzle, w), 0);
+  const complete = requiredFound() === puzzle.words.length;
+  const [name] = rankFor(score, max, complete);
+  el.score.textContent = score; el.max.textContent = max; el.rank.textContent = name;
+  const pct = max ? Math.min(100, (score / max) * 100) : 0;
+  el.fill.style.width = pct + '%';
+  el.bar.setAttribute('aria-valuenow', Math.round(pct));
+  el.bar.setAttribute('aria-valuetext', name + ', ' + score + ' of ' + max);
+  const nxt = RANKS[RANKS.findIndex(r => r[0] === name) + 1];
+  el.next.textContent = complete ? 'Hive Mind — every word'
+    : nxt ? Math.max(1, Math.ceil((nxt[1] / 100) * max) - score) + ' to ' + nxt[0] : '';
+  return { score, name };
+}
+function renderFound() {
+  const words = [...found].sort();
+  const req = requiredFound(), bon = found.size - req;
+  el.count.textContent = req + '/' + puzzle.words.length + (bon ? ' +' + bon : '');
+  el.count.setAttribute('aria-label',
+    req + ' of ' + puzzle.words.length + ' words' + (bon ? ', plus ' + bon + ' bonus' : '') + '. Toggle list.');
+  el.chips.innerHTML = '';
+  const list = revealed
+    ? [...new Set([...puzzle.words, ...words])].sort()
+    : el.found.classList.contains('open') ? words        // alphabetical when expanded
+                                         : [...found].reverse();  // newest first in the strip
+  if (!list.length) {
+    el.chips.innerHTML = '<span class="hint-empty">Words you find appear here</span>';
+    return;
+  }
+  for (const w of list) {
+    const c = document.createElement('span');
+    const missed = revealed && !found.has(w);
+    c.className = 'chip' + (isPangram(puzzle, w) ? ' pan' : '') + (missed ? ' missed' : '')
+      + (!missed && isBonus(puzzle, w) ? ' bonus' : '');
+    c.textContent = w;
+    el.chips.appendChild(c);
+  }
+}
+function renderPicker() {
+  el.select.innerHTML = '';
+  PUZZLES.forEach((p, i) => {
+    const o = document.createElement('option');
+    o.value = p.id;
+    o.textContent = p.center.toUpperCase() + '·' + p.outer.join('').toUpperCase();
+    el.select.appendChild(o);
+  });
+  el.select.value = puzzle.id;
+}
+function renderAll() { renderPicker(); renderHive(); renderEntry(); renderScore(); renderFound(); }
+
+/* ---------------- actions ---------------- */
+function press(ch) {
+  if (revealed) return;
+  if (!letterSet(puzzle).has(ch)) return toast('Not in this puzzle', 'no');
+  input += ch;
+  const b = el.hive.querySelector('[data-letter="' + ch + '"]');
+  if (b) { b.classList.add('press'); setTimeout(() => b.classList.remove('press'), 90); }
+  renderEntry();
+}
+const del = () => { if (input) { input = input.slice(0, -1); renderEntry(); } };
+const clear = () => { input = ''; renderEntry(); };
+function shuffle() {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  renderHive();
+}
+function reject(m) {
+  toast(m, 'no'); announce(m);
+  el.entry.classList.remove('shake'); void el.entry.offsetWidth; el.entry.classList.add('shake');
+}
+function submit() {
+  if (revealed || !input) return;
+  const w = input;
+  if (w.length < MIN_LEN)                          return reject('Too short');
+  if (!w.includes(puzzle.center))                  return reject('Missing center letter');
+  if ([...w].some(c => !letterSet(puzzle).has(c))) return reject('Letter not in puzzle');
+  if (found.has(w))                                return reject('Already found');
+  if (!isAccepted(puzzle, w))                      return reject('Not in word list');
+
+  const before = renderScore();
+  found.add(w);
+  const pts = scoreWord(puzzle, w), pan = isPangram(puzzle, w), bon = isBonus(puzzle, w);
+  input = '';
+  renderEntry(); renderFound();
+  const after = renderScore();
+  save();
+
+  const f = document.createElement('span');
+  f.className = 'fly' + (pan ? ' pan' : ''); f.textContent = '+' + pts;
+  el.entry.parentElement.appendChild(f); setTimeout(() => f.remove(), 850);
+  if (pan) {
+    toast('Pangram! +' + pts, 'ok');
+    const g = document.createElement('div'); g.className = 'glow';
+    el.hive.appendChild(g); setTimeout(() => g.remove(), 720);
+  } else toast(w + ' +' + pts + (bon ? ' bonus' : ''), 'ok');
+
+  let msg = (pan ? 'Pangram! ' : '') + w + ', ' + pts + ' points' + (bon ? ', bonus word' : '') +
+    '. ' + after.score + ' total.';
+  if (after.name !== before.name) msg += ' New rank: ' + after.name + '.';
+  announce(msg);
+}
+function reset() {
+  if (!confirm('Clear progress on this puzzle?')) return;
+  store.del(KEY_PROGRESS(puzzle));
+  found = new Set(); revealed = false; input = '';
+  save(); renderAll(); announce('Puzzle reset.');
+}
+function reveal() {
+  if (revealed) return;
+  const left = puzzle.words.length - requiredFound();
+  if (!confirm('Show all ' + puzzle.words.length + ' answers? Ends the puzzle; the ' + left +
+               ' unfound score nothing.')) return;
+  revealed = true; input = '';
+  el.found.classList.add('open'); el.count.setAttribute('aria-expanded', 'true');
+  save(); renderAll(); announce('Revealed. ' + left + ' were unfound.');
+}
+
+/* ---------------- wiring ---------------- */
+$('del').addEventListener('click', del);
+$('enter').addEventListener('click', submit);
+$('shuffle').addEventListener('click', shuffle);
+$('reset').addEventListener('click', reset);
+$('reveal').addEventListener('click', reveal);
+el.count.addEventListener('click', () => {
+  const open = el.found.classList.toggle('open');
+  el.count.setAttribute('aria-expanded', String(open));
+  renderFound();
+});
+el.select.addEventListener('change', e => load(e.target.value));
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (tag === 'SELECT') return;
+  if (e.key === 'Enter')      { if (tag === 'BUTTON') return; e.preventDefault(); submit(); return; }
+  if (e.key === 'Backspace' || e.key === 'Delete') { e.preventDefault(); del(); return; }
+  if (e.key === 'Escape')     { e.preventDefault(); clear(); return; }
+  if (e.key === ' ')          { if (tag === 'BUTTON') return; e.preventDefault(); shuffle(); return; }
+  if (/^[a-zA-Z]$/.test(e.key)) { e.preventDefault(); press(e.key.toLowerCase()); }
+});
+
+migrate();
+const params = new URLSearchParams(location.search);
+const wanted = params.get('puzzle');                    // ?puzzle=3 pins one board
+const remembered = store.get(KEY_PUZZLE, null);
+const start =
+  (wanted && PUZZLES[Number(wanted) - 1] && PUZZLES[Number(wanted) - 1].id) ||
+  (remembered && PUZZLES.some(p => puzzleKey(p) === remembered) ? remembered : null) ||
+  PUZZLES[Math.floor(Date.now() / 86400000) % PUZZLES.length].id;
+load(start);
+</script>
+</body>
+</html>

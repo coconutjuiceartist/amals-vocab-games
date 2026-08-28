@@ -93,6 +93,24 @@ for (const p of PUZZLES) {
   if (errs.length) failures++;
 }
 
+// the Home Assistant build must carry byte-identical puzzle data
+{
+  const haPath = path.join(here, '..', 'ha', 'honeycomb.html');
+  if (fs.existsSync(haPath)) {
+    const ha = fs.readFileSync(haPath, 'utf8');
+    const a = ha.indexOf('const PUZZLES = ');
+    const b = ha.indexOf('\n];', a);
+    const haData = a < 0 ? null : ha.slice(a + 'const PUZZLES = '.length, b + 3);
+    const mainData = html.slice(start + 'const PUZZLES = '.length, end + 3);
+    if (haData !== mainData) {
+      console.log('FAIL ha/honeycomb.html puzzle data differs from index.html — run node tools/build-ha.mjs');
+      failures++;
+    } else {
+      console.log('ok   ha/honeycomb.html carries identical puzzle data');
+    }
+  }
+}
+
 // the worked examples from requirements section 4
 const sample = { center: 't', outer: ['a', 'c', 'i', 'l', 'r', 'u'] };
 const sm = maskOf([sample.center, ...sample.outer].join(''));
